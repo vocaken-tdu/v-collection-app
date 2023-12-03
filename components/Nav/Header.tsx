@@ -40,10 +40,11 @@ export function Header() {
 
   return (
     <header className={classes.header}>
-      <Container size="md" className={classes.inner}>
-        <a href="/" className={abel.className}>
-          VOCALOID CLUB COLLECTION
+      <Container size="xl" className={classes.inner}>
+        <a href="/" className={`${abel.className} text-2xl`}>
+          <h1>VOCALOID CLUB COLLECTION</h1>
         </a>
+
         <Group gap={5} visibleFrom="xs">
           {items}
         </Group>

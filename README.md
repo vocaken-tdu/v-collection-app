@@ -41,11 +41,12 @@ VOCALOID CLUB COLLECTION の専用ページです。
 ```
 root
 ├─ app
-│  ├─ components  // ここにコンポーネント 
-│  ├─ layout.tsx  // ここにheader情報等を
-│  └─ page.tsx    // ここにindexの内容を
+│  ├─ components   // ここに各コンポーネントをフォルダごとに
+│  ├─ globals.css  // ここにグローバルに適用するCSS情報
+│  ├─ layout.tsx   // ここにheader情報
+│  └─ page.tsx     // ここにindexの内容
 │  ︙
-├─ public         // ビルド時に一緒にバンドルされる
+├─ public          // ビルド時に一緒にバンドルされる
 │
 ︙
 
