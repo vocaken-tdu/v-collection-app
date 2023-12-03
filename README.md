@@ -34,3 +34,22 @@ VOCALOID CLUB COLLECTION の専用ページです。
 - `storybook` – StoryBookの開発サーバーを開始
 - `prettier:write` – formats all files with Prettier
 
+## フォルダ構成
+
+注：srcを省いた形式。
+
+```
+root
+├─ app
+│  ├─ components  // ここにコンポーネント 
+│  ├─ layout.tsx  // ここにheader情報等を
+│  └─ page.tsx    // ここにindexの内容を
+│  ︙
+├─ public         // ビルド時に一緒にバンドルされる
+│
+︙
+
+```
+
+Appのルーティングの階層構造詳細については[こちら](https://nextjs.org/docs/app/building-your-application/routing)
+

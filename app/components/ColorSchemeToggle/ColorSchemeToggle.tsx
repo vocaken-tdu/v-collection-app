@@ -1,5 +1,7 @@
 'use client';
 
+// カラーテーマの切り替え
+
 import { Button, Group, useMantineColorScheme } from '@mantine/core';
 
 export function ColorSchemeToggle() {
