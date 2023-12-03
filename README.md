@@ -1,37 +1,36 @@
-# Mantine Next.js template
+# VOCALOID CLUB COLLECTION
 
-This is a template for [Next.js](https://nextjs.org/) app router + [Mantine](https://mantine.dev/).
-If you want to use pages router instead, see [next-pages-template](https://github.com/mantinedev/next-pages-template).
+VOCALOID CLUB COLLECTION の専用ページです。
 
-## Features
+現在テスト中のリポジトリです。
 
-This template comes with the following features:
+## 仕様
 
-- [PostCSS](https://postcss.org/) with [mantine-postcss-preset](https://mantine.dev/styles/postcss-preset)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Storybook](https://storybook.js.org/)
-- [Jest](https://jestjs.io/) setup with [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
-- ESLint setup with [eslint-config-mantine](https://github.com/mantinedev/eslint-config-mantine)
+- Next.js v14
+  - App Router
+- Mantine
+- TypeScript
 
-## npm scripts
+## npm
 
-### Build and dev scripts
+### インストール
 
-- `dev` – start dev server
-- `build` – bundle application for production
-- `analyze` – analyzes application bundle with [@next/bundle-analyzer](https://www.npmjs.com/package/@next/bundle-analyzer)
+- `npm install`
 
-### Testing scripts
+### 開発
 
-- `typecheck` – checks TypeScript types
-- `lint` – runs ESLint
-- `prettier:check` – checks files with Prettier
-- `jest` – runs jest tests
-- `jest:watch` – starts jest watch
-- `test` – runs `jest`, `prettier:check`, `lint` and `typecheck` scripts
+- `npm run dev` – 開発用にサーバーを起動
+- `npm run build` – 本番用アプリケーションのバンドル
+- `npm run analyze` – アプリケーションバンドルの解析 with [@next/bundle-analyzer](https://www.npmjs.com/package/@next/bundle-analyzer)
 
-### Other scripts
+### そのほか
 
-- `storybook` – starts storybook dev server
-- `storybook:build` – build production storybook bundle to `storybook-static`
+- `typecheck` – TSの型チェック
+- `lint` – ESLintを実行
+- `prettier:check` – Prettierでファイル確認
+- `jest` – Jestテストを実行
+- `jest:watch` – Jestを監視
+- `test` – `jest`、`prettier:check`、`lint`、`typecheck` スクリプトを実行
+- `storybook` – StoryBookの開発サーバーを開始
 - `prettier:write` – formats all files with Prettier
+
