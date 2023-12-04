@@ -4,10 +4,13 @@ VOCALOID CLUB COLLECTION の専用ページです。
 
 ## 仕様
 
-- Next.js v14
-  - App Router
-- Mantine
-- TypeScript
+- パッケージ管理システム：npm
+- JSフレームワーク：React
+- Webフレームワーク：Next.js v14 (App Router)
+- CSSフレームワーク：Tailwind
+- UIライブラリ：Mantine
+- チェックツール：ESLint TypeScript
+- その他：Storybook 
 
 ## npm
 
