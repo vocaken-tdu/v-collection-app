@@ -1,6 +1,7 @@
 'use client';
 
-// カラーテーマの切り替え
+// カラーテーマの切り替え (light, dark, auto)
+// テンプレートに付属してきただけなので、参考に載せてますが最終的には削除します
 
 import { Button, Group, useMantineColorScheme } from '@mantine/core';
 

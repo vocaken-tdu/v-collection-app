@@ -1,6 +1,8 @@
 import { Title, Text, Anchor } from '@mantine/core';
 import classes from './Welcome.module.css';
 
+// テンプレートに付属してきただけなので、参考に載せてますが最終的には削除します
+
 export function Welcome() {
   return (
     <>

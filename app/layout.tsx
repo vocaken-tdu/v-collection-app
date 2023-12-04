@@ -5,6 +5,8 @@ import { Noto_Sans_JP } from 'next/font/google';
 import { theme } from '../theme';
 import './globals.css';
 
+import { Header } from '../components/Nav/Header';
+
 export const notojp = Noto_Sans_JP({
   weight: ['400', '700'],
   subsets: ['latin'],
@@ -28,7 +30,10 @@ export default function RootLayout({ children }: { children: any }) {
         />
       </head>
       <body className={notojp.className}>
-        <MantineProvider theme={theme}>{children}</MantineProvider>
+        <MantineProvider theme={theme}>
+          <Header />
+          {children}
+        </MantineProvider>
       </body>
     </html>
   );

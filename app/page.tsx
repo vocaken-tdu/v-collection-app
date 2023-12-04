@@ -1,9 +1,8 @@
-import { Header } from '../components/Nav/Header';
-
 export default function Home() {
   return (
     <>
-      <Header />
+      <h1>Home</h1>
+      <p>Home page</p>
     </>
   );
 }
