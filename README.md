@@ -80,6 +80,12 @@ Appのルーティングの階層構造詳細については[こちら](https://
   - + ハンバーガーメニュー
 ```
 
+## エラーが出た？ ここを見てみよう 
+
+- ⨯ Internal error: Error: Could not find the module "/home/ps/v-collection-app/node_modules/@mantine/core/esm/components/List/List.mjs#List#Item" in the React
+  - → コンポーネントの一番最初に「'use client';」を追加してみるといいかも [詳細](https://ramble.impl.co.jp/4935/)
+- term expectedcss(css-termexpected)
+  - ～.module.cssでMantineのbreakpoint使ってると出てくるけど正常に動作するので無視してヨシ
 
 
 
