@@ -2,14 +2,15 @@
 
 VOCALOID CLUB COLLECTION の専用ページです。
 
-現在テスト中のリポジトリです。
-
 ## 仕様
 
-- Next.js v14
-  - App Router
-- Mantine
-- TypeScript
+- パッケージ管理システム：npm
+- JSフレームワーク：React
+- Webフレームワーク：Next.js v14 (App Router)
+- CSSフレームワーク：Tailwind
+- UIライブラリ：Mantine
+- チェックツール：ESLint TypeScript
+- その他：Storybook 
 
 ## npm
 
@@ -53,4 +54,32 @@ root
 ```
 
 Appのルーティングの階層構造詳細については[こちら](https://nextjs.org/docs/app/building-your-application/routing)
+
+## 制作にあたって
+
+- 企画概要
+  - https://discord.com/channels/1175752147003002961/1175757055345295360/1175782990861836338
+- プロトタイプ
+  - https://discord.com/channels/1175752147003002961/1175761916476526593/1176951184922267761
+- ロゴ
+  - https://discord.com/channels/1175752147003002961/1175761916476526593/1178218118108155976
+
+※DiscordのVCC鯖の閲覧権限必須
+
+### ページ構成（予定）
+
+```
+- App
+  - / (最初に表示)
+  - /works/[id] (コンテンツページ)
+  - /terms
+  - /about
+  - /artists
+  - /not-found (Nextではこれが404)
+  - (Admin Page / URLは未定)
+  - + ハンバーガーメニュー
+```
+
+
+
 
