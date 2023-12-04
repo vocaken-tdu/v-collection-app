@@ -7,15 +7,17 @@ import classes from './MainVisual.module.css';
 
 export function MainVisual() {
   return (
-    <Container size="xl" className="overflow-hidden">
+    <Container size="xl" className={`${classes.main} h-screen overflow-hidden`}>
       <div className={classes.inner}>
         <div className={`${classes.content} grid place-content-center`}>
           <div className={classes.title}>
             <div className={`${classes.highlight} ${classes.l}`}>あのキャラはこの冬</div>
-            <div className={`${classes.highlight} ${classes.r}`}>どんな服で過ごしているだろう</div>
+            <div className={`${classes.highlight} ${classes.r}`}>
+              どんな服で過ごしているだろう
+            </div>
           </div>
 
-          <Group mt={30}>
+          <Group mt={60}>
             <Image
               src={logo.src}
             />
