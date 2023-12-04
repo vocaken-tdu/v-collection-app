@@ -45,11 +45,11 @@ export function Header() {
           <h1>VOCALOID CLUB COLLECTION</h1>
         </a>
 
-        <Group gap={5} visibleFrom="xs">
+        <Group gap={5} visibleFrom="sm">
           {items}
         </Group>
 
-        <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" />
+        <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
       </Container>
     </header>
   );
