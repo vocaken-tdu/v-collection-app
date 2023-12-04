@@ -14,8 +14,8 @@ export const notojp = Noto_Sans_JP({
 });
 
 export const metadata = {
-  title: 'Mantine Next.js template',
-  description: 'I am using Mantine with Next.js!',
+  title: 'VOCALOID CLUB COLLECTION 2024',
+  description: 'VOCALOID CLUB COLLECTION 2024 特設Webサイト',
 };
 
 export default function RootLayout({ children }: { children: any }) {
@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: any }) {
     <html lang="ja">
       <head>
         <ColorSchemeScript />
-        <link rel="shortcut icon" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.png" />
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"

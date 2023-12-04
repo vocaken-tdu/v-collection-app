@@ -1,55 +1,32 @@
-import { Image, Container, Title, Button, Group, Text, List, ThemeIcon, rem } from '@mantine/core';
-import { IconCheck } from '@tabler/icons-react';
-import image from '../../public/favicon.svg';
+'use client';
+
+import { Image, Container, Group } from '@mantine/core';
+import image from '../../public/illustrations/202311221521.png';
+import logo from '../../public/Logo.png';
 import classes from './MainVisual.module.css';
 
 export function MainVisual() {
   return (
-    <Container size="md">
+    <Container size="xl" className="overflow-hidden">
       <div className={classes.inner}>
-        <div className={classes.content}>
-          <Title className={classes.title}>
-            A <span className={classes.highlight}>modern</span> React <br /> components library
-          </Title>
-          <Text c="dimmed" mt="md">
-            Build fully functional accessible web applications faster than ever – Mantine includes
-            more than 120 customizable components and hooks to cover you in any situation
-          </Text>
-
-          <List
-            mt={30}
-            spacing="sm"
-            size="sm"
-            icon={
-              <ThemeIcon size={20} radius="xl">
-                <IconCheck style={{ width: rem(12), height: rem(12) }} stroke={1.5} />
-              </ThemeIcon>
-            }
-          >
-            <List.Item>
-              <b>TypeScript based</b> – build type safe applications, all components and hooks
-              export types
-            </List.Item>
-            <List.Item>
-              <b>Free and open source</b> – all packages have MIT license, you can use Mantine in
-              any project
-            </List.Item>
-            <List.Item>
-              <b>No annoying focus ring</b> – focus ring will appear only when user navigates with
-              keyboard
-            </List.Item>
-          </List>
+        <div className={`${classes.content} grid place-content-center`}>
+          <div className={classes.title}>
+            <div className={`${classes.highlight} ${classes.l}`}>あのキャラはこの冬</div>
+            <div className={`${classes.highlight} ${classes.r}`}>どんな服で過ごしているだろう</div>
+          </div>
 
           <Group mt={30}>
-            <Button radius="xl" size="md" className={classes.control}>
-              Get started
-            </Button>
-            <Button variant="default" radius="xl" size="md" className={classes.control}>
-              Source code
-            </Button>
+            <Image
+              src={logo.src}
+            />
           </Group>
         </div>
-        <Image src={image.src} className={classes.image} />
+        <div className={`${classes.wrap} rotate-3`}>
+          <Image
+            className={classes.image}
+            src={image.src}
+          />
+        </div>
       </div>
     </Container>
   );

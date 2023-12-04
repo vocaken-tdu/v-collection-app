@@ -1,9 +1,9 @@
-import { Welcome } from '../components/Welcome/Welcome';
+import { MainVisual } from '../components/MainVisual/MainVisual';
 
 export default function Home() {
   return (
     <>
-      <Welcome />
+      <MainVisual />
     </>
   );
 }
