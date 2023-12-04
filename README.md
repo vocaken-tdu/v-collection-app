@@ -2,8 +2,6 @@
 
 VOCALOID CLUB COLLECTION の専用ページです。
 
-現在テスト中のリポジトリです。
-
 ## 仕様
 
 - Next.js v14
