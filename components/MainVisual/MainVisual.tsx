@@ -19,6 +19,7 @@ export function MainVisual() {
 
           <Group mt={60}>
             <Image
+              className={classes.logo}
               src={logo.src}
             />
           </Group>
