@@ -1,6 +1,16 @@
+.cards {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 40px 24px;
+  flex-wrap: wrap;
+}
+
 .card {
   position: relative;
-  height: rem(280px);
+  height: 400px;
+  width: 300px;
   background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
 
   @mixin hover {
@@ -23,7 +33,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 90%);
 }
 
 .content {
@@ -45,6 +54,6 @@
   margin-left: rem(7px);
 }
 
-.author {
+.artist {
   color: var(--mantine-color-dark-2);
 }

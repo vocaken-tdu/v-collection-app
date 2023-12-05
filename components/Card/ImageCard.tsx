@@ -1,53 +1,69 @@
 'use client';
 
-import { IconEye, IconMessageCircle } from '@tabler/icons-react';
+import { IconMessageCircle } from '@tabler/icons-react';
 import { Card, Text, Group, Center, rem, useMantineTheme } from '@mantine/core';
 import classes from './ImageCard.module.css';
+
+// 仮置き
+const illustInfo = [
+  {
+    id: 1,
+    artist: 'Nyanya',
+    src: '../../illustrations/202311221521.png',
+    comment: 12,
+  },
+  {
+    id: 2,
+    artist: 'sigre-33',
+    src: '../../illustrations/202311221724.png',
+    comment: 3,
+  },
+  {
+    id: 3,
+    artist: 'spring-s',
+    src: '../../illustrations/202311221725.png',
+    comment: 122,
+  },
+  {
+    id: 4,
+    artist: 'Rinren',
+    src: '../../illustrations/202311221730.png',
+    comment: 1236,
+  },
+];
 
 export function ImageCard() {
   const theme = useMantineTheme();
 
   return (
-    <Card
-      p="lg"
-      shadow="lg"
-      className={classes.card}
-      radius="md"
-      component="a"
-      href="https://mantine.dev/"
-      target="_blank"
-    >
-      <div
-        className={classes.image}
-        style={{
-          backgroundImage:
-            'url(https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80)',
-        }}
-      />
-      <div className={classes.overlay} />
-
-      <div className={classes.content}>
+    <div className={classes.cards}>
+      {illustInfo.map((illust) => (
         <div>
-          <Text size="lg" className={classes.title} fw={500}>
-            Journey to Swiss Alps
-          </Text>
+          <Card
+            p="lg"
+            shadow="lg"
+            className={classes.card}
+            radius="md"
+            component="a"
+            href="https://mantine.dev/"
+            target="_blank"
+          >
+            <div
+              className={classes.image}
+              style={{
+                backgroundImage:
+                  `url(${illust.src})`,
+              }}
+            />
+            <div className={classes.overlay} />
+          </Card>
 
-          <Group justify="space-between" gap="xs">
-            <Text size="sm" className={classes.author}>
-              Robert Gluesticker
-            </Text>
+          <div className={`${classes.content} mt-2`}>
+            <Group justify="space-between" gap="xs">
+              <Text size="sm" className={classes.artist}>
+                {illust.artist}
+              </Text>
 
-            <Group gap="lg">
-              <Center>
-                <IconEye
-                  style={{ width: rem(16), height: rem(16) }}
-                  stroke={1.5}
-                  color={theme.colors.dark[2]}
-                />
-                <Text size="sm" className={classes.bodyText}>
-                  7847
-                </Text>
-              </Center>
               <Center>
                 <IconMessageCircle
                   style={{ width: rem(16), height: rem(16) }}
@@ -55,13 +71,13 @@ export function ImageCard() {
                   color={theme.colors.dark[2]}
                 />
                 <Text size="sm" className={classes.bodyText}>
-                  5
+                  {illust.comment}
                 </Text>
               </Center>
             </Group>
-          </Group>
+          </div>
         </div>
-      </div>
-    </Card>
+      ))}
+    </div>
   );
 }
