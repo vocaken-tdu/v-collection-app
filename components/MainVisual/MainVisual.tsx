@@ -8,7 +8,7 @@ import logo from '../../public/Logo.png';
 import classes from './MainVisual.module.css';
 
 export function MainVisual() {
-  const boxRef = useRef();
+  const boxRef = useRef(null);
 
   // 上下に動くアニメーション
   useLayoutEffect(() => {
