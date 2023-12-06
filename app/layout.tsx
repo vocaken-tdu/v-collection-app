@@ -6,6 +6,7 @@ import { theme } from '../theme';
 import './globals.css';
 
 import { Header } from '../components/Nav/Header';
+import { FooterLinks } from '../components/Footer/FooterLinks';
 
 export const notojp = Noto_Sans_JP({
   weight: ['400', '700'],
@@ -15,7 +16,7 @@ export const notojp = Noto_Sans_JP({
 
 export const metadata = {
   title: 'VOCALOID CLUB COLLECTION 2024',
-  description: 'VOCALOID CLUB COLLECTION 2024 特設Webサイト',
+  description: 'Vコレ特設Webサイト',
 };
 
 export default function RootLayout({ children }: { children: any }) {
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: { children: any }) {
         <MantineProvider theme={theme}>
           <Header />
           {children}
+          <FooterLinks />
         </MantineProvider>
       </body>
     </html>
