@@ -72,7 +72,7 @@ export function FooterLinks() {
       {/*謎の線から下の部分*/},
       <Container className={classes.afterFooter}>
         
-        {/*アイコン関係の場所*/},
+        {/*アイコン関係の場所*/}
         <Group gap={0} className={classes.social} justify="flex-end" wrap="nowrap">
           <ActionIcon size="lg" color="gray" variant="subtle">
             <IconBrandTwitter style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
