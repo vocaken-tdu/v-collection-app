@@ -34,7 +34,7 @@ const data = [
   },
 ];
 
-{/*呼び出されたら出力する場所*/},
+{/*呼び出されたら出力する場所*/}
 export function FooterLinks() {
   const groups = data.map((group) => {
     const links = group.links.map((link, index) => (
