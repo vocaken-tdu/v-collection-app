@@ -34,6 +34,7 @@ const data = [
   },
 ];
 
+{/*呼び出されたら出力する場所*/}
 export function FooterLinks() {
   const groups = data.map((group) => {
     const links = group.links.map((link, index) => (
@@ -57,20 +58,21 @@ export function FooterLinks() {
   });
 
   return (
+    {/*謎の線から上の場所（表示領域）*/}
     <footer className={classes.footer}>
       <Container className={classes.inner}>
         <div className={classes.logo}>
           <Text size="xs" c="dimmed" className={classes.description}>
-            Build fully functional accessible web applications faster than ever
+            {/*不要な文だったところ*/}
           </Text>
         </div>
         <div className={classes.groups}>{groups}</div>
       </Container>
+      
+      {/*謎の線から下の部分*/}
       <Container className={classes.afterFooter}>
-        <Text c="dimmed" size="sm">
-          © 2023 VOCALOID CLUB COLLECTION
-        </Text>
-
+        
+        {/*アイコン関係の場所*/}
         <Group gap={0} className={classes.social} justify="flex-end" wrap="nowrap">
           <ActionIcon size="lg" color="gray" variant="subtle">
             <IconBrandTwitter style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
@@ -78,10 +80,11 @@ export function FooterLinks() {
           <ActionIcon size="lg" color="gray" variant="subtle">
             <IconBrandYoutube style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
           </ActionIcon>
-          <ActionIcon size="lg" color="gray" variant="subtle">
-            <IconBrandInstagram style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
-          </ActionIcon>
         </Group>
+        
+        <Text c="dimmed" size="sm">
+          © 2023 VOCALOID CLUB COLLECTION
+        </Text>
       </Container>
     </footer>
   );
