@@ -1,8 +1,9 @@
 .footer {
+  /*webの検証で影響を及ぼせる範囲*/
   margin-top: rem(120px);
   padding-top: calc(var(--mantine-spacing-xl) * 2);
   padding-bottom: calc(var(--mantine-spacing-xl) * 2);
-  background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+  background-color: light-dark(#8dd9f9, var(--mantine-color-dark-6));
   border-top: rem(1px) solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-5));
 }
 
@@ -69,9 +70,10 @@
 }
 
 .afterFooter {
+  /*Under Line*/
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: left;
   margin-top: var(--mantine-spacing-xl);
   padding-top: var(--mantine-spacing-xl);
   padding-bottom: var(--mantine-spacing-xl);
