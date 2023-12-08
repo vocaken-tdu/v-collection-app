@@ -1,7 +1,7 @@
 'use client';
 
 import { Text, Container, ActionIcon, Group, rem } from '@mantine/core';
-import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons-react';
+import { IconBrandTwitter, IconBrandYoutube} from '@tabler/icons-react';
 import classes from './FooterLinks.module.css';
 
 const data = [
@@ -62,29 +62,46 @@ export function FooterLinks() {
     <footer className={classes.footer}>
       <Container className={classes.inner}>
         <div className={classes.logo}>
-          <Text size="xs" c="dimmed" className={classes.description}>
-            {/*不要な文だったところ*/},
-          </Text>
+            以前のVコレ
         </div>
-        <div className={classes.groups}>{groups}</div>
       </Container>
       
-      {/*謎の線から下の部分*/},
+      {/*謎の線から下の部分*/}
       <Container className={classes.afterFooter}>
-        
+      <div className={classes.test1}>
+          <Text c="dark" style={{fontSize:23, fontWeight:'500'}}>
+            東京電機大学
+          </Text>
+          <Text c="dark" style={{fontSize:30, fontWeight:'500'}}>
+            VOCALOID同好会
+          </Text>
+        </div>
         {/*アイコン関係の場所*/}
-        <Group gap={0} className={classes.social} justify="flex-end" wrap="nowrap">
-          <ActionIcon size="lg" color="gray" variant="subtle">
-            <IconBrandTwitter style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
-          </ActionIcon>
-          <ActionIcon size="lg" color="gray" variant="subtle">
-            <IconBrandYoutube style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
-          </ActionIcon>
-        </Group>
-        
-        <Text c="dimmed" size="sm">
-          © 2023 VOCALOID CLUB COLLECTION
-        </Text>
+        <div>
+          <Text>Share</Text>
+          <Group gap={0} className={classes.social} justify="flex-end" wrap="nowrap">
+            <ActionIcon size="lg" color="dark" variant="subtle">
+              <IconBrandTwitter style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
+            </ActionIcon>
+            <ActionIcon size="lg" color="dark" variant="subtle">
+              <IconBrandYoutube style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
+            </ActionIcon>
+          </Group>
+        </div>
+        <div>
+          <Text>Follow Us</Text>
+          <Group gap={0} className={classes.social} justify="flex-end" wrap="nowrap">
+            <ActionIcon size="lg" color="dark" variant="subtle">
+              <IconBrandTwitter style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
+            </ActionIcon>
+          </Group>
+        </div>
+        <div className={classes.right}>
+          <Text c="dark"style={{fontSize:14, lineHeight:5}}>
+            「VOCALOID（ボーカロイド）」および「ボカロ」はヤマハ株式会社の登録商標です。<br />
+            © 2023 VOCALOID CLUB COLLECTION.
+          </Text>
+        </div>
       </Container>
     </footer>
   );
