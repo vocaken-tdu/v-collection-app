@@ -24,18 +24,33 @@ type IllustInfo = {
   likes: 0;
 };
 
-export function BigImageCard({ id }: { id: string }) {
+export function BigImageCard({ id }: { id: number }) {
   const illustUrl = `${apiUrl}/%7Billustration_id%7D?id=${id}`;
 
-  const [illust, setIllust] = useState<IllustInfo[]>([]);
+  const [illust, setIllust] = useState<IllustInfo>({
+    // デフォルト値
+    title: 'string',
+    description: 'string',
+    url: 'string',
+    id: 0,
+    created_at: '2023-12-08T11:51:49.353Z',
+    comments: [
+      {
+        text: 'string',
+        illustration_id: 0,
+        user_id: 0,
+        id: 0,
+      },
+    ],
+    likes: 0,
+  });
 
   useEffect(() => {
-    const fetchIllusts = async () => {
-      const response: AxiosResponse<IllustInfo[]> = await axios.get(illustUrl);
+    const fetchIllust = async () => {
+      const response: AxiosResponse<IllustInfo> = await axios.get(illustUrl);
       setIllust(response.data);
-      console.log(response.data);
     };
-    fetchIllusts();
+    fetchIllust();
   }, []);
 
   return (
@@ -62,7 +77,7 @@ export function BigImageCard({ id }: { id: string }) {
         <div className={`${classes.content} mt-2`}>
           <Group justify="space-between" gap="xs">
             <Text size="sm" className={classes.artist}>
-              title
+              {illust.title}
             </Text>
 
             <Text size="sm" className={classes.bodyText}>

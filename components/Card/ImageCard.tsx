@@ -28,7 +28,25 @@ type IllustInfo = {
 export function ImageCard() {
   const theme = useMantineTheme();
 
-  const [illusts, setIllusts] = useState<IllustInfo[]>([]);
+  const [illusts, setIllusts] = useState<IllustInfo[]>([
+    {
+      // デフォルト値
+      title: 'string',
+      description: 'string',
+      url: 'string',
+      id: 0,
+      created_at: '2023-12-08T11:51:49.353Z',
+      comments: [
+        {
+          text: 'string',
+          illustration_id: 0,
+          user_id: 0,
+          id: 0,
+        },
+      ],
+      likes: 0,
+    },
+  ]);
 
   useEffect(() => {
     const fetchIllusts = async () => {
@@ -36,6 +54,7 @@ export function ImageCard() {
       setIllusts(response.data);
     };
     fetchIllusts();
+    console.log(illusts);
   }, []);
 
   return (
