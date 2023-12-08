@@ -34,7 +34,6 @@ export function ImageCard() {
     const fetchIllusts = async () => {
       const response: AxiosResponse<IllustInfo[]> = await axios.get(apiUrl);
       setIllusts(response.data);
-      console.log(response.data);
     };
     fetchIllusts();
   }, []);
@@ -50,8 +49,7 @@ export function ImageCard() {
               className={classes.card}
               radius="md"
               component="a"
-              href={`/illustrations/${illust.id}`}
-              target="_blank"
+              href={`/works/${illust.id}`}
             >
               <div
                 className={classes.image}
