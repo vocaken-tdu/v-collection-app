@@ -1,8 +1,8 @@
 import '@mantine/core/styles.css';
 import React from 'react';
 import { MantineProvider, ColorSchemeScript } from '@mantine/core';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { theme } from '../theme';
-import { SpeedInsights } from "@vercel/speed-insights/next"
 import './globals.css';
 
 import { Header } from '../components/Nav/Header';
@@ -25,6 +25,7 @@ export default function RootLayout({ children }: { children: any }) {
         />
         {/* インデックスさせない */}
         <meta name="robots" content="noindex" />
+        <SpeedInsights />
       </head>
       <body>
         <MantineProvider theme={theme}>
@@ -32,7 +33,6 @@ export default function RootLayout({ children }: { children: any }) {
           {children}
           <FooterLinks />
         </MantineProvider>
-        <SpeedInsights />
       </body>
     </html>
   );
