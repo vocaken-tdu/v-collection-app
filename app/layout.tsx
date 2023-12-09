@@ -25,6 +25,9 @@ export default function RootLayout({ children }: { children: any }) {
         />
         {/* インデックスさせない */}
         <meta name="robots" content="noindex" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet" />
         <SpeedInsights />
       </head>
       <body>
