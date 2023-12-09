@@ -31,7 +31,7 @@ export function ImageCard() {
               <div
                 className={classes.image}
                 style={{
-                  backgroundImage: `url(https://via.placeholder.com/600x800/?text=id%E2%86%92${illust.id}%0Adesc%E2%86%92${illust.description})`,
+                  backgroundImage: `url(https://placehold.co/600x800?text=id%E2%86%92${illust.id}%0Adesc%E2%86%92${illust.description})`,
                 }}
               />
               <div className={classes.overlay} />
