@@ -1,6 +1,8 @@
 import { create } from 'zustand';
 import axios, { AxiosResponse } from 'axios';
 
+const apiUrl = 'https://vcollection-background.onrender.com/illustrations';
+
 type Store = {
   illustList: [
     {
@@ -36,10 +38,9 @@ type Store = {
     ];
     likes: number;
   };
-  setIllust: (id: number) => void;
 };
 
-export const useBearStore = create<Store>()((set) => ({
+export const useBearStore = create<Store>()(() => ({
   illustList: [
     {
       title: 'title',
@@ -74,21 +75,24 @@ export const useBearStore = create<Store>()((set) => ({
     ],
     likes: 0,
   },
-  setIllust: async (id: number) => {
-    const apiUrl = `https://vcollection-background.onrender.com/%7Billustration_id%7D?id=${id}`;
-    const response: AxiosResponse = await axios.get(apiUrl);
-    set({ illust: response.data });
-    console.log('illustData is fetched!');
-  },
 }));
 
 export const setIllustList = async () => {
   const fetch = async () => {
-    const apiUrl = 'https://vcollection-background.onrender.com/illustrations';
     const response: AxiosResponse = await axios.get(apiUrl);
     useBearStore.setState({ illustList: response.data });
-    console.log('illustList is fetched!');
+    console.log('Data is fetched!');
   };
-  const state = useBearStore.getState().illustList;
-  state.length < 2 ? fetch() : console.log('Data is already fetched!');
+  const fetchState = useBearStore.getState().illustList;
+  fetchState.length < 2 ? fetch() : console.log('Data is already fetched!');
+};
+
+export const setIllust = async (id: number) => {
+  const fetch = async () => {
+    const response: AxiosResponse = await axios.get(`${apiUrl}/%7Billustration_id%7D?id=${id}`);
+    useBearStore.setState({ illust: response.data });
+    console.log('illustData is fetched!');
+  };
+  const fetchState = useBearStore.getState().illust;
+  fetchState ? fetch() : console.log('Data is already fetched!');
 };

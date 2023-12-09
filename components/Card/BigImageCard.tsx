@@ -1,57 +1,16 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Card, Text, Group } from '@mantine/core';
-import axios, { AxiosResponse } from 'axios';
+import { useBearStore, setIllust } from '../../store/store';
 import classes from './ImageCard.module.css';
 
-const apiUrl = 'https://vcollection-background.onrender.com/illustrations';
-
-type IllustInfo = {
-  title: 'string';
-  description: 'string';
-  url: 'string';
-  id: 0;
-  created_at: '2023-12-08T11:51:49.353Z';
-  comments: [
-    {
-      text: 'string';
-      illustration_id: 0;
-      user_id: 0;
-      id: 0;
-    },
-  ];
-  likes: 0;
-};
-
 export function BigImageCard({ id }: { id: number }) {
-  const illustUrl = `${apiUrl}/%7Billustration_id%7D?id=${id}`;
-
-  const [illust, setIllust] = useState<IllustInfo>({
-    // デフォルト値
-    title: 'string',
-    description: 'string',
-    url: 'string',
-    id: 0,
-    created_at: '2023-12-08T11:51:49.353Z',
-    comments: [
-      {
-        text: 'string',
-        illustration_id: 0,
-        user_id: 0,
-        id: 0,
-      },
-    ],
-    likes: 0,
-  });
-
   useEffect(() => {
-    const fetchIllust = async () => {
-      const response: AxiosResponse<IllustInfo> = await axios.get(illustUrl);
-      setIllust(response.data);
-    };
-    fetchIllust();
+    setIllust(id);
   }, []);
+
+  const illust = useBearStore((state) => state.illust);
 
   return (
     <>
