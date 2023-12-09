@@ -3,8 +3,8 @@
 import { useLayoutEffect, useRef } from 'react';
 import { Image, Container, Group } from '@mantine/core';
 import { gsap } from 'gsap';
-import image from '../../public/illustrations/202311221521.png';
-import logo from '../../public/Logo.png';
+import image from '@/public/illustrations/202311221521.png';
+import logo from '@/public/Logo.png';
 import classes from './MainVisual.module.css';
 
 export function MainVisual() {

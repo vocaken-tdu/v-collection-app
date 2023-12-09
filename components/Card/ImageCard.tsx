@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react';
 import { IconMessageCircle } from '@tabler/icons-react';
 import { Card, Text, Group, Center, rem, useMantineTheme } from '@mantine/core';
-import { useBearStore, setIllustList } from '../../store/store';
+import { useBearStore, setIllustList } from '@/store/store';
 import classes from './ImageCard.module.css';
 
 export function ImageCard() {

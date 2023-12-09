@@ -2,11 +2,11 @@ import '@mantine/core/styles.css';
 import React from 'react';
 import { MantineProvider, ColorSchemeScript } from '@mantine/core';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { theme } from '../theme';
+import { theme } from '@/theme';
 import './globals.css';
 
-import { Header } from '../components/Nav/Header';
-import { FooterLinks } from '../components/Footer/FooterLinks';
+import { Header } from '@/components/Nav/Header';
+import { FooterLinks } from '@/components/Footer/FooterLinks';
 
 export const metadata = {
   title: 'VOCALOID CLUB COLLECTION 2024',
