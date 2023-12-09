@@ -1,18 +1,11 @@
 import '@mantine/core/styles.css';
 import React from 'react';
 import { MantineProvider, ColorSchemeScript } from '@mantine/core';
-import { Noto_Sans_JP } from 'next/font/google';
 import { theme } from '../theme';
 import './globals.css';
 
 import { Header } from '../components/Nav/Header';
 import { FooterLinks } from '../components/Footer/FooterLinks';
-
-export const notojp = Noto_Sans_JP({
-  weight: ['400', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-});
 
 export const metadata = {
   title: 'VOCALOID CLUB COLLECTION 2024',
@@ -32,7 +25,7 @@ export default function RootLayout({ children }: { children: any }) {
         {/* インデックスさせない */}
         <meta name="robots" content="noindex" />
       </head>
-      <body className={notojp.className}>
+      <body>
         <MantineProvider theme={theme}>
           <Header />
           {children}
