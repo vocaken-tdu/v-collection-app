@@ -1,7 +1,6 @@
-import { Zen_Maru_Gothic } from 'next/font/google';
+import { Noto_Sans_JP } from 'next/font/google';
 
-export const notojp = Zen_Maru_Gothic({
-  weight: ['400'],
+export const notojp = Noto_Sans_JP({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-notojp',
