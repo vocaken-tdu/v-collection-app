@@ -1,11 +1,11 @@
 import { Container } from '@mantine/core';
-import { BigImageCard } from '../../../components/Card/BigImageCard';
+import { WorksView } from '@/components/WorksView/WorksView';
 
 export default function Works({ params }: { params: { id: number } }) {
   return (
     <>
-      <Container size="xl">
-        <BigImageCard id={params.id} />
+      <Container size="xl" my="md">
+        <WorksView id={params.id} />
       </Container>
     </>
   );
