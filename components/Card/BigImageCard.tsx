@@ -2,17 +2,15 @@
 
 import React, { useEffect } from 'react';
 import { Card, Image } from '@mantine/core';
-import { useBearStore, setIllust } from '@/store/store';
+import { useIllust, setIllust } from '@/store/store';
 import classes from './BigImageCard.module.css';
 
 export function BigImageCard({ id }: { id: number }) {
-  console.log(id);
-
   useEffect(() => {
     setIllust(id);
   }, []);
 
-  const illust = useBearStore((state) => state.illust);
+  const illust = useIllust((state) => state.illust);
 
   return (
     <>

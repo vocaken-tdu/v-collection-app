@@ -1,19 +1,16 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import { IconMessageCircle } from '@tabler/icons-react';
-import { Card, Text, Group, Center, rem, useMantineTheme } from '@mantine/core';
-import { useBearStore, setIllustList } from '@/store/store';
+import { Card, Text, Group } from '@mantine/core';
+import { useIllustList, setIllustList } from '@/store/store';
 import classes from './ImageCard.module.css';
 
 export function ImageCard() {
-  const theme = useMantineTheme();
-
   useEffect(() => {
     setIllustList();
   }, []);
 
-  const illusts = useBearStore((state) => state.illustList);
+  const illusts = useIllustList((state) => state.illustList);
 
   return (
     <>
@@ -42,17 +39,6 @@ export function ImageCard() {
                 <Text size="sm" className={classes.artist}>
                   {illust.title}
                 </Text>
-
-                <Center>
-                  <IconMessageCircle
-                    style={{ width: rem(16), height: rem(16) }}
-                    stroke={1.5}
-                    color={theme.colors.dark[2]}
-                  />
-                  <Text size="sm" className={classes.bodyText}>
-                    {illust.description}
-                  </Text>
-                </Center>
               </Group>
             </div>
           </div>
