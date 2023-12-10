@@ -1,5 +1,5 @@
 .footer {
-  /*webの検証で影響を及ぼせる範囲*/
+  /* webの検証で影響を及ぼせる範囲 */
   margin-top: rem(120px);
   padding-top: calc(var(--mantine-spacing-xl) * 2);
   padding-bottom: calc(var(--mantine-spacing-xl) * 2);
@@ -10,7 +10,8 @@
 .logo {
   display: flex;
   margin-left: 5vw;
-  @media screen and (min-width: 1280px){
+
+  @media (min-width: 1280px) {
     margin-left: 72px;
   }
 }
@@ -18,7 +19,7 @@
 .description {
   margin-top: rem(5px);
 
-  @media (max-width: 1280px ) {
+  @media (max-width: 1280px) {
     margin-top: var(--mantine-spacing-xs);
     text-align: center;
   }
@@ -28,10 +29,12 @@
   display: flex;
   justify-content: space-between;
   font-size: x-large;
-  @media screen and (max-width: 960px){
+
+  @media (max-width: 960px) {
     width: 60vw;
   }
-  @media screen and (min-width: 1440px) {
+
+  @media (min-width: 1440px) {
     padding-left: 80px;
     padding-right: 80px;
     width: 1440px;
@@ -63,16 +66,8 @@
   }
 }
 
-.title {
-  font-size: var(--mantine-font-size-lg);
-  font-weight: 700;
-  font-family: Greycliff CF, var(--mantine-font-family);
-  margin-bottom: calc(var(--mantine-spacing-xs) / 2);
-  color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
-}
-
 .afterFooter {
-  /*Under Line*/
+  /* Under Line */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -81,11 +76,12 @@
   padding-bottom: 10px;
   max-width: 1440px;
   border-top: rem(1px) solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-4));
-  @media screen and (max-width: 960px) {
+
+  @media (max-width: 960px) {
     flex-direction: column;
   }
-  @media screen and (min-width: 1440px) {
-    background-color: bisque;
+
+  @media (min-width: 1440px) {
     padding-left: 10vw;
     padding-right: 10vw;
     width: 1440px;
@@ -95,7 +91,8 @@
 .social {
   margin-top: 1.5vw;
   width: 7vw;
-  @media screen and (min-width: 1280px) {
+
+  @media (min-width: 1280px) {
     margin-top: var(--mantine-spacing-xs);
     max-width: 101px;
   }
@@ -111,35 +108,41 @@
   background-color: #fff;
 }
 
-.right{
+.right {
   display: flex;
   text-align: right;
   margin-right: 5vw;
-  @media screen and (max-width: 960px){
+
+  @media (max-width: 960px) {
     margin-top: 5vw;
     width: 59vw;
   }
-  @media screen and (min-width: 1280px) {
+
+  @media (min-width: 1280px) {
     margin-right: 72px;
   }
 }
 
-.test1{
+.test1 {
   font-weight: 900;
   font-size: x-large;
   margin-left: 5vw;
-  @media screen and (min-width: 1280px) {
+
+  @media (min-width: 1280px) {
     margin-left: 72px;
   }
 }
-.test2{
+
+.test2 {
   float: left;
   margin-left: 5vw;
-  @media screen and (max-width: 960px) {
+
+  @media (max-width: 960px) {
     margin-right: 5vw;
     margin-left: 5vw;
   }
-  @media screen and (min-width: 1280px) {
+
+  @media (min-width: 1280px) {
     margin-left: 72px;
   }
 }
