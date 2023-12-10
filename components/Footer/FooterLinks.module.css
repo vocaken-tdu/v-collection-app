@@ -9,10 +9,11 @@
 
 .logo {
   display: flex;
-  margin-left: 5vw;
+  margin-left: 4vw;
 
-  @media (min-width: 1280px) {
+  @media (min-width: 1440px) {
     margin-left: 72px;
+    width: 1440px
   }
 }
 
@@ -82,8 +83,6 @@
   }
 
   @media (min-width: 1440px) {
-    padding-left: 10vw;
-    padding-right: 10vw;
     width: 1440px;
   }
 }
