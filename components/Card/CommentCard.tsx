@@ -1,34 +1,40 @@
 import { Button, Text, Group, Paper } from '@mantine/core';
 import { IconHeartFilled, IconHeart } from '@tabler/icons-react';
 import { useEffect } from 'react';
-import { setComment, useComment } from '@/store/store';
+import { useIllust, setIllust } from '@/store/store';
 import classes from './CommentCard.module.css';
 
-export function CommentCard({ commentId }: { commentId: number }) {
+export function CommentCard({ id }: { id: number }) {
   useEffect(() => {
-    setComment(commentId);
+    setIllust(id);
   }, []);
 
-  const comment = useComment((state) => state.comment);
+  const comments = useIllust((state) => state.illust.comments);
 
   return (
-    <Paper withBorder radius="md" className={classes.comment}>
-      <Text size="sm">{comment.text}</Text>
-      <Group>
-        <Group>
-          <Text pt="sm" fz="sm">
-            Jacob Warnhalter
-          </Text>
-          <Text pt="sm" fz="xs" c="dimmed">
-            11/24 13:30
-          </Text>
-        </Group>
-        <Button variant="light" color="pink" radius="xl">
-          <IconHeart />
-          <IconHeartFilled />
-          {comment.likes}
-        </Button>
-      </Group>
-    </Paper>
+    <>
+      {comments.map((comment, i) => (
+        <div key={i}>
+          <Paper withBorder radius="md" className={classes.comment}>
+            <Text size="sm">{comment.text}</Text>
+            <Group>
+              <Group>
+                <Text pt="sm" fz="sm">
+                  {comment.user_id}
+                </Text>
+                <Text pt="sm" fz="xs" c="dimmed">
+                  {comment.created_at}
+                </Text>
+              </Group>
+              <Button variant="light" color="pink" radius="xl">
+                <IconHeart />
+                <IconHeartFilled />
+                {comment.likes}
+              </Button>
+            </Group>
+          </Paper>
+        </div>
+      ))}
+    </>
   );
 }

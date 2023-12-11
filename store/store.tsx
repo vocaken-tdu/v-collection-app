@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import axios, { AxiosResponse } from 'axios';
 
-const apiUrl = 'https://vcollection-background.onrender.com/illustrations';
+const apiUrl = 'https://vcollection-background.onrender.com';
 
 // -------- イラスト一覧を取得する
 
@@ -49,7 +49,7 @@ export const useIllustList = create<illustListStore>()(() => ({
 
 export const setIllustList = async () => {
   const fetch = async () => {
-    const response: AxiosResponse = await axios.get(apiUrl);
+    const response: AxiosResponse = await axios.get(`${apiUrl}/illustrations/`);
     useIllustList.setState({ illustList: response.data });
     console.log('Data is fetched!');
   };
@@ -72,6 +72,8 @@ type illustStore = {
         illustration_id: number;
         user_id: number;
         id: number;
+        created_at: string; // 不足
+        likes: number; // 不足
       },
     ];
     likes: number;
@@ -91,6 +93,8 @@ export const useIllust = create<illustStore>()(() => ({
         illustration_id: 0,
         user_id: 0,
         id: 0,
+        created_at: 'created_at',
+        likes: 123456789,
       },
     ],
     likes: 0,
@@ -99,42 +103,10 @@ export const useIllust = create<illustStore>()(() => ({
 
 export const setIllust = async (id: number) => {
   const fetch = async () => {
-    const response: AxiosResponse = await axios.get(`${apiUrl}/%7Billustration_id%7D?id=${id}`);
+    const response: AxiosResponse = await axios.get(`${apiUrl}/illustrations/%7Billustration_id%7D?id=${id}`);
     useIllust.setState({ illust: response.data });
     console.log('illustData is fetched!');
   };
   const fetchState = useIllust.getState().illust;
   fetchState ? fetch() : console.log('illustData is already fetched!');
-};
-
-// -------- コメントを取得する
-
-type commentStore = {
-  comment: {
-    text: 'string';
-    illustration_id: number;
-    user_id: number;
-    id: number;
-    likes: number;
-  };
-};
-
-export const useComment = create<commentStore>()(() => ({
-  comment: {
-    text: 'string',
-    illustration_id: 0,
-    user_id: 0,
-    id: 0,
-    likes: 0,
-  },
-}));
-
-export const setComment = async (id: number) => {
-  const fetch = async () => {
-    const response: AxiosResponse = await axios.get(`${apiUrl}/comments/${id}`);
-    useComment.setState({ comment: response.data });
-    console.log('commentData is fetched!');
-  };
-  const fetchState = useComment.getState().comment;
-  fetchState ? fetch() : console.log('commentData is already fetched!');
 };
