@@ -17,7 +17,7 @@ export function CommentCard({ id }: { id: number }) {
         <div key={i}>
           <Paper withBorder radius="md" className={classes.comment}>
             <Text size="sm">{comment.text}</Text>
-            <Group>
+            <div className="flex justify-between">
               <Group>
                 <Text pt="sm" fz="sm">
                   {comment.user_id}
@@ -31,7 +31,7 @@ export function CommentCard({ id }: { id: number }) {
                 <IconHeartFilled />
                 {comment.likes}
               </Button>
-            </Group>
+            </div>
           </Paper>
         </div>
       ))}
