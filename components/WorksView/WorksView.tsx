@@ -14,7 +14,7 @@ export function WorksView({ id }: { id: number }) {
         <AuthorCard id={id} />
       </SimpleGrid>
       <SimpleGrid cols={1} spacing="md">
-        <CommentCard commentId={id} />
+        <CommentCard id={id} />
       </SimpleGrid>
     </SimpleGrid>
   );
