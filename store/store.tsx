@@ -6,6 +6,7 @@ const apiUrl = 'https://vcollection-background.onrender.com';
 // -------- イラスト一覧を取得する
 
 type illustListStore = {
+  isFetched: boolean,
   illustList: [
     {
       title: string;
@@ -27,6 +28,7 @@ type illustListStore = {
 };
 
 export const useIllustList = create<illustListStore>()(() => ({
+  isFetched: false,
   illustList: [
     {
       title: 'title',
@@ -51,6 +53,7 @@ export const setIllustList = async () => {
   const fetch = async () => {
     const response: AxiosResponse = await axios.get(`${apiUrl}/illustrations/`);
     useIllustList.setState({ illustList: response.data });
+    useIllustList.setState({ isFetched: true });
     console.log('Data is fetched!');
   };
   const fetchState = useIllustList.getState().illustList;
@@ -60,6 +63,7 @@ export const setIllustList = async () => {
 // -------- イラストを取得する
 
 type illustStore = {
+  isFetched: boolean,
   illust: {
     title: string;
     description: string;
@@ -81,6 +85,7 @@ type illustStore = {
 };
 
 export const useIllust = create<illustStore>()(() => ({
+  isFetched: false,
   illust: {
     title: 'title',
     description: 'description',
@@ -105,6 +110,7 @@ export const setIllust = async (id: number) => {
   const fetch = async () => {
     const response: AxiosResponse = await axios.get(`${apiUrl}/illustrations/%7Billustration_id%7D?id=${id}`);
     useIllust.setState({ illust: response.data });
+    useIllust.setState({ isFetched: true });
     console.log('illustData is fetched!');
   };
   const fetchState = useIllust.getState().illust;
