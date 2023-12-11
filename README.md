@@ -2,6 +2,10 @@
 
 VOCALOID CLUB COLLECTION の専用ページです。
 
+特設サイトページ：https://v-collection.vocakentdu.com/
+
+開発用ページ：https://v-collection-app.vercel.app/
+
 ## 仕様
 
 - パッケージ管理システム：npm
