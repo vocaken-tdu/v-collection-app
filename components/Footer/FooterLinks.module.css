@@ -9,18 +9,18 @@
 
 .logo {
   display: flex;
-  margin-left: 4vw;
+  align-items: center;
 
-  @media (min-width: 1440px) {
+  @media(min-width: 1440px){
     margin-left: 72px;
-    width: 1440px
+    width: 1440px;
   }
 }
 
 .description {
   margin-top: rem(5px);
 
-  @media (max-width: 1280px) {
+  @media (max-width: 1280px ) {
     margin-top: var(--mantine-spacing-xs);
     text-align: center;
   }
@@ -31,13 +31,11 @@
   justify-content: space-between;
   font-size: x-large;
 
-  @media (max-width: 960px) {
+  @media (max-width: 960px){
     width: 60vw;
   }
 
   @media (min-width: 1440px) {
-    padding-left: 80px;
-    padding-right: 80px;
     width: 1440px;
   }
 }
@@ -78,11 +76,11 @@
   max-width: 1440px;
   border-top: rem(1px) solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-4));
 
-  @media (max-width: 960px) {
+  @media screen and (max-width: 960px) {
     flex-direction: column;
   }
 
-  @media (min-width: 1440px) {
+  @media screen and (min-width: 1440px) {
     width: 1440px;
   }
 }
@@ -91,7 +89,7 @@
   margin-top: 1.5vw;
   width: 7vw;
 
-  @media (min-width: 1280px) {
+  @media screen and (min-width: 1280px) {
     margin-top: var(--mantine-spacing-xs);
     max-width: 101px;
   }
@@ -107,22 +105,22 @@
   background-color: #fff;
 }
 
-.right {
+.right{
   display: flex;
   text-align: right;
   margin-right: 5vw;
 
-  @media (max-width: 960px) {
+  @media (max-width: 960px){
     margin-top: 5vw;
     width: 59vw;
   }
 
-  @media (min-width: 1280px) {
+  @media screen and (min-width: 1280px) {
     margin-right: 72px;
   }
 }
 
-.test1 {
+.test1{
   font-weight: 900;
   font-size: x-large;
   margin-left: 5vw;
@@ -132,16 +130,16 @@
   }
 }
 
-.test2 {
+.test2{
   float: left;
   margin-left: 5vw;
 
-  @media (max-width: 960px) {
+  @media screen and (max-width: 960px) {
     margin-right: 5vw;
     margin-left: 5vw;
   }
 
-  @media (min-width: 1280px) {
+  @media screen and (min-width: 1280px) {
     margin-left: 72px;
   }
 }
