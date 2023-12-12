@@ -20,7 +20,7 @@ const links = [
 ];
 
 export function Header() {
-  const [opened, /*{ toggle }*/] = useDisclosure(false);
+  const [opened, { toggle }] = useDisclosure(false);
   const [active, setActive] = useState(links[0].link);
 
   const items = links.map((link) => (
