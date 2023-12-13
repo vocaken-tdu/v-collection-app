@@ -11,6 +11,12 @@
   align-items: center;
 }
 
+.Buger {
+  background-color: black;
+  width: 90vw;
+  margin-left: 30vw;
+}
+
 .link {
   display: block;
   line-height: 1;

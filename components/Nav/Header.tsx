@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { Container, Group, Burger } from '@mantine/core';
+import React, { useState } from 'react';
+import { Container, Group, Burger, Drawer, DrawerHeader, Text} from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { Abel } from 'next/font/google';
 import classes from './Header.module.css';
@@ -19,25 +19,25 @@ const links = [
   { link: 'https://www.vocakentdu.com/', label: 'VOCALOID同好会' },
 ];
 
+
 export function Header() {
   const [opened, { toggle }] = useDisclosure(false);
   const [active, setActive] = useState(links[0].link);
-
   const items = links.map((link) => (
     <a
-      key={link.label}
-      href={link.link}
-      className={classes.link}
-      data-active={active === link.link || undefined}
-      onClick={(event) => {
-        event.preventDefault();
-        setActive(link.link);
-      }}
+    key={link.label}
+    href={link.link}
+    className={classes.link}
+    data-active={active === link.link || undefined}
+    onClick={(event) => {
+      setActive(link.link);
+      event.preventDefault();
+    }}
     >
       {link.label}
     </a>
   ));
-
+  
   return (
     <header className={classes.header}>
       <Container size="xl" className={classes.inner}>
@@ -50,6 +50,10 @@ export function Header() {
         </Group>
 
         <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
+        <Drawer opened={opened} onClose={toggle} position='right'>
+            <Text style={{ fontSize: 23, fontWeight: '500', height:50 }}>Menu</Text>
+            {items}
+        </Drawer>
       </Container>
     </header>
   );
