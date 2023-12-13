@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Container, Group, Burger, Drawer, DrawerHeader, Text} from '@mantine/core';
+import { Container, Group, Burger, Drawer, Text} from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { Abel } from 'next/font/google';
 import classes from './Header.module.css';
@@ -22,7 +22,7 @@ const links = [
 
 export function Header() {
   const [opened, { toggle }] = useDisclosure(false);
-  const [active, setActive] = useState(links[0].link);
+  const [active, setActive] = useState<string | null>(null);
   const items = links.map((link) => (
     <a
     key={link.label}
@@ -50,7 +50,7 @@ export function Header() {
         </Group>
 
         <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-        <Drawer opened={opened} onClose={toggle} position='right'>
+        <Drawer opened={opened} onClose={toggle} position='right' className={classes.Burger}>
             <Text style={{ fontSize: 23, fontWeight: '500', height:50 }}>Menu</Text>
             {items}
         </Drawer>
