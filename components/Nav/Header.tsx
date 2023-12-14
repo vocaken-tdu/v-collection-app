@@ -5,6 +5,8 @@ import { Container, Group, Burger, Drawer, Text} from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { Abel } from 'next/font/google';
 import classes from './Header.module.css';
+import { usePathname } from "next/navigation";
+import path from 'path';
 
 export const abel = Abel({
   weight: ['400'],
@@ -22,7 +24,12 @@ const links = [
 
 export function Header() {
   const [opened, { toggle }] = useDisclosure(false);
-  const [active, setActive] = useState<string | null>(null);
+  const [act_ive, setActive] = useState<string | null>(null);
+  const pathname = usePathname();
+  const active = pathname
+  
+  console.log('%s', pathname);
+
   const items = links.map((link) => (
     <a
     key={link.label}
@@ -31,7 +38,7 @@ export function Header() {
     data-active={active === link.link || undefined}
     onClick={(event) => {
       setActive(link.link);
-      event.preventDefault();
+      //event.preventDefault();
     }}
     >
       {link.label}
