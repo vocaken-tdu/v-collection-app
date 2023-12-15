@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Text, Group, Paper } from '@mantine/core';
-import { useIllust, setIllust } from '@/store/store';
+import { useIllust, setIllust } from '@/store/illustStore';
 import classes from './AuthorCard.module.css';
 
 export function AuthorCard({ illustId }: { illustId: number }) {

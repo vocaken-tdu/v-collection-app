@@ -2,7 +2,8 @@ import { Button, Text, Group, Paper } from '@mantine/core';
 import { IconHeartFilled, IconHeart } from '@tabler/icons-react';
 import { useState, useCallback, useEffect } from 'react';
 import { useEventListener } from '@mantine/hooks';
-import { useCommentList, setCommentList, setLike } from '@/store/store';
+import { useCommentList, setCommentList } from '@/store/commentListStore';
+import { setLike } from '@/store/likeStore';
 import classes from './CommentCard.module.css';
 
 // イラストのidを受け取って、そのイラストのコメントを表示する

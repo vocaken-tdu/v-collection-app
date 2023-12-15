@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react';
 import { Card, Image, Skeleton } from '@mantine/core';
-import { useIllust, setIllust } from '@/store/store';
+import { useIllust, setIllust } from '@/store/illustStore';
 import classes from './BigImageCard.module.css';
 
 export function BigImageCard({ illustId }: { illustId: number }) {

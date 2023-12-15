@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react';
 import { Card, Text, Group, Skeleton } from '@mantine/core';
-import { useIllustList, setIllustList } from '@/store/store';
+import { useIllustList, setIllustList } from '@/store/illustListStore';
 import classes from './ImageCard.module.css';
 
 export function ImageCard() {
