@@ -24,6 +24,14 @@ export function CommentCard({ illustId }: { illustId: number }) {
     setLike(commentId);
   };
 
+  // いいねの状態でボタンの表示を変える
+  const likeButton = () => {
+    if (localLike) {
+      return <IconHeartFilled />;
+    }
+    return <IconHeart />;
+  };
+
   return (
     <>
       {comments.map((comment, i) => (
@@ -46,8 +54,7 @@ export function CommentCard({ illustId }: { illustId: number }) {
                 onClick={switchLike(comment.id)}
                 ref={ref}
               >
-                <IconHeart />
-                <IconHeartFilled />
+                {likeButton()}
                 {comment.like + Number(localLike)}
               </Button>
             </div>
