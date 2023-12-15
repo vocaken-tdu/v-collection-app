@@ -1,6 +1,6 @@
-
 .wrap {
-    width: 1080px;
-    height: auto;
-    margin: 0 auto;
+  max-width: var(--mantine-container-width);
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
 }
