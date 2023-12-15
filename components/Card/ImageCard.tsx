@@ -3,6 +3,7 @@
 import React, { useEffect } from 'react';
 import { Card, Text, Group, Skeleton } from '@mantine/core';
 import { useIllustList, setIllustList } from '@/store/illustListStore';
+import { GetUserName } from '../Tools/GetUserName';
 import classes from './ImageCard.module.css';
 
 export function ImageCard() {
@@ -17,7 +18,7 @@ export function ImageCard() {
     <>
       <div className={classes.cards}>
         {illusts.map((illust, i) => (
-          <div key={i}>
+          <div key={i} className={classes.wrap}>
             <Skeleton visible={!isFetched}>
               <Card
                 p="lg"
@@ -41,7 +42,7 @@ export function ImageCard() {
               <Group justify="space-between" gap="xs">
                 <Skeleton visible={!isFetched}>
                   <Text size="sm" className={classes.artist}>
-                    {illust.user_id}
+                    <GetUserName userId={illust.user_id} />
                   </Text>
                 </Skeleton>
               </Group>
