@@ -6,7 +6,7 @@ const apiUrl = 'https://django-render-vam9.onrender.com';
 // -------- イラスト一覧を取得する
 
 type illustListState = {
-  isFetched: boolean;
+  isFetched: boolean,
   illustList: [
     {
       id: number;
