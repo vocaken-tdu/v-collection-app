@@ -4,16 +4,15 @@ export default function Home() {
   return (
     <>
       <Container size="xl" className="text-center">
-        <h2 className="text-4xl my-40">Vコレってなんだ？</h2>
+        <h2 className="text-4xl my-40">アーティスト一覧</h2>
         <p className="text-xl my-20">
-          「ボカロキャラ(広義)がリアルにいたらどんな風に過ごしているのだろう？」
+          ？？？「やべ、まだこのページはできてないのだ」
         </p>
         <p className="text-xl my-20">
-          「ボカロモチーフのおしゃれ全般のグッズがあったらどんなものだろう？」
+          「見ちゃダメなのだ！」
         </p>
-        <p className="text-xl my-40">
-          そんな想像を膨らませながら、<br />VOCALOID同好会の有志のメンバーが集まり
-          季節ごとにテーマを決めて絵を描いています。
+        <p className="text-3xl my-40">
+          戻るのだ！
         </p>
         <p className="text-2xl mt-96 mb-20">
           さて、今シーズンは、どんな服を着ているでしょうか？
@@ -28,7 +27,7 @@ export default function Home() {
           size="lg"
           className="mb-60"
         >
-          見てみる！
+          見てみる！ (強引)
         </Button>
 
       </Container>
