@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import axios, { AxiosResponse } from 'axios';
 
-const apiUrl = 'https://vcollection-background.onrender.com';
+const apiUrl = 'https://django-render-vam9.onrender.com';
 
 // -------- イラスト一覧を取得する
 
@@ -108,7 +108,7 @@ export const useIllust = create<illustStore>()(() => ({
 
 export const setIllust = async (id: number) => {
   const fetch = async () => {
-    const response: AxiosResponse = await axios.get(`${apiUrl}/illustrations/%7Billustration_id%7D?id=${id}`);
+    const response: AxiosResponse = await axios.get(`${apiUrl}/illustrations/${id}`);
     useIllust.setState({ illust: response.data });
     useIllust.setState({ isFetched: true });
     console.log('illustData is fetched!');
