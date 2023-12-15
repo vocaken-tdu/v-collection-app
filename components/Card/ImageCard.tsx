@@ -39,13 +39,13 @@ export function ImageCard() {
             </Skeleton>
 
             <div className={`${classes.content} mt-2`}>
-              <Group justify="space-between" gap="xs">
-                <Skeleton visible={!isFetched}>
+              <Skeleton visible={!isFetched} height={16} radius="xl">
+                <Group justify="space-between" gap="xs">
                   <Text size="sm" className={classes.artist}>
                     <GetUserName userId={illust.user_id} />
                   </Text>
-                </Skeleton>
-              </Group>
+                </Group>
+              </Skeleton>
             </div>
           </div>
         ))}
