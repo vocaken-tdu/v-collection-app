@@ -27,12 +27,12 @@ export const useCommentList = create<commentListState>()(() => ({
   commentList: [
     {
       id: 0,
-      text: 'No Comment',
+      text: '',
       user_id: 0,
       like: 0,
       illust_id: 0,
-      created_at: 'No Date',
-      updated_at: 'No Date',
+      created_at: '',
+      updated_at: '',
     },
   ],
 }));

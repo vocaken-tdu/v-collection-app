@@ -22,12 +22,12 @@ export const useIllust = create<illustState>()(() => ({
   isFetched: false,
   illust: {
     id: 0,
-    illust: 'https://placehold.co/600x800?text=No+Image',
-    title: 'No Title',
+    illust: '',
+    title: '',
     user_id: 0,
-    caption: 'No Caption',
-    created_at: 'No Date',
-    updated_at: 'No Date',
+    caption: '',
+    created_at: '',
+    updated_at: '',
   },
 }));
 
