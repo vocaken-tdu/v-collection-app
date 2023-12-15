@@ -1,11 +1,11 @@
 import { Container } from '@mantine/core';
 import { WorksView } from '@/components/WorksView/WorksView';
 
-export default function Works({ params }: { params: { illustId: number } }) {
+export default function Works({ params }: { params: { id: number } }) {
   return (
     <>
       <Container size="xl" my="md">
-        <WorksView illustId={params.illustId} />
+        <WorksView illustId={params.id} />
       </Container>
     </>
   );
