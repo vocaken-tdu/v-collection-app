@@ -5,9 +5,9 @@ import { Card, Image, Skeleton } from '@mantine/core';
 import { useIllust, setIllust } from '@/store/store';
 import classes from './BigImageCard.module.css';
 
-export function BigImageCard({ id }: { id: number }) {
+export function BigImageCard({ illustId }: { illustId: number }) {
   useEffect(() => {
-    setIllust(id);
+    setIllust(illustId);
   }, []);
 
   const illust = useIllust((state) => state.illust);
@@ -19,7 +19,7 @@ export function BigImageCard({ id }: { id: number }) {
         <Card shadow="lg" className={classes.card} radius="md">
           <Image
             className={classes.image}
-            src={`https://placehold.co/600x800?text=id%E2%86%92${illust.id}%0Adesc%E2%86%92${illust.description}`}
+            src={`${illust.illust}`}
           />
         </Card>
       </Skeleton>

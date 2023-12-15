@@ -3,9 +3,9 @@ import { Text, Group, Paper } from '@mantine/core';
 import { useIllust, setIllust } from '@/store/store';
 import classes from './AuthorCard.module.css';
 
-export function AuthorCard({ id }: { id: number }) {
+export function AuthorCard({ illustId }: { illustId: number }) {
   useEffect(() => {
-    setIllust(id);
+    setIllust(illustId);
   }, []);
 
   const illust = useIllust((state) => state.illust);
@@ -19,7 +19,7 @@ export function AuthorCard({ id }: { id: number }) {
         </Text>
       </Group>
       <Text pt="sm" size="sm">
-        {illust.description}
+        {illust.caption}
       </Text>
     </Paper>
   );

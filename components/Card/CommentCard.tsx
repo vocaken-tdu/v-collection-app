@@ -1,15 +1,27 @@
 import { Button, Text, Group, Paper } from '@mantine/core';
 import { IconHeartFilled, IconHeart } from '@tabler/icons-react';
-import { useEffect } from 'react';
-import { useIllust, setIllust } from '@/store/store';
+import { useState, useCallback, useEffect } from 'react';
+import { useEventListener } from '@mantine/hooks';
+import { useCommentList, setCommentList, setLike } from '@/store/store';
 import classes from './CommentCard.module.css';
 
-export function CommentCard({ id }: { id: number }) {
+// イラストのidを受け取って、そのイラストのコメントを表示する
+export function CommentCard({ illustId }: { illustId: number }) {
   useEffect(() => {
-    setIllust(id);
+    setCommentList();
   }, []);
 
-  const comments = useIllust((state) => state.illust.comments);
+  const comments = useCommentList((state) => state.commentList);
+
+  // いいねの状態を管理する (ローカル)
+  const [localLike, setLocalLike] = useState(false);
+  const localLikeState = useCallback(() => setLocalLike((c) => !c), []);
+  const ref = useEventListener('click', localLikeState);
+
+  // いいねを押した時の処理 (サーバー)
+  const switchLike = (commentId: number) => () => {
+    setLike(commentId);
+  };
 
   return (
     <>
@@ -23,13 +35,19 @@ export function CommentCard({ id }: { id: number }) {
                   {comment.user_id}
                 </Text>
                 <Text pt="sm" fz="xs" c="dimmed">
-                  {comment.created_at}
+                  created_at ※今は全件取得しています
                 </Text>
               </Group>
-              <Button variant="light" color="pink" radius="xl">
+              <Button
+                variant="light"
+                color="pink"
+                radius="xl"
+                onClick={switchLike(comment.id)}
+                ref={ref}
+              >
                 <IconHeart />
                 <IconHeartFilled />
-                {comment.likes}
+                {comment.like + Number(localLike)}
               </Button>
             </div>
           </Paper>

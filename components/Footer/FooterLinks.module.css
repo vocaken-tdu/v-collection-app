@@ -11,7 +11,7 @@
   display: flex;
   align-items: center;
 
-  @media(min-width: 1440px){
+  @media (min-width: 1440px) {
     margin-left: 72px;
     width: 1440px;
   }
@@ -20,7 +20,7 @@
 .description {
   margin-top: rem(5px);
 
-  @media (max-width: 1280px ) {
+  @media (max-width: 1280px) {
     margin-top: var(--mantine-spacing-xs);
     text-align: center;
   }
@@ -31,7 +31,7 @@
   justify-content: space-between;
   font-size: x-large;
 
-  @media (max-width: 960px){
+  @media (max-width: 960px) {
     width: 60vw;
   }
 
@@ -105,12 +105,12 @@
   background-color: #fff;
 }
 
-.right{
+.right {
   display: flex;
   text-align: right;
   margin-right: 5vw;
 
-  @media (max-width: 960px){
+  @media (max-width: 960px) {
     margin-top: 5vw;
     width: 59vw;
   }
@@ -120,7 +120,7 @@
   }
 }
 
-.test1{
+.test1 {
   font-weight: 900;
   font-size: x-large;
   margin-left: 5vw;
@@ -130,7 +130,7 @@
   }
 }
 
-.test2{
+.test2 {
   float: left;
   margin-left: 5vw;
 

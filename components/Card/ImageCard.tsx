@@ -30,7 +30,7 @@ export function ImageCard() {
                 <div
                   className={classes.image}
                   style={{
-                    backgroundImage: `url(https://placehold.co/600x800?text=id%E2%86%92${illust.id}%0Adesc%E2%86%92${illust.description})`,
+                    backgroundImage: `url(${illust.illust})`,
                   }}
                 />
                 <div className={classes.overlay} />
@@ -41,7 +41,7 @@ export function ImageCard() {
               <Group justify="space-between" gap="xs">
                 <Skeleton visible={!isFetched}>
                   <Text size="sm" className={classes.artist}>
-                    {illust.title}
+                    {illust.user_id}
                   </Text>
                 </Skeleton>
               </Group>
