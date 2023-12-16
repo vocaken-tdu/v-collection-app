@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useCommentList, setCommentList } from '@/store/commentListStore';
 import { useLike, setLike } from '@/store/likeStore';
 import { GetUserName } from '../Tools/GetUserName';
+import { GetRelativeTime } from '../Tools/GetRelativeTime';
 import classes from './CommentCard.module.css';
 
 // イラストのidを受け取って、そのイラストのコメントを表示する
@@ -39,7 +40,8 @@ export function CommentCard({ illustId }: { illustId: number }) {
                   <GetUserName userId={comment.user_id} />
                 </Text>
                 <Text pt="sm" fz="xs" c="dimmed">
-                  created_at ※今は全件取得しています
+                  <GetRelativeTime RawTime={comment.created_at} />
+                  　※今は全件取得しています
                 </Text>
               </Group>
               <Button variant="light" color="pink" radius="xl" onClick={switchLike(comment.id)}>
