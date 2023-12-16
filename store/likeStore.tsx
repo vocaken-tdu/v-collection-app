@@ -14,7 +14,7 @@ export const useLike = create<likeState>()(
   // 永続化オプション
   persist(
     () => ({
-      commentId: [0],
+      commentId: [0, 1, 2],
     }),
     {
       name: 'likeStore',
@@ -24,20 +24,19 @@ export const useLike = create<likeState>()(
 
 export const setLike = async (comment_id: number) => {
   const like = async () => {
-    const response: AxiosResponse = await axios.post(`${apiUrl}/comments/${comment_id}/like`);
-    // いいねを押したコメントのidを追加する
-    useLike.setState({ commentId: [...useLike.getState().commentId, comment_id] });
-    console.log(response.data, 'liked!');
+    useLike.setState((state) => ({
+      commentId: [...state.commentId, comment_id],
+    }));
+    console.log('liked!');
   };
   const unlike = async () => {
-    const response: AxiosResponse = await axios.post(`${apiUrl}/comments/${comment_id}/like`);
-    // いいねを押したコメントのidを削除する
-    useLike.setState({
-      commentId: useLike.getState().commentId.filter((id) => id !== comment_id),
-    });
-    console.log(response.data, 'unliked!');
+    useLike.setState((state) => ({
+      commentId: state.commentId.filter((id) => id !== comment_id),
+    }));
+    console.log('unliked!');
   };
+
   const likeState = useLike.getState().commentId;
-  likeState.includes(comment_id) ? like() : unlike();
+  likeState.includes(comment_id) ? unlike() : like();
   console.log(comment_id, useLike.getState().commentId);
 };

@@ -1,9 +1,8 @@
 import { Button, Text, Group, Paper } from '@mantine/core';
 import { IconHeartFilled, IconHeart } from '@tabler/icons-react';
-import { useState, useCallback, useEffect } from 'react';
-import { useEventListener } from '@mantine/hooks';
+import { useEffect } from 'react';
 import { useCommentList, setCommentList } from '@/store/commentListStore';
-import { setLike } from '@/store/likeStore';
+import { useLike, setLike } from '@/store/likeStore';
 import classes from './CommentCard.module.css';
 
 // イラストのidを受け取って、そのイラストのコメントを表示する
@@ -13,24 +12,13 @@ export function CommentCard({ illustId }: { illustId: number }) {
   }, []);
 
   const comments = useCommentList((state) => state.commentList);
+  const likeList = useLike((state) => state.commentId);
 
-  // いいねの状態を管理する (ローカル)
-  const [localLike, setLocalLike] = useState(false);
-  const localLikeState = useCallback(() => setLocalLike((c) => !c), []);
-  const ref = useEventListener('click', localLikeState);
-
-  // いいねを押した時の処理 (サーバー)
   const switchLike = (commentId: number) => () => {
     setLike(commentId);
   };
 
-  // いいねの状態でボタンの表示を変える
-  const likeButton = () => {
-    if (localLike) {
-      return <IconHeartFilled />;
-    }
-    return <IconHeart />;
-  };
+  const isLiked = (id: number) => likeList.includes(id);
 
   return (
     <>
@@ -47,15 +35,9 @@ export function CommentCard({ illustId }: { illustId: number }) {
                   created_at ※今は全件取得しています
                 </Text>
               </Group>
-              <Button
-                variant="light"
-                color="pink"
-                radius="xl"
-                onClick={switchLike(comment.id)}
-                ref={ref}
-              >
-                {likeButton()}
-                {comment.like + Number(localLike)}
+              <Button variant="light" color="pink" radius="xl" onClick={switchLike(comment.id)}>
+                {isLiked(comment.id) ? <IconHeartFilled /> : <IconHeart />}
+                {comment.like + Number(isLiked(comment.id))}
               </Button>
             </div>
           </Paper>
