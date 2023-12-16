@@ -15,11 +15,12 @@ export function CommentCard({ illustId }: { illustId: number }) {
   }, []);
 
   // コメントの状態を取得
-  const comments = useCommentList((state) => state.commentList);
+  const rawComments = useCommentList((state) => state.commentList);
+  // 一致するイラストのコメントのみを抽出 (illustIdがstringになるバグで念のためNumber済み)
+  const comments = rawComments.filter((c) => Number(c.illust_id) === Number(illustId));
 
   // いいねの状態を取得
   const likeList = useLike((state) => state.commentId);
-
   // いいねの状態を切り替える
   const switchLike = (commentId: number) => () => {
     setLike(commentId);
@@ -41,7 +42,6 @@ export function CommentCard({ illustId }: { illustId: number }) {
                 </Text>
                 <Text pt="sm" fz="xs" c="dimmed">
                   <GetRelativeTime RawTime={comment.created_at} />
-                  　※今は全件取得しています
                 </Text>
               </Group>
               <Button variant="light" color="pink" radius="xl" onClick={switchLike(comment.id)}>
