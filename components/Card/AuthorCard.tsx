@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Text, Group, Paper, Skeleton } from '@mantine/core';
 import { useIllust, setIllust } from '@/store/illustStore';
 import { GetUserName } from '../Tools/GetUserName';
+import { GetRelativeTime } from '../Tools/GetRelativeTime';
 import classes from './AuthorCard.module.css';
 
 export function AuthorCard({ illustId }: { illustId: number }) {
@@ -25,7 +26,7 @@ export function AuthorCard({ illustId }: { illustId: number }) {
               <GetUserName userId={illust.user_id} />
             </Text>
             <Text fz="xs" c="dimmed">
-              {illust.created_at}
+              <GetRelativeTime RawTime={illust.created_at} />
             </Text>
           </Group>
           <Text pt="sm" size="sm">
