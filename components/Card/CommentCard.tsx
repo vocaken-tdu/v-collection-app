@@ -3,6 +3,7 @@ import { IconHeartFilled, IconHeart } from '@tabler/icons-react';
 import { useEffect } from 'react';
 import { useCommentList, setCommentList } from '@/store/commentListStore';
 import { useLike, setLike } from '@/store/likeStore';
+import { GetUserName } from '../Tools/GetUserName';
 import classes from './CommentCard.module.css';
 
 // イラストのidを受け取って、そのイラストのコメントを表示する
@@ -14,6 +15,8 @@ export function CommentCard({ illustId }: { illustId: number }) {
 
   // コメントの状態を取得
   const comments = useCommentList((state) => state.commentList);
+
+  // いいねの状態を取得
   const likeList = useLike((state) => state.commentId);
 
   // いいねの状態を切り替える
@@ -33,7 +36,7 @@ export function CommentCard({ illustId }: { illustId: number }) {
             <div className="flex justify-between">
               <Group>
                 <Text pt="sm" fz="sm">
-                  {comment.user_id}
+                  <GetUserName userId={comment.user_id} />
                 </Text>
                 <Text pt="sm" fz="xs" c="dimmed">
                   created_at ※今は全件取得しています
