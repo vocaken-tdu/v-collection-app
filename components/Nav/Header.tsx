@@ -7,12 +7,14 @@ import { Abel } from 'next/font/google';
 import { usePathname } from 'next/navigation';
 import classes from './Header.module.css';
 
+// ロゴのフォント
 export const abel = Abel({
   weight: ['400'],
   subsets: ['latin'],
   display: 'swap',
 });
 
+// ヘッダーのリンク
 const links = [
   { link: '/about', label: 'Vコレとは' },
   { link: '/artists', label: '各アーティスト' },
@@ -21,10 +23,14 @@ const links = [
 ];
 
 export function Header() {
+  // バーガーメニューの状態を管理
   const [opened, { toggle }] = useDisclosure(false);
+
+  // パスを取得してアクティブなリンクを判定
   const pathname = usePathname();
   const active = pathname;
 
+  // リンクを生成
   const items = links.map((link) => (
     <a
       key={link.label}

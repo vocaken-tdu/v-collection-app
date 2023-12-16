@@ -4,10 +4,12 @@ import { useIllust, setIllust } from '@/store/illustStore';
 import classes from './AuthorCard.module.css';
 
 export function AuthorCard({ illustId }: { illustId: number }) {
+  // イラストを取得
   useEffect(() => {
     setIllust(illustId);
   }, []);
 
+  // イラストの状態を取得
   const illust = useIllust((state) => state.illust);
 
   return (

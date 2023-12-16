@@ -7,17 +7,21 @@ import classes from './CommentCard.module.css';
 
 // イラストのidを受け取って、そのイラストのコメントを表示する
 export function CommentCard({ illustId }: { illustId: number }) {
+  // コメントを取得
   useEffect(() => {
     setCommentList();
   }, []);
 
+  // コメントの状態を取得
   const comments = useCommentList((state) => state.commentList);
   const likeList = useLike((state) => state.commentId);
 
+  // いいねの状態を切り替える
   const switchLike = (commentId: number) => () => {
     setLike(commentId);
   };
 
+  // いいねされているかどうかの判定
   const isLiked = (id: number) => likeList.includes(id);
 
   return (

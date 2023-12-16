@@ -7,10 +7,12 @@ import { GetUserName } from '../Tools/GetUserName';
 import classes from './ImageCard.module.css';
 
 export function ImageCard() {
+  // イラスト(リスト)を取得
   useEffect(() => {
     setIllustList();
   }, []);
 
+  // 状態を取得
   const illusts = useIllustList((state) => state.illustList);
   const isFetched = useIllustList((state) => state.isFetched);
 
