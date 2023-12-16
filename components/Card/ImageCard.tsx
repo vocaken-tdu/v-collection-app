@@ -12,8 +12,10 @@ export function ImageCard() {
     setIllustList();
   }, []);
 
-  // 状態を取得
+  // イラスト(リスト)の状態を取得
   const illusts = useIllustList((state) => state.illustList);
+
+  // 取得済みかどうかを判定
   const isFetched = useIllustList((state) => state.isFetched);
 
   return (

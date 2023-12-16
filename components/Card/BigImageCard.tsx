@@ -11,8 +11,10 @@ export function BigImageCard({ illustId }: { illustId: number }) {
     setIllust(illustId);
   }, []);
 
-  // 状態を取得
+  // イラストの状態を取得
   const illust = useIllust((state) => state.illust);
+
+  // 取得済みかどうかを判定
   const isFetched = useIllust((state) => state.isFetched);
 
   return (
@@ -21,7 +23,8 @@ export function BigImageCard({ illustId }: { illustId: number }) {
         <Card shadow="lg" className={classes.card} radius="md">
           <Image
             className={classes.image}
-            src={`${illust.illust}`}
+            src={illust.illust}
+            alt={illust.title}
           />
         </Card>
       </Skeleton>
