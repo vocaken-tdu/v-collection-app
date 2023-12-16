@@ -5,12 +5,12 @@
   padding-bottom: 80px;
   
   @media (min-width: 1250px){
-    max-height: 50vh;
+    max-height: 80vh;
     padding-top: 80px;
   }
 
   @media (max-width: 750px){
-    height: 800px;
+    height: 600px;
   }
 }
 
@@ -24,7 +24,7 @@
   }
   
   @media (max-width:800px){
-    margin-left: 23vw;
+    padding-left: 12vw;
     flex-direction: column;
   }
 }
@@ -53,10 +53,9 @@
   @media (max-width: $mantine-breakpoint-xs) {
     font-size: rem(28px);
   }
-
+  /* 吹き出しのサイズ */
   @media (max-width: 800px){
-    font-size: 2px;
-    width: 50vw;
+    width: 70vw;
   }
 }
 
@@ -70,6 +69,7 @@
   @media (max-width: $mantine-breakpoint-md) {
     margin-right: 5vw;
     overflow: hidden;
+    width: 70vw;
   }
 }
 
@@ -92,7 +92,8 @@
     display: flex;
     margin-top: 5vw;
     object-position: top;
-    height: calc(var(--image-width));
+    width: 70vw;
+    height: 70vw;
   }
 }
 
@@ -116,7 +117,7 @@
   }
 
   @media (max-width: 800px) {
-    font-size: 2.5vw;
+    font-size: 2.5vh;
   }
 }
 
