@@ -1,4 +1,4 @@
-import { Button, Text, Group, Paper } from '@mantine/core';
+import { Button, Text, Group, Paper, SimpleGrid } from '@mantine/core';
 import { IconHeartFilled, IconHeart } from '@tabler/icons-react';
 import { useEffect } from 'react';
 import { useCommentList, setCommentList } from '@/store/commentListStore';
@@ -30,11 +30,11 @@ export function CommentCard({ illustId }: { illustId: number }) {
   const isLiked = (id: number) => likeList.includes(id);
 
   return (
-    <>
+    <SimpleGrid cols={1} spacing="md" className={`${classes.r}`}>
       <h2 className="text-xl text-center mt-5 mb-1">このコメントがアツい！</h2>
       {comments.map((comment, i) => (
         <div key={i}>
-          <Paper withBorder radius="md" className={classes.comment}>
+          <Paper withBorder px="xl" py="lg" radius="md">
             <Text size="sm">{comment.text}</Text>
             <div className="flex justify-between">
               <Group>
@@ -59,6 +59,6 @@ export function CommentCard({ illustId }: { illustId: number }) {
           </Paper>
         </div>
       ))}
-    </>
+    </SimpleGrid>
   );
 }

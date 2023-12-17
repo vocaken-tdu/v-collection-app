@@ -9,6 +9,6 @@
   display: flex;
   align-items: stretch;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   flex-wrap: nowrap;
 }

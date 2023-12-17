@@ -1,0 +1,22 @@
+.root {
+  position: relative;
+}
+
+.required {
+  transition: opacity 150ms ease;
+  opacity: 0;
+
+  [data-floating] & {
+    opacity: 1;
+  }
+}
+
+.name {
+  width: 100%;
+}
+
+.namearea {
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
