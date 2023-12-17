@@ -2,10 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-/* VercelでデプロイしたときにTailwind優先が起こるため応急処置 */
-[type='button'],
-[type='reset'],
-[type='submit'],
-button {
-  background: var(--_button-bg, var(--button-bg, var(--mantine-primary-color-filled)));
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+b,
+strong {
+  font-weight: bolder;
 }
