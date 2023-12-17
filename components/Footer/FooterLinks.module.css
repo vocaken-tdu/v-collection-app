@@ -6,6 +6,10 @@
   border-top: rem(1px) solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-5));
 }
 
+.footerWrap {
+  overflow: hidden;
+}
+
 .footerWrap::before {
   margin-top: rem(120px);
   content: '';
