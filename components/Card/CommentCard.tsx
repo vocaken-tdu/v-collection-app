@@ -46,7 +46,7 @@ export function CommentCard({ illustId }: { illustId: number }) {
               </Group>
               <Button variant="light" color="pink" radius="xl" onClick={switchLike(comment.id)} className={classes.button}>
                 {isLiked(comment.id) ? <IconHeartFilled /> : <IconHeart />}
-                {comment.like + Number(isLiked(comment.id))}
+                {comment.like}
               </Button>
             </div>
           </Paper>

@@ -40,7 +40,7 @@ export const setIllustList = async () => {
     const response: AxiosResponse = await axios.get(`${apiUrl}/illustrations/`);
     useIllustList.setState({ illustList: response.data });
     useIllustList.setState({ isFetched: true });
-    console.log(response.data, 'Data is fetched!');
+    console.log(response.data, 'illustListData is fetched!');
   };
   const fetchState = useIllustList.getState().illustList;
   fetchState.length < 2 ? fetch() : console.log('Data is already fetched!');

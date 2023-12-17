@@ -42,7 +42,7 @@ export const setCommentList = async () => {
     const response: AxiosResponse = await axios.get(`${apiUrl}/comments/`);
     useCommentList.setState({ commentList: response.data });
     useCommentList.setState({ isFetched: true });
-    console.log('commentData is fetched!');
+    console.log('commentListData is fetched!');
   };
   const fetchState = useCommentList.getState().commentList;
   fetchState.length < 2 ? fetch() : console.log('commentData is already fetched!');
