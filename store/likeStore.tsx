@@ -33,7 +33,7 @@ type commentState = {
     illust_id: number;
     created_at: string;
     updated_at: string;
-  },
+  };
 };
 
 export const useComment = create<commentState>()(() => ({
@@ -53,19 +53,16 @@ export const setLike = async (comment_id: number) => {
     // コメントを取得
     const response: AxiosResponse = await axios.get(`${apiUrl}/comments/${comment_id}/`);
     useComment.setState({ comment: response.data });
+    console.log('commentData is fetched!');
 
     // いいね数を更新(+1)
     useComment.setState((state) => ({
       comment: { ...state.comment, like: state.comment.like + 1 },
     }));
 
-    // PUTで更新
-    const putResponse: AxiosResponse = await axios.put(`${apiUrl}/comments/${comment_id}/`, useComment.getState().comment);
-
-    console.log('commentData is fetched!', putResponse.data, useComment.getState());
-
-    // いいね数を更新
-
+    // PUTでいいね数を更新
+    await axios.put(`${apiUrl}/comments/${comment_id}/`, useComment.getState().comment);
+    console.log('like update!');
 
     // いいねしたコメントのidをローカルで記録
     useLike.setState((state) => ({
@@ -73,7 +70,23 @@ export const setLike = async (comment_id: number) => {
     }));
     console.log('liked!');
   };
+
   const unlike = async () => {
+    // コメントを取得
+    const response: AxiosResponse = await axios.get(`${apiUrl}/comments/${comment_id}/`);
+    useComment.setState({ comment: response.data });
+    console.log('commentData is fetched!');
+
+    // いいね数を更新(-1)
+    useComment.setState((state) => ({
+      comment: { ...state.comment, like: state.comment.like - 1 },
+    }));
+
+    // PUTでいいね数を更新
+    await axios.put(`${apiUrl}/comments/${comment_id}/`, useComment.getState().comment);
+    console.log('unliked update!');
+
+    // いいねしたコメントのidをローカルで記録
     useLike.setState((state) => ({
       commentId: state.commentId.filter((id) => id !== comment_id),
     }));
