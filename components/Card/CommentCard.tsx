@@ -31,6 +31,7 @@ export function CommentCard({ illustId }: { illustId: number }) {
 
   return (
     <>
+      <h2 className="text-xl text-center mt-5 mb-1">このコメントがアツい！</h2>
       {comments.map((comment, i) => (
         <div key={i}>
           <Paper withBorder radius="md" className={classes.comment}>
@@ -44,7 +45,13 @@ export function CommentCard({ illustId }: { illustId: number }) {
                   <GetRelativeTime RawTime={comment.created_at} />
                 </Text>
               </Group>
-              <Button variant="light" color="pink" radius="xl" onClick={switchLike(comment.id)} className={classes.button}>
+              <Button
+                variant="light"
+                color="pink"
+                radius="xl"
+                onClick={switchLike(comment.id)}
+                className={classes.button}
+              >
                 {isLiked(comment.id) ? <IconHeartFilled /> : <IconHeart />}
                 {comment.like}
               </Button>

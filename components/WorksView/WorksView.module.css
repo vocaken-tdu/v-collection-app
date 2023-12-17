@@ -4,3 +4,11 @@
   height: auto;
   margin: 0 auto;
 }
+
+.r {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+}
