@@ -8,6 +8,7 @@
 
   @media (max-width: $mantine-breakpoint-sm) {
     display: flex;
+    flex-direction: column;
   }
 }
 
@@ -31,7 +32,7 @@
   }
 
   @media (max-width: $mantine-breakpoint-sm) {
-    width: 100%;
+    width: 80vw;
   }
 }
 
