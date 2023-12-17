@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* VercelでデプロイしたときにTailwind優先が起こるため応急処置 */
+[type='button'],
+[type='reset'],
+[type='submit'],
+button {
+  background: var(--_button-bg, var(--button-bg, var(--mantine-primary-color-filled)));
+}
