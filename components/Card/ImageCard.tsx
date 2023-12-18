@@ -23,7 +23,7 @@ export function ImageCard() {
       <div className={classes.cards}>
         {illusts.map((illust, i) => (
           <div key={i} className={classes.wrap}>
-            <Skeleton visible={!isFetched}>
+            <Skeleton visible={!isFetched} className={classes.card}>
               <Card
                 p="lg"
                 shadow="lg"
