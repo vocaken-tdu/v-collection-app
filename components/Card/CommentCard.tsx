@@ -1,7 +1,7 @@
 import { Button, Text, Group, Paper, SimpleGrid, ScrollArea } from '@mantine/core';
 import { IconHeartFilled, IconHeart } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
-import { useCommentList, setCommentList, updateCommentList } from '@/store/commentListStore';
+import { useCommentList, setCommentList } from '@/store/commentListStore';
 import { useLike, setLike } from '@/store/likeStore';
 import { GetRelativeTime } from '../Tools/GetRelativeTime';
 import classes from './CommentCard.module.css';
@@ -20,11 +20,12 @@ export function CommentCard({ illustId }: { illustId: number }) {
   const rawComments = useCommentList((state) => state.commentList);
   // 一致するイラストのコメントのみを抽出 (illustIdがstringになるバグで念のためNumber済み)
   const comments = rawComments.filter((c) => Number(c.illust_id) === Number(illustId));
+  const sortedComments = comments.sort((a, b) => b.like - a.like);
 
   // いいねの状態を取得
   const likeList = useLike((state) => state.commentId);
 
-  // いいねの状態を切り替える(1秒のクールダウンあり)
+  // いいねの状態を切り替える(クールダウンあり)
   const switchLike = (commentId: number) => () => {
     // 処理中は無視
     if (isProcess) return console.log('process is running...');
@@ -39,7 +40,6 @@ export function CommentCard({ illustId }: { illustId: number }) {
       setProcess(false);
     }, 1000);
 
-    updateCommentList();
     return console.log('switch like!');
   };
 
@@ -50,7 +50,7 @@ export function CommentCard({ illustId }: { illustId: number }) {
     <ScrollArea offsetScrollbars className={classes.scrollArea}>
       <SimpleGrid cols={1} spacing="md" className={`${classes.r}`}>
         <h2 className="text-xl text-center mt-5 mb-1">このコメントがアツい！</h2>
-        {comments.map((comment, i) => (
+        {sortedComments.map((comment, i) => (
           <div key={i}>
             <Paper withBorder px="xl" py="lg" radius="md">
               <Text size="sm">{comment.text}</Text>

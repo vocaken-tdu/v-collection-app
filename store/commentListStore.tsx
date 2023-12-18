@@ -62,5 +62,5 @@ export const updateCommentList = async () => {
   // 1秒後に更新(コメント送信から十分に経っていないと更新されていないものを取得するため)
   setTimeout(() => {
     fetch();
-  }, 1000);
+  }, 800);
 };

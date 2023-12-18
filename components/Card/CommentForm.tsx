@@ -2,7 +2,6 @@ import { Textarea, Button, Group, Paper, TextInput } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import classes from './CommentForm.module.css';
 import { setComment } from '../../store/commentFormStore';
-import { updateCommentList } from '@/store/commentListStore';
 
 export function CommentForm({ illustId }: { illustId: number }) {
   // コメントフォームの状態を管理
@@ -32,7 +31,6 @@ export function CommentForm({ illustId }: { illustId: number }) {
   const sendComment = async () => {
     // 送信処理
     setComment(illustId, form.values.name, form.values.comment);
-    updateCommentList();
   };
 
   return (

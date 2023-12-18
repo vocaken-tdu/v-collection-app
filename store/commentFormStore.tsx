@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import axios from 'axios';
+import { updateCommentList } from '@/store/commentListStore';
 
 const apiUrl = 'https://django-render-vam9.onrender.com';
 
@@ -50,6 +51,7 @@ export const setComment = async (illust_id: number, name: string, comment: strin
   };
 
   postComment(illust_id);
+  updateCommentList();
 
   // ローカルデータを削除
   useComment.setState({

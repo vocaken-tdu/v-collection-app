@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import axios, { AxiosResponse } from 'axios';
+import { updateCommentList } from '@/store/commentListStore';
 
 const apiUrl = 'https://django-render-vam9.onrender.com';
 
@@ -60,14 +61,15 @@ export const setLike = async (comment_id: number) => {
       comment: { ...state.comment, like: state.comment.like + 1 },
     }));
 
-    // PUTでいいね数を更新
-    await axios.put(`${apiUrl}/comments/${comment_id}/`, useComment.getState().comment);
-    console.log('like update!');
-
     // いいねしたコメントのidをローカルで記録
     useLike.setState((state) => ({
       commentId: [...state.commentId, comment_id],
     }));
+
+    // PUTでいいね数を更新
+    await axios.put(`${apiUrl}/comments/${comment_id}/`, useComment.getState().comment);
+    console.log('like update!');
+
     console.log('liked!');
   };
 
@@ -82,14 +84,15 @@ export const setLike = async (comment_id: number) => {
       comment: { ...state.comment, like: state.comment.like - 1 },
     }));
 
-    // PUTでいいね数を更新
-    await axios.put(`${apiUrl}/comments/${comment_id}/`, useComment.getState().comment);
-    console.log('unliked update!');
-
     // いいねしたコメントのidをローカルで記録
     useLike.setState((state) => ({
       commentId: state.commentId.filter((id) => id !== comment_id),
     }));
+
+    // PUTでいいね数を更新
+    await axios.put(`${apiUrl}/comments/${comment_id}/`, useComment.getState().comment);
+    console.log('unliked update!');
+
     console.log('unliked!');
   };
 
@@ -97,6 +100,9 @@ export const setLike = async (comment_id: number) => {
 
   // いいねの状態によって、いいねをするかどうかを切り替える
   likeState.includes(comment_id) ? unlike() : like();
+
+  // コメントを更新
+  updateCommentList();
 
   console.log(comment_id, useLike.getState().commentId);
 };
