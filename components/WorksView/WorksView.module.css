@@ -5,10 +5,17 @@
   margin: 0 auto;
 }
 
+.l {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
 .r {
   display: flex;
   align-items: stretch;
   flex-direction: column;
-  justify-content: space-between;
   flex-wrap: nowrap;
+  justify-content: space-between
 }
+

@@ -20,8 +20,8 @@
 }
 
 .scrollArea {
-  max-height: calc(918.5px - 210px);
-  
+  max-height: 480px;
+
   @media (max-width: $mantine-breakpoint-sm) {
     max-height: unset;
   }

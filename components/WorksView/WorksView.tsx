@@ -10,11 +10,11 @@ import classes from './WorksView.module.css';
 export function WorksView({ illustId }: { illustId: number }) {
   return (
     <SimpleGrid className={classes.wrap} cols={{ base: 1, sm: 2 }} spacing="lg">
-      <SimpleGrid cols={1} spacing="md">
+      <SimpleGrid cols={1} spacing="md" className={classes.l}>
         <BigImageCard illustId={illustId} />
         <AuthorCard illustId={illustId} />
       </SimpleGrid>
-      <SimpleGrid cols={1} spacing="md" className={`${classes.r}`}>
+      <SimpleGrid cols={1} spacing="md" className={classes.r}>
         <CommentCard illustId={illustId} />
         <CommentForm illustId={illustId} />
       </SimpleGrid>
