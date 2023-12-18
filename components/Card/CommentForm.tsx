@@ -54,7 +54,7 @@ export function CommentForm({ illustId }: { illustId: number }) {
         <Textarea
           variant="filled"
           label="メッセージ"
-          placeholder="名前付きでコメントを送って……！"
+          placeholder="コメントを入力"
           minRows={4}
           mt="xs"
           className={classes.textarea}

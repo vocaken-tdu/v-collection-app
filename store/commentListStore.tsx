@@ -13,7 +13,7 @@ type commentListState = {
     {
       id: number;
       text: string;
-      user_id: number;
+      user_name: string;
       like: number;
       illust_id: number;
       created_at: string;
@@ -28,7 +28,7 @@ export const useCommentList = create<commentListState>()(() => ({
     {
       id: 0,
       text: '',
-      user_id: 0,
+      user_name: '',
       like: 0,
       illust_id: 0,
       created_at: '',
