@@ -4,6 +4,24 @@ import axios, { AxiosResponse } from 'axios';
 
 const apiUrl = 'https://django-render-vam9.onrender.com';
 
+// -------- 自身の名前を記録する
+
+type myNameState = {
+  name: string;
+};
+
+export const useMyName = create<myNameState>()(
+  // 永続化オプション
+  persist(
+    (): myNameState => ({
+      name: '',
+    }),
+    {
+      name: 'myNameStore',
+    }
+  )
+);
+
 // -------- ユーザーネームを記録する
 
 type userNameState = {

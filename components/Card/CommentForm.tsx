@@ -2,12 +2,13 @@ import { Textarea, Button, Group, Paper, TextInput } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import classes from './CommentForm.module.css';
 import { setComment } from '../../store/commentFormStore';
+import { useMyName } from '../../store/userNameStore';
 
 export function CommentForm({ illustId }: { illustId: number }) {
   // コメントフォームの状態を管理
   const form = useForm({
     initialValues: {
-      name: '',
+      name: useMyName((state) => state.name),
       comment: '',
     },
     validate: {
@@ -31,8 +32,12 @@ export function CommentForm({ illustId }: { illustId: number }) {
   const sendComment = async () => {
     // 送信処理
     setComment(illustId, form.values.name, form.values.comment);
+    // 名前を記録
+    useMyName.setState({ name: form.values.name });
     // フォームをリセット
-    form.reset();
+    form.setValues({
+      comment: '',
+    });
   };
 
   return (
