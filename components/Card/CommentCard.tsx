@@ -40,7 +40,7 @@ export function CommentCard({ illustId }: { illustId: number }) {
               <div className="flex justify-between">
                 <Group>
                   <Text pt="sm" fz="sm">
-                    <GetUserName userId={comment.user_id} />
+                    {comment.user_name}
                   </Text>
                   <Text pt="sm" fz="xs" c="dimmed">
                     <GetRelativeTime RawTime={comment.created_at} />
