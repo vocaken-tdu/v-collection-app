@@ -16,10 +16,10 @@ export function AuthorCard() {
       <Skeleton visible={!isFetched}>
         <Paper withBorder radius="md" className={classes.comment}>
           <Group>
-            <Text fz="sm">
+            <Text fz="lg">
               <GetUserName userId={illust.user_id} />
             </Text>
-            <Text fz="xs" c="dimmed">
+            <Text fz="xs" c="dimmed" mt={3}>
               <GetRelativeTime RawTime={illust.created_at} />
             </Text>
           </Group>
