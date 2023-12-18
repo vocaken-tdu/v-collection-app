@@ -8,7 +8,7 @@ export function CommentForm({ illustId }: { illustId: number }) {
   // コメントフォームの状態を管理
   const form = useForm({
     initialValues: {
-      name: 'ななしさん(未実装)',
+      name: '',
       comment: '',
     },
     validate: {
@@ -31,7 +31,7 @@ export function CommentForm({ illustId }: { illustId: number }) {
   // コメントを送信する
   const sendComment = async () => {
     // 送信処理
-    setComment(form.values.comment, illustId);
+    setComment(illustId, form.values.name, form.values.comment);
     updateCommentList();
   };
 
@@ -43,7 +43,6 @@ export function CommentForm({ illustId }: { illustId: number }) {
             variant="filled"
             label="名前/ハンドルネーム"
             placeholder="名前を入力"
-            disabled
             className={classes.name}
             classNames={{ input: classes.input, label: classes.inputLabel }}
             {...form.getInputProps('name')}

@@ -39,14 +39,14 @@ export const restoreComment = async () => {
 */
 
 // コメントを送信する
-export const setComment = async (comment: string, illust_id: number) => {
+export const setComment = async (illust_id: number, name: string, comment: string) => {
   const postComment = async (id: number) => {
     const res = await axios.post(`${apiUrl}/comments/`, {
       text: comment,
-      user_id: 3,
+      user_name: name,
       illust_id: id,
     });
-    console.log(res);
+    console.log('Comment sent!', res);
   };
 
   postComment(illust_id);
