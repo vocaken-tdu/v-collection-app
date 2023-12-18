@@ -38,7 +38,8 @@ export const useIllustList = create<illustListState>()(() => ({
 export const setIllustList = async () => {
   const fetch = async () => {
     const response: AxiosResponse = await axios.get(`${apiUrl}/illustrations/`);
-    useIllustList.setState({ illustList: response.data });
+    const data = response.data.sort((a: any, b: any) => b.id - a.id);
+    useIllustList.setState({ illustList: data });
     useIllustList.setState({ isFetched: true });
     console.log('illustListData is fetched!');
   };
