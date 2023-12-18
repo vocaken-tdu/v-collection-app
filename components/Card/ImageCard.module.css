@@ -13,7 +13,12 @@
 
 .wrap {
   @media (max-width: $mantine-breakpoint-sm) {
+    display: flex;
     flex-grow: 1;
+    justify-content: right;
+    flex-direction: column;
+    width: 28vw;
+    margin: 0 auto;
   }
 }
 
@@ -31,7 +36,8 @@
   }
 
   @media (max-width: $mantine-breakpoint-sm) {
-    width: 40vw;
+    width: 45vw;
+    margin: 0 auto;
   }
 }
 
