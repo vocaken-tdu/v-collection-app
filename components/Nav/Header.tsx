@@ -18,7 +18,6 @@ export const abel = Abel({
 const links = [
   { link: '/about', label: 'Vコレとは' },
   { link: '/artists', label: '各アーティスト' },
-  { link: '/terms', label: '利用規約' },
   { link: 'https://www.vocakentdu.com/', label: 'VOCALOID同好会' },
 ];
 
