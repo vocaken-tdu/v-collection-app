@@ -12,7 +12,7 @@ export function WorksView({ illustId }: { illustId: number }) {
     <SimpleGrid className={classes.wrap} cols={{ base: 1, sm: 2 }} spacing="lg">
       <SimpleGrid cols={1} spacing="md" className={classes.l}>
         <BigImageCard illustId={illustId} />
-        <AuthorCard illustId={illustId} />
+        <AuthorCard />
       </SimpleGrid>
       <SimpleGrid cols={1} spacing="md" className={classes.r}>
         <CommentCard illustId={illustId} />

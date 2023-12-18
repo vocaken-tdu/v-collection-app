@@ -1,16 +1,10 @@
-import React, { useEffect } from 'react';
 import { Text, Group, Paper, Skeleton } from '@mantine/core';
-import { useIllust, setIllust } from '@/store/illustStore';
+import { useIllust } from '@/store/illustStore';
 import { GetUserName } from '../Tools/GetUserName';
 import { GetRelativeTime } from '../Tools/GetRelativeTime';
 import classes from './AuthorCard.module.css';
 
-export function AuthorCard({ illustId }: { illustId: number }) {
-  // イラストを取得
-  useEffect(() => {
-    setIllust(illustId);
-  }, []);
-
+export function AuthorCard() {
   // イラストの状態を取得
   const illust = useIllust((state) => state.illust);
 
