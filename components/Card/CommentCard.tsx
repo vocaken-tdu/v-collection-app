@@ -47,7 +47,7 @@ export function CommentCard({ illustId }: { illustId: number }) {
   const isLiked = (id: number) => likeList.includes(id);
 
   return (
-    <ScrollArea offsetScrollbars className={classes.scrollArea}>
+    <ScrollArea className={classes.scrollArea}>
       <SimpleGrid cols={1} spacing="md" className={`${classes.r}`}>
         <h2 className="text-xl text-center mt-5 mb-1">このコメントがアツい！</h2>
         {sortedComments.map((comment, i) => (
