@@ -14,7 +14,7 @@ export const useLike = create<likeState>()(
   // 永続化オプション
   persist(
     () => ({
-      commentId: [0, 1, 2],
+      commentId: [0],
     }),
     {
       name: 'likeStore',
@@ -94,6 +94,9 @@ export const setLike = async (comment_id: number) => {
   };
 
   const likeState = useLike.getState().commentId;
+
+  // いいねの状態によって、いいねをするかどうかを切り替える
   likeState.includes(comment_id) ? unlike() : like();
+
   console.log(comment_id, useLike.getState().commentId);
 };

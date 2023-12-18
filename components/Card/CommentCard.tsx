@@ -1,14 +1,16 @@
 import { Button, Text, Group, Paper, SimpleGrid, ScrollArea } from '@mantine/core';
 import { IconHeartFilled, IconHeart } from '@tabler/icons-react';
-import { useEffect } from 'react';
-import { useCommentList, setCommentList } from '@/store/commentListStore';
+import { useEffect, useState } from 'react';
+import { useCommentList, setCommentList, updateCommentList } from '@/store/commentListStore';
 import { useLike, setLike } from '@/store/likeStore';
-import { GetUserName } from '../Tools/GetUserName';
 import { GetRelativeTime } from '../Tools/GetRelativeTime';
 import classes from './CommentCard.module.css';
 
 // イラストのidを受け取って、そのイラストのコメントを表示する
 export function CommentCard({ illustId }: { illustId: number }) {
+  // 処理中かどうかを記録
+  const [isProcess, setProcess] = useState(false);
+
   // コメントを取得
   useEffect(() => {
     setCommentList();
@@ -21,9 +23,24 @@ export function CommentCard({ illustId }: { illustId: number }) {
 
   // いいねの状態を取得
   const likeList = useLike((state) => state.commentId);
-  // いいねの状態を切り替える
+
+  // いいねの状態を切り替える(1秒のクールダウンあり)
   const switchLike = (commentId: number) => () => {
+    // 処理中は無視
+    if (isProcess) return console.log('process is running...');
+
+    // 処理中にする
+    setProcess(true);
+    // いいねされているかどうかで分岐
     setLike(commentId);
+
+    // 処理中を解除
+    setTimeout(() => {
+      setProcess(false);
+    }, 1000);
+
+    updateCommentList();
+    return console.log('switch like!');
   };
 
   // いいねされているかどうかの判定
