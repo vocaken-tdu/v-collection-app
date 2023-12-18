@@ -31,6 +31,8 @@ export function CommentForm({ illustId }: { illustId: number }) {
   const sendComment = async () => {
     // 送信処理
     setComment(illustId, form.values.name, form.values.comment);
+    // フォームをリセット
+    form.reset();
   };
 
   return (
