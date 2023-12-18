@@ -25,7 +25,6 @@ export const useMyName = create<myNameState>()(
 // -------- ユーザーネームを記録する
 
 type userNameState = {
-  isFetched: boolean;
   user: [
     {
       id: number;
@@ -38,7 +37,6 @@ export const useUserName = create<userNameState>()(
   // 永続化オプション
   persist(
     (): userNameState => ({
-      isFetched: false,
       user: [
         {
           id: 0,
@@ -55,6 +53,5 @@ export const useUserName = create<userNameState>()(
 export const setUserName = async () => {
   const response: AxiosResponse = await axios.get(`${apiUrl}/user/`);
   useUserName.setState({ user: response.data });
-  useUserName.setState({ isFetched: true });
   console.log('userName is fetched!');
 };
