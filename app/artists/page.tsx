@@ -6,13 +6,13 @@ export default function Home() {
       <Container size="xl" className="text-center">
         <h2 className="text-4xl my-40">アーティスト一覧</h2>
         <p className="text-xl my-20">
-          ？？？「やべ、まだこのページはできてないのだ」
+          ？？？（やべ、まだこのページはできてないのだ）
         </p>
         <p className="text-xl my-20">
-          「見ちゃダメなのだ！」
+          （近日実装予定なのだ）
         </p>
         <p className="text-3xl my-40">
-          戻 る の だ ！
+          （戻 る の だ ！）
         </p>
         <p className="text-2xl mt-96 mb-20 leading-relaxed">
           さて！
