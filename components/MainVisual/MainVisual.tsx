@@ -1,11 +1,11 @@
 'use client';
 
-import { useEffect, useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import { Image, Container, Group, Skeleton } from '@mantine/core';
 import { gsap } from 'gsap';
 import logo from '@/public/Logo.png';
 import classes from './MainVisual.module.css';
-import { setIllustList, useIllustList } from '@/store/illustListStore';
+import { useIllustList } from '@/store/illustListStore';
 
 export function MainVisual() {
   const boxRef = useRef(null);
@@ -26,11 +26,6 @@ export function MainVisual() {
       duration: 1.8,
     });
   });
-
-  // イラスト(リスト)を取得
-  useEffect(() => {
-    setIllustList();
-  }, []);
 
   // イラスト(リスト)の状態を取得
   const illusts = useIllustList((state) => state.illustList);
@@ -57,7 +52,7 @@ export function MainVisual() {
         {/*メインイラスト*/}
         <div id="randomImage" className="rotate-3" ref={boxRef}>
           <Skeleton visible={!isFetched}>
-            <Image className={classes.image} src={`${isFetched ? illusts[Math.floor(rand * illusts.length)].illust : undefined} `} />
+            <Image className={classes.image} src={`${isFetched && illusts[Math.floor(rand * illusts.length)].illust} `} />
           </Skeleton>
         </div>
 
