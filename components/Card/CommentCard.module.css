@@ -18,3 +18,11 @@
 .button {
   background: rgb(230 73 128 / 10%);
 }
+
+.scrollArea {
+  max-height: calc(918.5px - 210px);
+  
+  @media (max-width: $mantine-breakpoint-sm) {
+    max-height: unset;
+  }
+}

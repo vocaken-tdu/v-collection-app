@@ -37,6 +37,8 @@ export const useCommentList = create<commentListState>()(() => ({
   ],
 }));
 
+// -------- コメントを取得する(初回)
+
 export const setCommentList = async () => {
   const fetch = async () => {
     const response: AxiosResponse = await axios.get(`${apiUrl}/comments/`);
@@ -46,4 +48,19 @@ export const setCommentList = async () => {
   };
   const fetchState = useCommentList.getState().commentList;
   fetchState.length < 2 ? fetch() : console.log('commentData is already fetched!');
+};
+
+// -------- コメントを更新する
+
+export const updateCommentList = async () => {
+  const fetch = async () => {
+    const response: AxiosResponse = await axios.get(`${apiUrl}/comments/`);
+    useCommentList.setState({ commentList: response.data });
+    console.log('commentListData is updated!');
+  };
+
+  // 1秒後に更新(コメント送信から十分に経っていないと更新されていないものを取得するため)
+  setTimeout(() => {
+    fetch();
+  }, 1000);
 };

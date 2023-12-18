@@ -12,6 +12,9 @@ export function GetRelativeTime({ RawTime }: { RawTime: string }) {
   const dayDiff = Math.floor(diff / (24 * 60 * 60 * 1000));
 
   const showDate = () => {
+    if (dayDiff < 0) {
+      return '未来';
+    }
     if (dayDiff < 1) {
       return `${Math.floor(diff / (60 * 60 * 1000))}時間前`;
     }

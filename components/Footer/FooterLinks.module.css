@@ -102,7 +102,6 @@
 }
 
 .tdu {
-
   @media (max-width: $mantine-breakpoint-xs) {
     width: 100%;
     display: flex;

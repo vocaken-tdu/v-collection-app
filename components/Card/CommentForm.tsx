@@ -1,64 +1,67 @@
-import { TextInput, Textarea, Button, Group, Paper, Autocomplete, Loader } from '@mantine/core';
-import { useState, useRef, useEffect } from 'react';
-import { useUserName, setUserName } from '@/store/userNameStore';
-
+import { Textarea, Button, Group, Paper, TextInput } from '@mantine/core';
+import { useForm } from '@mantine/form';
 import classes from './CommentForm.module.css';
+import { setComment } from '../../store/commentFormStore';
+import { updateCommentList } from '@/store/commentListStore';
 
 export function CommentForm({ illustId }: { illustId: number }) {
-  const timeoutRef = useRef<number>(-1);
-  const [value, setValue] = useState('');
-  const [loading, setLoading] = useState(false);
-  const [data, setData] = useState<string[]>([]);
+  // コメントフォームの状態を管理
+  const form = useForm({
+    initialValues: {
+      name: 'ななしさん(未実装)',
+      comment: '',
+    },
+    validate: {
+      name: (val) => (val.length > 0 ? undefined : ''),
+      comment: (val) => (val.length > 1 ? undefined : ''),
+    },
+  });
 
-  // ユーザー名(リスト)を取得
+  /* コメントを保存する (未実装)
   useEffect(() => {
-    setUserName();
+    restoreComment((state) =>
+      form.setValues({
+        name: state.userName,
+        comment: state.comment,
+      })
+    );
   }, []);
+  */
 
-  // リストの状態を取得
-  const userList = useUserName((state) => state.user);
-  const user = userList.map((userName) => userName.name);
-
-  const handleChange = (val: string) => {
-    window.clearTimeout(timeoutRef.current);
-    setValue(val);
-    setData([]);
-
-    if (val.trim().length === 0 || val.includes('@')) {
-      setLoading(false);
-    } else {
-      setLoading(true);
-      timeoutRef.current = window.setTimeout(() => {
-        setLoading(false);
-        setData(user.map((provider) => `${provider}`));
-      }, 1000);
-    }
+  // コメントを送信する
+  const sendComment = async () => {
+    // 送信処理
+    setComment(form.values.comment, illustId);
+    updateCommentList();
   };
 
   return (
     <Paper withBorder px="xl" py="lg" radius="md" className={classes.comment}>
-      <Group className={classes.namearea}>
-        <Autocomplete
-          value={value}
+      <form onSubmit={form.onSubmit(() => sendComment())}>
+        <Group className={classes.namearea}>
+          <TextInput
+            variant="filled"
+            label="名前/ハンドルネーム"
+            placeholder="名前を入力"
+            disabled
+            className={classes.name}
+            classNames={{ input: classes.input, label: classes.inputLabel }}
+            {...form.getInputProps('name')}
+          />
+          <Button type="submit" className={classes.control}>
+            コメントを送る
+          </Button>
+        </Group>
+        <Textarea
           variant="filled"
-          label="名前/ハンドルネーム"
-          placeholder="名前を入力"
-          className={classes.name}
-          classNames={{ input: classes.input, label: classes.inputLabel }}
-          data={data}
-          onChange={handleChange}
-          rightSection={loading ? <Loader size="1rem" /> : undefined}
+          label="メッセージ"
+          placeholder="名前付きでコメントを送って……！"
+          minRows={4}
+          mt="xs"
+          className={classes.textarea}
+          {...form.getInputProps('comment')}
         />
-        <Button className={classes.control}>コメントを送る</Button>
-      </Group>
-      <Textarea
-        variant="filled"
-        label="メッセージ"
-        placeholder="コメントを入力"
-        minRows={4}
-        mt="xs"
-        className={classes.textarea}
-      />
+      </form>
     </Paper>
   );
 }
