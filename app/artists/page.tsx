@@ -12,10 +12,14 @@ export default function Home() {
           「見ちゃダメなのだ！」
         </p>
         <p className="text-3xl my-40">
-          戻るのだ！
+          戻 る の だ ！
         </p>
-        <p className="text-2xl mt-96 mb-20">
-          さて、今シーズンは、どんな服を着ているでしょうか？
+        <p className="text-2xl mt-96 mb-20 leading-relaxed">
+          さて！
+          <br /><br />
+          今シーズンは
+          <br />
+          どんな服を着ているでしょうか？
         </p>
         {/* 見てみる！ ボタンを表示 */}
         <Button
