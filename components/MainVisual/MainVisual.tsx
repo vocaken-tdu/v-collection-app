@@ -12,6 +12,7 @@ export function MainVisual() {
   const boxRef = useRef(null);
   const rand = Math.random();
 
+  // アニメーション
   useLayoutEffect(() => {
     // 上下に動くアニメーション
     gsap.to(boxRef.current, {
@@ -20,11 +21,6 @@ export function MainVisual() {
       ease: 'sine.inOut',
       repeat: -1,
       yoyo: true,
-    });
-    // ロゴのフェードイン
-    gsap.to('#randomImage', {
-      opacity: 1,
-      duration: 1.8,
     });
   });
 
