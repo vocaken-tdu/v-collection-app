@@ -4,6 +4,7 @@ import { useLayoutEffect, useRef } from 'react';
 import { Image, Container, Group, Skeleton } from '@mantine/core';
 import { gsap } from 'gsap';
 import logo from '@/public/Logo.png';
+import dummy from '@/public/dummy.svg';
 import classes from './MainVisual.module.css';
 import { useIllustList } from '@/store/illustListStore';
 
@@ -52,7 +53,10 @@ export function MainVisual() {
         {/*メインイラスト*/}
         <div id="randomImage" className="rotate-3" ref={boxRef}>
           <Skeleton visible={!isFetched}>
-            <Image className={classes.image} src={`${isFetched && illusts[Math.floor(rand * illusts.length)].illust} `} />
+            <Image
+              className={classes.image}
+              src={`${isFetched ? illusts[Math.floor(rand * illusts.length)].illust : dummy.src}`}
+            />
           </Skeleton>
         </div>
 
