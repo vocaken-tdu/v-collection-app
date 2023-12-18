@@ -1,7 +1,7 @@
 'use client';
 
 import { Text, Container, ActionIcon, Group, Button, rem } from '@mantine/core';
-import { IconBrandTwitterFilled, IconBrandYoutube, IconArrowBack } from '@tabler/icons-react';
+import { IconBrandTwitterFilled, IconArrowBack } from '@tabler/icons-react';
 import classes from './FooterLinks.module.css';
 
 //呼び出されたら出力する場所
