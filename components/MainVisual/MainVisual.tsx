@@ -9,9 +9,10 @@ import { setIllustList, useIllustList } from '@/store/illustListStore';
 
 export function MainVisual() {
   const boxRef = useRef(null);
+  const rand = Math.random();
 
-  // 上下に動くアニメーション
   useLayoutEffect(() => {
+    // 上下に動くアニメーション
     gsap.to(boxRef.current, {
       y: '+=12',
       duration: 1.8,
@@ -19,10 +20,10 @@ export function MainVisual() {
       repeat: -1,
       yoyo: true,
     });
+    // ロゴのフェードイン
     gsap.to('#randomImage', {
       opacity: 1,
-      duration: 1,
-      ease: 'sine.inOut',
+      duration: 1.8,
     });
   });
 
@@ -54,9 +55,9 @@ export function MainVisual() {
           </Group>
         </div>
         {/*メインイラスト*/}
-        <div className="rotate-3" ref={boxRef}>
+        <div id="randomImage" className="rotate-3" ref={boxRef}>
           <Skeleton visible={!isFetched}>
-            <Image id="randomImage" className={classes.image} src={`${isFetched ? illusts[Math.floor(Math.random() * illusts.length)].illust : undefined} `} />
+            <Image className={classes.image} src={`${isFetched ? illusts[Math.floor(rand * illusts.length)].illust : undefined} `} />
           </Skeleton>
         </div>
 
