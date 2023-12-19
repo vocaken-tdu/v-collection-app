@@ -21,11 +21,7 @@ export function BigImageCard({ illustId }: { illustId: number }) {
     <>
       <Skeleton visible={!isFetched}>
         <Card shadow="lg" className={classes.card} radius="md">
-          <Image
-            className={classes.image}
-            src={illust.illust}
-            alt={illust.title}
-          />
+          <Image className={classes.image} src={illust.illust} alt={illust.caption} />
         </Card>
       </Skeleton>
     </>

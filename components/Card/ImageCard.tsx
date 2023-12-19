@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useLayoutEffect, useRef } from 'react';
-import { Card, Text, Group } from '@mantine/core';
+import { Card, Text, Group, Image } from '@mantine/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useIllustList, setIllustList } from '@/store/illustListStore';
@@ -50,29 +50,24 @@ export function ImageCard() {
       <div className={classes.cards} id="cards" ref={fadeRef}>
         {illusts.map((illust, i) => (
           <div key={i} className={classes.wrap}>
-              <Card
-                p="lg"
-                shadow="lg"
-                className={classes.card}
-                radius="md"
-                component="a"
-                href={`/works/${illust.id}`}
-              >
-                <div
-                  className={classes.image}
-                  style={{
-                    backgroundImage: `url(${illust.illust})`,
-                  }}
-                />
-                <div className={classes.overlay} />
-              </Card>
-              <div className={`${classes.content} mt-2`}>
-                <Group justify="space-between" gap="xs">
-                  <Text size="sm" className={classes.artist}>
-                    <GetUserName userId={illust.user_id} />
-                  </Text>
-                </Group>
-              </div>
+            <Card
+              p="lg"
+              shadow="lg"
+              className={classes.card}
+              radius="md"
+              component="a"
+              href={`/works/${illust.id}`}
+            >
+              <Image className={classes.image} src={illust.illust} alt={illust.caption} />
+              <div className={classes.overlay} />
+            </Card>
+            <div className={`${classes.content} mt-2`}>
+              <Group justify="space-between" gap="xs">
+                <Text size="sm" className={classes.artist}>
+                  <GetUserName userId={illust.user_id} />
+                </Text>
+              </Group>
+            </div>
           </div>
         ))}
       </div>
