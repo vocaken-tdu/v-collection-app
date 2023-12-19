@@ -24,8 +24,6 @@ export function WorksView({ illustId }: { illustId: number }) {
     return hash.digest('hex');
   };
 
-  console.log('comment form is displayed', domein, encryptSha256(domein));
-
   // コメントフォームを表示するドメインの認証
   const isAuthDomein = (hostName: string) => {
     // hostNameをハッシュ化した値
