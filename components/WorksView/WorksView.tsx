@@ -25,7 +25,7 @@ export function WorksView({ illustId }: { illustId: number }) {
   };
 
   // コメントフォームを表示するドメインの認証
-  const isAuthDomein = (hostName: string) => {
+  const isAuthDomein = () => {
     // hostNameをハッシュ化した値
     const authHash = [
       '49960de5880e8c687434170f6476605b8fe4aeb9a28632c7995cf3ba831d9763',
@@ -33,7 +33,7 @@ export function WorksView({ illustId }: { illustId: number }) {
     ];
 
     // ハッシュ化した値と一致するか
-    if (authHash.includes(encryptSha256(hostName))) {
+    if (authHash.includes(encryptSha256(domein))) {
       return true;
     }
     return false;
@@ -46,8 +46,8 @@ export function WorksView({ illustId }: { illustId: number }) {
         <AuthorCard />
       </SimpleGrid>
       <SimpleGrid cols={1} spacing="md" className={classes.r}>
-        <CommentCard illustId={illustId} />
-        {isAuthDomein(domein) && <CommentForm illustId={illustId} />}
+        <CommentCard illustId={illustId} isFormVisible={isAuthDomein()} />
+        {isAuthDomein() && <CommentForm illustId={illustId} />}
       </SimpleGrid>
     </SimpleGrid>
   );
