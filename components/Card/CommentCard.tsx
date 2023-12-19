@@ -7,7 +7,13 @@ import { GetRelativeTime } from '../Tools/GetRelativeTime';
 import classes from './CommentCard.module.css';
 
 // イラストのidを受け取って、そのイラストのコメントを表示する
-export function CommentCard({ illustId }: { illustId: number }) {
+export function CommentCard({
+  illustId,
+  isFormVisible,
+}: {
+  illustId: number;
+  isFormVisible: boolean;
+}) {
   // 処理中かどうかを記録
   const [isProcess, setProcess] = useState(false);
 
@@ -50,7 +56,8 @@ export function CommentCard({ illustId }: { illustId: number }) {
     <ScrollArea className={classes.scrollArea}>
       <SimpleGrid cols={1} spacing="md" className={`${classes.r}`}>
         <h2 className="text-xl text-center mt-5 mb-1">
-          {comments.length ? 'このコメントがアツい！' : '↓でコメントしてみよう！'}
+          {/* コメントがないとき and フォームが表示されている場合に lets を出す */}
+          {!comments.length && isFormVisible ? '↓でコメントしてみよう！' : 'このコメントがアツい！'}
         </h2>
         {sortedComments.map((comment, i) => (
           <div key={i}>
