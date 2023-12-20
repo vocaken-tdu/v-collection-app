@@ -6,7 +6,7 @@ import { Shape20 } from '@/components/Background/Shape20';
 export default function Home() {
   return (
     <>
-      <Shape20 />
+      <Shape20 size="full" />
       <MainVisual />
       <Container size="xl" className="mt-40 mb-64">
         <h2 className="text-3xl flex justify-center my-5">クリスマス</h2>

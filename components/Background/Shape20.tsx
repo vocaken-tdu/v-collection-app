@@ -9,7 +9,7 @@ import classes from './Shape20.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function Shape20() {
+export function Shape20({ size }: { size: string }) {
   useEffect(() => {
     const y = -300;
 
@@ -24,5 +24,8 @@ export function Shape20() {
     });
   }, []);
 
-  return <BackgroundImage src={shape.src} className={classes.bg} id="anim" />;
+  return (
+    size === 'full' ? <BackgroundImage src={shape.src} className={classes.bg} id="anim" /> :
+      <BackgroundImage src={shape.src} className={`${classes.bg} ${classes.half}`} id="anim" />
+  );
 }

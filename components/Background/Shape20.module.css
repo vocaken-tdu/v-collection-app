@@ -11,3 +11,7 @@
   background-repeat: repeat;
   aspect-ratio: 288 / 463;
 }
+
+.half {
+  height: min(150vw, 1600px);
+}
