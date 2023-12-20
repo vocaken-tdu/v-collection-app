@@ -1,8 +1,10 @@
 import { Container, Button } from '@mantine/core';
+import { Shape20 } from '@/components/Background/Shape20';
 
 export default function Home() {
   return (
     <>
+      <Shape20 size="half" />
       <Container size="xl" className="text-center">
         <h2 className="text-4xl my-40">Vコレってなんだ？</h2>
         <p className="text-xl my-20 leading-loose">
@@ -20,7 +22,8 @@ export default function Home() {
         </p>
         <p className="text-2xl mt-96 mb-20 leading-relaxed">
           さて……
-          <br /><br />
+          <br />
+          <br />
           今シーズンは
           <br />
           どんな服を着ているでしょうか？
