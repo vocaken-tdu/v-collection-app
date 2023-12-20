@@ -43,7 +43,7 @@ export function MainVisual() {
             </div>
           </div>
           <Group mt={64} visibleFrom="md">
-            <Image className={classes.logo} src={logo.src} />
+            <Image className={classes.logo} src={logo.src} alt="Vコレのロゴ" />
           </Group>
         </div>
         {/*メインイラスト*/}
@@ -52,6 +52,7 @@ export function MainVisual() {
             <Image
               className={classes.image}
               src={`${isFetched ? illusts[Math.floor(rand * illusts.length)].illust : dummy.src}`}
+              alt="Vコレのイラスト(ランダムで表示)"
             />
           </Skeleton>
         </div>
