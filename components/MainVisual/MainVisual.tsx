@@ -59,7 +59,7 @@ export function MainVisual() {
 
         {/*ロゴ2*/}
         <Group mt={64} hiddenFrom="md" justify="center">
-          <Image className={classes.logo} src={logo.src} />
+          <Image className={classes.logo} src={logo.src} alt="Vコレのロゴ" />
         </Group>
       </div>
     </Container>
