@@ -3,7 +3,7 @@
 import { useLayoutEffect, useRef } from 'react';
 import { Image, Container, Group, Skeleton } from '@mantine/core';
 import { gsap } from 'gsap';
-import logo from '@/public/Logo.png';
+import logo from '@/public/Logo.webp';
 import dummy from '@/public/dummy.svg';
 import classes from './MainVisual.module.css';
 import { useIllustList } from '@/store/illustListStore';
