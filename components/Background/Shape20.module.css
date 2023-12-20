@@ -1,0 +1,13 @@
+.bg {
+  display: inline-block;
+  position: absolute;
+  top: 300px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh + 1400px);
+  z-index: -1;
+  overflow: hidden;
+  background-position: top;
+  background-repeat: repeat;
+  aspect-ratio: 288 / 463;
+}
