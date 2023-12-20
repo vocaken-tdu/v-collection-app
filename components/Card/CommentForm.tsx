@@ -47,7 +47,7 @@ export function CommentForm({ illustId }: { illustId: number }) {
           <TextInput
             variant="filled"
             label="名前/ハンドルネーム"
-            placeholder="名前を入力"
+            placeholder="名前を入力(1文字～)"
             className={classes.name}
             classNames={{ input: classes.input, label: classes.inputLabel }}
             {...form.getInputProps('name')}
@@ -59,7 +59,7 @@ export function CommentForm({ illustId }: { illustId: number }) {
         <Textarea
           variant="filled"
           label="メッセージ"
-          placeholder="コメントを入力"
+          placeholder="コメントを入力(2～140文字)"
           minRows={4}
           mt="xs"
           className={classes.textarea}
