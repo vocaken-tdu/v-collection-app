@@ -18,7 +18,7 @@ export const abel = Abel({
 const links = [
   { link: '/about', label: 'Vコレとは' },
   { link: '/artists', label: '各アーティスト' },
-  { link: 'https://www.vocakentdu.com/', label: 'VOCALOID同好会' },
+  { link: 'https://www.vocakentdu.com/', label: 'VOCALOID同好会', external: true },
 ];
 
 export function Header() {
@@ -36,6 +36,8 @@ export function Header() {
       href={link.link}
       className={classes.link}
       data-active={active === link.link || undefined}
+      target={link.external ? '_blank' : undefined}
+      rel={link.external ? 'noopener noreferrer' : undefined}
     >
       {link.label}
     </a>
