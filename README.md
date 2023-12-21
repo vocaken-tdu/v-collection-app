@@ -70,18 +70,16 @@ Appのルーティングの階層構造詳細については[こちら](https://
 
 ※DiscordのVCC鯖の閲覧権限必須
 
-### ページ構成（予定）
+### ページ構成
 
 ```
 - App
   - / (最初に表示)
-  - /works/[id] (コンテンツページ)
-  - /terms
-  - /about
-  - /artists
-  - /not-found (Nextではこれが404)
-  - (Admin Page / URLは未定)
-  - + ハンバーガーメニュー
+    - /works/[id] (コンテンツページ)
+    - /about
+    - /artists
+    - /not-found (Nextではこれが404)
+    - + ハンバーガーメニュー
 ```
 
 ## エラーが出た？ ここを見てみよう 
