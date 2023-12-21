@@ -28,7 +28,7 @@ export default function Home() {
           size="lg"
           className="mb-60"
         >
-          見てみる！ (強引)
+          見てみる！ （強引）
         </Button>
       </Container>
     </>
