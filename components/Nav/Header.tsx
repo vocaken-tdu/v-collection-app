@@ -54,7 +54,7 @@ export function Header() {
 
         <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
         <Drawer opened={opened} onClose={toggle} position="right" className={classes.burger}>
-          <Text style={{ fontSize: 23, fontWeight: '500', height: 50 }}>Menu</Text>
+          <Text style={{ fontSize: 23, fontWeight: 'bold', height: 48 }}>Menu</Text>
           {items}
         </Drawer>
       </Container>
