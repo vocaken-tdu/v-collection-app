@@ -1,3 +1,4 @@
 {
-	"typescript.locale": "ja"
+	"typescript.locale": "ja",
+	"editor.tabSize": 2
 }
