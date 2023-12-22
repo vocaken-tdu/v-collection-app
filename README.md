@@ -30,14 +30,14 @@ VOCALOID CLUB COLLECTION の専用ページです。
 
 ### そのほか
 
-- `typecheck` – TSの型チェック
-- `lint` – ESLintを実行
-- `prettier:check` – Prettierでファイル確認
-- `jest` – Jestテストを実行
-- `jest:watch` – Jestを監視
-- `test` – `jest`、`prettier:check`、`lint`、`typecheck` スクリプトを実行
-- `storybook` – StoryBookの開発サーバーを開始
-- `prettier:write` – formats all files with Prettier
+- `npm run typecheck` – TSの型チェック
+- `npm run lint` – ESLintを実行
+- `npm run prettier:check` – Prettierでファイル確認
+- `npm run jest` – Jestテストを実行
+- `npm run jest:watch` – Jestを監視
+- `npm run test` – `jest`、`prettier:check`、`lint`、`typecheck` スクリプトを実行
+- `npm run storybook` – StoryBookの開発サーバーを開始
+- `npm run prettier:write` – formats all files with Prettier
 
 ## フォルダ構成
 
