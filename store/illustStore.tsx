@@ -13,6 +13,7 @@ type illustState = {
     title: string;
     user_id: number;
     caption: string;
+    tags: [number];
     created_at: string;
     updated_at: string;
   };
@@ -26,6 +27,7 @@ export const useIllust = create<illustState>()(() => ({
     title: '',
     user_id: 0,
     caption: '',
+    tags: [0],
     created_at: '',
     updated_at: '',
   },
