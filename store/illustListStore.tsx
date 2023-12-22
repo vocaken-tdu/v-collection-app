@@ -6,7 +6,6 @@ const apiUrl = 'https://django-render-vam9.onrender.com';
 // -------- イラスト一覧を取得する
 
 type illustListState = {
-  isFetched: boolean,
   illustList: [
     {
       id: number;
@@ -19,10 +18,10 @@ type illustListState = {
       updated_at: string;
     },
   ];
+  isFetched: () => boolean;
 };
 
 export const useIllustList = create<illustListState>()(() => ({
-  isFetched: false,
   illustList: [
     {
       id: 0,
@@ -35,6 +34,11 @@ export const useIllustList = create<illustListState>()(() => ({
       updated_at: '',
     },
   ],
+  isFetched: () => {
+    // イラストリストが取得済みかどうかを判定
+    const list: number = useIllustList.getState().illustList.length;
+    return list > 1;
+  },
 }));
 
 export const setIllustList = async () => {
@@ -42,9 +46,9 @@ export const setIllustList = async () => {
     const response: AxiosResponse = await axios.get(`${apiUrl}/illustrations/`);
     const data = response.data.sort((a: any, b: any) => b.id - a.id);
     useIllustList.setState({ illustList: data });
-    useIllustList.setState({ isFetched: true });
     console.log('illustListData is fetched!');
   };
-  const fetchState = useIllustList.getState().illustList;
-  fetchState.length < 2 ? fetch() : console.log('Data is already fetched!');
+  // 取得状態がfalseのときのみ取得
+  const isFetched = useIllustList.getState().isFetched();
+  isFetched ? console.log('Data is already fetched!') : fetch();
 };
