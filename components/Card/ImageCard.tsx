@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useLayoutEffect, useRef } from 'react';
-import { Card, Text, Group, Image } from '@mantine/core';
+import { Card, Text, Group, Image, Paper, Divider } from '@mantine/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useIllustList, setIllustList } from '@/store/illustListStore';
@@ -83,6 +83,15 @@ export function ImageCard() {
                 </div>
               ))}
           </div>
+          {/* イラストがない場合は公開予定であることを表示 */}
+          {illusts.filter((illust) => illust.tags.includes(tag.id)).length === 0 && (
+            <Paper shadow="lg" radius="md" p={64} variant="light" className="text-center">
+              <Text size="xl">近日公開</Text>
+              <Text size="sm" mt={16} c="dimmed">
+                公開までしばらくお待ちください。
+              </Text>
+            </Paper>
+          )}
         </div>
       ))}
     </>
