@@ -84,3 +84,10 @@
 .artist {
   color: var(--mantine-color-dark-2);
 }
+
+.flowShape {
+  min-width: 1080px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
