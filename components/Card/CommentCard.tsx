@@ -55,8 +55,8 @@ export function CommentCard({
   const isLiked = (id: number) => likeList.includes(id);
 
   return (
-    <ScrollArea className={`${classes.scrollArea}`} h={height}>
-      <SimpleGrid cols={1} spacing="md" className={`${classes.r}`}>
+    <ScrollArea className={classes.scrollArea} h={height}>
+      <SimpleGrid cols={1} spacing="md" className={classes.r}>
         <h2 className="text-xl text-center mt-5 mb-1">
           {/* コメントがないとき and フォームが表示されている場合に コメントを促す */}
           {!comments.length && isFormVisible ? '↓でコメントしてみよう！' : 'このコメントがアツい！'}
@@ -70,7 +70,7 @@ export function CommentCard({
                   <Text pt="sm" fz="sm">
                     {comment.user_name}
                   </Text>
-                  <Text pt="sm" fz="xs" c="dimmed">
+                  <Text pt="sm" fz="xs" c="dimmed" mt={1}>
                     <GetRelativeTime RawTime={comment.created_at} />
                   </Text>
                 </Group>
