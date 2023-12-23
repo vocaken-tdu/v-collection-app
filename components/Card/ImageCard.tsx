@@ -111,7 +111,7 @@ export function ImageCard() {
                 src={flowShape.src}
                 fit="contain"
                 alt="flowShape"
-                className={`${classes.flowShape} absolute top-0 left-0`}
+                className={classes.flowShape}
               />
               <Text size="xl" fw="bold">
                 近日公開……！
