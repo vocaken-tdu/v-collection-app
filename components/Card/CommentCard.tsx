@@ -10,9 +10,11 @@ import classes from './CommentCard.module.css';
 export function CommentCard({
   illustId,
   isFormVisible,
+  height,
 }: {
   illustId: number;
   isFormVisible: boolean;
+  height: number;
 }) {
   // 処理中かどうかを記録
   const [isProcess, setProcess] = useState(false);
@@ -53,10 +55,10 @@ export function CommentCard({
   const isLiked = (id: number) => likeList.includes(id);
 
   return (
-    <ScrollArea className={classes.scrollArea}>
+    <ScrollArea className={`${classes.scrollArea}`} h={height}>
       <SimpleGrid cols={1} spacing="md" className={`${classes.r}`}>
         <h2 className="text-xl text-center mt-5 mb-1">
-          {/* コメントがないとき and フォームが表示されている場合に lets を出す */}
+          {/* コメントがないとき and フォームが表示されている場合に コメントを促す */}
           {!comments.length && isFormVisible ? '↓でコメントしてみよう！' : 'このコメントがアツい！'}
         </h2>
         {sortedComments.map((comment, i) => (
