@@ -1,30 +1,40 @@
 export function GetRelativeTime({ RawTime }: { RawTime: string }) {
   const time = new Date(RawTime);
 
+  // 年月日を取得
   const year = time.getFullYear();
   const month = time.getMonth() + 1;
   const date = time.getDate();
-  const hour = time.getHours();
-  const minute = time.getMinutes();
 
+  // 時分を取得(0埋め済み)
+  const hourPadded = time.getHours().toString().padStart(2, '0');
+  const minutePadded = time.getMinutes().toString().padStart(2, '0');
+
+  // 現在時刻との差を取得
   const now = new Date();
   const diff = now.getTime() - time.getTime();
   const dayDiff = Math.floor(diff / (24 * 60 * 60 * 1000));
 
+  // 表示する日付を決定
   const showDate = () => {
     if (dayDiff < 0) {
+      // 差分がマイナスの場合は未来
       return '未来';
     }
     if (diff < 60 * 60 * 1000) {
+      // 1時間以内
       return `${Math.floor(diff / (60 * 1000))}分前`;
     }
     if (dayDiff < 1) {
+      // 1日以内
       return `${Math.floor(diff / (60 * 60 * 1000))}時間前`;
     }
     if (dayDiff < 2) {
-      return `昨日 ${hour}:${minute}`;
+      // 2日以内
+      return `昨日 ${hourPadded}:${minutePadded}`;
     }
-    return `${year}/${month}/${date} ${hour}:${minute}`;
+    // それ以外
+    return `${year}/${month}/${date} ${hourPadded}:${minutePadded}`;
   };
 
   return (
