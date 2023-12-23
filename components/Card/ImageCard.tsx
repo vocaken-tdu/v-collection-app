@@ -1,12 +1,14 @@
 'use client';
 
 import React, { useEffect, useLayoutEffect, useRef } from 'react';
-import { Card, Text, Group, Image } from '@mantine/core';
+import { Card, Text, Group, Image, Paper } from '@mantine/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useIllustList, setIllustList } from '@/store/illustListStore';
+import { useTags, setTags } from '@/store/tagsStore';
 import { GetUserName } from '../Tools/GetUserName';
 import classes from './ImageCard.module.css';
+import flowShape from '@/public/flowShape.svg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -35,42 +37,92 @@ export function ImageCard() {
         },
       }
     );
+    gsap.to(
+      '#commingSoon',
+      {
+        y: -100,
+        scrollTrigger: {
+          trigger: '#commingSoon',
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 0.5,
+        },
+      }
+    );
   });
 
   // イラスト(リスト)を取得
   useEffect(() => {
     setIllustList();
+    setTags();
   }, []);
 
   // イラスト(リスト)の状態を取得
   const illusts = useIllustList((state) => state.illustList);
 
+  // タグの状態を取得
+  const tags = useTags((state) => state.tags);
+
   return (
     <>
-      <div className={classes.cards} id="cards" ref={fadeRef}>
-        {illusts.map((illust, i) => (
-          <div key={i} className={classes.wrap}>
-            <Card
-              p="lg"
-              shadow="lg"
-              className={classes.card}
-              radius="md"
-              component="a"
-              href={`/works/${illust.id}`}
-            >
-              <Image className={classes.image} src={illust.illust} alt={illust.caption} />
-              <div className={classes.overlay} />
-            </Card>
-            <div className={`${classes.content} mt-2`}>
-              <Group justify="space-between" gap="xs">
-                <Text size="sm" className={classes.artist}>
-                  <GetUserName userId={illust.user_id} />
-                </Text>
-              </Group>
-            </div>
+      {/* タグを表示 (キーは兄弟間で一意である必要があるため100から開始している) */}
+      {tags.map((tag, tagKey) => (
+        <div key={tagKey + 100} className={classes.tag}>
+          <h2 className="text-3xl flex justify-center mt-20 mb-5">{`― ${tag.name} ―`}</h2>
+          <div className={classes.cards} id="cards" ref={fadeRef}>
+            {/* イラストをタグごとに表示 */}
+            {illusts
+              .filter((illust) => illust.tags.includes(tag.id))
+              .map((illust, illustKey) => (
+                <div key={illustKey} className={classes.wrap}>
+                  <Card
+                    p="lg"
+                    shadow="lg"
+                    className={classes.card}
+                    radius="md"
+                    component="a"
+                    href={`/works/${illust.id}`}
+                  >
+                    <Image className={classes.image} src={illust.illust} alt={illust.caption} />
+                    <div className={classes.overlay} />
+                  </Card>
+                  <div className={`${classes.content} mt-2`}>
+                    <Group justify="space-between" gap="xs">
+                      <Text size="sm" className={classes.artist}>
+                        <GetUserName userId={illust.user_id} />
+                      </Text>
+                    </Group>
+                  </div>
+                </div>
+              ))}
           </div>
-        ))}
-      </div>
+          {/* イラストがない場合は公開予定であることを表示 */}
+          {illusts.filter((illust) => illust.tags.includes(tag.id)).length === 0 && (
+            // 背景にflowShapeを使用
+            <Paper
+              shadow="lg"
+              radius="md"
+              p={64}
+              variant="light"
+              className="text-center relative overflow-hidden"
+            >
+              <Image
+                id="commingSoon"
+                src={flowShape.src}
+                fit="contain"
+                alt="flowShape"
+                className={`${classes.flowShape} absolute top-0 left-0`}
+              />
+              <Text size="xl" fw="bold">
+                近日公開……！
+              </Text>
+              <Text size="sm" mt={16} c="dimmed">
+                公開までしばらくお待ちください。
+              </Text>
+            </Paper>
+          )}
+        </div>
+      ))}
     </>
   );
 }

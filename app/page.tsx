@@ -9,7 +9,6 @@ export default function Home() {
       <Shape20 size="full" />
       <MainVisual />
       <Container size="xl" className="mt-40 mb-64">
-        <h2 className="text-3xl flex justify-center my-5">クリスマス</h2>
         <ImageCard />
       </Container>
     </>
