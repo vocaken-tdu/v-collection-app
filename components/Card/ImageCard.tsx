@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useLayoutEffect, useRef } from 'react';
-import { Card, Text, Group, Image, Paper, Divider } from '@mantine/core';
+import { Card, Text, Group, Image, Paper } from '@mantine/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useIllustList, setIllustList } from '@/store/illustListStore';
@@ -55,7 +55,7 @@ export function ImageCard() {
       {/* タグを表示 (キーは兄弟間で一意である必要があるため100から開始している) */}
       {tags.map((tag, tagKey) => (
         <div key={tagKey + 100} className={classes.tag}>
-          <h2 className="text-3xl flex justify-center mt-20 mb-5">{tag.name}</h2>
+          <h2 className="text-3xl flex justify-center mt-20 mb-5">{`― ${tag.name} ―`}</h2>
           <div className={classes.cards} id="cards" ref={fadeRef}>
             {/* イラストをタグごとに表示 */}
             {illusts
