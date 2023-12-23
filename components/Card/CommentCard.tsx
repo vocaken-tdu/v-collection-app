@@ -55,7 +55,6 @@ export function CommentCard({
   const isLiked = (id: number) => likeList.includes(id);
 
   return (
-    // isFormVisible のときにclasses.cfをつける
     <ScrollArea className={`${classes.scrollArea}`} h={height}>
       <SimpleGrid cols={1} spacing="md" className={`${classes.r}`}>
         <h2 className="text-xl text-center mt-5 mb-1">
