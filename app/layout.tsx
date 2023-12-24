@@ -10,9 +10,29 @@ import '@mantine/notifications/styles.css';
 import { Header } from '@/components/Nav/Header';
 import { FooterLinks } from '@/components/Footer/FooterLinks';
 
+const title = 'VOCALOID CLUB COLLECTION 2024';
+const siteName = 'VOCALOID CLUB COLLECTION';
+const description = 'Vコレ特設Webサイト';
+const url = 'https://v-collection.vocakentdu.com/';
+
 export const metadata = {
-  title: 'VOCALOID CLUB COLLECTION 2024',
-  description: 'Vコレ特設Webサイト',
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url,
+    siteName,
+    locale: 'ja_JP',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+    site: '@vocaken_tdu',
+    creator: '@vocaken_tdu',
+  },
 };
 
 export default function RootLayout({ children }: { children: any }) {
