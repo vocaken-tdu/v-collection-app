@@ -6,6 +6,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { theme } from '@/theme';
 import './globals.css';
 import '@mantine/notifications/styles.css';
+import ogpImage from '@/public/opengraph-image.png';
 
 import { Header } from '@/components/Nav/Header';
 import { FooterLinks } from '@/components/Footer/FooterLinks';
@@ -25,6 +26,15 @@ export const metadata = {
     siteName,
     locale: 'ja_JP',
     type: 'website',
+    images: [
+      {
+        type: 'image/png',
+        url: ogpImage.src,
+        width: 1200,
+        height: 630,
+        alt: title,
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
@@ -44,6 +54,8 @@ export default function RootLayout({ children }: { children: any }) {
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
         />
+        {/* OGP */}
+
         {/* インデックスさせない */}
         <meta name="robots" content="noindex" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
