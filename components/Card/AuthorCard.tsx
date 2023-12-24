@@ -13,7 +13,7 @@ export function AuthorCard() {
 
   return (
     <>
-      <Skeleton height={102} visible={!isFetched}>
+      <Skeleton visible={!isFetched}>
         <Paper withBorder radius="md" className={classes.comment}>
           <Group>
             <Text fz="lg">
