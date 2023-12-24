@@ -6,7 +6,6 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { theme } from '@/theme';
 import './globals.css';
 import '@mantine/notifications/styles.css';
-import ogpImage from '@/public/opengraph-image.png';
 
 import { Header } from '@/components/Nav/Header';
 import { FooterLinks } from '@/components/Footer/FooterLinks';
@@ -29,7 +28,7 @@ export const metadata = {
     images: [
       {
         type: 'image/png',
-        url: ogpImage.src,
+        url: '/opengraph-image.png',
         width: 1200,
         height: 630,
         alt: title,
