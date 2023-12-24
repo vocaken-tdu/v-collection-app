@@ -1,5 +1,6 @@
 import { Button, Text, Group, Paper, SimpleGrid, ScrollArea } from '@mantine/core';
 import { IconHeartFilled, IconHeart } from '@tabler/icons-react';
+import gsap from 'gsap';
 import { useEffect, useState } from 'react';
 import { useCommentList, setCommentList } from '@/store/commentListStore';
 import { useLike, setLike } from '@/store/likeStore';
@@ -54,16 +55,42 @@ export function CommentCard({
   // いいねされているかどうかの判定
   const isLiked = (id: number) => likeList.includes(id);
 
+  // コメントが取得し終わったらGSAP実行
+  useEffect(() => {
+    // GSAPでコメントを右からスライドインさせる
+    if (document.getElementById('comment')) {
+      gsap.fromTo(
+        '#comment',
+        {
+          x: 48,
+          opacity: 0,
+        },
+        {
+          duration: 0.5,
+          x: 0,
+          opacity: 1,
+          stagger: 0.05,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: '#comments',
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+          },
+        }
+      );
+    }
+  }, [rawComments]);
+
   return (
     <ScrollArea className={classes.scrollArea} h={height}>
       <SimpleGrid cols={1} spacing="md" className={classes.r}>
-        <h2 className="text-xl text-center mt-5 mb-1">
+        <h2 className="text-xl text-center mt-5 mb-1" id="comments">
           {/* コメントがないとき and フォームが表示されている場合に コメントを促す */}
           {!comments.length && isFormVisible ? '↓でコメントしてみよう！' : 'このコメントがアツい！'}
         </h2>
         {sortedComments.map((comment, i) => (
           <div key={i}>
-            <Paper withBorder px="xl" py="lg" radius="md">
+            <Paper withBorder px="xl" py="lg" radius="md" id="comment">
               <Text size="sm">{comment.text}</Text>
               <div className="flex justify-between">
                 <Group>
