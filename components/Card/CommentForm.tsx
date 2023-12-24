@@ -3,7 +3,7 @@ import { useForm } from '@mantine/form';
 import classes from './CommentForm.module.css';
 import { setComment } from '../../store/commentFormStore';
 import { useMyName } from '../../store/userNameStore';
-import kami from "@/public/hikouki.png";
+import kami from "@/public/send.svg";
 
 export function CommentForm({ illustId }: { illustId: number }) {
   // コメントフォームの状態を管理
@@ -53,7 +53,7 @@ export function CommentForm({ illustId }: { illustId: number }) {
             classNames={{ input: classes.input, label: classes.inputLabel }}
             {...form.getInputProps('name')}
           />
-          <Button type="submit" className={classes.control}>
+          <Button type="submit" variant="gradient" gradient={{ from: '#1c7ed6', to: '#8DD9F9', deg: 45 }} className={classes.control}>
             コメントを送る
             <Image 
               id="commingSoon"
