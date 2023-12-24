@@ -28,7 +28,7 @@ export const metadata = {
     images: [
       {
         type: 'image/png',
-        url: '/opengraph-image.png',
+        url: 'https://v-collection.vocakentdu.com/opengraph-image.png',
         width: 1200,
         height: 630,
         alt: title,
