@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: any }) {
       <body>
         <MantineProvider theme={theme}>
           <Header />
-          <Notifications />
+          <Notifications position="top-right" autoClose={6000} />
           {children}
           <FooterLinks />
         </MantineProvider>

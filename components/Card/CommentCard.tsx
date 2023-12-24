@@ -1,4 +1,5 @@
 import { Button, Text, Group, Paper, SimpleGrid, ScrollArea } from '@mantine/core';
+import { notifications } from '@mantine/notifications';
 import { IconHeartFilled, IconHeart } from '@tabler/icons-react';
 import gsap from 'gsap';
 import { useEffect, useState } from 'react';
@@ -34,10 +35,32 @@ export function CommentCard({
   // いいねの状態を取得
   const likeList = useLike((state) => state.commentId);
 
+  // 通知を表示する
+  const caution = () => {
+    notifications.show({
+      color: 'pink',
+      radius: 'md',
+      title: 'いいねクールダウン中',
+      message: '押し過ぎはダメなのだ！ 絶対なのだ！',
+    });
+    setTimeout(() => {
+      notifications.show({
+        color: 'green',
+        radius: 'md',
+        title: 'ずんだもんからのお願い',
+        message: '落ち着いて押すのだ……。',
+      });
+    }, 750);
+  };
+
   // いいねの状態を切り替える(クールダウンあり)
   const switchLike = (commentId: number) => () => {
     // 処理中は無視
-    if (isProcess) return console.log('process is running...');
+    if (isProcess) {
+      // 注意を表示
+      caution();
+      return console.log('process is running...');
+    }
 
     // 処理中にする
     setProcess(true);
