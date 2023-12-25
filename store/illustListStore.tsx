@@ -46,7 +46,6 @@ export const setIllustList = async () => {
     const response: AxiosResponse = await axios.get(`${apiUrl}/illustrations/`);
     const dataWinter = response.data.filter((item: any) => item.tags.includes(1));
     const data = dataWinter.sort((a: any, b: any) => b.id - a.id);
-    console.log(data);
     useIllustList.setState({ illustList: data });
     console.log('illustListData is fetched!');
   };
