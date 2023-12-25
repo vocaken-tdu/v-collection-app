@@ -22,6 +22,13 @@
   }
 }
 
+.tag h2 {
+  color: #393939;
+  font-weight: 700;
+  /* italicだと斜めすぎるので */
+  transform: skew(-8deg);
+}
+
 .card {
   position: relative;
   height: auto;
@@ -76,4 +83,11 @@
 
 .artist {
   color: var(--mantine-color-dark-2);
+}
+
+.flowShape {
+  min-width: 1080px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }

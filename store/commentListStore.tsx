@@ -8,7 +8,6 @@ const apiUrl = 'https://django-render-vam9.onrender.com';
 // 一旦仮ですべてのコメントを取得してます
 
 type commentListState = {
-  isFetched: boolean;
   commentList: [
     {
       id: number;
@@ -20,10 +19,10 @@ type commentListState = {
       updated_at: string;
     },
   ];
+  isFetched: () => boolean;
 };
 
 export const useCommentList = create<commentListState>()(() => ({
-  isFetched: false,
   commentList: [
     {
       id: 0,
@@ -35,6 +34,11 @@ export const useCommentList = create<commentListState>()(() => ({
       updated_at: '',
     },
   ],
+  isFetched: () => {
+    // コメントリストが取得済みかどうかを判定
+    const list: number = useCommentList.getState().commentList.length;
+    return list > 1;
+  },
 }));
 
 // -------- コメントを取得する(初回)
@@ -43,11 +47,11 @@ export const setCommentList = async () => {
   const fetch = async () => {
     const response: AxiosResponse = await axios.get(`${apiUrl}/comments/`);
     useCommentList.setState({ commentList: response.data });
-    useCommentList.setState({ isFetched: true });
     console.log('commentListData is fetched!');
   };
-  const fetchState = useCommentList.getState().commentList;
-  fetchState.length < 2 ? fetch() : console.log('commentData is already fetched!');
+  // 取得状態がfalseのときのみ取得
+  const isFetched = useCommentList.getState().isFetched();
+  isFetched ? console.log('commentData is already fetched!') : fetch();
 };
 
 // -------- コメントを更新する

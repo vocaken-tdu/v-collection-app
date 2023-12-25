@@ -6,28 +6,34 @@ const apiUrl = 'https://django-render-vam9.onrender.com';
 // -------- イラストを取得する
 
 type illustState = {
-  isFetched: boolean;
   illust: {
     id: number;
     illust: string;
     title: string;
     user_id: number;
     caption: string;
+    tags: [number];
     created_at: string;
     updated_at: string;
   };
+  isFetched: () => boolean;
 };
 
 export const useIllust = create<illustState>()(() => ({
-  isFetched: false,
   illust: {
     id: 0,
     illust: '',
     title: '',
     user_id: 0,
     caption: '',
+    tags: [0],
     created_at: '',
     updated_at: '',
+  },
+  isFetched: () => {
+    // イラストデータが取得済みかどうかを判定
+    const illustId: number = useIllust.getState().illust.id;
+    return illustId !== 0;
   },
 }));
 
@@ -35,9 +41,9 @@ export const setIllust = async (illustId: number) => {
   const fetch = async () => {
     const response: AxiosResponse = await axios.get(`${apiUrl}/illustrations/${illustId}`);
     useIllust.setState({ illust: response.data });
-    useIllust.setState({ isFetched: true });
     console.log('illustData is fetched!');
   };
-  const fetchState = useIllust.getState().illust;
-  fetchState ? fetch() : console.log('illustData is already fetched!');
+  // 取得状態がfalseのときのみ取得
+  const isFetched = useIllust.getState().isFetched();
+  isFetched ? console.log('illustData is already fetched!') : fetch();
 };

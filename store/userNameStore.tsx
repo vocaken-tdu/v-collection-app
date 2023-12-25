@@ -13,7 +13,7 @@ type myNameState = {
 export const useMyName = create<myNameState>()(
   // 永続化オプション
   persist(
-    (): myNameState => ({
+    () => ({
       name: '',
     }),
     {
@@ -31,27 +31,30 @@ type userNameState = {
       name: string;
     },
   ];
+  isFetched: () => boolean;
 };
 
-export const useUserName = create<userNameState>()(
-  // 永続化オプション
-  persist(
-    (): userNameState => ({
-      user: [
-        {
-          id: 0,
-          name: '',
-        },
-      ],
-    }),
+export const useUserName = create<userNameState>()(() => ({
+  user: [
     {
-      name: 'userNameStore',
-    }
-  )
+      id: 0,
+      name: '',
+    },
+  ],
+  isFetched: () => {
+    // ユーザーデータが取得済みかどうかを判定
+    const list: number = useUserName.getState().user.length;
+    return list > 1;
+  },
+})
 );
 
 export const setUserName = async () => {
-  const response: AxiosResponse = await axios.get(`${apiUrl}/user/`);
-  useUserName.setState({ user: response.data });
-  console.log('userName is fetched!');
+  const fetch = async () => {
+    const response: AxiosResponse = await axios.get(`${apiUrl}/user/`);
+    useUserName.setState({ user: response.data });
+    console.log('userName is fetched!');
+  };
+  // 取得状態がfalseのときのみ取得
+  useUserName.getState().isFetched() ? console.log('userName is already fetched!') : fetch();
 };

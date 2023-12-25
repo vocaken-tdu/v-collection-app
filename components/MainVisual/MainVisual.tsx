@@ -27,8 +27,8 @@ export function MainVisual() {
   // イラスト(リスト)の状態を取得
   const illusts = useIllustList((state) => state.illustList);
 
-  // 取得済みかどうかを判定
-  const isFetched = useIllustList((state) => state.isFetched);
+  // 取得済みかどうかを判定 (読み込み中のSkeletonに使用)
+  const isFetched = useIllustList((state) => state.isFetched());
 
   return (
     <Container size="xl" className={`${classes.main} h-screen overflow-hidden`}>

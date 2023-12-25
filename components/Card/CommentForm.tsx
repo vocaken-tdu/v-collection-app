@@ -1,8 +1,9 @@
-import { Textarea, Button, Group, Paper, TextInput } from '@mantine/core';
+import { Textarea, Button, Group, Paper, TextInput, Image } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import classes from './CommentForm.module.css';
 import { setComment } from '../../store/commentFormStore';
 import { useMyName } from '../../store/userNameStore';
+import kami from '@/public/send.svg';
 
 export function CommentForm({ illustId }: { illustId: number }) {
   // コメントフォームの状態を管理
@@ -52,8 +53,14 @@ export function CommentForm({ illustId }: { illustId: number }) {
             classNames={{ input: classes.input, label: classes.inputLabel }}
             {...form.getInputProps('name')}
           />
-          <Button type="submit" className={classes.control}>
-            コメントを送る
+          <Button
+            type="submit"
+            variant="gradient"
+            gradient={{ from: '#1c7ed6', to: '#8DD9F9', deg: 45 }}
+            className={classes.control}
+          >
+            コメント送信
+            <Image id="commingSoon" src={kami.src} fit="contain" className={classes.kami} />
           </Button>
         </Group>
         <Textarea

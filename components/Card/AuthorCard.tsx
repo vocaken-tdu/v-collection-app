@@ -9,7 +9,7 @@ export function AuthorCard() {
   const illust = useIllust((state) => state.illust);
 
   // 取得済みかどうかを判定
-  const isFetched = useIllust((state) => state.isFetched);
+  const isFetched = useIllust((state) => state.isFetched());
 
   return (
     <>
