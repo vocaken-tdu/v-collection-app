@@ -5,10 +5,9 @@ import { updateCommentList } from '@/store/commentListStore';
 
 const apiUrl = 'https://django-render-vam9.onrender.com';
 
-// -------- コメントの状態管理
+// -------- 未送信コメントをローカルに保存する (送信できなかった場合に備える)
 
 type commentState = {
-  userName: string;
   comment: string;
 };
 
@@ -16,7 +15,6 @@ export const useComment = create<commentState>()(
   // 永続化オプション
   persist(
     () => ({
-      userName: '',
       comment: '',
     }),
     {
@@ -25,37 +23,34 @@ export const useComment = create<commentState>()(
   )
 );
 
-/* コメントを保存する (未実装)
-export const saveComment = async (comment: string, userName: string) => {
-  useComment.setState({
-    userName,
-    comment,
-  });
-};
-
-コメントを復元する
-export const restoreComment = async () => {
-  useComment.getState();
-};
-*/
-
 // コメントを送信する
 export const setComment = async (illust_id: number, name: string, comment: string) => {
+  // コメントを送信する
   const postComment = async (id: number) => {
+    // ローカルデータを更新
+    useComment.setState({
+      comment,
+    });
+
+    // コメントを送信
     const res = await axios.post(`${apiUrl}/comments/`, {
       text: comment,
       user_name: name,
       illust_id: id,
     });
+
+    // 送信が完了したら以下の処理を実行
+
     console.log('Comment sent!', res);
+
+    // ローカルデータを削除
+    useComment.setState({
+      comment: '',
+    });
+
+    // コメント一覧を更新
+    updateCommentList();
   };
 
   postComment(illust_id);
-  updateCommentList();
-
-  // ローカルデータを削除
-  useComment.setState({
-    userName: '',
-    comment: '',
-  });
 };
