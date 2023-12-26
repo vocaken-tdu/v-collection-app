@@ -1,6 +1,9 @@
+import { rem } from '@mantine/core';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import axios from 'axios';
+import { notifications } from '@mantine/notifications';
+import { IconCheck } from '@tabler/icons-react';
 import { updateCommentList } from '@/store/commentListStore';
 
 const apiUrl = 'https://django-render-vam9.onrender.com';
@@ -25,12 +28,40 @@ export const useComment = create<commentState>()(
 
 // コメントを送信する
 export const setComment = async (illust_id: number, name: string, comment: string) => {
+  // 送信中の通知を表示
+  const sending = () => {
+    notifications.show({
+      id: 'sending',
+      loading: true,
+      autoClose: false,
+      radius: 'md',
+      title: `${name}さんのコメントを送信中……`,
+      message: comment,
+    });
+  };
+
+  // 送信完了の通知を表示
+  const sent = () => {
+    notifications.update({
+      id: 'sending',
+      color: 'teal',
+      title: '送信しました！',
+      message: comment,
+      icon: <IconCheck style={{ width: rem(18), height: rem(18) }} />,
+      loading: false,
+      autoClose: 2000,
+    });
+  };
+
   // コメントを送信する
   const postComment = async (id: number) => {
     // ローカルデータを更新
     useComment.setState({
       comment,
     });
+
+    // 送信中の通知を表示
+    sending();
 
     // コメントを送信
     const res = await axios.post(`${apiUrl}/comments/`, {
@@ -41,6 +72,8 @@ export const setComment = async (illust_id: number, name: string, comment: strin
 
     // 送信が完了したら以下の処理を実行
 
+    // 通知を更新
+    sent();
     console.log('Comment sent!', res);
 
     // ローカルデータを削除
