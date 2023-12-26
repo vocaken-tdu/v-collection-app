@@ -27,37 +27,41 @@ export function ImageCardArtist() {
   return (
     <>
       {/* ユーザーを表示 (キーは兄弟間で一意である必要があるため100から開始している) */}
-      {users.map((user, userKey) =>
-        // イラストをユーザーごとに表示
-        illusts
-          .filter((illust) => illust.user_id === user.id)
-          .map((illust, illustKey) => (
+      {users.map(
+        (user, userKey) =>
+          // 1作品以上イラストを描いているユーザーであれば表示
+          illusts.filter((illust) => illust.user_id === user.id).length > 0 && (
             <div key={userKey + 100} className={`${classes.tag}`}>
               <h2 className="text-3xl flex justify-center mt-20 mb-5">{`― ${user.name} ―`}</h2>
               <div className={classes.cards} id="cards">
-                <div key={illustKey} className={classes.wrap}>
-                  <Card
-                    p="lg"
-                    shadow="lg"
-                    className={classes.card}
-                    radius="md"
-                    component="a"
-                    href={`/works/${illust.id}`}
-                  >
-                    <Image className={classes.image} src={illust.illust} alt={illust.caption} />
-                    <div className={classes.overlay} />
-                  </Card>
-                  <div className={`${classes.content} mt-2`}>
-                    <Group justify="space-between" gap="xs">
-                      <Text size="sm" className={classes.artist}>
-                        <GetUserName userId={illust.user_id} />
-                      </Text>
-                    </Group>
-                  </div>
-                </div>
+                {/* イラストをユーザーごとに表示 */}
+                {illusts
+                  .filter((illust) => illust.user_id === user.id)
+                  .map((illust, illustKey) => (
+                    <div key={illustKey} className={classes.wrap} id="card">
+                      <Card
+                        p="lg"
+                        shadow="lg"
+                        className={classes.card}
+                        radius="md"
+                        component="a"
+                        href={`/works/${illust.id}`}
+                      >
+                        <Image className={classes.image} src={illust.illust} alt={illust.caption} />
+                        <div className={classes.overlay} />
+                      </Card>
+                      <div className={`${classes.content} mt-2`}>
+                        <Group justify="space-between" gap="xs">
+                          <Text size="sm" className={classes.artist}>
+                            <GetUserName userId={illust.user_id} />
+                          </Text>
+                        </Group>
+                      </div>
+                    </div>
+                  ))}
               </div>
             </div>
-          ))
+          )
       )}
     </>
   );
