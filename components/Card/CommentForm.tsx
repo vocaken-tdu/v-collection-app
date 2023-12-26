@@ -1,7 +1,7 @@
 import { Textarea, Button, Group, Paper, TextInput, Image } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import classes from './CommentForm.module.css';
-import { setComment } from '../../store/commentFormStore';
+import { useComment, setComment } from '../../store/commentFormStore';
 import { useMyName } from '../../store/userNameStore';
 import kami from '@/public/send.svg';
 
@@ -9,8 +9,9 @@ export function CommentForm({ illustId }: { illustId: number }) {
   // コメントフォームの状態を管理
   const form = useForm({
     initialValues: {
+      // 入力したことがあれば名前と送信できなかったコメントを復元
       name: useMyName((state) => state.name),
-      comment: '',
+      comment: useComment((state) => state.comment),
     },
     validate: {
       name: (val) => (val.length > 0 ? undefined : ''),
