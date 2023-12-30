@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import axios, { AxiosResponse } from 'axios';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+const visibleSeasonId = process.env.NEXT_PUBLIC_VISIBLE_SEASON_ID;
 
 // -------- イラスト一覧を取得する
 
@@ -44,7 +45,8 @@ export const useIllustList = create<illustListState>()(() => ({
 export const setIllustList = async () => {
   const fetch = async () => {
     const response: AxiosResponse = await axios.get(`${apiUrl}/illustrations/`);
-    const data = response.data.sort((a: any, b: any) => b.id - a.id);
+    const dataFilter = response.data.filter((item: any) => item.tags[0] <= (visibleSeasonId || 0));
+    const data = dataFilter.sort((a: any, b: any) => b.id - a.id);
     useIllustList.setState({ illustList: data });
     console.log('illustListData is fetched!');
   };
