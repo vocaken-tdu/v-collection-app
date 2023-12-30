@@ -6,7 +6,7 @@ import { notifications } from '@mantine/notifications';
 import { IconCheck } from '@tabler/icons-react';
 import { updateCommentList } from '@/store/commentListStore';
 
-const apiUrl = 'https://django-render-vam9.onrender.com';
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 // -------- 未送信コメントをローカルに保存する (送信できなかった場合に備える)
 

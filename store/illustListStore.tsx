@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import axios, { AxiosResponse } from 'axios';
 
-const apiUrl = 'https://django-render-vam9.onrender.com';
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 // -------- イラスト一覧を取得する
 
