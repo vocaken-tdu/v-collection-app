@@ -66,7 +66,33 @@ export function CommentForm({ illustId }: { illustId: number }) {
         </Group>
         <Textarea
           variant="filled"
-          label="メッセージ"
+          label={
+            <Group className="items-center">
+              <div>メッセージ</div>
+              <Group justify="space-between" gap={8}>
+                <Progress
+                  w={100}
+                  mt={1}
+                  radius="md"
+                  value={form.values.comment.length / 1.4} // 140文字を100%として計算
+                  color={
+                    form.values.comment.length < 130 // 1～129文字 青
+                      ? 'blue'
+                      : form.values.comment.length < 140 // 130～139文字 黄
+                        ? 'yellow'
+                        : 'pink' // 140文字以上 ピンク
+                  }
+                />
+                <Text // 130文字を超えたら表示 140文字を超えたらredに
+                  size="xs"
+                  ta="center"
+                  c={form.values.comment.length >= 140 ? 'red' : 'gray'}
+                >
+                  {form.values.comment.length >= 130 && 140 - form.values.comment.length}
+                </Text>
+              </Group>
+            </Group>
+          }
           placeholder="コメントを入力(2～140文字)"
           autosize
           minRows={2}
