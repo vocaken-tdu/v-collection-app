@@ -1,4 +1,4 @@
-import { Textarea, Button, Group, Paper, TextInput, Image } from '@mantine/core';
+import { Textarea, Button, Group, Paper, TextInput, Image, Text, Progress } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import classes from './CommentForm.module.css';
 import { useComment, setComment } from '../../store/commentFormStore';
@@ -14,8 +14,8 @@ export function CommentForm({ illustId }: { illustId: number }) {
       comment: useComment((state) => state.comment),
     },
     validate: {
-      name: (val) => (val.length > 0 ? undefined : ''),
-      comment: (val) => (val.length > 1 ? undefined : ''),
+      name: (val) => (val.length > 0 ? undefined : '1文字以上入力してください'),
+      comment: (val) => (val.length > 1 ? undefined : '2文字以上入力してください'),
     },
   });
 
@@ -68,7 +68,9 @@ export function CommentForm({ illustId }: { illustId: number }) {
           variant="filled"
           label="メッセージ"
           placeholder="コメントを入力(2～140文字)"
-          minRows={4}
+          autosize
+          minRows={2}
+          maxRows={8}
           mt="xs"
           className={classes.textarea}
           {...form.getInputProps('comment')}
