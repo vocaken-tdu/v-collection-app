@@ -4,6 +4,9 @@ import { Text, Container, ActionIcon, Group, Button, rem } from '@mantine/core';
 import { IconBrandTwitterFilled, IconArrowBack } from '@tabler/icons-react';
 import classes from './FooterLinks.module.css';
 
+const url = process.env.NEXT_PUBLIC_BASE_URL;
+const text = 'Vコレを一緒に盛り上げよう！';
+
 //呼び出されたら出力する場所
 export function FooterLinks() {
   return (
@@ -47,7 +50,7 @@ export function FooterLinks() {
                 <Group gap={8} className={classes.social} wrap="nowrap" justify="flex-start">
                   <ActionIcon size="lg" color="dark" variant="subtle">
                     <a
-                      href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+                      href={`https://twitter.com/share?url=${url}&text=${text}`}
                       className={classes.icon}
                     >
                       <IconBrandTwitterFilled style={{ width: 20, height: 20 }} stroke={1.5} />
