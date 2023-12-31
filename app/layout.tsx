@@ -69,7 +69,7 @@ export default function RootLayout({ children }: { children: any }) {
         <MantineProvider theme={theme}>
           <Header />
           <Notifications position="top-right" autoClose={6000} />
-          {children}
+          <main>{children}</main>
           <FooterLinks />
         </MantineProvider>
       </body>
