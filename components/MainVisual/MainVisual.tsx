@@ -1,7 +1,7 @@
 'use client';
 
-import { useLayoutEffect, useRef } from 'react';
-import { Image, Container, Group, Skeleton } from '@mantine/core';
+import { useEffect, useRef } from 'react';
+import { Image, Container, Group } from '@mantine/core';
 import { gsap } from 'gsap';
 import logo from '@/public/Logo.webp';
 import dummy from '@/public/dummy.svg';
@@ -12,8 +12,25 @@ export function MainVisual() {
   const boxRef = useRef(null);
   const rand = Math.random();
 
-  // アニメーション
-  useLayoutEffect(() => {
+  // イラスト(リスト)の状態を取得
+  const illusts = useIllustList((state) => state.illustList);
+
+  // 取得済みかどうかを判定 (読み込み中のSkeletonに使用)
+  const isFetched = useIllustList((state) => state.isFetched());
+
+  useEffect(() => {
+    gsap.fromTo(
+      boxRef.current,
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        duration: 0.4,
+        ease: 'sine.inOut',
+      }
+    );
+
     // 上下に動くアニメーション
     gsap.to(boxRef.current, {
       y: '+=12',
@@ -23,12 +40,6 @@ export function MainVisual() {
       yoyo: true,
     });
   });
-
-  // イラスト(リスト)の状態を取得
-  const illusts = useIllustList((state) => state.illustList);
-
-  // 取得済みかどうかを判定 (読み込み中のSkeletonに使用)
-  const isFetched = useIllustList((state) => state.isFetched());
 
   return (
     <Container size="xl" className={`${classes.main} h-screen overflow-hidden`}>
@@ -48,13 +59,11 @@ export function MainVisual() {
         </div>
         {/*メインイラスト*/}
         <div id="randomImage" className="rotate-3" ref={boxRef}>
-          <Skeleton visible={!isFetched}>
-            <Image
-              className={classes.image}
-              src={`${isFetched ? illusts[Math.floor(rand * illusts.length)].illust : dummy.src}`}
-              alt="Vコレのイラスト(ランダムで表示)"
-            />
-          </Skeleton>
+          <Image
+            className={`${classes.image} ${isFetched || 'opacity-0'}`}
+            src={`${isFetched ? illusts[Math.floor(rand * illusts.length)].illust : dummy.src}`}
+            alt="Vコレのイラスト(ランダムで表示)"
+          />
         </div>
 
         {/*ロゴ2*/}

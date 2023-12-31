@@ -19,17 +19,6 @@ export function CommentForm({ illustId }: { illustId: number }) {
     },
   });
 
-  /* コメントを保存する (未実装)
-  useEffect(() => {
-    restoreComment((state) =>
-      form.setValues({
-        name: state.userName,
-        comment: state.comment,
-      })
-    );
-  }, []);
-  */
-
   // コメントを送信する
   const sendComment = async () => {
     // 送信処理

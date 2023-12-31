@@ -12,7 +12,8 @@ h6 {
   font-weight: inherit;
 }
 
-h2, h3 {
+h2,
+h3 {
   font-weight: bold;
   color: #333;
 }
@@ -25,4 +26,8 @@ a {
 b,
 strong {
   font-weight: bolder;
+}
+
+main {
+  min-height: 100vh;
 }

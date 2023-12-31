@@ -1,3 +1,5 @@
+'use client';
+
 import { Button, Text, Group, Paper, SimpleGrid, ScrollArea } from '@mantine/core';
 import { notifications } from '@mantine/notifications';
 import { IconHeartFilled, IconHeart } from '@tabler/icons-react';

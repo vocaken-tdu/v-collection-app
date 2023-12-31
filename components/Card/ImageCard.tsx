@@ -25,9 +25,8 @@ export function ImageCard() {
     setTags();
   }, []);
 
-  // アニメーション
   useEffect(() => {
-    // 上下に動くアニメーション
+    // 下からフェードインするアニメーション
     if (document.getElementById('card')) {
       gsap.fromTo(
         '#card',
@@ -68,7 +67,9 @@ export function ImageCard() {
       {/* タグを表示 (キーは兄弟間で一意である必要があるため100から開始している) */}
       {tags.map((tag, tagKey) => (
         <div key={tagKey + 100} className={classes.tag}>
-          <h2 className="text-3xl flex justify-center mt-20 mb-8">{`― ${tag.name} ―`}</h2>
+          <h2 className="text-3xl flex justify-center mt-20 mb-8">
+            {tag.name ? `― ${tag.name} ―` : 'Now Loading...'}
+          </h2>
           <div className={classes.cards} id="cards">
             {/* イラストをタグごとに表示 */}
             {illusts
