@@ -10,10 +10,10 @@ import '@mantine/notifications/styles.css';
 import { Header } from '@/components/Nav/Header';
 import { FooterLinks } from '@/components/Footer/FooterLinks';
 
-const title = 'VOCALOID CLUB COLLECTION 2024';
-const siteName = 'VOCALOID CLUB COLLECTION';
-const description = 'Vコレ特設Webサイト';
-const url = 'https://v-collection.vocakentdu.com/';
+const title = process.env.NEXT_PUBLIC_SITE_TITLE;
+const siteName = process.env.NEXT_PUBLIC_SITE_NAME;
+const description = process.env.NEXT_PUBLIC_SITE_DESCRIPTION;
+const url = process.env.NEXT_PUBLIC_BASE_URL;
 
 export const metadata = {
   title,

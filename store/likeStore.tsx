@@ -3,7 +3,7 @@ import { persist } from 'zustand/middleware';
 import axios, { AxiosResponse } from 'axios';
 import { updateCommentList } from '@/store/commentListStore';
 
-const apiUrl = 'https://django-render-vam9.onrender.com';
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 // -------- いいねを押したかどうかを記録する
 
