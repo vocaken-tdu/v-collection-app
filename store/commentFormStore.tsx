@@ -26,6 +26,16 @@ export const useComment = create<commentState>()(
   )
 );
 
+// コメントが残っていたらメッセージを表示
+if (useComment.getState().comment.length > 0) {
+  notifications.show({
+    color: 'yellow',
+    radius: 'md',
+    title: '未送信かも……？',
+    message: '送信できなかったかもしれないコメントを復元しました。送れていなかったら再度送信してみてください。',
+  });
+}
+
 // コメントを送信する
 export const setComment = async (illust_id: number, name: string, comment: string) => {
   // 送信中の通知を表示
