@@ -25,9 +25,8 @@ export function ImageCard() {
     setTags();
   }, []);
 
-  // アニメーション
   useEffect(() => {
-    // 上下に動くアニメーション
+    // 下からフェードインするアニメーション
     if (document.getElementById('card')) {
       gsap.fromTo(
         '#card',

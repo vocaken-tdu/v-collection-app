@@ -12,17 +12,42 @@ import classes from './ImageCard.module.css';
 gsap.registerPlugin(ScrollTrigger);
 
 export function ImageCardArtist() {
+  // イラスト(リスト)の状態を取得
+  const illusts = useIllustList((state) => state.illustList);
+
+  // ユーザーの状態を取得
+  const users = useUserName((state) => state.user);
+
   // イラスト(リスト)を取得
   useEffect(() => {
     setIllustList();
     setUserName();
   }, []);
 
-  // イラスト(リスト)の状態を取得
-  const illusts = useIllustList((state) => state.illustList);
-
-  // ユーザーの状態を取得
-  const users = useUserName((state) => state.user);
+  useEffect(() => {
+    // 下からフェードインするアニメーション
+    if (document.getElementById('card')) {
+      gsap.fromTo(
+        '#card',
+        {
+          y: 48,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          stagger: 0.05,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: '#cards',
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+          },
+        }
+      );
+    }
+  }, [illusts, users]);
 
   return (
     <>
