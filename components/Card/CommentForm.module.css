@@ -16,7 +16,7 @@
 }
 
 .namearea {
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: space-between;
   flex-wrap: nowrap;
 }
