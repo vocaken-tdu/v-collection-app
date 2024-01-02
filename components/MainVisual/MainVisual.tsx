@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { Image, Container, Group } from '@mantine/core';
+import { Image, Container, Group, Card } from '@mantine/core';
 import { gsap } from 'gsap';
 import logo from '@/public/Logo.webp';
 import dummy from '@/public/dummy.svg';
@@ -37,7 +37,6 @@ export function MainVisual() {
         ease: 'sine.inOut',
       }
     );
-
     // 上下に動くアニメーション
     gsap.to(boxRef.current, {
       y: '+=12',
@@ -63,14 +62,20 @@ export function MainVisual() {
             <Image className={classes.logo} src={logo.src} alt="Vコレのロゴ" />
           </Group>
         </div>
-        {/*メインイラスト*/}
-        <div id="randomImage" className="rotate-3" ref={boxRef}>
+        {/*ランダムイラスト*/}
+        <Card
+          id="randomImage"
+          className="rotate-3 overflow-visible"
+          ref={boxRef}
+          component="a"
+          href={`/works/${illusts[randId].id}`}
+        >
           <Image
             className={`${classes.image} ${isFetched || 'opacity-0'}`}
             src={`${isFetched ? illusts[randId].illust : dummy.src}`}
             alt="Vコレのイラスト(ランダムで表示)"
           />
-        </div>
+        </Card>
 
         {/*ロゴ2*/}
         <Group mt={64} hiddenFrom="md" justify="center">
