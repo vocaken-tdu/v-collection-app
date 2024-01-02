@@ -4,14 +4,10 @@
   top: 300px;
   left: 0;
   width: 100%;
-  height: calc(100vh + 1200px);
+  height: 200vh;
   z-index: -1;
   overflow: hidden;
   background-position: top;
   background-repeat: repeat;
   aspect-ratio: 288 / 463;
-}
-
-.half {
-  height: min(150vw, 1600px);
 }

@@ -1,10 +1,8 @@
 import { Container, Button, Paper, Group } from '@mantine/core';
-import { Shape20 } from '@/components/Background/Shape20';
 
 export default function Home() {
   return (
     <>
-      <Shape20 size="half" />
       <Container size="xl" className="text-center">
         <h2 className="text-4xl my-40">使い方</h2>
 
