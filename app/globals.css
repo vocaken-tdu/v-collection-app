@@ -36,3 +36,13 @@ main {
 body {
   height: auto;
 }
+
+img {
+  /* 画像ダウンロード禁止 */
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-touch-callout: none;
+  -moz-user-select: none;
+  user-select: none;
+}
