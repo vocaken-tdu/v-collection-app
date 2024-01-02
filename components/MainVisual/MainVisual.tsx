@@ -15,10 +15,17 @@ export function MainVisual() {
   // イラスト(リスト)の状態を取得
   const illusts = useIllustList((state) => state.illustList);
 
-  // 取得済みかどうかを判定 (読み込み中のSkeletonに使用)
+  // イラストのIDをランダムに生成
+  const randId = Math.floor(rand * illusts.length);
+
+  // 取得済みかどうかを判定
   const isFetched = useIllustList((state) => state.isFetched());
 
   useEffect(() => {
+    // 取得済みでなければ何もしない
+    if (!isFetched) return;
+
+    // フェードイン
     gsap.fromTo(
       boxRef.current,
       {
@@ -39,7 +46,7 @@ export function MainVisual() {
       repeat: -1,
       yoyo: true,
     });
-  });
+  }, [isFetched]);
 
   return (
     <Container size="xl" className={`${classes.main} h-screen overflow-hidden`}>
@@ -48,9 +55,8 @@ export function MainVisual() {
           <div className={classes.title}>
             <div className={`${classes.highlight} ${classes.l}`}>あのキャラはこの冬</div>
             <div className={`${classes.highlight} ${classes.r}`}>
-              どんな服
-              <div className={classes.pcText}>で過ごしているだろう</div>
-              <div className={classes.spText}>なんだろう</div>
+              <div className={classes.pcText}>どんな風に過ごしているだろう</div>
+              <div className={classes.spText}>どうしているだろう</div>
             </div>
           </div>
           <Group mt={64} visibleFrom="md">
@@ -61,7 +67,7 @@ export function MainVisual() {
         <div id="randomImage" className="rotate-3" ref={boxRef}>
           <Image
             className={`${classes.image} ${isFetched || 'opacity-0'}`}
-            src={`${isFetched ? illusts[Math.floor(rand * illusts.length)].illust : dummy.src}`}
+            src={`${isFetched ? illusts[randId].illust : dummy.src}`}
             alt="Vコレのイラスト(ランダムで表示)"
           />
         </div>

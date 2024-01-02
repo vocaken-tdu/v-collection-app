@@ -132,7 +132,7 @@
 .spText {
   display: inline-block;
   
-  @media (min-width: $mantine-breakpoint-xs) {
+  @media (min-width: calc($mantine-breakpoint-xs + 1px)) {
     display: none;
   }
 }
