@@ -46,3 +46,15 @@ img {
   -moz-user-select: none;
   user-select: none;
 }
+
+.pc-only {
+  @media (max-width: $mantine-breakpoint-xs) {
+    display: none;
+  }
+}
+
+.sp-only {
+  @media (min-width: calc($mantine-breakpoint-xs + 1px)) {
+    display: none;
+  }
+}
