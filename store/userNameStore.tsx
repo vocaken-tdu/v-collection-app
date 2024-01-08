@@ -31,7 +31,7 @@ type userNameState = {
       name: string;
     },
   ];
-  isFetched: () => boolean;
+  isExecute: boolean;
 };
 
 export const useUserName = create<userNameState>()(() => ({
@@ -41,13 +41,8 @@ export const useUserName = create<userNameState>()(() => ({
       name: '',
     },
   ],
-  isFetched: () => {
-    // ユーザーデータが取得済みかどうかを判定
-    const list: number = useUserName.getState().user.length;
-    return list > 1;
-  },
-})
-);
+  isExecute: false,
+}));
 
 export const setUserName = async () => {
   const fetch = async () => {
@@ -55,6 +50,12 @@ export const setUserName = async () => {
     useUserName.setState({ user: response.data });
     console.log('userName is fetched!');
   };
-  // 取得状態がfalseのときのみ取得
-  useUserName.getState().isFetched() ? console.log('userName is already fetched!') : fetch();
+  // 初めて実行するときのみ取得
+  useUserName.getState().isExecute ? console.log('userName is already fetched!') : fetch();
+  useUserName.setState({ isExecute: true });
 };
+
+// 補足: isFetched ではなく isExecute を先行して使う理由
+// GetUserName.tsx は同時に複数実行される
+// その度にAPIを呼び出すのを回避する必要がある
+// ただし 実行したかどうか で判定すると fetch が正しく行われたかの状態によらないのが難点
