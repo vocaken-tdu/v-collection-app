@@ -87,6 +87,7 @@ export function MainVisual() {
           className="rotate-3 overflow-visible"
           ref={boxRef}
           component="a"
+          bg="transparent"
           href={`/works/${illusts[randId].id}`}
         >
           <Image
