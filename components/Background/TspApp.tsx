@@ -24,7 +24,15 @@ export const TspApp = () => {
   };
 
   if (init) {
-    return <Particles id="tsparticles" url="/particles/particles.json" particlesLoaded={particlesLoaded} />;
+    return (
+      <>
+        <Particles
+          id="tsparticles"
+          url="/particles/particles.json"
+          particlesLoaded={particlesLoaded}
+        />
+      </>
+    );
   }
 
   return <></>;

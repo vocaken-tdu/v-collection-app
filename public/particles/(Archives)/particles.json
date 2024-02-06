@@ -44,11 +44,11 @@
         "type": "circle"
       },
       "onHover": {
-        "enable": true,
-        "mode": "grab",
+        "enable": false,
+        "mode": [],
         "parallax": {
-          "enable": true,
-          "force": 600,
+          "enable": false,
+          "force": 2,
           "smooth": 10
         }
       },
@@ -166,10 +166,7 @@
       }
     },
     "color": {
-      "value": [
-        "#cfe1e8",
-        "#fff"
-      ],
+      "value": "#fff",
       "animation": {
         "h": {
           "count": 0,
@@ -254,12 +251,12 @@
       },
       "random": false,
       "size": false,
-      "speed": 2,
+      "speed": 1,
       "spin": {
         "acceleration": 0,
         "enable": false
       },
-      "straight": true,
+      "straight": false,
       "trail": {
         "enable": false,
         "length": 10,
@@ -278,7 +275,7 @@
         "mode": "delete",
         "value": 0
       },
-      "value": 200
+      "value": 16
     },
     "opacity": {
       "value": 1,
@@ -309,19 +306,54 @@
     "shape": {
       "close": true,
       "fill": true,
-      "options": {},
-      "type": [
-        "circle",
-        "square",
-        "triangle"
-      ]
+      "options": {
+        "image": [
+          {
+            "name": "apple"
+          },
+          {
+            "name": "avocado"
+          },
+          {
+            "name": "banana"
+          },
+          {
+            "name": "berries"
+          },
+          {
+            "name": "cherry"
+          },
+          {
+            "name": "grapes"
+          },
+          {
+            "name": "lemon"
+          },
+          {
+            "name": "orange"
+          },
+          {
+            "name": "peach"
+          },
+          {
+            "name": "pepper"
+          },
+          {
+            "name": "plum"
+          },
+          {
+            "name": "star"
+          }
+        ]
+      },
+      "type": "image"
     },
     "size": {
-      "value": 24,
+      "value": 16,
       "animation": {
         "count": 0,
         "enable": false,
-        "speed": 2,
+        "speed": 5,
         "decay": 0,
         "delay": 0,
         "sync": false,
@@ -331,44 +363,12 @@
       }
     },
     "stroke": {
-      "width": 2,
-      "color": {
-        "value": "#cfe1e8",
-        "animation": {
-          "h": {
-            "count": 0,
-            "enable": false,
-            "speed": 1,
-            "decay": 0,
-            "delay": 0,
-            "sync": true,
-            "offset": 0
-          },
-          "s": {
-            "count": 0,
-            "enable": false,
-            "speed": 1,
-            "decay": 0,
-            "delay": 0,
-            "sync": true,
-            "offset": 0
-          },
-          "l": {
-            "count": 0,
-            "enable": false,
-            "speed": 1,
-            "decay": 0,
-            "delay": 0,
-            "sync": true,
-            "offset": 0
-          }
-        }
-      }
+      "width": 0
     },
     "zIndex": {
       "value": {
-        "min": 0,
-        "max": 100
+        "min": -100,
+        "max": -10
       },
       "opacityRate": 10,
       "sizeRate": 10,
@@ -454,7 +454,7 @@
       },
       "animation": {
         "enable": true,
-        "speed": 3,
+        "speed": 5,
         "decay": 0,
         "sync": false
       },
@@ -518,6 +518,92 @@
   "themes": [],
   "zLayers": 100,
   "name": "Snow",
+  "preload": [
+    {
+      "src": "/particles/Ellipse_1.svg",
+      "gif": false,
+      "height": 15,
+      "name": "apple",
+      "width": 15
+    },
+    {
+      "src": "/particles/Ellipse_2.svg",
+      "gif": false,
+      "height": 21,
+      "name": "avocado",
+      "width": 21
+    },
+    {
+      "src": "/particles/Ellipse_3.svg",
+      "gif": false,
+      "height": 21,
+      "name": "banana",
+      "width": 21
+    },
+    {
+      "src": "/particles/Ellipse_4.svg",
+      "gif": false,
+      "height": 15,
+      "name": "berries",
+      "width": 15
+    },
+    {
+      "src": "/particles/Ellipse_5.svg",
+      "gif": false,
+      "height": 21,
+      "name": "cherry",
+      "width": 21
+    },
+    {
+      "src": "/particles/Ellipse_6.svg",
+      "gif": false,
+      "height": 37,
+      "name": "grapes",
+      "width": 37
+    },
+    {
+      "src": "/particles/Ellipse_7.svg",
+      "gif": false,
+      "height": 37,
+      "name": "lemon",
+      "width": 37
+    },
+    {
+      "src": "/particles/Vector_1.svg",
+      "gif": false,
+      "height": 66,
+      "name": "orange",
+      "width": 50
+    },
+    {
+      "src": "/particles/Vector_3.svg",
+      "gif": false,
+      "height": 60,
+      "name": "peach",
+      "width": 37
+    },
+    {
+      "src": "/particles/Vector_4.svg",
+      "gif": false,
+      "height": 79,
+      "name": "pepper",
+      "width": 34
+    },
+    {
+      "src": "/particles/Vector_5.svg",
+      "gif": false,
+      "height": 13,
+      "name": "plum",
+      "width": 14
+    },
+    {
+      "src": "/particles/Vector_6.svg",
+      "gif": false,
+      "height": 13,
+      "name": "star",
+      "width": 14
+    }
+  ],
   "motion": {
     "disable": false,
     "reduce": {

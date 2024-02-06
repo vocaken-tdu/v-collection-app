@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <MainVisual />
-      <Container size="xl" className="mt-40 mb-64">
+      <Container size="xl" className="mt-40 pb-64">
         <ImageCard />
       </Container>
     </>
