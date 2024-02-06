@@ -4,11 +4,14 @@ import { Button, Text, Group, Paper, SimpleGrid, ScrollArea } from '@mantine/cor
 import { notifications } from '@mantine/notifications';
 import { IconHeartFilled, IconHeart } from '@tabler/icons-react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useEffect, useState } from 'react';
 import { useCommentList, setCommentList } from '@/store/commentListStore';
 import { useLike, setLike } from '@/store/likeStore';
 import { GetRelativeTime } from '../Tools/GetRelativeTime';
 import classes from './CommentCard.module.css';
+
+gsap.registerPlugin(ScrollTrigger);
 
 // イラストのidを受け取って、そのイラストのコメントを表示する
 export function CommentCard({

@@ -1,5 +1,5 @@
 {
 	"typescript.locale": "ja",
 	"editor.tabSize": 2,
-	"svg.preview.background": "transparent"
+	"svg.preview.background": "dark-transparent"
 }

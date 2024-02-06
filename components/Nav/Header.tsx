@@ -56,8 +56,27 @@ export function Header() {
         </Group>
 
         <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-        <Drawer opened={opened} onClose={toggle} position="right" className={classes.burger}>
-          <Text style={{ fontSize: 23, fontWeight: 'bold', height: 48 }}>Menu</Text>
+        <Drawer
+          opened={opened}
+          onClose={toggle}
+          position="right"
+          size="xs"
+          title={
+            <Text
+              size="xl"
+              style={{
+                fontWeight: 'bold',
+                color: '#555577',
+                paddingLeft: '12px',
+              }}
+            >
+              Menu
+            </Text>
+          }
+          className={classes.burger}
+          transitionProps={{ transition: 'slide-left', duration: 200, timingFunction: 'ease-out' }}
+          closeButtonProps={{ size: 'lg' }}
+        >
           {items}
         </Drawer>
       </Container>

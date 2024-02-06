@@ -1,24 +1,34 @@
 import { Container, Button } from '@mantine/core';
-import { Shape20 } from '@/components/Background/Shape20';
 
 export default function Home() {
   return (
     <>
-      <Shape20 size="half" />
       <Container size="xl" className="text-center">
         <h2 className="text-4xl my-40">Vコレってなんだ？</h2>
         <p className="text-xl my-20 leading-loose">
-          「ボカロキャラ(広義)がリアルにいたらどんな風に過ごしているのだろう？」
+          「ボカロキャラ(広義)が
+          <br className="sp-only" />
+          リアルにいたら
+          <br className="pc-only" />
+          どんな風に
+          <br className="sp-only" />
+          過ごしているのだろう？」
         </p>
         <p className="text-xl my-20 leading-loose">
-          「ボカロモチーフのおしゃれ全般のグッズがあったらどんなものだろう？」
+          「ボカロモチーフの
+          <br className="sp-only" />
+          おしゃれ全般の
+          <br className="pc-only" />
+          グッズがあったら
+          <br className="sp-only" />
+          どんなものだろう？」
         </p>
         <p className="text-xl my-40 leading-loose">
           そんな想像を膨らませながら
           <br />
-          VOCALOID同好会の有志のメンバーが集まり
+          VOCALOID同好会のメンバーが
           <br />
-          季節ごとにテーマを決めて絵を描いています
+          季節ごとに絵を描いています。
         </p>
         <p className="text-2xl mt-96 mb-20 leading-relaxed">
           さて……
@@ -26,7 +36,9 @@ export default function Home() {
           <br />
           今シーズンは
           <br />
-          どんな服を着ているでしょうか？
+          どんな服やグッズが
+          <br className="sp-only" />
+          あるのでしょう？
         </p>
         {/* 見てみる！ ボタンを表示 */}
         <Button

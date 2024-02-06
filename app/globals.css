@@ -30,4 +30,32 @@ strong {
 
 main {
   min-height: 100vh;
+  height: auto;
+}
+
+body {
+  height: auto;
+  background-color: #fafbfc;
+}
+
+img {
+  /* 画像ダウンロード禁止 */
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-touch-callout: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.pc-only {
+  @media (max-width: $mantine-breakpoint-xs) {
+    display: none;
+  }
+}
+
+.sp-only {
+  @media (min-width: calc($mantine-breakpoint-xs + 1px)) {
+    display: none;
+  }
 }

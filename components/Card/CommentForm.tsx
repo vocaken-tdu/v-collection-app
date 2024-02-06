@@ -14,8 +14,19 @@ export function CommentForm({ illustId }: { illustId: number }) {
       comment: useComment((state) => state.comment),
     },
     validate: {
-      name: (val) => (val.length > 0 ? undefined : '1文字以上入力してください'),
-      comment: (val) => (val.length > 1 ? undefined : '2文字以上入力してください'),
+      // 条件に合わない場合はエラーを表示
+      name: (val) =>
+        val.length < 1
+          ? '1文字以上入力してください'
+          : val.length > 16
+            ? '16文字以内で入力してください'
+            : undefined,
+      comment: (val) =>
+        val.length < 2
+          ? '2文字以上入力してください'
+          : val.length > 140
+            ? '140文字以内で入力してください'
+            : undefined,
     },
   });
 
@@ -37,8 +48,8 @@ export function CommentForm({ illustId }: { illustId: number }) {
         <Group className={classes.namearea}>
           <TextInput
             variant="filled"
-            label="名前/ハンドルネーム"
-            placeholder="名前を入力(1文字～)"
+            label="ハンドルネーム"
+            placeholder="ずんだもん (1～16文字)"
             className={classes.name}
             classNames={{ input: classes.input, label: classes.inputLabel }}
             {...form.getInputProps('name')}
@@ -48,6 +59,7 @@ export function CommentForm({ illustId }: { illustId: number }) {
             variant="gradient"
             gradient={{ from: '#1c7ed6', to: '#8DD9F9', deg: 45 }}
             className={classes.control}
+            mt={1.55 * 16} // 1.55rem コメントフォームでのエラー表示のためにmtを使用
           >
             コメント送信
             <Image id="commingSoon" src={kami.src} fit="contain" className={classes.kami} />
@@ -82,7 +94,7 @@ export function CommentForm({ illustId }: { illustId: number }) {
               </Group>
             </Group>
           }
-          placeholder="コメントを入力(2～140文字)"
+          placeholder="かわいいのだ！ (2～140文字)"
           autosize
           minRows={2}
           maxRows={8}
