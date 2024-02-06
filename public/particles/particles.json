@@ -275,7 +275,7 @@
         "mode": "delete",
         "value": 0
       },
-      "value": 200
+      "value": 100
     },
     "opacity": {
       "value": 1,
@@ -310,7 +310,7 @@
       "type": ["circle", "square", "triangle"]
     },
     "size": {
-      "value": 24,
+      "value": 32,
       "animation": {
         "count": 0,
         "enable": false,
