@@ -2,12 +2,12 @@
   "autoPlay": true,
   "background": {
     "color": {
-      "value": "#fff"
+      "value": "#ffffff"
     },
-    "image": "",
-    "position": "",
-    "repeat": "",
-    "size": "",
+    "image": "url('/snow-texture.webp')",
+    "position": "50% 50%",
+    "repeat": "no-repeat",
+    "size": "cover",
     "opacity": 1
   },
   "backgroundMask": {
@@ -166,10 +166,7 @@
       }
     },
     "color": {
-      "value": [
-        "#cfe1e8",
-        "#fff"
-      ],
+      "value": ["#cfe1e8", "transparent"],
       "animation": {
         "h": {
           "count": 0,
@@ -310,11 +307,7 @@
       "close": true,
       "fill": true,
       "options": {},
-      "type": [
-        "circle",
-        "square",
-        "triangle"
-      ]
+      "type": ["circle", "square", "triangle"]
     },
     "size": {
       "value": 24,
@@ -331,7 +324,7 @@
       }
     },
     "stroke": {
-      "width": 2,
+      "width": 1,
       "color": {
         "value": "#cfe1e8",
         "animation": {
