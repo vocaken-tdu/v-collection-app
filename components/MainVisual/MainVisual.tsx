@@ -72,10 +72,7 @@ export function MainVisual() {
         <div className={`${classes.content} grid place-content-center`}>
           <div className={classes.title}>
             <div className={`${classes.highlight} ${classes.l}`}>あのキャラはこの冬</div>
-            <div className={`${classes.highlight} ${classes.r}`}>
-              <div className={classes.pcText}>どんな風に過ごしているだろう</div>
-              <div className={classes.spText}>どうしているだろう</div>
-            </div>
+            <div className={`${classes.highlight} ${classes.r}`}>どう過ごしているだろう</div>
           </div>
           <Group mt={64} visibleFrom="md">
             <Image className={classes.logo} src={logo.src} alt="Vコレのロゴ" />
