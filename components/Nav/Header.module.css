@@ -18,7 +18,7 @@
 .link {
   display: block;
   line-height: 2;
-  padding: rem(8px) rem(16px);
+  padding: rem(8px) rem(12px);
   border-radius: var(--mantine-radius-sm);
   text-decoration: none;
   color: #555577;

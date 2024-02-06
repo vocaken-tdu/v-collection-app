@@ -67,7 +67,7 @@ export function Header() {
               style={{
                 fontWeight: 'bold',
                 color: '#555577',
-                paddingLeft: '12px',
+                paddingLeft: '8px',
               }}
             >
               Menu
