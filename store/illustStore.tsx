@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import axios, { AxiosResponse } from 'axios';
+import { notifications } from '@mantine/notifications';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -38,10 +39,28 @@ export const useIllust = create<illustState>()(() => ({
 }));
 
 export const setIllust = async (illustId: number) => {
+  // イラストが取得できなかったときの通知を表示
+  const fetchFailedIllust = () => {
+    notifications.show({
+      id: 'fetchFailedIllust',
+      loading: true,
+      autoClose: false,
+      radius: 'md',
+      title: 'イラスト情報が取得できませんでした。',
+      message:
+        'ページをリロードしても直らない場合は、しばらくお待ちいただくか、お問い合わせください。',
+    });
+  };
+
   const fetch = async () => {
-    const response: AxiosResponse = await axios.get(`${apiUrl}/illustrations/${illustId}`);
-    useIllust.setState({ illust: response.data });
-    console.log('illustData is fetched!');
+    try {
+      const response: AxiosResponse = await axios.get(`${apiUrl}/illustrations/${illustId}`);
+      useIllust.setState({ illust: response.data });
+      console.log('illustData is fetched!');
+    } catch (e) {
+      // イラストが取得できなかったときのエラー通知を表示
+      fetchFailedIllust();
+    }
   };
   // 取得状態がfalseのときのみ取得
   const isFetched = useIllust.getState().isFetched();
