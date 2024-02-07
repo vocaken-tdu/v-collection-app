@@ -31,7 +31,7 @@ export const useTags = create<tagsState>()(() => ({
 export const setTags = async () => {
   const fetch = async () => {
     const response: AxiosResponse = await axios.get(`${apiUrl}/tags/`);
-    const data = response.data.sort((a: any, b: any) => a.id - b.id);
+    const data = response.data.sort((a: any, b: any) => b.id - a.id);
     useTags.setState({ tags: data });
     console.log('tagData is fetched!');
   };
