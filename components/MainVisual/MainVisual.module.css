@@ -102,7 +102,6 @@
   font-weight: 400;
   line-height: normal;
   display: inline-flex;
-  transform: rotate(-2.297deg);
   padding: 8px 18px;
   justify-content: center;
   align-items: center;
@@ -120,7 +119,7 @@
 }
 
 .r {
-  margin-top: -0.5em;
+  margin-top: -0.3em;
   float: right;
 }
 

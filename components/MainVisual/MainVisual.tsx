@@ -54,6 +54,20 @@ export function MainVisual() {
     });
   }, [isFetched]);
 
+  // キャッチフレーズのアニメーション(右下を軸として-3度回転)
+  useEffect(() => {
+    // 取得済みでなければ何もしない
+    if (!isFetched) return;
+
+    // 一度のみ実行
+    gsap.to('#catchPhrase', {
+      rotate: -2.297,
+      duration: 0.8,
+      transformOrigin: 'right bottom',
+      ease: 'bounce.out',
+    });
+  }, [isFetched]);
+
   // ランダムにイラストを変更 (現状から加算)
   const changeIllust = () => setRandId((id) => (id + rand) % illusts.length);
 
@@ -70,11 +84,11 @@ export function MainVisual() {
     <Container size="xl" className={`${classes.main} h-screen overflow-hidden`}>
       <div className={classes.inner}>
         <div className={`${classes.content} grid place-content-center`}>
-          <div className={classes.title}>
+          <div id="catchPhrase" className={classes.title}>
             <div className={`${classes.highlight} ${classes.l}`}>あのキャラはこの冬</div>
             <div className={`${classes.highlight} ${classes.r}`}>どう過ごしているだろう</div>
           </div>
-          <Group mt={64} visibleFrom="md">
+          <Group mt={80} visibleFrom="md">
             <Image className={classes.logo} src={logo.src} alt="Vコレのロゴ" />
           </Group>
         </div>
