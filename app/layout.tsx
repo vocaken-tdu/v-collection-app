@@ -10,6 +10,7 @@ import '@mantine/notifications/styles.css';
 
 import { Header } from '@/components/Nav/Header';
 import { FooterLinks } from '@/components/Footer/FooterLinks';
+import { FlowShape2 } from '@/components/Background/FlowShape2';
 
 const title = process.env.NEXT_PUBLIC_SITE_TITLE;
 const siteName = process.env.NEXT_PUBLIC_SITE_NAME;
@@ -71,6 +72,7 @@ export default function RootLayout({ children }: { children: any }) {
           <main>{children}</main>
           <FooterLinks />
           <TspApp />
+          <FlowShape2 />
         </MantineProvider>
       </body>
     </html>

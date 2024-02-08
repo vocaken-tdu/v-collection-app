@@ -36,6 +36,7 @@ main {
 body {
   height: auto;
   background-color: #fafbfc;
+  overflow-x: hidden;
 }
 
 img {
