@@ -81,7 +81,7 @@ export function MainVisual() {
   }, [isFetched]);
 
   return (
-    <Container size="xl" className={`${classes.main} h-screen overflow-hidden`}>
+    <Container size="xl" className={`${classes.main}`}>
       <div className={classes.inner}>
         <div className={`${classes.content} grid place-content-center`}>
           <div id="catchPhrase" className={classes.title}>
@@ -109,7 +109,7 @@ export function MainVisual() {
         </Card>
 
         {/*ロゴ2*/}
-        <Group mt={64} hiddenFrom="md" justify="center">
+        <Group mt={48} hiddenFrom="md" justify="center">
           <Image className={classes.logo} src={logo.src} alt="Vコレのロゴ" />
         </Group>
       </div>
