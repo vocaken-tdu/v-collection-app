@@ -95,7 +95,7 @@ export function MainVisual() {
         {/*ランダムイラスト*/}
         <Card
           id="randomImage"
-          className="rotate-3 overflow-visible"
+          className="rotate-3 !overflow-visible"
           ref={boxRef}
           component="a"
           bg="transparent"
