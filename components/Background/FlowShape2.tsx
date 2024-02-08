@@ -8,12 +8,10 @@ import classes from './FlowShape2.module.css';
 gsap.registerPlugin(ScrollTrigger);
 
 export function FlowShape2() {
+  // スクロールしたときにパララックスするアニメーション
   useEffect(() => {
     gsap.to('#anim', {
-      opacity: 1,
-    });
-    gsap.to('#anim', {
-      y: -1280,
+      y: -1600,
       scrollTrigger: {
         trigger: '#anim',
         start: 'top bottom',
@@ -22,6 +20,7 @@ export function FlowShape2() {
       },
     });
   }, []);
+
   return (
     <div className={classes.bgWrap}>
       <div className={classes.bgParallax}>
