@@ -68,8 +68,7 @@ export function ImageCardArtist() {
                     <div key={illustKey} className={classes.wrap} id="card">
                       <Card
                         p="lg"
-                        shadow="lg"
-                        className={classes.card}
+                        className={`big-shadow ${classes.card}`}
                         radius="md"
                         component="a"
                         href={`/works/${illust.id}`}

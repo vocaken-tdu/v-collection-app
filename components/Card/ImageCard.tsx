@@ -91,8 +91,7 @@ export function ImageCard() {
                 <div key={illustKey} className={classes.wrap} id="card">
                   <Card
                     p="lg"
-                    shadow="lg"
-                    className={classes.card}
+                    className={`big-shadow ${classes.card}`}
                     radius="md"
                     component="a"
                     href={`/works/${illust.id}`}
@@ -119,11 +118,10 @@ export function ImageCard() {
           {illusts.filter((illust) => illust.tags.includes(tag.id)).length === 0 && (
             // 背景にflowShapeを使用
             <Paper
-              shadow="lg"
               radius="md"
               p={64}
               variant="light"
-              className="text-center relative overflow-hidden"
+              className="text-center relative overflow-hidden light-shadow"
             >
               <Image
                 id="commingSoon"

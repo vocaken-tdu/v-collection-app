@@ -88,7 +88,7 @@ export function MainVisual() {
           href={`/works/${illusts[randId].id}`}
         >
           <Image
-            className={`${classes.image} ${isFetched || 'opacity-0'}`}
+            className={`${classes.image} ${isFetched || 'opacity-0'} big-shadow`}
             src={`${isFetched ? illusts[randId].illust : dummy.src}`}
             alt="Vコレのイラスト(ランダムで表示)"
           />
