@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import axios, { AxiosResponse } from 'axios';
+import { notifications } from '@mantine/notifications';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const visibleSeasonId = process.env.NEXT_PUBLIC_VISIBLE_SEASON_ID;
@@ -43,12 +44,32 @@ export const useIllustList = create<illustListState>()(() => ({
 }));
 
 export const setIllustList = async () => {
+  // イラストリストが取得できなかったときの通知を表示
+  const fetchFailedIllustList = () => {
+    notifications.show({
+      id: 'fetchFailedIllustList',
+      loading: true,
+      autoClose: false,
+      radius: 'md',
+      title: 'イラスト情報が取得できませんでした。',
+      message:
+        'ページをリロードしても直らない場合は、しばらくお待ちいただくか、お問い合わせください。',
+    });
+  };
+
   const fetch = async () => {
-    const response: AxiosResponse = await axios.get(`${apiUrl}/illustrations/`);
-    const dataFilter = response.data.filter((item: any) => item.tags[0] <= (visibleSeasonId || 0));
-    const data = dataFilter.sort((a: any, b: any) => b.id - a.id);
-    useIllustList.setState({ illustList: data });
-    console.log('illustListData is fetched!');
+    try {
+      const response: AxiosResponse = await axios.get(`${apiUrl}/illustrations/`);
+      const dataFilter = response.data.filter(
+        (item: any) => item.tags[0] <= (visibleSeasonId || 0)
+      );
+      const data = dataFilter.sort((a: any, b: any) => b.id - a.id);
+      useIllustList.setState({ illustList: data });
+      console.log('illustListData is fetched!');
+    } catch (e) {
+      // イラストが取得できなかったときのエラー通知を表示
+      fetchFailedIllustList();
+    }
   };
   // 取得状態がfalseのときのみ取得
   const isFetched = useIllustList.getState().isFetched();

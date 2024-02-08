@@ -2,6 +2,7 @@
 
 import React, { useEffect } from 'react';
 import { Card, Text, Group, Image, Paper } from '@mantine/core';
+import { notifications } from '@mantine/notifications';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useIllustList, setIllustList } from '@/store/illustListStore';
@@ -18,6 +19,18 @@ export function ImageCard() {
 
   // タグの状態を取得
   const tags = useTags((state) => state.tags);
+
+  // 画像が取得できなかったときの通知を表示
+  const fetchFailedImage = () => {
+    notifications.show({
+      id: 'fetchFailedImage',
+      loading: true,
+      autoClose: false,
+      radius: 'md',
+      title: '画像が取得できませんでした。',
+      message: '現在対応中です。しばらくお待ちいただくか、長く続く場合はお問い合わせください。',
+    });
+  };
 
   // イラスト(リスト)を取得
   useEffect(() => {
@@ -78,13 +91,17 @@ export function ImageCard() {
                 <div key={illustKey} className={classes.wrap} id="card">
                   <Card
                     p="lg"
-                    shadow="lg"
-                    className={classes.card}
+                    className={`big-shadow ${classes.card}`}
                     radius="md"
                     component="a"
                     href={`/works/${illust.id}`}
                   >
-                    <Image className={classes.image} src={illust.illust} alt={illust.caption} />
+                    <Image
+                      className={classes.image}
+                      src={illust.illust}
+                      alt={illust.caption}
+                      onError={fetchFailedImage}
+                    />
                     <div className={classes.overlay} />
                   </Card>
                   <div className={`${classes.content} mt-2`}>
@@ -101,11 +118,10 @@ export function ImageCard() {
           {illusts.filter((illust) => illust.tags.includes(tag.id)).length === 0 && (
             // 背景にflowShapeを使用
             <Paper
-              shadow="lg"
               radius="md"
               p={64}
               variant="light"
-              className="text-center relative overflow-hidden"
+              className="text-center relative overflow-hidden light-shadow"
             >
               <Image
                 id="commingSoon"

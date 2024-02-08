@@ -43,7 +43,7 @@ export function CommentForm({ illustId }: { illustId: number }) {
   };
 
   return (
-    <Paper withBorder px="xl" py="lg" radius="md" className={classes.comment}>
+    <Paper px="xl" py="lg" radius="md" className={`light-shadow ${classes.comment}`}>
       <form onSubmit={form.onSubmit(() => sendComment())}>
         <Group className={classes.namearea}>
           <TextInput

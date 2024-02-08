@@ -83,9 +83,7 @@
   width: 360px;
   max-width: 500px;
   aspect-ratio: 3 / 4;
-
   border-radius: 6px;
-  box-shadow: 32px 48px 64px -64px rgba(16, 16, 37, 0.3);
 
   @media (max-width: $mantine-breakpoint-md) {
     width: 60vw;
@@ -109,7 +107,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 6px;
-  background: #454d6f;
+  background: var(--mantine-color-blue-6);
   white-space: nowrap;
 
   @media (max-width: calc($mantine-breakpoint-xs + 1px)) {
@@ -139,13 +137,13 @@
   display: block;
   width: 48px;
   height: 48px;
-  color: black;
+  /* fill → SVGで読み込んでいるため直接編集する必要あり */
   background: url('../../public/arrow.svg');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
   position: absolute;
-  bottom: -15px;
+  bottom: -14px;
   right: -24px;
   rotate: 3deg;
 

@@ -14,7 +14,7 @@ export function AuthorCard() {
   return (
     <>
       <Skeleton visible={!isFetched}>
-        <Paper withBorder radius="md" className={classes.comment}>
+        <Paper radius="md" className={`light-shadow ${classes.comment}`}>
           <Group>
             <Text fz="lg">
               <GetUserName userId={illust.user_id} />

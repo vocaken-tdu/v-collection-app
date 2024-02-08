@@ -32,7 +32,8 @@ if (useComment.getState().comment.length > 0) {
     color: 'yellow',
     radius: 'md',
     title: '未送信かも……？',
-    message: '送信できなかったかもしれないコメントを復元しました。送れていなかったら再度送信してみてください。',
+    message:
+      '送信できなかったかもしれないコメントを復元しました。送れていなかったら再度送信してみてください。',
   });
 }
 
@@ -63,6 +64,19 @@ export const setComment = async (illust_id: number, name: string, comment: strin
     });
   };
 
+  // 送信失敗の通知を表示
+  const sendFailed = () => {
+    notifications.update({
+      id: 'sending',
+      color: 'red',
+      title: '送信に失敗しました。',
+      message:
+        '通信環境を確認して再度送信してみてください。何度も失敗する場合はお問い合わせください。リロードするとコメントが復元されます。',
+      loading: false,
+      autoClose: false,
+    });
+  };
+
   // コメントを送信する
   const postComment = async (id: number) => {
     // ローカルデータを更新
@@ -73,26 +87,31 @@ export const setComment = async (illust_id: number, name: string, comment: strin
     // 送信中の通知を表示
     sending();
 
-    // コメントを送信
-    const res = await axios.post(`${apiUrl}/comments/`, {
-      text: comment,
-      user_name: name,
-      illust_id: id,
-    });
+    try {
+      // コメントを送信
+      const res = await axios.post(`${apiUrl}/comments/`, {
+        text: comment,
+        user_name: name,
+        illust_id: id,
+      });
 
-    // 送信が完了したら以下の処理を実行
+      // 送信が完了したら以下の処理を実行
 
-    // 通知を更新
-    sent();
-    console.log('Comment sent!', res);
+      // 通知を更新
+      sent();
+      console.log('Comment sent!', res);
 
-    // ローカルデータを削除
-    useComment.setState({
-      comment: '',
-    });
+      // ローカルデータを削除
+      useComment.setState({
+        comment: '',
+      });
 
-    // コメント一覧を更新
-    updateCommentList();
+      // コメント一覧を更新
+      updateCommentList();
+    } catch (e) {
+      // 送信に失敗したときのエラー通知を表示
+      sendFailed();
+    }
   };
 
   postComment(illust_id);

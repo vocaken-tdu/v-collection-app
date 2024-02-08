@@ -45,7 +45,7 @@ export function Header() {
   ));
 
   return (
-    <header className={classes.header}>
+    <header className={`light-shadow ${classes.header}`}>
       <Container size="xl" className={classes.inner}>
         <a href="/" className={`${abel.className} text-2xl`}>
           <h1>VOCALOID CLUB COLLECTION</h1>
@@ -67,7 +67,7 @@ export function Header() {
               style={{
                 fontWeight: 'bold',
                 color: '#555577',
-                paddingLeft: '12px',
+                paddingLeft: '8px',
               }}
             >
               Menu

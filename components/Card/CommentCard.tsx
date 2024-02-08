@@ -118,7 +118,13 @@ export function CommentCard({
         </h2>
         {sortedComments.map((comment, i) => (
           <div key={i}>
-            <Paper withBorder px="xl" py="lg" radius="md" id="comment">
+            <Paper
+              px="xl"
+              py="lg"
+              radius="md"
+              id="comment"
+              className={`${classes.comment} light-shadow`}
+            >
               <Text size="sm">{comment.text}</Text>
               <div className="flex justify-between">
                 <Group>
