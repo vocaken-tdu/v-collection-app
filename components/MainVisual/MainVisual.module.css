@@ -1,18 +1,10 @@
 .main {
   display: flex;
+  padding-top: 32px;
+  padding-bottom: 64px;
   align-items: center;
-  height: calc(100vh - 80px);
-  padding-bottom: 80px;
+  min-height: calc(100vh - 80px * 2);
   justify-content: center;
-
-  @media (min-width: 1250px) {
-    max-height: 80vh;
-    padding-top: 80px;
-  }
-
-  @media (max-width: $mantine-breakpoint-md) {
-    height: auto;
-  }
 }
 
 .inner {
@@ -32,7 +24,7 @@
   margin-right: 64px;
 
   @media (max-width: $mantine-breakpoint-md) {
-    margin: 5em 0 56px;
+    margin: 1em 0 40px;
     max-width: 75%;
   }
 

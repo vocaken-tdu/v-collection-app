@@ -1,21 +1,17 @@
 'use client';
 
 import { useEffect } from 'react';
-import { BackgroundImage } from '@mantine/core';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import shape from '@/public/shape20.svg';
-import classes from './Shape20.module.css';
+import classes from './FlowShape2.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function Shape20() {
+export function FlowShape2() {
+  // スクロールしたときにパララックスするアニメーション
   useEffect(() => {
     gsap.to('#anim', {
-      opacity: 1,
-    });
-    gsap.to('#anim', {
-      y: -300,
+      y: -1600,
       scrollTrigger: {
         trigger: '#anim',
         start: 'top bottom',
@@ -24,5 +20,12 @@ export function Shape20() {
       },
     });
   }, []);
-  return <BackgroundImage src={shape.src} className={`${classes.bg} opacity-0`} id="anim" />;
+
+  return (
+    <div className={classes.bgWrap}>
+      <div className={classes.bgParallax}>
+        <div className={classes.bg} id="anim" />
+      </div>
+    </div>
+  );
 }

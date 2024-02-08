@@ -2,6 +2,10 @@
   position: relative;
 }
 
+.comment {
+  background-image: url('/paper-texture.webp');
+}
+
 .required {
   transition: opacity 150ms ease;
   opacity: 0;

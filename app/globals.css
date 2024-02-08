@@ -29,13 +29,15 @@ strong {
 }
 
 main {
-  min-height: 100vh;
+  /* ちらつき防止 */
+  min-height: calc(100vh - (80px + 32px) * 2);
   height: auto;
 }
 
 body {
   height: auto;
   background-color: #fafbfc;
+  overflow-x: hidden;
 }
 
 img {
@@ -55,7 +57,7 @@ img {
 
 .light-shadow {
   /* 範囲は小さめでめっちゃ薄めたほんのり影(幅が小さい要素向け) */
-  box-shadow: 4px 4px 32px -24px rgba(16, 16, 37, 0.2);
+  box-shadow: 4px 4px 32px -24px rgba(16, 16, 37, 0.2) !important;
 }
 
 .pc-only {
