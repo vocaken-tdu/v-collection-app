@@ -79,7 +79,7 @@ export function FooterLinks() {
               「ボカロ」はヤマハ株式会社の登録商標です。
               <br className={classes.tbBr} />
               <br />
-              © 2023 VOCALOID CLUB COLLECTION.
+              © 2023 VOCALOID CLUB COLLECTION.&nbsp;
               <br className={classes.spBr} />
               複製・転載等を固く禁じます
             </Text>
