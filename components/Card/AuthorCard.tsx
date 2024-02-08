@@ -1,4 +1,4 @@
-import { Text, Group, Paper, Skeleton } from '@mantine/core';
+import { Text, Group, Paper, Skeleton, Badge } from '@mantine/core';
 import { useIllust } from '@/store/illustStore';
 import { GetUserName } from '../Tools/GetUserName';
 import { GetRelativeTime } from '../Tools/GetRelativeTime';
@@ -15,7 +15,8 @@ export function AuthorCard() {
     <>
       <Skeleton visible={!isFetched}>
         <Paper radius="md" className={`light-shadow ${classes.comment}`}>
-          <Group>
+          <Group gap="xs">
+            <Badge variant="light" color="blue" size="sm">アーティスト</Badge>
             <Text fz="lg">
               <GetUserName userId={illust.user_id} />
             </Text>
