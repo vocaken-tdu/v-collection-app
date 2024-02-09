@@ -1,0 +1,15 @@
+.arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+}
+
+.prev {
+  left: -3em;
+  transform: translate(-50%, -50%);
+}
+
+.next {
+  right: -3em;
+  transform: translate(50%, -50%);
+}
