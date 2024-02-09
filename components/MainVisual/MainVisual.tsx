@@ -84,7 +84,7 @@ export function MainVisual() {
     <Container size="xl" className={`${classes.main}`}>
       <div className={classes.inner}>
         <div className={`${classes.content} grid place-content-center`}>
-          <div id="catchPhrase" className={classes.title}>
+          <div id="catchPhrase" className={classes.catchPhrase}>
             <div className={`${classes.highlight} ${classes.l}`}>あのキャラはこの冬</div>
             <div className={`${classes.highlight} ${classes.r}`}>どう過ごしているだろう</div>
           </div>

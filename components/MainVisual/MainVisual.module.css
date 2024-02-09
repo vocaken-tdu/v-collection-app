@@ -33,7 +33,7 @@
   }
 }
 
-.title {
+.catchPhrase {
   color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
   font-size: rem(32px);
   line-height: 1.2;
@@ -113,34 +113,26 @@
 .r {
   margin-top: -0.3em;
   float: right;
-}
 
-.pcText {
-  display: inline-block;
+  &&::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 48px;
+    /* fill → SVGで読み込んでいるため直接編集する必要あり */
+    background: url('../../public/arrow.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+    bottom: -14px;
+    right: -24px;
+    rotate: 3deg;
 
-  @media (max-width: $mantine-breakpoint-xs) {
-    display: none;
-  }
-}
-
-.r::after {
-  content: '';
-  display: block;
-  width: 48px;
-  height: 48px;
-  /* fill → SVGで読み込んでいるため直接編集する必要あり */
-  background: url('../../public/arrow.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  position: absolute;
-  bottom: -14px;
-  right: -24px;
-  rotate: 3deg;
-
-  @media (max-width: $mantine-breakpoint-md) {
-    bottom: -20px;
-    right: -12px;
-    rotate: 120deg;
+    @media (max-width: $mantine-breakpoint-md) {
+      bottom: -20px;
+      right: -12px;
+      rotate: 120deg;
+    }
   }
 }
