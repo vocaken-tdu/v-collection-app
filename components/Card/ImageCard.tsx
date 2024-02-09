@@ -101,6 +101,7 @@ export function ImageCard() {
                       src={illust.illust}
                       alt={illust.caption}
                       onError={fetchFailedImage}
+                      loading="lazy"
                     />
                     <div className={classes.overlay} />
                   </Card>
