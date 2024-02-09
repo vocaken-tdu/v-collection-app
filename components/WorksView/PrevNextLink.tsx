@@ -17,6 +17,7 @@ export function PrevNextLink({ illustId }: { illustId: number }) {
   const index = illusts.findIndex((illust) => illust.id === illustId);
   const prevId = illusts[index - 1]?.id || undefined;
   const nextId = illusts[index + 1]?.id || undefined;
+  // なければ index = -1 を返すため nextId = 0 になる(一番最新のイラスト)
 
   return (
     <>
