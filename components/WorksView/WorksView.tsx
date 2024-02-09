@@ -9,6 +9,7 @@ import { CommentCard } from '@/components/Card/CommentCard';
 import { CommentForm } from '@/components/Card/CommentForm';
 import { useVerified, setVerified } from '@/store/verifiedStore';
 import classes from './WorksView.module.css';
+import { PrevNextLink } from './PrevNextLink';
 
 export function WorksView({ illustId }: { illustId: number }) {
   // 各要素の高さを取得 → CommentCard の高さを決定
@@ -27,6 +28,7 @@ export function WorksView({ illustId }: { illustId: number }) {
 
   return (
     <div className={classes.main}>
+      <PrevNextLink illustId={illustId} />
       <SimpleGrid className={classes.wrap} cols={{ base: 1, sm: 2 }} spacing="lg">
         <SimpleGrid cols={1} spacing="md" className={classes.l}>
           <div ref={refBIC}>
