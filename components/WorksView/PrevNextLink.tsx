@@ -22,23 +22,13 @@ export function PrevNextLink({ illustId }: { illustId: number }) {
   return (
     <>
       {prevId && (
-        <a href={`/works/${prevId}`}>
-          <IconChevronLeft
-            size={48}
-            stroke={1.5}
-            className={`${classes.prev} ${classes.arrow}`}
-            color="var(--mantine-color-blue-filled)"
-          />
+        <a href={`/works/${prevId}`} className={`${classes.prev} ${classes.arrow}`}>
+          <IconChevronLeft size={48} stroke={1.5} color="var(--mantine-color-blue-filled)" />
         </a>
       )}
       {nextId && (
-        <a href={`/works/${nextId}`}>
-          <IconChevronRight
-            size={48}
-            stroke={1.5}
-            className={`${classes.next} ${classes.arrow}`}
-            color="var(--mantine-color-blue-filled)"
-          />
+        <a href={`/works/${nextId}`} className={`${classes.next} ${classes.arrow}`}>
+          <IconChevronRight size={48} stroke={1.5} color="var(--mantine-color-blue-filled)" />
         </a>
       )}
     </>
