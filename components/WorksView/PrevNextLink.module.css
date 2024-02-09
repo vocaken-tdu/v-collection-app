@@ -1,3 +1,12 @@
+.arrowWrap {
+  width: 100%;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    /* レイアウトシフトを防ぐ */
+    min-height: 4em;
+  }
+}
+
 .arrow {
   position: absolute;
   display: flex;
@@ -5,14 +14,37 @@
   top: 50%;
   height: 8em;
   z-index: 1;
+
+  @media screen and (max-width: 1280px) {
+    height: auto;
+    position: relative;
+    padding-bottom: 1em;
+
+    svg {
+      width: 3em;
+      height: 3em;
+    }
+  }
 }
 
 .prev {
   left: -3em;
   transform: translate(-50%, -50%);
+
+  @media screen and (max-width: 1280px) {
+    float: left;
+    left: 0;
+    transform: none;
+  }
 }
 
 .next {
   right: -3em;
   transform: translate(50%, -50%);
+
+  @media screen and (max-width: 1280px) {
+    float: right;
+    right: 0;
+    transform: none;
+  }
 }

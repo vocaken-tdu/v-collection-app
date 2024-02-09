@@ -20,17 +20,17 @@ export function PrevNextLink({ illustId }: { illustId: number }) {
   // なければ index = -1 を返すため nextId = 0 になる(一番最新のイラスト)
 
   return (
-    <>
+    <div className={classes.arrowWrap}>
       {prevId && (
-        <a href={`/works/${prevId}`} className={`${classes.prev} ${classes.arrow}`}>
+        <a href={`/works/${prevId}`} className={`${classes.arrow} ${classes.prev}`}>
           <IconChevronLeft size={48} stroke={1.5} color="var(--mantine-color-blue-filled)" />
         </a>
       )}
       {nextId && (
-        <a href={`/works/${nextId}`} className={`${classes.next} ${classes.arrow}`}>
+        <a href={`/works/${nextId}`} className={`${classes.arrow} ${classes.next}`}>
           <IconChevronRight size={48} stroke={1.5} color="var(--mantine-color-blue-filled)" />
         </a>
       )}
-    </>
+    </div>
   );
 }
