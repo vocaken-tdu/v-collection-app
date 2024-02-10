@@ -24,7 +24,7 @@ export function AuthorCard() {
               <GetTagName tagId={illust.tags[0]} />
             </Text>
             <Text c="dimmed" size="xs" tt="uppercase" fw="bold" fz="xs">
-              <GetRelativeTime RawTime={illust.created_at} />
+              <GetRelativeTime RawTime={illust.created_at} format="day" />
             </Text>
           </Group>
           <Group mt={4} gap="xs">
