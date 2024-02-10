@@ -1,7 +1,7 @@
 .arrowWrap {
   width: 100%;
 
-  @media (max-width: $mantine-breakpoint-sm) {
+  @media screen and (max-width: 1280px) {
     /* レイアウトシフトを防ぐ */
     min-height: 4em;
   }
