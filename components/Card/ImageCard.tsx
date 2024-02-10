@@ -104,7 +104,6 @@ export function ImageCard() {
                       onError={fetchFailedImage}
                       loading="lazy"
                     />
-                    <div className={classes.overlay} />
                   </Card>
                   <div className={`${classes.content} mt-2`}>
                     <Group justify="space-between" gap="xs">
