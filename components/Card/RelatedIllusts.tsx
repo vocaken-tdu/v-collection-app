@@ -23,7 +23,7 @@ export function RelatedIllusts({ illustId }: { illustId: number }) {
     <>
       {otherIllusts.length > 0 && (
         <Container mt={64} px={0} py="xl" size="xl" className="w-full">
-          <Text size="xl" mb="lg" className={`text-3xl ${classes.header}`}>
+          <Text size="xl" mb="lg" className={`${classes.header}`}>
             ― この人が描いた他のイラスト ―
           </Text>
           <div className={classes.cardWrap}>
