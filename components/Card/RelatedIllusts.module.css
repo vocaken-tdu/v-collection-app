@@ -1,0 +1,43 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.cardWrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  gap: var(--mantine-spacing-md);
+}
+
+.card {
+  /* gapによって生まれた2つの余白分を引いた */
+  width: calc((100% - 2 * var(--mantine-spacing-md)) / 3);
+
+  transition:
+    transform 150ms ease,
+    box-shadow 150ms ease;
+
+  &:hover {
+    transform: scale(1.01);
+    box-shadow: var(--mantine-shadow-md);
+  }
+
+  @media (max-width: $mantine-breakpoint-md) {
+    /* gapによって生まれた1つの余白分を引いた */
+    width: calc(100% / 2 - var(--mantine-spacing-md));
+  }
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    width: 100%;
+  }
+}
+
+.title {
+  font-weight: bold;
+}

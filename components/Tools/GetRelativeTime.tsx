@@ -1,4 +1,5 @@
-export function GetRelativeTime({ RawTime }: { RawTime: string }) {
+export function GetRelativeTime({ RawTime, format }: { RawTime: string; format?: 'day' }) {
+  // 日付を取得
   const time = new Date(RawTime);
 
   // 年月日を取得
@@ -34,12 +35,11 @@ export function GetRelativeTime({ RawTime }: { RawTime: string }) {
       return `昨日 ${hourPadded}:${minutePadded}`;
     }
     // それ以外
+    if (format === 'day') {
+      return `${year}/${month}/${date}`;
+    }
     return `${year}/${month}/${date} ${hourPadded}:${minutePadded}`;
   };
 
-  return (
-    <>
-      {showDate()}
-    </>
-  );
+  return <>{showDate()}</>;
 }
