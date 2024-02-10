@@ -113,26 +113,38 @@
 .r {
   margin-top: -0.3em;
   float: right;
+}
 
-  &&::after {
-    content: '';
+.arrow {
+  display: block;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  z-index: -1;
+  /* fill → SVGで読み込んでいるため直接編集する必要あり */
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: absolute;
+}
+
+.pc {
+  bottom: -12px;
+  right: 0;
+  rotate: 3deg;
+
+  @media (max-width: $mantine-breakpoint-md) {
+    display: none;
+  }
+}
+
+.sp {
+  display: none;
+  bottom: -20px;
+  right: -12px;
+  rotate: 120deg;
+
+  @media (max-width: $mantine-breakpoint-md) {
     display: block;
-    width: 48px;
-    height: 48px;
-    /* fill → SVGで読み込んでいるため直接編集する必要あり */
-    background: url('../../public/arrow.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    position: absolute;
-    bottom: -14px;
-    right: -24px;
-    rotate: 3deg;
-
-    @media (max-width: $mantine-breakpoint-md) {
-      bottom: -20px;
-      right: -12px;
-      rotate: 120deg;
-    }
   }
 }
