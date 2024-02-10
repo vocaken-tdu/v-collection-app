@@ -16,7 +16,9 @@ export function AuthorCard() {
       <Skeleton visible={!isFetched}>
         <Paper radius="md" className={`light-shadow ${classes.comment}`}>
           <Group gap="xs">
-            <Badge variant="light" color="blue" size="sm">アーティスト</Badge>
+            <Badge variant="light" color="blue" size="sm">
+              アーティスト
+            </Badge>
             <Text fz="lg">
               <GetUserName userId={illust.user_id} />
             </Text>
