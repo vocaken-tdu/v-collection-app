@@ -1,4 +1,4 @@
-import { SimpleGrid, Card, Image, Text, Container, AspectRatio } from '@mantine/core';
+import { SimpleGrid, Card, Image, Text, Container, AspectRatio, Group, Badge } from '@mantine/core';
 import classes from './RelatedIllusts.module.css';
 import useStore from '@/store/useStore';
 import { useIllustList } from '@/store/illustListStore';
@@ -39,12 +39,17 @@ export function RelatedIllusts({ illustId }: { illustId: number }) {
                 <AspectRatio ratio={1920 / 1080}>
                   <Image src={illust.illust} radius="sm" />
                 </AspectRatio>
-                <Text c="dimmed" size="xs" tt="uppercase" fw={700} mt="md">
-                  <GetRelativeTime RawTime={illust.created_at} format="day" />
-                </Text>
-                <Text className={classes.title} mt={5}>
-                  <GetTagName tagId={illust.tags[0]} />
-                </Text>
+                <Group gap="xs" mt="md">
+                  <Badge variant="light" color="blue" size="sm">
+                    シーズン
+                  </Badge>
+                  <Text fz="lg" className={classes.title} c="#333">
+                    <GetTagName tagId={illust.tags[0]} />
+                  </Text>
+                  <Text c="dimmed" size="xs" tt="uppercase" fw="bold" fz="xs">
+                    <GetRelativeTime RawTime={illust.created_at} format="day" />
+                  </Text>
+                </Group>
               </Card>
             ))}
           </div>
