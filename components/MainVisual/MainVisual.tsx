@@ -5,6 +5,7 @@ import { Image, Container, Group, Card } from '@mantine/core';
 import { gsap } from 'gsap';
 import logo from '@/public/Logo.webp';
 import dummy from '@/public/dummy.svg';
+import arrow from '@/public/arrow.svg';
 import classes from './MainVisual.module.css';
 import useStore from '@/store/useStore';
 import { useIllustList, dataInfo } from '@/store/illustListStore';
@@ -64,13 +65,39 @@ export function MainVisual() {
 
   // キャッチフレーズのアニメーション(右下を軸として-3度回転)
   useEffect(() => {
-    // 一度のみ実行
+    // 取得済みでない場合はアニメーションを実行しない
+    if (!isExist) return;
+
     gsap.to('#catchPhrase', {
       rotate: -2.297,
       duration: 0.8,
       transformOrigin: 'right bottom',
       ease: 'bounce.out',
     });
+    gsap.fromTo(
+      '#arrowPC',
+      {
+        right: 0,
+        bottom: -12,
+      },
+      {
+        duration: 0.8,
+        ease: 'bounce.out',
+        right: -24,
+        bottom: -14,
+      }
+    );
+    gsap.fromTo(
+      '#arrowSP',
+      {
+        bottom: -6,
+      },
+      {
+        duration: 0.8,
+        ease: 'bounce.out',
+        bottom: -20,
+      }
+    );
   }, [isExist]);
 
   return (
@@ -80,6 +107,12 @@ export function MainVisual() {
           <div id="catchPhrase" className={classes.catchPhrase}>
             <div className={`${classes.highlight} ${classes.l}`}>あのキャラはこの冬</div>
             <div className={`${classes.highlight} ${classes.r}`}>どう過ごしているだろう</div>
+            {isExist && (
+              <>
+                <Image id="arrowPC" src={arrow.src} className={`${classes.arrow} ${classes.pc}`} />
+                <Image id="arrowSP" src={arrow.src} className={`${classes.arrow} ${classes.sp}`} />
+              </>
+            )}
           </div>
           <Group mt={80} visibleFrom="md">
             <Image className={classes.logo} src={logo.src} alt="Vコレのロゴ" />
