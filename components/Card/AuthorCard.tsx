@@ -20,10 +20,10 @@ export function AuthorCard() {
             <Badge variant="light" color="blue" size="sm">
               シーズン
             </Badge>
-            <Text fz="lg">
+            <Text fz="lg" fw="bold" c="#333">
               <GetTagName tagId={illust.tags[0]} />
             </Text>
-            <Text fz="xs" c="dimmed" mt={3}>
+            <Text c="dimmed" size="xs" tt="uppercase" fw="bold" fz="xs">
               <GetRelativeTime RawTime={illust.created_at} />
             </Text>
           </Group>
@@ -31,7 +31,7 @@ export function AuthorCard() {
             <Badge variant="light" color="blue" size="sm">
               アーティスト
             </Badge>
-            <Text fz="lg">
+            <Text fz="lg" fw="bold" c="#333">
               <GetUserName userId={illust.user_id} />
             </Text>
           </Group>
