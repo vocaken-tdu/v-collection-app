@@ -28,36 +28,38 @@ export function WorksView({ illustId }: { illustId: number }) {
   const isAuth = useVerified((state) => state.isAuth);
 
   return (
-    <div className={classes.main}>
-      <PrevNextLink illustId={illustId} />
-      <SimpleGrid className={classes.wrap} cols={{ base: 1, sm: 2 }} spacing="lg">
-        <SimpleGrid cols={1} spacing="md" className={classes.l}>
-          <div ref={refBIC}>
-            <BigImageCard illustId={illustId} />
-          </div>
-          <div ref={refAC}>
-            <AuthorCard />
-          </div>
+    <>
+      <div className={classes.main}>
+        <PrevNextLink illustId={illustId} />
+        <SimpleGrid className={classes.wrap} cols={{ base: 1, sm: 2 }} spacing="lg">
+          <SimpleGrid cols={1} spacing="md" className={classes.l}>
+            <div ref={refBIC}>
+              <BigImageCard illustId={illustId} />
+            </div>
+            <div ref={refAC}>
+              <AuthorCard />
+            </div>
+          </SimpleGrid>
+          <SimpleGrid cols={1} spacing="md" className={classes.r}>
+            <CommentCard
+              illustId={illustId}
+              isFormVisible={isAuth}
+              // CommentCard の高さ = BigImageCard + AuthorCard - CommentForm
+              height={heightBIC + heightAC - heightCF}
+            />
+            <div ref={refCF}>
+              {isAuth ? (
+                <CommentForm illustId={illustId} />
+              ) : (
+                <Text ta="right" c="dimmed">
+                  ※部員からのコメント
+                </Text>
+              )}
+            </div>
+          </SimpleGrid>
         </SimpleGrid>
-        <SimpleGrid cols={1} spacing="md" className={classes.r}>
-          <CommentCard
-            illustId={illustId}
-            isFormVisible={isAuth}
-            // CommentCard の高さ = BigImageCard + AuthorCard - CommentForm
-            height={heightBIC + heightAC - heightCF}
-          />
-          <div ref={refCF}>
-            {isAuth ? (
-              <CommentForm illustId={illustId} />
-            ) : (
-              <Text ta="right" c="dimmed">
-                ※部員からのコメント
-              </Text>
-            )}
-          </div>
-        </SimpleGrid>
-      </SimpleGrid>
+      </div>
       <RelatedIllusts illustId={illustId} />
-    </div>
+    </>
   );
 }

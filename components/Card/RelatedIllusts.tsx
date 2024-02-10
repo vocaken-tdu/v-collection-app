@@ -26,7 +26,7 @@ export function RelatedIllusts({ illustId }: { illustId: number }) {
           <Text size="xl" mb="lg" className={`text-3xl ${classes.header}`}>
             ― この人が描いた他のイラスト ―
           </Text>
-          <SimpleGrid cols={{ base: 1, xs: 2, sm: 3 }}>
+          <div className={classes.cardWrap}>
             {otherIllusts.map((illust, key) => (
               <Card
                 key={key}
@@ -47,7 +47,7 @@ export function RelatedIllusts({ illustId }: { illustId: number }) {
                 </Text>
               </Card>
             ))}
-          </SimpleGrid>
+          </div>
         </Container>
       )}
     </>
