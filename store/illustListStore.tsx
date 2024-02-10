@@ -81,6 +81,17 @@ export const setIllustList = async () => {
     });
   };
 
+  // イラストリストが更新された場合に通知を表示
+  const updateIllustList = () => {
+    notifications.show({
+      id: 'updateIllustList',
+      autoClose: true,
+      radius: 'md',
+      title: 'イラスト情報を更新しました',
+      message: '前回アクセスしたときから、新しいイラストが追加されているかもしれません。',
+    });
+  };
+
   const fetch = async () => {
     try {
       const response: AxiosResponse = await axios.get(`${apiUrl}/illustrations/`);
@@ -95,6 +106,7 @@ export const setIllustList = async () => {
 
       if (dataStr !== localDataStr) {
         useIllustList.setState({ illustList: data });
+        updateIllustList();
         dataInfo.setState({ isUpdated: true });
         console.log('illustListData is updated!');
       } else {
