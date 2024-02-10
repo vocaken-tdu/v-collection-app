@@ -48,18 +48,10 @@
 }
 
 .image {
+  height: 100%;
   position: absolute;
   inset: 0;
   background-size: cover;
-  transition: transform 500ms ease;
-}
-
-.overlay {
-  position: absolute;
-  top: 20%;
-  left: 0;
-  right: 0;
-  bottom: 0;
 }
 
 .content {

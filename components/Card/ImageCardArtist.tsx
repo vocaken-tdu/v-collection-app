@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import { Card, Text, Group, Image } from '@mantine/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import useStore from '@/store/useStore';
 import { useIllustList, setIllustList } from '@/store/illustListStore';
 import { useUserName, setUserName } from '@/store/userNameStore';
 import { GetUserName } from '../Tools/GetUserName';
@@ -13,7 +14,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function ImageCardArtist() {
   // イラスト(リスト)の状態を取得
-  const illusts = useIllustList((state) => state.illustList);
+  const illusts = useStore(useIllustList, (state) => state.illustList) || [];
 
   // ユーザーの状態を取得
   const users = useUserName((state) => state.user);

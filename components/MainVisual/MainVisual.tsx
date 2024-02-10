@@ -6,7 +6,8 @@ import { gsap } from 'gsap';
 import logo from '@/public/Logo.webp';
 import dummy from '@/public/dummy.svg';
 import classes from './MainVisual.module.css';
-import { useIllustList } from '@/store/illustListStore';
+import useStore from '@/store/useStore';
+import { useIllustList, dataInfo } from '@/store/illustListStore';
 
 export function MainVisual() {
   const boxRef = useRef(null);
@@ -19,14 +20,24 @@ export function MainVisual() {
   const initRand = Math.floor(Math.random() * illusts.length); // 初期用 0を含む
   const rand = Math.floor(Math.random() * (illusts.length - 1) + 1); // 加算用 0は除く
 
+  // ランダムにイラストを変更する関数
+  const changeIllust = () => setRandId((id) => (id + rand) % illusts.length);
+
   // 取得済みかどうかを判定
-  const isFetched = useIllustList((state) => state.isFetched());
+  const isExist = useStore(dataInfo, (state) => state.isExist) || false;
+  const isUpdated = useStore(dataInfo, (state) => state.isUpdated) || false;
+
+  useEffect(() => {
+    // 初期値を再設定
+    setRandId(initRand);
+
+    // 8秒ごとにイラストを変更
+    const timer = setInterval(changeIllust, 8000);
+    return () => clearInterval(timer);
+  }, [isUpdated]);
 
   // フェードイン
   useEffect(() => {
-    // 取得済みでなければ何もしない
-    if (!isFetched) return;
-
     gsap.fromTo(
       boxRef.current,
       {
@@ -38,13 +49,10 @@ export function MainVisual() {
         ease: 'sine.inOut',
       }
     );
-  }, [isFetched, randId]);
+  }, [randId]);
 
   // 上下に動くアニメーション
   useEffect(() => {
-    // 取得済みでなければ何もしない
-    if (!isFetched) return;
-
     gsap.to(boxRef.current, {
       y: '+=12',
       duration: 1.8,
@@ -52,13 +60,10 @@ export function MainVisual() {
       repeat: -1,
       yoyo: true,
     });
-  }, [isFetched]);
+  }, [isExist]);
 
   // キャッチフレーズのアニメーション(右下を軸として-3度回転)
   useEffect(() => {
-    // 取得済みでなければ何もしない
-    if (!isFetched) return;
-
     // 一度のみ実行
     gsap.to('#catchPhrase', {
       rotate: -2.297,
@@ -66,19 +71,7 @@ export function MainVisual() {
       transformOrigin: 'right bottom',
       ease: 'bounce.out',
     });
-  }, [isFetched]);
-
-  // ランダムにイラストを変更 (現状から加算)
-  const changeIllust = () => setRandId((id) => (id + rand) % illusts.length);
-
-  useEffect(() => {
-    // 初期値を再設定
-    setRandId(initRand);
-
-    // 8秒ごとにイラストを変更
-    const timer = setInterval(changeIllust, 8000);
-    return () => clearInterval(timer);
-  }, [isFetched]);
+  }, [isExist]);
 
   return (
     <Container size="xl" className={`${classes.main}`}>
@@ -102,8 +95,8 @@ export function MainVisual() {
           href={`/works/${illusts[randId].id}`}
         >
           <Image
-            className={`${classes.image} ${isFetched || 'opacity-0'} big-shadow`}
-            src={`${isFetched ? illusts[randId].illust : dummy.src}`}
+            className={`${classes.image} ${isExist || 'opacity-0'} big-shadow`}
+            src={`${isExist ? illusts[randId].illust : dummy.src}`}
             alt="Vコレのイラスト(ランダムで表示)"
           />
         </Card>

@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 import axios, { AxiosResponse } from 'axios';
 import { notifications } from '@mantine/notifications';
 
@@ -20,30 +21,53 @@ type illustListState = {
       updated_at: string;
     },
   ];
-  isFetched: () => boolean;
 };
 
-export const useIllustList = create<illustListState>()(() => ({
-  illustList: [
+export const useIllustList = create<illustListState>()(
+  persist(
+    () => ({
+      illustList: [
+        {
+          id: 0,
+          illust: '',
+          title: '',
+          user_id: 0,
+          caption: '',
+          tags: [0],
+          created_at: '',
+          updated_at: '',
+        },
+      ],
+    }),
     {
-      id: 0,
-      illust: '',
-      title: '',
-      user_id: 0,
-      caption: '',
-      tags: [0],
-      created_at: '',
-      updated_at: '',
-    },
-  ],
-  isFetched: () => {
-    // イラストリストが取得済みかどうかを判定
-    const list: number = useIllustList.getState().illustList.length;
-    return list > 1;
-  },
+      name: 'illustListStore',
+    }
+  )
+);
+
+type dataInfo = {
+  // データが取得済みかどうか(重複取得を防ぐ)
+  // このコンポーネント内で使う
+  isFetched: boolean;
+  // データが既に入っているかどうか
+  isExist: boolean;
+  // 情報を更新したかどうか
+  isUpdated: boolean;
+};
+
+export const dataInfo = create<dataInfo>(() => ({
+  isFetched: false,
+  isExist: false,
+  isUpdated: false,
 }));
 
+// イラストリストを取得
+
 export const setIllustList = async () => {
+  // データが取得済みかどうかを判定
+  const isExist = useIllustList.getState().illustList.length > 1;
+  dataInfo.setState({ isExist });
+
   // イラストリストが取得できなかったときの通知を表示
   const fetchFailedIllustList = () => {
     notifications.show({
@@ -57,6 +81,17 @@ export const setIllustList = async () => {
     });
   };
 
+  // イラストリストが更新された場合に通知を表示
+  const updateIllustList = () => {
+    notifications.show({
+      id: 'updateIllustList',
+      autoClose: true,
+      radius: 'md',
+      title: 'イラスト情報を更新しました',
+      message: '前回アクセスしたときから、新しいイラストが追加されているかもしれません。',
+    });
+  };
+
   const fetch = async () => {
     try {
       const response: AxiosResponse = await axios.get(`${apiUrl}/illustrations/`);
@@ -64,14 +99,27 @@ export const setIllustList = async () => {
         (item: any) => item.tags[0] <= (visibleSeasonId || 0)
       );
       const data = dataFilter.sort((a: any, b: any) => b.id - a.id);
-      useIllustList.setState({ illustList: data });
-      console.log('illustListData is fetched!');
+
+      // ローカルのイラストリストと取得したイラストリストを比較(更新の必要性を判定)
+      const dataStr = JSON.stringify(data);
+      const localDataStr = JSON.stringify(useIllustList.getState().illustList);
+
+      if (dataStr !== localDataStr) {
+        useIllustList.setState({ illustList: data });
+        updateIllustList();
+        dataInfo.setState({ isUpdated: true });
+        console.log('illustListData is updated!');
+      } else {
+        console.log('illustListData is the latest!');
+      }
+
+      dataInfo.setState({ isFetched: true, isExist: true });
     } catch (e) {
       // イラストが取得できなかったときのエラー通知を表示
       fetchFailedIllustList();
     }
   };
   // 取得状態がfalseのときのみ取得
-  const isFetched = useIllustList.getState().isFetched();
-  isFetched ? console.log('Data is already fetched!') : fetch();
+  const { isFetched } = dataInfo.getState();
+  isFetched ? console.log('illustListData is already fetched!') : fetch();
 };
