@@ -1,6 +1,7 @@
 import { Text, Group, Paper, Skeleton, Badge } from '@mantine/core';
 import { useIllust } from '@/store/illustStore';
 import { GetUserName } from '../Tools/GetUserName';
+import { GetTagName } from '../Tools/GetTagName';
 import { GetRelativeTime } from '../Tools/GetRelativeTime';
 import classes from './AuthorCard.module.css';
 
@@ -17,16 +18,24 @@ export function AuthorCard() {
         <Paper radius="md" className={`light-shadow ${classes.comment}`}>
           <Group gap="xs">
             <Badge variant="light" color="blue" size="sm">
-              アーティスト
+              シーズン
             </Badge>
             <Text fz="lg">
-              <GetUserName userId={illust.user_id} />
+              <GetTagName tagId={illust.tags[0]} />
             </Text>
             <Text fz="xs" c="dimmed" mt={3}>
               <GetRelativeTime RawTime={illust.created_at} />
             </Text>
           </Group>
-          <Text pt="sm" size="sm">
+          <Group mt={4} gap="xs">
+            <Badge variant="light" color="blue" size="sm">
+              アーティスト
+            </Badge>
+            <Text fz="lg">
+              <GetUserName userId={illust.user_id} />
+            </Text>
+          </Group>
+          <Text pt={8} size="sm">
             {illust.caption}
           </Text>
         </Paper>
