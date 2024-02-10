@@ -7,6 +7,7 @@ import { BigImageCard } from '@/components/Card/BigImageCard';
 import { AuthorCard } from '@/components/Card/AuthorCard';
 import { CommentCard } from '@/components/Card/CommentCard';
 import { CommentForm } from '@/components/Card/CommentForm';
+import { RelatedIllusts } from '@/components/Card/RelatedIllusts';
 import { useVerified, setVerified } from '@/store/verifiedStore';
 import classes from './WorksView.module.css';
 import { PrevNextLink } from './PrevNextLink';
@@ -56,6 +57,7 @@ export function WorksView({ illustId }: { illustId: number }) {
           </div>
         </SimpleGrid>
       </SimpleGrid>
+      <RelatedIllusts illustId={illustId} />
     </div>
   );
 }
