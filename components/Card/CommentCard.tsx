@@ -54,7 +54,7 @@ export function CommentCard({
         color: 'green',
         radius: 'md',
         title: 'ずんだもんからのお願い',
-        message: 'ゆっくり呼んで落ち着いて押すのだ……。',
+        message: 'ゆっくり読んで、落ち着いて押すのだ……。',
       });
     }, 750);
   };
