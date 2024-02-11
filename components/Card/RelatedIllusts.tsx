@@ -1,4 +1,4 @@
-import { SimpleGrid, Card, Image, Text, Container, AspectRatio, Group, Badge } from '@mantine/core';
+import { Card, Image, Text, Container, AspectRatio, Group, Badge } from '@mantine/core';
 import classes from './RelatedIllusts.module.css';
 import useStore from '@/store/useStore';
 import { useIllustList } from '@/store/illustListStore';

@@ -1,7 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import axios, { AxiosResponse } from 'axios';
-import { updateCommentList } from '@/store/commentListStore';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -98,7 +97,4 @@ export const setLike = async (comment_id: number) => {
 
   // いいねの状態によって、いいねをするかどうかを切り替える
   likeState.includes(comment_id) ? unlike() : like();
-
-  // コメントを更新
-  updateCommentList();
 };
