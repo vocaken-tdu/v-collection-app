@@ -68,7 +68,6 @@ export const setLike = async (comment_id: number) => {
 
     // PUTでいいね数を更新
     await axios.put(`${apiUrl}/comments/${comment_id}/`, useComment.getState().comment);
-    console.log('like update!');
 
     console.log('liked!');
   };
@@ -91,7 +90,6 @@ export const setLike = async (comment_id: number) => {
 
     // PUTでいいね数を更新
     await axios.put(`${apiUrl}/comments/${comment_id}/`, useComment.getState().comment);
-    console.log('unliked update!');
 
     console.log('unliked!');
   };
@@ -103,6 +101,4 @@ export const setLike = async (comment_id: number) => {
 
   // コメントを更新
   updateCommentList();
-
-  console.log(comment_id, useLike.getState().commentId);
 };

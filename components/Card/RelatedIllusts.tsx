@@ -17,8 +17,6 @@ export function RelatedIllusts({ illustId }: { illustId: number }) {
   // このイラストを除く
   otherIllusts = otherIllusts.filter((illust) => illust.id !== illustId);
 
-  console.log(otherIllusts);
-
   return (
     <>
       {otherIllusts.length > 0 && (
