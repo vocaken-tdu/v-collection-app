@@ -43,8 +43,9 @@ export function CommentCard({
   // 通知を表示する
   const caution = () => {
     notifications.show({
-      color: 'pink',
       radius: 'md',
+      loading: true,
+      autoClose: 3000,
       title: 'いいねクールダウン中',
       message: '押し過ぎはダメなのだ！ 絶対なのだ！',
     });
@@ -53,7 +54,7 @@ export function CommentCard({
         color: 'green',
         radius: 'md',
         title: 'ずんだもんからのお願い',
-        message: '落ち着いて押すのだ……。',
+        message: 'ゆっくり読んで、落ち着いて押すのだ……。',
       });
     }, 750);
   };
@@ -75,7 +76,7 @@ export function CommentCard({
     // 処理中を解除
     setTimeout(() => {
       setProcess(false);
-    }, 1000);
+    }, 2000);
 
     return console.log('switch like!');
   };
