@@ -44,7 +44,7 @@ export const setIllust = async (illustId: number) => {
     notifications.show({
       id: 'fetchFailedIllust',
       loading: true,
-      autoClose: false,
+      autoClose: 6000,
       radius: 'md',
       title: 'イラスト情報が取得できませんでした。',
       message:
