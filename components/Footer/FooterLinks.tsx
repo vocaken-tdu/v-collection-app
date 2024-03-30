@@ -1,10 +1,11 @@
 'use client';
 
-import { Text, Container, ActionIcon, Group, Button, rem } from '@mantine/core';
-import { IconBrandTwitterFilled, IconArrowBack } from '@tabler/icons-react';
+import { Text, Container, ActionIcon, Group, Button, rem, Anchor } from '@mantine/core';
+import { IconBrandTwitterFilled, IconArrowBack, IconGraph } from '@tabler/icons-react';
 import classes from './FooterLinks.module.css';
 
 const url = process.env.NEXT_PUBLIC_BASE_URL;
+const statusUrl = process.env.NEXT_PUBLIC_STATUS_URL;
 const text = 'Vコレを一緒に盛り上げよう！';
 
 //呼び出されたら出力する場所
@@ -73,15 +74,30 @@ export function FooterLinks() {
           </Group>
 
           <div className={classes.right}>
-            <Text c="dark" style={{ fontSize: 14 }} className={classes.copyright}>
+            <Text c="dark" className={classes.copyright} style={{ fontSize: 14 }}>
               「VOCALOID（ボーカロイド）」ならびに
-              <br className={classes.tbBr} />
+              <br className={classes.spBr} />
               「ボカロ」はヤマハ株式会社の登録商標です。
-              <br className={classes.tbBr} />
-              <br />
+            </Text>
+            <Text c="dark" className={classes.copyright} mt={8} style={{ fontSize: 14 }}>
               © 2023 VOCALOID CLUB COLLECTION.&nbsp;
               <br className={classes.spBr} />
-              複製・転載等を固く禁じます
+              複製・転載等を固く禁じます。
+            </Text>
+            <Text c="dark" className={classes.copyright} mt={8}>
+              <Button
+                component="a"
+                href={statusUrl}
+                target="_blank"
+                c="dark"
+                style={{ fontSize: 14 }}
+                className={classes.anchor}
+                variant="transparent"
+                size="compact-md"
+              >
+                <IconGraph />
+                サービス稼働状況
+              </Button>
             </Text>
           </div>
         </Container>
