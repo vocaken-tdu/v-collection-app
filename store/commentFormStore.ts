@@ -31,21 +31,6 @@ if (useComment.getState().comment.length > 0) {
 
 // コメントを送信する
 export const setComment = async (illust_id: number, name: string, comment: string) => {
-  // 送信中の通知を表示
-  const sending = () => {
-    Sending(name, comment);
-  };
-
-  // 送信完了の通知を表示
-  const sent = () => {
-    Sent(comment);
-  };
-
-  // 送信失敗の通知を表示
-  const sendFailed = () => {
-    SendFailed();
-  };
-
   // コメントを送信する
   const postComment = async (id: number) => {
     // ローカルデータを更新
@@ -54,7 +39,7 @@ export const setComment = async (illust_id: number, name: string, comment: strin
     });
 
     // 送信中の通知を表示
-    sending();
+    Sending(name, comment);
 
     try {
       // コメントを送信
@@ -66,8 +51,8 @@ export const setComment = async (illust_id: number, name: string, comment: strin
 
       // 送信が完了したら以下の処理を実行
 
-      // 通知を更新
-      sent();
+      // 送信完了の通知を表示
+      Sent(comment);
       console.log('Comment sent!', res);
 
       // ローカルデータを削除
@@ -78,8 +63,8 @@ export const setComment = async (illust_id: number, name: string, comment: strin
       // コメント一覧を更新
       updateCommentList();
     } catch (e) {
-      // 送信に失敗したときのエラー通知を表示
-      sendFailed();
+      // 送信失敗のエラー通知を表示
+      SendFailed();
     }
   };
 

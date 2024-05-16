@@ -68,16 +68,6 @@ export const setIllustList = async () => {
   const isExist = useIllustList.getState().illustList.length > 1;
   dataInfo.setState({ isExist });
 
-  // イラストリストが取得できなかったときの通知を表示
-  const fetchFailedIllustList = () => {
-    FetchFailedIllustList();
-  };
-
-  // イラストリストが更新された場合に通知を表示
-  const updateIllustList = () => {
-    UpdateIllustList();
-  };
-
   const fetch = async () => {
     try {
       const response: AxiosResponse = await axios.get(`${apiUrl}/illustrations/`);
@@ -92,7 +82,10 @@ export const setIllustList = async () => {
 
       if (dataStr !== localDataStr) {
         useIllustList.setState({ illustList: data });
-        updateIllustList();
+
+        // イラストリストが更新された場合に通知を表示
+        UpdateIllustList();
+
         dataInfo.setState({ isUpdated: true });
         console.log('illustListData is updated!');
       } else {
@@ -101,8 +94,8 @@ export const setIllustList = async () => {
 
       dataInfo.setState({ isFetched: true, isExist: true });
     } catch (e) {
-      // イラストが取得できなかったときのエラー通知を表示
-      fetchFailedIllustList();
+      // イラストリストが取得できなかったときのエラー通知を表示
+      FetchFailedIllustList();
     }
   };
   // 取得状態がfalseのときのみ取得

@@ -39,11 +39,6 @@ export const useIllust = create<illustState>()(() => ({
 }));
 
 export const setIllust = async (illustId: number) => {
-  // イラストが取得できなかったときの通知を表示
-  const fetchFailedIllust = () => {
-    FetchFailedIllust();
-  };
-
   const fetch = async () => {
     try {
       const response: AxiosResponse = await axios.get(`${apiUrl}/illustrations/${illustId}`);
@@ -51,7 +46,7 @@ export const setIllust = async (illustId: number) => {
       console.log('illustData is fetched!');
     } catch (e) {
       // イラストが取得できなかったときのエラー通知を表示
-      fetchFailedIllust();
+      FetchFailedIllust();
     }
   };
   // 取得状態がfalseのときのみ取得
