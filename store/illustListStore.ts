@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import axios, { AxiosResponse } from 'axios';
-import { notifications } from '@mantine/notifications';
+import { FetchFailedIllustList, UpdateIllustList } from '@/store/StoreNotification';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const visibleSeasonId = process.env.NEXT_PUBLIC_VISIBLE_SEASON_ID;
@@ -70,26 +70,12 @@ export const setIllustList = async () => {
 
   // イラストリストが取得できなかったときの通知を表示
   const fetchFailedIllustList = () => {
-    notifications.show({
-      id: 'fetchFailedIllustList',
-      loading: true,
-      autoClose: 6000,
-      radius: 'md',
-      title: 'イラスト情報が取得できませんでした。',
-      message:
-        'ページをリロードしても直らない場合は、しばらくお待ちいただくか、お問い合わせください。',
-    });
+    FetchFailedIllustList();
   };
 
   // イラストリストが更新された場合に通知を表示
   const updateIllustList = () => {
-    notifications.show({
-      id: 'updateIllustList',
-      autoClose: true,
-      radius: 'md',
-      title: 'イラスト情報を更新しました',
-      message: '前回アクセスしたときから、新しいイラストが追加されているかもしれません。',
-    });
+    UpdateIllustList();
   };
 
   const fetch = async () => {

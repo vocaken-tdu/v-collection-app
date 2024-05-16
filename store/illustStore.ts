@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import axios, { AxiosResponse } from 'axios';
-import { notifications } from '@mantine/notifications';
+import { FetchFailedIllust } from './StoreNotification';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -41,15 +41,7 @@ export const useIllust = create<illustState>()(() => ({
 export const setIllust = async (illustId: number) => {
   // イラストが取得できなかったときの通知を表示
   const fetchFailedIllust = () => {
-    notifications.show({
-      id: 'fetchFailedIllust',
-      loading: true,
-      autoClose: 6000,
-      radius: 'md',
-      title: 'イラスト情報が取得できませんでした。',
-      message:
-        'ページをリロードしても直らない場合は、しばらくお待ちいただくか、お問い合わせください。',
-    });
+    FetchFailedIllust();
   };
 
   const fetch = async () => {

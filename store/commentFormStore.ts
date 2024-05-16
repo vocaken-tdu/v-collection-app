@@ -1,9 +1,7 @@
-import { rem } from '@mantine/core';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import axios from 'axios';
-import { notifications } from '@mantine/notifications';
-import { IconCheck } from '@tabler/icons-react';
+import { Sending, Sent, SendFailed, RemainComment } from './StoreNotification';
 import { updateCommentList } from '@/store/commentListStore';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -28,53 +26,24 @@ export const useComment = create<commentState>()(
 
 // コメントが残っていたらメッセージを表示
 if (useComment.getState().comment.length > 0) {
-  notifications.show({
-    color: 'yellow',
-    radius: 'md',
-    title: '未送信かも……？',
-    message:
-      '送信できなかったかもしれないコメントを復元しました。送れていなかったら再度送信してみてください。',
-  });
+  RemainComment();
 }
 
 // コメントを送信する
 export const setComment = async (illust_id: number, name: string, comment: string) => {
   // 送信中の通知を表示
   const sending = () => {
-    notifications.show({
-      id: 'sending',
-      loading: true,
-      autoClose: false,
-      radius: 'md',
-      title: `${name}さんのコメントを送信中……`,
-      message: comment,
-    });
+    Sending(name, comment);
   };
 
   // 送信完了の通知を表示
   const sent = () => {
-    notifications.update({
-      id: 'sending',
-      color: 'teal',
-      title: '送信しました！',
-      message: comment,
-      icon: <IconCheck style={{ width: rem(18), height: rem(18) }} />,
-      loading: false,
-      autoClose: 2000,
-    });
+    Sent(comment);
   };
 
   // 送信失敗の通知を表示
   const sendFailed = () => {
-    notifications.update({
-      id: 'sending',
-      color: 'red',
-      title: '送信に失敗しました。',
-      message:
-        '通信環境を確認して再度送信してみてください。何度も失敗する場合はお問い合わせください。リロードするとコメントが復元されます。',
-      loading: false,
-      autoClose: false,
-    });
+    SendFailed();
   };
 
   // コメントを送信する
