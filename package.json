@@ -21,7 +21,6 @@
   "dependencies": {
     "@gsap/react": "^2.1.1",
     "@mantine/core": "7.2.2",
-    "@mantine/ds": "^7.2.2",
     "@mantine/form": "^7.3.2",
     "@mantine/hooks": "7.2.2",
     "@mantine/notifications": "^7.2.2",
