@@ -58,11 +58,10 @@ export function CommentForm({ illustId }: { illustId: number }) {
             type="submit"
             variant="gradient"
             gradient={{ from: '#1c7ed6', to: '#8DD9F9', deg: 45 }}
-            className={classes.control}
-            mt={1.55 * 16} // 1.55rem コメントフォームでのエラー表示のためにmtを使用
+            className={classes.button}
+            rightSection={<Image src={kami.src} fit="contain" className={classes.kami} />}
           >
             コメント送信
-            <Image id="commingSoon" src={kami.src} fit="contain" className={classes.kami} />
           </Button>
         </Group>
         <Textarea

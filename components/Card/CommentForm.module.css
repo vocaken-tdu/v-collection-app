@@ -20,13 +20,16 @@
 }
 
 .namearea {
-  align-items: flex-start;
+  align-items: flex-end;
   justify-content: space-between;
   flex-wrap: nowrap;
+}
+
+.button {
+  flex-shrink: 0;
 }
 
 .kami {
   width: 20px;
   height: 20px;
-  margin-left: 5px;
 }

@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import axios, { AxiosResponse } from 'axios';
-import { notifications } from '@mantine/notifications';
+import { FetchFailedIllustList, UpdateIllustList } from '@/store/StoreNotification';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const visibleSeasonId = process.env.NEXT_PUBLIC_VISIBLE_SEASON_ID;
@@ -68,30 +68,6 @@ export const setIllustList = async () => {
   const isExist = useIllustList.getState().illustList.length > 1;
   dataInfo.setState({ isExist });
 
-  // イラストリストが取得できなかったときの通知を表示
-  const fetchFailedIllustList = () => {
-    notifications.show({
-      id: 'fetchFailedIllustList',
-      loading: true,
-      autoClose: 6000,
-      radius: 'md',
-      title: 'イラスト情報が取得できませんでした。',
-      message:
-        'ページをリロードしても直らない場合は、しばらくお待ちいただくか、お問い合わせください。',
-    });
-  };
-
-  // イラストリストが更新された場合に通知を表示
-  const updateIllustList = () => {
-    notifications.show({
-      id: 'updateIllustList',
-      autoClose: true,
-      radius: 'md',
-      title: 'イラスト情報を更新しました',
-      message: '前回アクセスしたときから、新しいイラストが追加されているかもしれません。',
-    });
-  };
-
   const fetch = async () => {
     try {
       const response: AxiosResponse = await axios.get(`${apiUrl}/illustrations/`);
@@ -106,7 +82,10 @@ export const setIllustList = async () => {
 
       if (dataStr !== localDataStr) {
         useIllustList.setState({ illustList: data });
-        updateIllustList();
+
+        // イラストリストが更新された場合に通知を表示
+        UpdateIllustList();
+
         dataInfo.setState({ isUpdated: true });
         console.log('illustListData is updated!');
       } else {
@@ -115,8 +94,8 @@ export const setIllustList = async () => {
 
       dataInfo.setState({ isFetched: true, isExist: true });
     } catch (e) {
-      // イラストが取得できなかったときのエラー通知を表示
-      fetchFailedIllustList();
+      // イラストリストが取得できなかったときのエラー通知を表示
+      FetchFailedIllustList();
     }
   };
   // 取得状態がfalseのときのみ取得
