@@ -1,4 +1,4 @@
-# VOCALOID CLUB COLLECTION.
+# VOCALOID CLUB COLLECTION
 
 VOCALOID CLUB COLLECTION の専用ページです。
 
@@ -88,6 +88,4 @@ Appのルーティングの階層構造詳細については[こちら](https://
   - → コンポーネントの一番最初に「'use client';」を追加してみるといいかも [詳細](https://ramble.impl.co.jp/4935/)
 - term expectedcss(css-termexpected)
   - ～.module.cssでMantineのbreakpoint使ってると出てくるけど正常に動作するので無視してヨシ
-
-
 
