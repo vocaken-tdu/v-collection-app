@@ -89,3 +89,4 @@ Appのルーティングの階層構造詳細については[こちら](https://
 - term expectedcss(css-termexpected)
   - ～.module.cssでMantineのbreakpoint使ってると出てくるけど正常に動作するので無視してヨシ
 
+.
