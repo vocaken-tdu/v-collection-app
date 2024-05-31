@@ -72,3 +72,15 @@ img {
     display: none;
   }
 }
+
+/*
+  CSSアニメーション
+*/
+
+.anim-wave {
+  /* ここ */
+}
+
+@keyframes anim-wave {
+  /* ここ */
+}
