@@ -78,9 +78,21 @@ img {
 */
 
 .anim-wave {
-  /* ここ */
+  animation: anim-wave 4s ease-in-out infinite normal;
+  display: inline-block;
+  transition: 1.5s ease-in-out;
 }
 
 @keyframes anim-wave {
-  /* ここ */
+  0% {
+    transform:translate(0, 6px) rotate(0deg);
+  }
+
+  50% {
+    transform:translate(0, -6px) rotate(0deg);
+  }
+
+  100% {
+    transform:translate(0, 6px) rotate(0deg);
+  }
 }
