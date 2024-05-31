@@ -78,7 +78,7 @@ img {
 */
 
 .anim-wave {
-  animation: anim-wave 2s ease-in-out infinite alternate;
+  animation: anim-wave 4s ease-in-out infinite normal;
   display: inline-block;
   transition: 1.5s ease-in-out;
 }
