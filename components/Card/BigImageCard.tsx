@@ -1,8 +1,8 @@
 'use client';
 
-import React, { use, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Card, Image, Skeleton } from '@mantine/core';
-import gsap from 'gsap';
+// import gsap from 'gsap';
 import { useIllust, setIllust } from '@/store/illustStore';
 import classes from './BigImageCard.module.css';
 
@@ -18,6 +18,7 @@ export function BigImageCard({ illustId }: { illustId: number }) {
     setIllust(illustId);
   }, []);
 
+  /*
   useEffect(() => {
     gsap.fromTo(
       '#bigImage',
@@ -31,6 +32,7 @@ export function BigImageCard({ illustId }: { illustId: number }) {
       }
     );
   }, [isFetched]);
+  */
 
   return (
     <>
@@ -38,7 +40,7 @@ export function BigImageCard({ illustId }: { illustId: number }) {
         <Card className={`big-shadow ${classes.card}`} radius="md">
           <Image
             id="bigImage"
-            className={`opacity-0 ${classes.image}`}
+            className={`${classes.image}`}
             src={illust.illust}
             alt={illust.caption}
           />
