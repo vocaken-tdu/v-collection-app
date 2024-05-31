@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { Container, Group, Burger, Drawer, Text } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { Abel } from 'next/font/google';
@@ -32,7 +33,7 @@ export function Header() {
 
   // リンクを生成
   const items = links.map((link) => (
-    <a
+    <Link
       key={link.label}
       href={link.link}
       className={classes.link}
@@ -41,15 +42,15 @@ export function Header() {
       rel={link.external ? 'noopener noreferrer' : undefined}
     >
       {link.label}
-    </a>
+    </Link>
   ));
 
   return (
     <header className={`light-shadow ${classes.header}`}>
       <Container size="xl" className={classes.inner}>
-        <a href="/" className={`${abel.className} text-2xl`}>
+        <Link href="/" className={`${abel.className} text-2xl`}>
           <h1>VOCALOID CLUB COLLECTION</h1>
-        </a>
+        </Link>
 
         <Group gap={5} visibleFrom="sm">
           {items}
