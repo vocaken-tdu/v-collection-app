@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import React, { useEffect } from 'react';
 import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
 import useStore from '@/store/useStore';
@@ -23,14 +24,14 @@ export function PrevNextLink({ illustId }: { illustId: number }) {
   return (
     <div className={classes.arrowWrap}>
       {prevId && (
-        <a href={`/works/${prevId}`} className={`${classes.arrow} ${classes.prev}`}>
+        <Link href={`/works/${prevId}`} className={`${classes.arrow} ${classes.prev}`}>
           <IconChevronLeft size={48} stroke={1.5} color="var(--mantine-color-blue-filled)" />
-        </a>
+        </Link>
       )}
       {nextId && (
-        <a href={`/works/${nextId}`} className={`${classes.arrow} ${classes.next}`}>
+        <Link href={`/works/${nextId}`} className={`${classes.arrow} ${classes.next}`}>
           <IconChevronRight size={48} stroke={1.5} color="var(--mantine-color-blue-filled)" />
-        </a>
+        </Link>
       )}
     </div>
   );

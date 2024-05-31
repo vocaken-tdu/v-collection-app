@@ -1,3 +1,5 @@
+'use client';
+
 import { Text, Group, Paper, Skeleton, Badge } from '@mantine/core';
 import { useIllust } from '@/store/illustStore';
 import { GetUserName } from '@/components/_tools/GetUserName';

@@ -17,11 +17,9 @@ gsap.registerPlugin(ScrollTrigger);
 export function CommentCard({
   illustId,
   isFormVisible,
-  height,
 }: {
   illustId: number;
   isFormVisible: boolean;
-  height: number;
 }) {
   // 処理中かどうかを記録
   const [isProcess, setProcess] = useState(false);
@@ -111,7 +109,7 @@ export function CommentCard({
   }, [rawComments]);
 
   return (
-    <ScrollArea className={classes.scrollArea} h={height}>
+    <ScrollArea className={classes.scrollArea}>
       <SimpleGrid cols={1} spacing="md" className={classes.r}>
         <h2 className="text-xl text-center mt-5 mb-1" id="comments">
           {/* コメントがないとき and フォームが表示されている場合に コメントを促す */}

@@ -1,3 +1,5 @@
+'use client';
+
 import { Textarea, Button, Group, Paper, TextInput, Image, Text, Progress } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import classes from './CommentForm.module.css';
