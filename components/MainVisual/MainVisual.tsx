@@ -53,6 +53,7 @@ export function MainVisual() {
   }, [randId]);
 
   // 上下に動くアニメーション
+  /*
   useEffect(() => {
     gsap.to(boxRef.current, {
       y: '+=12',
@@ -62,6 +63,7 @@ export function MainVisual() {
       yoyo: true,
     });
   }, [isExist]);
+  */
 
   // キャッチフレーズのアニメーション(右下を軸として-3度回転)
   useEffect(() => {
