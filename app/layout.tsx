@@ -71,7 +71,6 @@ export default function RootLayout({ children }: { children: any }) {
           <Notifications position="top-right" autoClose={6000} />
           <main>{children}</main>
           <FooterLinks />
-          <TspApp />
           <FlowShape2 />
         </MantineProvider>
       </body>
