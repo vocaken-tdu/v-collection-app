@@ -7,7 +7,7 @@ import { theme } from '@/theme';
 import './globals.css';
 import '@mantine/notifications/styles.css';
 
-import { Header } from '@/components/Nav/Header';
+import { Header } from '@/components/Header/Header';
 import { FooterLinks } from '@/components/Footer/FooterLinks';
 import { FlowShape2 } from '@/components/Background/FlowShape2';
 
