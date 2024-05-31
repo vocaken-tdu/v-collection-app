@@ -7,7 +7,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import useStore from '@/store/useStore';
 import { useIllustList, setIllustList } from '@/store/illustListStore';
 import { useUserName, setUserName } from '@/store/userNameStore';
-import { GetUserName } from '../Tools/GetUserName';
+import { GetUserName } from '@/components/_tools/GetUserName';
 import classes from './ImageCard.module.css';
 
 gsap.registerPlugin(ScrollTrigger);

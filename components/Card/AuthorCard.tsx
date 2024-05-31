@@ -1,8 +1,8 @@
 import { Text, Group, Paper, Skeleton, Badge } from '@mantine/core';
 import { useIllust } from '@/store/illustStore';
-import { GetUserName } from '../Tools/GetUserName';
-import { GetTagName } from '../Tools/GetTagName';
-import { GetRelativeTime } from '../Tools/GetRelativeTime';
+import { GetUserName } from '@/components/_tools/GetUserName';
+import { GetTagName } from '@/components/_tools/GetTagName';
+import { GetRelativeTime } from '@/components/_tools/GetRelativeTime';
 import classes from './AuthorCard.module.css';
 
 export function AuthorCard() {

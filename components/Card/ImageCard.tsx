@@ -8,7 +8,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import useStore from '@/store/useStore';
 import { useIllustList, setIllustList, dataInfo } from '@/store/illustListStore';
 import { useTags, setTags } from '@/store/tagsStore';
-import { GetUserName } from '../Tools/GetUserName';
+import { GetUserName } from '@/components/_tools/GetUserName';
 import classes from './ImageCard.module.css';
 import flowShape from '@/public/flowShape.svg';
 

@@ -2,8 +2,8 @@ import { Card, Image, Text, Container, AspectRatio, Group, Badge } from '@mantin
 import classes from './RelatedIllusts.module.css';
 import useStore from '@/store/useStore';
 import { useIllustList } from '@/store/illustListStore';
-import { GetTagName } from '../Tools/GetTagName';
-import { GetRelativeTime } from '../Tools/GetRelativeTime';
+import { GetTagName } from '@/components/_tools/GetTagName';
+import { GetRelativeTime } from '@/components/_tools/GetRelativeTime';
 import { useIllust } from '@/store/illustStore';
 
 export function RelatedIllusts({ illustId }: { illustId: number }) {

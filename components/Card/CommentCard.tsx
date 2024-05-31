@@ -8,7 +8,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useEffect, useState } from 'react';
 import { useCommentList, setCommentList } from '@/store/commentListStore';
 import { useLike, setLike } from '@/store/likeStore';
-import { GetRelativeTime } from '../Tools/GetRelativeTime';
+import { GetRelativeTime } from '@/components/_tools/GetRelativeTime';
 import classes from './CommentCard.module.css';
 
 gsap.registerPlugin(ScrollTrigger);

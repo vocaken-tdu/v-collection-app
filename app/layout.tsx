@@ -3,7 +3,6 @@ import React from 'react';
 import { MantineProvider, ColorSchemeScript } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { TspApp } from '@/components/Background/TspApp';
 import { theme } from '@/theme';
 import './globals.css';
 import '@mantine/notifications/styles.css';
