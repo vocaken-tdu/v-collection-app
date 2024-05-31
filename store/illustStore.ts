@@ -49,7 +49,7 @@ export const setIllust = async (illustId: number) => {
       FetchFailedIllust();
     }
   };
-  // 取得状態がfalseのときのみ取得
-  const isFetched = useIllust.getState().isFetched();
-  isFetched ? console.log('illustData is already fetched!') : fetch();
+
+  // イラストデータを取得
+  fetch();
 };
