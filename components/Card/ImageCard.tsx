@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import React, { useEffect } from 'react';
 import { Card, Text, Group, Image, Paper } from '@mantine/core';
 import { notifications } from '@mantine/notifications';
@@ -93,21 +94,17 @@ export function ImageCard() {
               ?.filter((illust) => illust.tags.includes(tag.id))
               .map((illust, illustKey) => (
                 <div key={illustKey} className={classes.wrap} id="card">
-                  <Card
-                    p="lg"
-                    className={`big-shadow ${classes.card}`}
-                    radius="md"
-                    component="a"
-                    href={`/works/${illust.id}`}
-                  >
-                    <Image
-                      className={classes.image}
-                      src={illust.illust}
-                      alt={illust.caption}
-                      onError={fetchFailedImage}
-                      loading="lazy"
-                    />
-                  </Card>
+                  <Link href={`/works/${illust.id}`}>
+                    <Card p="lg" className={`big-shadow ${classes.card}`} radius="md" component="a">
+                      <Image
+                        className={classes.image}
+                        src={illust.illust}
+                        alt={illust.caption}
+                        onError={fetchFailedImage}
+                        loading="lazy"
+                      />
+                    </Card>
+                  </Link>
                   <div className={`${classes.content} mt-2`}>
                     <Group justify="space-between" gap="xs">
                       <Text size="sm" className={classes.artist}>
