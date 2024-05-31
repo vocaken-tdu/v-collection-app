@@ -52,19 +52,6 @@ export function MainVisual() {
     );
   }, [randId]);
 
-  // 上下に動くアニメーション
-  /*
-  useEffect(() => {
-    gsap.to(boxRef.current, {
-      y: '+=12',
-      duration: 1.8,
-      ease: 'sine.inOut',
-      repeat: -1,
-      yoyo: true,
-    });
-  }, [isExist]);
-  */
-
   // キャッチフレーズのアニメーション(右下を軸として-3度回転)
   useEffect(() => {
     // 取得済みでない場合はアニメーションを実行しない
