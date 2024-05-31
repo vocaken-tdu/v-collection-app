@@ -20,7 +20,7 @@
   padding: rem(8px) rem(12px);
   border-radius: var(--mantine-radius-sm);
   text-decoration: none;
-  color: #555577;
+  color: #332318;
   font-size: var(--mantine-font-size-md);
 
   @mixin hover {
