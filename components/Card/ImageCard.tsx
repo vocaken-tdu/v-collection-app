@@ -28,27 +28,27 @@ export function ImageCard() {
 
   useEffect(() => {
     // 下からフェードインするアニメーション
-    if (document.getElementById('card')) {
-      gsap.fromTo(
-        '#card',
-        {
-          y: 48,
-          opacity: 0,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.7,
-          stagger: 0.05,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: '#cards',
-            start: 'top 80%',
-            toggleActions: 'play none none reverse',
-          },
-        }
-      );
-    }
+    // if (document.getElementById('card')) {
+    //   gsap.fromTo(
+    //     '#card',
+    //     {
+    //       y: 48,
+    //       opacity: 0,
+    //     },
+    //     {
+    //       y: 0,
+    //       opacity: 1,
+    //       duration: 0.7,
+    //       stagger: 0.05,
+    //       ease: 'power2.out',
+    //       scrollTrigger: {
+    //         trigger: '#cards',
+    //         start: 'top 80%',
+    //         toggleActions: 'play none none reverse',
+    //       },
+    //     }
+    //   );
+    // }
     // 公開予定の背景アニメーション
     if (document.getElementById('commingSoon')) {
       gsap.to('#commingSoon', {
