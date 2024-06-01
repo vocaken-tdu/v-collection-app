@@ -109,22 +109,20 @@ export function MainVisual() {
           </Group>
         </div>
         {/*ランダムイラスト*/}
-        <div className="anim-wave">
-          <Link href={`/works/${illusts[randId].id}`}>
-            <Card
-              id="randomImage"
-              className="rotate-3 !overflow-visible"
-              ref={boxRef}
-              bg="transparent"
-            >
-              <Image
-                className={`${classes.image} ${isExist || 'opacity-0'} big-shadow`}
-                src={`${isExist ? illusts[randId].illust : dummy.src}`}
-                alt="Vコレのイラスト(ランダムで表示)"
-              />
-            </Card>
-          </Link>
-        </div>
+        <Link href={`/works/${illusts[randId].id}`} className="anim-wave">
+          <Card
+            id="randomImage"
+            className="rotate-3 !overflow-visible"
+            ref={boxRef}
+            bg="transparent"
+          >
+            <Image
+              className={`${classes.image} ${isExist || 'opacity-0'} big-shadow`}
+              src={`${isExist ? illusts[randId].illust : dummy.src}`}
+              alt="Vコレのイラスト(ランダムで表示)"
+            />
+          </Card>
+        </Link>
 
         {/*ロゴ2*/}
         <Group mt={48} hiddenFrom="md" justify="center">
