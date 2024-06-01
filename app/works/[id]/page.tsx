@@ -1,9 +1,9 @@
 import { Container, SimpleGrid, Text } from '@mantine/core';
-import { BigImageCard } from '@/components/Card/BigImageCard';
 import { AuthorCard } from '@/components/Card/AuthorCard';
 import { CommentCard } from '@/components/Card/CommentCard';
 import { CommentForm } from '@/components/Card/CommentForm';
 import { RelatedIllusts } from '@/components/Card/RelatedIllusts';
+import { BigImageCard } from '@/components/_ui/BigIllustCard';
 import { PrevNextLink } from '@/components/_ui/PrevNextLink';
 
 import classes from './page.module.css';
