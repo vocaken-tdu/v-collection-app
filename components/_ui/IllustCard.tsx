@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Card, Group, Image, Text } from '@mantine/core';
-import { NotifyFetchFailedImage } from '@/components/_ui/Notifications';
+import { NotifyFetchFailedImage } from '@/components/_notifications/notify';
 import { dataInfo } from '@/store/illustListStore';
 import useStore from '@/store/useStore';
 import { GetUserName } from '@/components/_tools/GetUserName';
