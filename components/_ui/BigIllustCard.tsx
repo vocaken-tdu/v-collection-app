@@ -18,30 +18,25 @@ export function BigImageCard({ illustId }: { illustId: number }) {
     setIllust(illustId);
   }, []);
 
-  useEffect(() => {
-    gsap.fromTo(
-      '#bigImage',
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-        duration: 0.4,
-        ease: 'sine.inOut',
-      }
-    );
-  }, [isFetched]);
+  // useEffect(() => {
+  //   gsap.fromTo(
+  //     '#bigImage',
+  //     {
+  //       opacity: 0,
+  //     },
+  //     {
+  //       opacity: 1,
+  //       duration: 0.4,
+  //       ease: 'sine.inOut',
+  //     }
+  //   );
+  // }, [isFetched]);
 
   return (
     <>
       <Skeleton visible={!isFetched}>
-        <Card className={`big-shadow ${classes.card}`} radius="md">
-          <Image
-            id="bigImage"
-            className={`${classes.image}`}
-            src={illust.illust}
-            alt={illust.caption}
-          />
+        <Card className={` ${classes.card} big-shadow anim-fadeIn`} radius="md" id="bigImage">
+          <Image className={`${classes.image}`} src={illust.illust} alt={illust.caption} />
         </Card>
       </Skeleton>
     </>
