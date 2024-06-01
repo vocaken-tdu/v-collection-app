@@ -5,9 +5,9 @@ import { useIllust } from '@/store/illustStore';
 import { GetUserName } from '@/components/_tools/GetUserName';
 import { GetTagName } from '@/components/_tools/GetTagName';
 import { GetRelativeTime } from '@/components/_tools/GetRelativeTime';
-import classes from './AuthorCard.module.css';
+import classes from './IllustInfo.module.css';
 
-export function AuthorCard() {
+export function IllustInfo() {
   // イラストの状態を取得
   const illust = useIllust((state) => state.illust);
 

@@ -1,8 +1,8 @@
 import { Container, SimpleGrid, Text } from '@mantine/core';
-import { AuthorCard } from '@/components/Card/AuthorCard';
 import { CommentCard } from '@/components/Card/CommentCard';
 import { CommentForm } from '@/components/Card/CommentForm';
 import { RelatedIllusts } from '@/components/Card/RelatedIllusts';
+import { IllustInfo } from '@/components/Card/IllustInfo';
 import { BigImageCard } from '@/components/_ui/BigIllustCard';
 import { PrevNextLink } from '@/components/_ui/PrevNextLink';
 
@@ -36,7 +36,7 @@ export default function Works({ params }: { params: { id: string } }) {
           <SimpleGrid className={classes.wrap} cols={{ base: 1, sm: 2 }} spacing="lg">
             <SimpleGrid cols={1} spacing="md" className={classes.l}>
               <BigImageCard illustId={illustId} />
-              <AuthorCard />
+              <IllustInfo />
             </SimpleGrid>
             <SimpleGrid cols={1} spacing="md" className={classes.r}>
               <CommentCard illustId={illustId} isFormVisible={isAuth} />
