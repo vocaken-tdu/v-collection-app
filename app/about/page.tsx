@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Container, Button } from '@mantine/core';
 
 export default function Home() {
@@ -41,17 +42,17 @@ export default function Home() {
           あるのでしょう？
         </p>
         {/* 見てみる！ ボタンを表示 */}
-        <Button
-          component="a"
-          href="/"
-          variant="outline"
-          color="blue"
-          radius="xl"
-          size="lg"
-          className="mb-60"
-        >
-          見てみる！
-        </Button>
+        <Link href="/">
+          <Button
+            variant="outline"
+            color="blue"
+            radius="xl"
+            size="lg"
+            className="mb-60"
+          >
+            見てみる！
+          </Button>
+        </Link>
       </Container>
     </>
   );

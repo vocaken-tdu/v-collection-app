@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Container, Button, Paper, Group } from '@mantine/core';
 
 export default function Home() {
@@ -6,11 +7,17 @@ export default function Home() {
       <Container size="xl" className="text-center">
         <h2 className="text-4xl my-40">使い方</h2>
 
-        <h3 className="text-3xl mt-20">1. まずはイラストを<br className="sp-only" />見に行こう</h3>
+        <h3 className="text-3xl mt-20">
+          1. まずはイラストを
+          <br className="sp-only" />
+          見に行こう
+        </h3>
         <p className="text-xl leading-relaxed">ピンとくるイラストを探そう。</p>
-        <Button component="a" href="/" variant="outline" color="blue" radius="xl" size="lg">
-          一覧を見てみる！
-        </Button>
+        <Link href="/">
+          <Button variant="outline" color="blue" radius="xl" size="lg">
+            一覧を見てみる！
+          </Button>
+        </Link>
 
         <h3 className="text-3xl mt-40">2. コメントしよう！</h3>
         <p className="text-xl leading-relaxed">
@@ -43,7 +50,11 @@ export default function Home() {
           </Paper>
         </Group>
 
-        <h3 className="text-3xl mt-40">3. 他の人のコメントも<br className="sp-only" />チェック！</h3>
+        <h3 className="text-3xl mt-40">
+          3. 他の人のコメントも
+          <br className="sp-only" />
+          チェック！
+        </h3>
         <p className="text-xl leading-relaxed">
           Vコレでは、絵ではなく
           <br className="sp-only" />
@@ -68,7 +79,11 @@ export default function Home() {
 
         <h2 className="text-4xl mt-80">注意事項</h2>
 
-        <h3 className="text-3xl mt-40">コメントは<br className="sp-only" />削除できないよ！</h3>
+        <h3 className="text-3xl mt-40">
+          コメントは
+          <br className="sp-only" />
+          削除できないよ！
+        </h3>
         <p className="text-xl leading-relaxed">
           原則コメントの編集や
           <br className="sp-only" />
@@ -80,7 +95,11 @@ export default function Home() {
           誤字をチェックしましょう！
         </p>
 
-        <h3 className="text-3xl mt-40">ボタンは<br className="sp-only" />連打しちゃだめ！</h3>
+        <h3 className="text-3xl mt-40">
+          ボタンは
+          <br className="sp-only" />
+          連打しちゃだめ！
+        </h3>
         <p className="text-xl leading-relaxed">
           反映されていないように見えたら、
           <br />

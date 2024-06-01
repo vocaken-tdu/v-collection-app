@@ -1,6 +1,7 @@
 'use client';
 
-import { Text, Container, ActionIcon, Group, Button, rem, Anchor } from '@mantine/core';
+import Link from 'next/link';
+import { Text, Container, ActionIcon, Group, Button, rem } from '@mantine/core';
 import { IconBrandTwitterFilled, IconArrowBack, IconGraph } from '@tabler/icons-react';
 import classes from './FooterLinks.module.css';
 
@@ -14,22 +15,22 @@ export function FooterLinks() {
     <div className={classes.footerWrap}>
       <footer className={classes.footer}>
         <Container size="xl">
-          <Button
-            component="a"
-            href="https://akatukime.wixsite.com/collection/"
-            variant="filled"
-            rightSection={
-              <IconArrowBack style={{ width: rem(20), height: rem(20) }} stroke={1.5} />
-            }
-            radius="xl"
-            size="lg"
-            styles={{
-              root: { paddingRight: rem(14), height: rem(48) },
-              section: { marginLeft: rem(22) },
-            }}
-          >
-            以前のVコレ
-          </Button>
+          <Link href="https://akatukime.wixsite.com/collection/" target="_blank">
+            <Button
+              variant="filled"
+              rightSection={
+                <IconArrowBack style={{ width: rem(20), height: rem(20) }} stroke={1.5} />
+              }
+              radius="xl"
+              size="lg"
+              styles={{
+                root: { paddingRight: rem(14), height: rem(48) },
+                section: { marginLeft: rem(22) },
+              }}
+            >
+              以前のVコレ
+            </Button>
+          </Link>
         </Container>
 
         <Container className={classes.afterFooter} size="xl">
@@ -50,12 +51,13 @@ export function FooterLinks() {
                 <Text style={{ fontSize: 23 }}>Share</Text>
                 <Group gap={8} className={classes.social} wrap="nowrap" justify="flex-start">
                   <ActionIcon size="lg" color="dark" variant="subtle">
-                    <a
+                    <Link
                       href={`https://twitter.com/share?url=${url}&text=${text}`}
                       className={classes.icon}
+                      target="_blank"
                     >
                       <IconBrandTwitterFilled style={{ width: 20, height: 20 }} stroke={1.5} />
-                    </a>
+                    </Link>
                   </ActionIcon>
                 </Group>
               </div>
@@ -64,9 +66,13 @@ export function FooterLinks() {
                 <Text style={{ fontSize: 23 }}>Follow us</Text>
                 <Group gap={8} className={classes.social} wrap="nowrap" justify="flex-start">
                   <ActionIcon size="lg" color="brack" variant="subtle">
-                    <a href="https://twitter.com/vocaken_tdu" className={classes.icon}>
+                    <Link
+                      href="https://twitter.com/vocaken_tdu"
+                      className={classes.icon}
+                      target="_blank"
+                    >
                       <IconBrandTwitterFilled style={{ width: 20, height: 20 }} stroke={1.5} />
-                    </a>
+                    </Link>
                   </ActionIcon>
                 </Group>
               </div>
@@ -85,19 +91,18 @@ export function FooterLinks() {
               複製・転載等を固く禁じます。
             </Text>
             <Text c="dark" className={classes.copyright} mt={8}>
-              <Button
-                component="a"
-                href={statusUrl}
-                target="_blank"
-                c="dark"
-                style={{ fontSize: 14 }}
-                className={classes.anchor}
-                variant="transparent"
-                size="compact-md"
-              >
-                <IconGraph />
-                サービス稼働状況
-              </Button>
+              <Link href={statusUrl || '/404/'} target="_blank">
+                <Button
+                  c="dark"
+                  style={{ fontSize: 14 }}
+                  className={classes.anchor}
+                  variant="transparent"
+                  size="compact-md"
+                >
+                  <IconGraph />
+                  サービス稼働状況
+                </Button>
+              </Link>
             </Text>
           </div>
         </Container>

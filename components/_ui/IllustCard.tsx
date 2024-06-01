@@ -18,7 +18,7 @@ export function IllustCard({ illust, illustKey }: { illust: any; illustKey: numb
   return (
     <div key={illustKey} className={classes.wrap} id="card">
       <Link href={`/works/${illust.id}`}>
-        <Card p="lg" className={`big-shadow ${classes.card}`} radius="md" component="a">
+        <Card p="lg" className={`big-shadow ${classes.card}`} radius="md">
           <Image
             className={classes.image}
             src={illust.illust}

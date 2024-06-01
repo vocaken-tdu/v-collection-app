@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { Card, Image, Text, Container, AspectRatio, Group, Badge } from '@mantine/core';
 import classes from './RelatedIllusts.module.css';
 import useStore from '@/store/useStore';
@@ -28,29 +29,24 @@ export function RelatedIllusts({ illustId }: { illustId: number }) {
           </Text>
           <div className={classes.cardWrap}>
             {otherIllusts.map((illust, key) => (
-              <Card
-                key={key}
-                p="md"
-                radius="md"
-                component="a"
-                href={`/works/${illust.id}`}
-                className={classes.card}
-              >
-                <AspectRatio ratio={1920 / 1080}>
-                  <Image src={illust.illust} radius="sm" />
-                </AspectRatio>
-                <Group gap="xs" mt="md">
-                  <Badge variant="light" color="blue" size="sm">
-                    シーズン
-                  </Badge>
-                  <Text fz="lg" className={classes.title} c="#333">
-                    <GetTagName tagId={illust.tags[0]} />
-                  </Text>
-                  <Text c="dimmed" size="xs" tt="uppercase" fw="bold" fz="xs">
-                    <GetRelativeTime RawTime={illust.created_at} format="day" />
-                  </Text>
-                </Group>
-              </Card>
+              <Link href={`/works/${illust.id}`}>
+                <Card key={key} p="md" radius="md" className={classes.card}>
+                  <AspectRatio ratio={1920 / 1080}>
+                    <Image src={illust.illust} radius="sm" />
+                  </AspectRatio>
+                  <Group gap="xs" mt="md">
+                    <Badge variant="light" color="blue" size="sm">
+                      シーズン
+                    </Badge>
+                    <Text fz="lg" className={classes.title} c="#333">
+                      <GetTagName tagId={illust.tags[0]} />
+                    </Text>
+                    <Text c="dimmed" size="xs" tt="uppercase" fw="bold" fz="xs">
+                      <GetRelativeTime RawTime={illust.created_at} format="day" />
+                    </Text>
+                  </Group>
+                </Card>
+              </Link>
             ))}
           </div>
         </Container>

@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { Image, Container, Group, Card } from '@mantine/core';
 import { gsap } from 'gsap';
@@ -109,20 +110,20 @@ export function MainVisual() {
         </div>
         {/*ランダムイラスト*/}
         <div className="anim-wave">
-          <Card
-            id="randomImage"
-            className="rotate-3 !overflow-visible"
-            ref={boxRef}
-            component="a"
-            bg="transparent"
-            href={`/works/${illusts[randId].id}`}
-          >
-            <Image
-              className={`${classes.image} ${isExist || 'opacity-0'} big-shadow`}
-              src={`${isExist ? illusts[randId].illust : dummy.src}`}
-              alt="Vコレのイラスト(ランダムで表示)"
-            />
-          </Card>
+          <Link href={`/works/${illusts[randId].id}`}>
+            <Card
+              id="randomImage"
+              className="rotate-3 !overflow-visible"
+              ref={boxRef}
+              bg="transparent"
+            >
+              <Image
+                className={`${classes.image} ${isExist || 'opacity-0'} big-shadow`}
+                src={`${isExist ? illusts[randId].illust : dummy.src}`}
+                alt="Vコレのイラスト(ランダムで表示)"
+              />
+            </Card>
+          </Link>
         </div>
 
         {/*ロゴ2*/}
