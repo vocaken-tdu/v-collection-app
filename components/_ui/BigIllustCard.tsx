@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react';
 import { Card, Image, Skeleton } from '@mantine/core';
-// import gsap from 'gsap';
+import gsap from 'gsap';
 import { useIllust, setIllust } from '@/store/illustStore';
 import classes from './BigIllustCard.module.css';
 
@@ -18,7 +18,6 @@ export function BigImageCard({ illustId }: { illustId: number }) {
     setIllust(illustId);
   }, []);
 
-  /*
   useEffect(() => {
     gsap.fromTo(
       '#bigImage',
@@ -32,7 +31,6 @@ export function BigImageCard({ illustId }: { illustId: number }) {
       }
     );
   }, [isFetched]);
-  */
 
   return (
     <>
