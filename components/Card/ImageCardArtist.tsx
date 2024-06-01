@@ -1,13 +1,12 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import { Card, Text, Group, Image } from '@mantine/core';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import useStore from '@/store/useStore';
+import { IllustCard } from '@/components/_ui/IllustCard';
 import { useIllustList, setIllustList } from '@/store/illustListStore';
 import { useUserName, setUserName } from '@/store/userNameStore';
-import { GetUserName } from '@/components/_tools/GetUserName';
 import classes from './ImageCard.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -25,30 +24,30 @@ export function ImageCardArtist() {
     setUserName();
   }, []);
 
-  useEffect(() => {
-    // 下からフェードインするアニメーション
-    if (document.getElementById('card')) {
-      gsap.fromTo(
-        '#card',
-        {
-          y: 48,
-          opacity: 0,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.7,
-          stagger: 0.05,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: '#cards',
-            start: 'top 80%',
-            toggleActions: 'play none none reverse',
-          },
-        }
-      );
-    }
-  }, [illusts, users]);
+  // useEffect(() => {
+  //   // 下からフェードインするアニメーション
+  //   if (document.getElementById('card')) {
+  //     gsap.fromTo(
+  //       '#card',
+  //       {
+  //         y: 48,
+  //         opacity: 0,
+  //       },
+  //       {
+  //         y: 0,
+  //         opacity: 1,
+  //         duration: 0.7,
+  //         stagger: 0.05,
+  //         ease: 'power2.out',
+  //         scrollTrigger: {
+  //           trigger: '#cards',
+  //           start: 'top 80%',
+  //           toggleActions: 'play none none reverse',
+  //         },
+  //       }
+  //     );
+  //   }
+  // }, [illusts, users]);
 
   return (
     <>
@@ -66,25 +65,7 @@ export function ImageCardArtist() {
                 {illusts
                   .filter((illust) => illust.user_id === user.id)
                   .map((illust, illustKey) => (
-                    <div key={illustKey} className={classes.wrap} id="card">
-                      <Card
-                        p="lg"
-                        className={`big-shadow ${classes.card}`}
-                        radius="md"
-                        component="a"
-                        href={`/works/${illust.id}`}
-                      >
-                        <Image className={classes.image} src={illust.illust} alt={illust.caption} />
-                        <div className={classes.overlay} />
-                      </Card>
-                      <div className={`${classes.content} mt-2`}>
-                        <Group justify="space-between" gap="xs">
-                          <Text size="sm" className={classes.artist}>
-                            <GetUserName userId={illust.user_id} />
-                          </Text>
-                        </Group>
-                      </div>
-                    </div>
+                    <IllustCard illust={illust} illustKey={illustKey} />
                   ))}
               </div>
             </div>
