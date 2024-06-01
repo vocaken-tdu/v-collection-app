@@ -29,24 +29,26 @@ export function RelatedIllusts({ illustId }: { illustId: number }) {
           </Text>
           <div className={classes.cardWrap}>
             {otherIllusts.map((illust, key) => (
-              <Link href={`/works/${illust.id}`}>
-                <Card key={key} p="md" radius="md" className={classes.card}>
-                  <AspectRatio ratio={1920 / 1080}>
-                    <Image src={illust.illust} radius="sm" />
-                  </AspectRatio>
-                  <Group gap="xs" mt="md">
-                    <Badge variant="light" color="blue" size="sm">
-                      シーズン
-                    </Badge>
-                    <Text fz="lg" className={classes.title} c="#333">
-                      <GetTagName tagId={illust.tags[0]} />
-                    </Text>
-                    <Text c="dimmed" size="xs" tt="uppercase" fw="bold" fz="xs">
-                      <GetRelativeTime RawTime={illust.created_at} format="day" />
-                    </Text>
-                  </Group>
-                </Card>
-              </Link>
+              <div key={key} className={classes.card}>
+                <Link href={`/works/${illust.id}`}>
+                  <Card p="md" radius="md">
+                    <AspectRatio ratio={1920 / 1080}>
+                      <Image src={illust.illust} radius="sm" />
+                    </AspectRatio>
+                    <Group gap="xs" mt="md">
+                      <Badge variant="light" color="blue" size="sm">
+                        シーズン
+                      </Badge>
+                      <Text fz="lg" className={classes.title} c="#333">
+                        <GetTagName tagId={illust.tags[0]} />
+                      </Text>
+                      <Text c="dimmed" size="xs" tt="uppercase" fw="bold" fz="xs">
+                        <GetRelativeTime RawTime={illust.created_at} format="day" />
+                      </Text>
+                    </Group>
+                  </Card>
+                </Link>
+              </div>
             ))}
           </div>
         </Container>
