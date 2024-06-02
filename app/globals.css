@@ -114,3 +114,17 @@ img {
     opacity: 1;
   }
 }
+
+.anim-fadeIn {
+  animation: anim-fadeIn 0.4s linear 0.4s 1 normal forwards;
+}
+
+@keyframes anim-fadeIn{
+  0% {
+    opacity: 0;
+  }
+  
+  100% {
+    opacity: 1;
+  }
+}
