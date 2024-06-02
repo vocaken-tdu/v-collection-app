@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { Image, Container, Group, Card } from '@mantine/core';
 import { gsap } from 'gsap';
-import logo from '@/public/Logo.webp';
+import logo from '@/public/Logo_24sum.webp';
 import dummy from '@/public/dummy.svg';
 import arrow from '@/public/arrow.svg';
 import classes from './MainVisual.module.css';
