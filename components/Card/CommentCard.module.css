@@ -20,8 +20,13 @@
 }
 
 .scrollArea {
-  @media (max-width: $mantine-breakpoint-sm) {
-    /* element.styleで書かれているheightを打ち消す */
-    height: 100% !important;
+  @media (min-width: $mantine-breakpoint-sm) {
+    height: auto;
+    aspect-ratio: 33 / 40;
+    overflow-y: hidden;
+
+    & > div {
+      padding-bottom: 1em;
+    }
   }
 }
