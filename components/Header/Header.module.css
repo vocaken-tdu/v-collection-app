@@ -24,11 +24,11 @@
   font-size: var(--mantine-font-size-md);
 
   @mixin hover {
-    background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
+    background-color: #f9bb2e;
   }
 
   [data-mantine-color-scheme] &[data-active] {
-    background-color: var(--mantine-color-blue-filled);
+    background-color: #f9bb2e;
     color: var(--mantine-color-white);
   }
 }

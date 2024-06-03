@@ -2,7 +2,7 @@
   /* webの検証で影響を及ぼせる範囲 */
   padding-top: calc(var(--mantine-spacing-xl) * 1);
   padding-bottom: calc(var(--mantine-spacing-xl) * 2);
-  background-color: light-dark(#8dd9f9, var(--mantine-color-dark-6));
+  background-color: #f9bb2e;
 
   @media (max-width: $mantine-breakpoint-xs) {
     padding-top: calc(var(--mantine-spacing-xl) * 2);
@@ -80,7 +80,7 @@
   padding-top: 19%;
   height: 100%;
   width: 100%;
-  background-color: #fff;
+  background-color: #f9bb2e;
 }
 
 .right {
