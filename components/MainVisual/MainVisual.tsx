@@ -95,8 +95,8 @@ export function MainVisual() {
       <div className={classes.inner}>
         <div className={`${classes.content} grid place-content-center`}>
           <div id="catchPhrase" className={classes.catchPhrase}>
-            <div className={`${classes.highlight} ${classes.l}`}>あのキャラはこの冬</div>
-            <div className={`${classes.highlight} ${classes.r}`}>どう過ごしているだろう</div>
+            <div className={`${classes.highlight} ${classes.l}`}>あのキャラはこの夏</div>
+            <div className={`${classes.highlight} ${classes.r}`}>どんな服を着て過ごしているだろう</div>
             {isExist && (
               <>
                 <Image id="arrowPC" src={arrow.src} className={`${classes.arrow} ${classes.pc}`} />
