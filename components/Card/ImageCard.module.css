@@ -18,10 +18,3 @@
   /* italicだと斜めすぎるので */
   transform: skew(-8deg);
 }
-
-.flowShape {
-  min-width: 1080px;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
