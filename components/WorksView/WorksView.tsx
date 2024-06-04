@@ -6,7 +6,7 @@ import { useElementSize } from '@mantine/hooks';
 import { BigImageCard } from '@/components/Card/BigImageCard';
 import { AuthorCard } from '@/components/Card/AuthorCard';
 import { CommentCard } from '@/components/Card/CommentCard';
-import { CommentForm } from '@/components/Card/CommentForm';
+// import { CommentForm } from '@/components/Card/CommentForm';
 import { RelatedIllusts } from '@/components/Card/RelatedIllusts';
 import { useVerified, setVerified } from '@/store/verifiedStore';
 import classes from './WorksView.module.css';
@@ -48,13 +48,16 @@ export function WorksView({ illustId }: { illustId: number }) {
               height={heightBIC + heightAC - heightCF}
             />
             <div ref={refCF}>
-              {isAuth ? (
+              {/* {isAuth ? (
                 <CommentForm illustId={illustId} />
               ) : (
                 <Text ta="right" c="dimmed">
                   ※部員からのコメント
                 </Text>
-              )}
+              )} */}
+              <Text ta="right" c="dimmed">
+                ※部員からのコメント
+              </Text>
             </div>
           </SimpleGrid>
         </SimpleGrid>
