@@ -66,7 +66,7 @@ export function CommentCard({ comment, i }: { comment: any; i: number }) {
   return (
     <div key={i}>
       {/* コメントカード */}
-      <Paper px="xl" py="lg" radius="md" id="comment" className={`${classes.comment} light-shadow`}>
+      <Paper px="xl" py="lg" radius="md" className={`${classes.comment} light-shadow anim-fadeLeft`}>
         {/* コメントの内容 */}
         <Text size="sm">{comment.text}</Text>
         <div className="flex justify-between">
