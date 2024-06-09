@@ -38,6 +38,7 @@
   font-size: rem(32px);
   line-height: 1.2;
   font-weight: 900;
+  position: relative;
 
   @media (max-width: $mantine-breakpoint-md) {
     font-size: rem(28px);
