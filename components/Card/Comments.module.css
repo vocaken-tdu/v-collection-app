@@ -1,0 +1,11 @@
+.scrollArea {
+  @media (min-width: $mantine-breakpoint-sm) {
+    height: auto;
+    aspect-ratio: 33 / 40;
+    overflow-y: hidden;
+
+    & > div {
+      padding-bottom: 1em;
+    }
+  }
+}
