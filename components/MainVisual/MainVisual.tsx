@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { Image, Container, Group, Card } from '@mantine/core';
-import { gsap } from 'gsap';
+// import { gsap } from 'gsap';
 import logo from '@/public/Logo_24sum.webp';
 import dummy from '@/public/dummy.svg';
 import arrow from '@/public/arrow.svg';
@@ -12,7 +12,7 @@ import useStore from '@/store/useStore';
 import { useIllustList, dataInfo } from '@/store/illustListStore';
 
 export function MainVisual() {
-  const boxRef = useRef(null);
+  // const boxRef = useRef(null);
   const [randId, setRandId] = useState(0);
 
   // イラスト(リスト)の状態を取得
@@ -39,19 +39,19 @@ export function MainVisual() {
   }, [isUpdated]);
 
   // フェードイン
-  useEffect(() => {
-    gsap.fromTo(
-      boxRef.current,
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-        duration: 0.4,
-        ease: 'sine.inOut',
-      }
-    );
-  }, [randId]);
+  // useEffect(() => {
+    // gsap.fromTo(
+    //   boxRef.current,
+    //   {
+    //     opacity: 0,
+    //   },
+    //   {
+    //     opacity: 1,
+    //     duration: 0.4,
+    //     ease: 'sine.inOut',
+    //   }
+    // );
+  // }, [randId]);
 
   // キャッチフレーズのアニメーション(右下を軸として-3度回転)
   useEffect(() => {
@@ -112,8 +112,8 @@ export function MainVisual() {
         <Link href={`/works/${illusts[randId].id}`} className="anim-wave">
           <Card
             id="randomImage"
-            className="rotate-3 !overflow-visible"
-            ref={boxRef}
+            className="rotate-3 !overflow-visible anim-fadeIn"
+            key={randId} // 変更時にアニメーションを実行する
             bg="transparent"
           >
             <Image
