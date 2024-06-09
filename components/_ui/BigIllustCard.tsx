@@ -2,7 +2,6 @@
 
 import React, { useEffect } from 'react';
 import { Card, Image, Skeleton } from '@mantine/core';
-import gsap from 'gsap';
 import { useIllust, setIllust } from '@/store/illustStore';
 import classes from './BigIllustCard.module.css';
 

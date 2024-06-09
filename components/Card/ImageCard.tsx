@@ -1,16 +1,12 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import useStore from '@/store/useStore';
 import { useIllustList, setIllustList } from '@/store/illustListStore';
 import { IllustCard } from '@/components/_ui/IllustCard';
 import { useTags, setTags } from '@/store/tagsStore';
 import classes from './ImageCard.module.css';
 import { ComingSoon } from '@/components/_ui/ComingSoon';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export function ImageCard() {
   // イラスト(リスト)の状態を取得
