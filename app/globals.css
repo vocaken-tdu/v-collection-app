@@ -192,30 +192,31 @@ img {
 }
 
 .anim-tail-pc{
-  animation: anim-tail-pc 0.8s linear 0s 1 normal both;
+  animation: anim-tail-pc 0.5s linear 0s 1 normal both;
 }
 
 @keyframes anim-tail-pc{
   0%{
-    transform: translate(0, -12px);
+    bottom: -12px;
+    right: 0;
   }
 
   100%{
-    transform: translate(-24px, -14px);
-    opacity: 1;
+    bottom: -14px;
+    right: -24px;
   }
 }
 
 .anim-tail-sp{
-  animation: anim-tail-sp 0.8s linear 0s 1 normal both;
+  animation: anim-tail-sp 0.5s linear 0s 1 normal both;
 }
 
-@keyframes anim-tail-pc{
+@keyframes anim-tail-sp{
   0%{
-    transform: translate(0, -6px);
+    bottom: -6px;
   }
 
   100%{
-    transform: translate(0, -20px);
+    bottom: -20px;
   }
 }
