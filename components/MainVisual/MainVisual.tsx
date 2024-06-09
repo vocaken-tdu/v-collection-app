@@ -53,54 +53,56 @@ export function MainVisual() {
     // );
   // }, [randId]);
 
-  // キャッチフレーズのアニメーション(右下を軸として-3度回転)
-  useEffect(() => {
-    // 取得済みでない場合はアニメーションを実行しない
-    if (!isExist) return;
+  // // キャッチフレーズのアニメーション(右下を軸として-3度回転)
+  // useEffect(() => {
+  //   //    取得済みでない場合はアニメーションを実行しない
+  //   if (!isExist) return;
 
-    gsap.to('#catchPhrase', {
-      rotate: -2.297,
-      duration: 0.8,
-      transformOrigin: 'right bottom',
-      ease: 'bounce.out',
-    });
-    gsap.fromTo(
-      '#arrowPC',
-      {
-        right: 0,
-        bottom: -12,
-      },
-      {
-        duration: 0.8,
-        ease: 'bounce.out',
-        right: -24,
-        bottom: -14,
-      }
-    );
-    gsap.fromTo(
-      '#arrowSP',
-      {
-        bottom: -6,
-      },
-      {
-        duration: 0.8,
-        ease: 'bounce.out',
-        bottom: -20,
-      }
-    );
-  }, [isExist]);
+  //   gsap.to('#catchPhrase', {
+  //     rotate: -2.297,
+  //     duration: 0.8,
+  //     transformOrigin: 'right bottom',
+  //     ease: 'bounce.out',
+  //   });
+  //   gsap.fromTo(
+  //     '#arrowPC',
+  //     {
+  //       right: 0,
+  //       bottom: -12,
+  //     },
+  //     {
+  //       duration: 0.8,
+  //       ease: 'bounce.out',
+  //       right: -24,
+  //       bottom: -14,
+  //     }
+  //   );
+  //   gsap.fromTo(
+  //     '#arrowSP',
+  //     {
+  //       bottom: -6,
+  //     },
+  //     {
+  //       duration: 0.8,
+  //       ease: 'bounce.out',
+  //       bottom: -20,
+  //     }
+  //   );
+  // }, [isExist]);
 
   return (
     <Container size="xl" className={`${classes.main}`}>
       <div className={classes.inner}>
         <div className={`${classes.content} grid place-content-center`}>
-          <div id="catchPhrase" className={classes.catchPhrase}>
+          <div className={`${classes.catchPhrase} ${isExist && 'anim-bounce'}`}>
             <div className={`${classes.highlight} ${classes.l}`}>あのキャラはこの夏</div>
-            <div className={`${classes.highlight} ${classes.r}`}>どんな服を着て過ごしているだろう</div>
+            <div className={`${classes.highlight} ${classes.r}`}>
+              どんな服を着て過ごしているだろう
+            </div>
             {isExist && (
               <>
-                <Image id="arrowPC" src={arrow.src} className={`${classes.arrow} ${classes.pc}`} />
-                <Image id="arrowSP" src={arrow.src} className={`${classes.arrow} ${classes.sp}`} />
+                <Image src={arrow.src} className={`${classes.arrow} ${classes.pc} anim-tail-pc`} />
+                <Image src={arrow.src} className={`${classes.arrow} ${classes.sp} anim-tail-sp`} />
               </>
             )}
           </div>
