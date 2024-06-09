@@ -40,17 +40,17 @@ export function MainVisual() {
 
   // フェードイン
   // useEffect(() => {
-    // gsap.fromTo(
-    //   boxRef.current,
-    //   {
-    //     opacity: 0,
-    //   },
-    //   {
-    //     opacity: 1,
-    //     duration: 0.4,
-    //     ease: 'sine.inOut',
-    //   }
-    // );
+  // gsap.fromTo(
+  //   boxRef.current,
+  //   {
+  //     opacity: 0,
+  //   },
+  //   {
+  //     opacity: 1,
+  //     duration: 0.4,
+  //     ease: 'sine.inOut',
+  //   }
+  // );
   // }, [randId]);
 
   // // キャッチフレーズのアニメーション(右下を軸として-3度回転)
@@ -95,10 +95,8 @@ export function MainVisual() {
       <div className={classes.inner}>
         <div className={`${classes.content} grid place-content-center`}>
           <div className={`${classes.catchPhrase} ${isExist && 'anim-bounce'}`}>
-            <div className={`${classes.highlight} ${classes.l}`}>あのキャラはこの夏</div>
-            <div className={`${classes.highlight} ${classes.r}`}>
-              どんな服を着て過ごしているだろう
-            </div>
+            <div className={`${classes.highlight} ${classes.l}`}>あのキャラはこの夏､</div>
+            <div className={`${classes.highlight} ${classes.r}`}>なにを着ているだろう</div>
             {isExist && (
               <>
                 <Image src={arrow.src} className={`${classes.arrow} ${classes.pc} anim-tail-pc`} />

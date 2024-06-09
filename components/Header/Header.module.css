@@ -22,6 +22,7 @@
   text-decoration: none;
   color: #332318;
   font-size: var(--mantine-font-size-md);
+  transition: background-color 0.5s;
 
   @mixin hover {
     background-color: #f9bb2e;
