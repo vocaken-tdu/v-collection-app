@@ -5,9 +5,9 @@ import useStore from '@/store/useStore';
 import { IllustCard } from '@/components/_ui/IllustCard';
 import { useIllustList, setIllustList } from '@/store/illustListStore';
 import { useUserName, setUserName } from '@/store/userNameStore';
-import classes from './ImageCard.module.css';
+import classes from './Illusts.module.css';
 
-export function ImageCardArtist() {
+export function IllustsArtist() {
   // イラスト(リスト)の状態を取得
   const illusts = useStore(useIllustList, (state) => state.illustList) || [];
 
