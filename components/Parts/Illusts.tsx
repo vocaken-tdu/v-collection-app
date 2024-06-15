@@ -33,7 +33,7 @@ export function Illusts() {
             {/* イラストをタグごとに表示 */}
             {illusts
               ?.filter((illust) => illust.tags.includes(tag.id))
-              .map((illust, illustKey) => <IllustCard illust={illust} illustKey={illustKey} />)}
+              .map((illust, i) => <IllustCard illust={illust} i={i} />)}
           </div>
           {/* イラストがない場合は公開予定であることを表示 */}
           {illusts?.filter((illust) => illust.tags.includes(tag.id)).length === 0 && <ComingSoon />}

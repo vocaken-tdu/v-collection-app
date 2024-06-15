@@ -6,7 +6,7 @@ import useStore from '@/store/useStore';
 import { GetUserName } from '@/components/_tools/GetUserName';
 import classes from './IllustCard.module.css';
 
-export function IllustCard({ illust, illustKey }: { illust: any; illustKey: number }) {
+export function IllustCard({ illust, i }: { illust: any; i: number }) {
   const isExist = useStore(dataInfo, (state) => state.isExist) || false;
 
   // 画像が取得できなかったときの通知を表示
@@ -17,9 +17,9 @@ export function IllustCard({ illust, illustKey }: { illust: any; illustKey: numb
 
   return (
     <div
-      key={illustKey}
+      key={i}
       className={`${classes.wrap} anim-fadeUp`}
-      style={{ animationDelay: `${illustKey * 50}ms` }}
+      style={{ animationDelay: `${i * 50}ms` }}
     >
       <Link href={`/works/${illust.id}`}>
         <Card p="lg" className={`big-shadow ${classes.card}`} radius="md">

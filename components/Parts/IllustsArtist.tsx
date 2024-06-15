@@ -35,8 +35,8 @@ export function IllustsArtist() {
                 {/* イラストをユーザーごとに表示 */}
                 {illusts
                   .filter((illust) => illust.user_id === user.id)
-                  .map((illust, illustKey) => (
-                    <IllustCard illust={illust} illustKey={illustKey} />
+                  .map((illust, i) => (
+                    <IllustCard illust={illust} i={i} />
                   ))}
               </div>
             </div>
