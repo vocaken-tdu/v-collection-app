@@ -64,37 +64,41 @@ export function CommentCard({ comment, i }: { comment: any; i: number }) {
   const isLiked = (id: number) => likeList.includes(id);
 
   return (
-    <div key={i}>
-      {/* コメントカード */}
-      <Paper px="xl" py="lg" radius="md" className={`${classes.comment} light-shadow anim-fadeLeft`}>
-        {/* コメントの内容 */}
-        <Text size="sm">{comment.text}</Text>
-        <div className="flex justify-between">
-          <Group>
-            {/* ユーザー名 */}
-            <Text pt="sm" fz="sm">
-              {comment.user_name}
-            </Text>
-            {/* 投稿日時 */}
-            <Text pt="sm" fz="xs" c="dimmed" mt={1}>
-              <GetRelativeTime RawTime={comment.created_at} />
-            </Text>
-          </Group>
-          {/* いいねボタン */}
-          <Button
-            variant="light"
-            color="pink"
-            radius="xl"
-            onClick={switchLike(comment.id)}
-            className={classes.button}
-          >
-            {/* いいねの状態によってアイコンを変更 */}
-            {isLiked(comment.id) ? <IconHeartFilled /> : <IconHeart />}
-            {/* いいねの数 */}
-            {comment.like}
-          </Button>
-        </div>
-      </Paper>
-    </div>
+    <Paper
+      px="xl"
+      py="lg"
+      radius="md"
+      key={i}
+      className={`${classes.comment} light-shadow anim-fadeLeft`}
+      style={{ animationDelay: `${i * 50}ms` }}
+    >
+      {/* コメントの内容 */}
+      <Text size="sm">{comment.text}</Text>
+      <div className="flex justify-between">
+        <Group>
+          {/* ユーザー名 */}
+          <Text pt="sm" fz="sm">
+            {comment.user_name}
+          </Text>
+          {/* 投稿日時 */}
+          <Text pt="sm" fz="xs" c="dimmed" mt={1}>
+            <GetRelativeTime RawTime={comment.created_at} />
+          </Text>
+        </Group>
+        {/* いいねボタン */}
+        <Button
+          variant="light"
+          color="pink"
+          radius="xl"
+          onClick={switchLike(comment.id)}
+          className={classes.button}
+        >
+          {/* いいねの状態によってアイコンを変更 */}
+          {isLiked(comment.id) ? <IconHeartFilled /> : <IconHeart />}
+          {/* いいねの数 */}
+          {comment.like}
+        </Button>
+      </div>
+    </Paper>
   );
 }
