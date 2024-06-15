@@ -7,8 +7,8 @@ import { theme } from '@/theme';
 import './globals.css';
 import '@mantine/notifications/styles.css';
 
-import { Header } from '@/components/Header/Header';
-import { FooterLinks } from '@/components/Footer/FooterLinks';
+import { Header } from '@/components/Navigation/Header';
+import { FooterLinks } from '@/components/Navigation/FooterLinks';
 import { FlowShape2 } from '@/components/Background/FlowShape2';
 
 const title = process.env.NEXT_PUBLIC_SITE_TITLE;
