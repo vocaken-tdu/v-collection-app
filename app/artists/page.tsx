@@ -1,5 +1,5 @@
 import { Container } from '@mantine/core';
-import { IllustsArtist } from '@/components/Card/IllustsArtist';
+import { IllustsArtist } from '@/components/Parts/IllustsArtist';
 
 export default function Home() {
   return (
