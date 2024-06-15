@@ -20,31 +20,6 @@ export function IllustsArtist() {
     setUserName();
   }, []);
 
-  // useEffect(() => {
-  //   // 下からフェードインするアニメーション
-  //   if (document.getElementById('card')) {
-  //     gsap.fromTo(
-  //       '#card',
-  //       {
-  //         y: 48,
-  //         opacity: 0,
-  //       },
-  //       {
-  //         y: 0,
-  //         opacity: 1,
-  //         duration: 0.7,
-  //         stagger: 0.05,
-  //         ease: 'power2.out',
-  //         scrollTrigger: {
-  //           trigger: '#cards',
-  //           start: 'top 80%',
-  //           toggleActions: 'play none none reverse',
-  //         },
-  //       }
-  //     );
-  //   }
-  // }, [illusts, users]);
-
   return (
     <>
       {/* ユーザーを表示 (キーは兄弟間で一意である必要があるため100から開始している) */}
