@@ -1,6 +1,6 @@
 import { Container, SimpleGrid, Text } from '@mantine/core';
 import { Comments } from '@/components/Card/Comments';
-import { CommentForm } from '@/components/Card/CommentForm';
+import { CommentForm } from '@/components/_ui/CommentForm';
 import { RelatedIllusts } from '@/components/Card/RelatedIllusts';
 import { IllustInfo } from '@/components/_ui/IllustInfo';
 import { BigImageCard } from '@/components/_ui/BigIllustCard';
