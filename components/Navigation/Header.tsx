@@ -25,7 +25,7 @@ const links = [
 
 export function Header() {
   // バーガーメニューの状態を管理
-  const [opened, { toggle }] = useDisclosure(false);
+  const [opened, { open, close }] = useDisclosure(false);
 
   // パスを取得してアクティブなリンクを判定
   const pathname = usePathname();
@@ -40,6 +40,7 @@ export function Header() {
       data-active={active === link.link || undefined}
       target={link.external ? '_blank' : undefined}
       rel={link.external ? 'noopener noreferrer' : undefined}
+      onClick={close}
     >
       {link.label}
     </Link>
@@ -56,10 +57,10 @@ export function Header() {
           {items}
         </Group>
 
-        <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
+        <Burger opened={opened} onClick={open} hiddenFrom="sm" size="sm" />
         <Drawer
           opened={opened}
-          onClose={toggle}
+          onClose={close}
           position="right"
           size="xs"
           title={
