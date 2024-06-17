@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 import { Card, Group, Text } from '@mantine/core';
 import { NotifyFetchFailedImage } from '@/components/_notifications/notify';
 import { dataInfo } from '@/store/illustListStore';
@@ -9,6 +10,11 @@ import classes from './IllustCard.module.css';
 
 export function IllustCard({ illust, i }: { illust: any; i: number }) {
   const isExist = useStore(dataInfo, (state) => state.isExist) || false;
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  const onLoaded = () => {
+    setIsLoaded(true);
+  };
 
   // 画像が取得できなかったときの通知を表示
   const fetchFailed = () => {
@@ -19,7 +25,7 @@ export function IllustCard({ illust, i }: { illust: any; i: number }) {
   return (
     <div
       key={i}
-      className={`${classes.wrap} anim-fadeUp`}
+      className={`${classes.wrap} ${isLoaded && 'anim-fadeUp'}`}
       style={{ animationDelay: `${i * 50}ms` }}
     >
       <Link href={`/works/${illust.id}`}>
@@ -27,15 +33,16 @@ export function IllustCard({ illust, i }: { illust: any; i: number }) {
           <Image
             width={300}
             height={400}
+            quality={100}
             className={classes.image}
             src={illust.illust}
             alt={illust.caption}
+            onLoad={onLoaded}
             onError={fetchFailed}
-            quality={100}
           />
         </Card>
       </Link>
-      <div className={`${classes.content} mt-2`}>
+      <div className="mt-2">
         <Group justify="space-between" gap="xs">
           <Text size="sm" className={classes.artist}>
             <GetUserName userId={illust.user_id} />
