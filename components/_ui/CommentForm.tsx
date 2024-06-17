@@ -1,11 +1,12 @@
 'use client';
 
-import { Textarea, Button, Group, Paper, TextInput, Image, Text, Progress } from '@mantine/core';
+import Image from 'next/image';
+import { Textarea, Button, Group, Paper, TextInput, Text, Progress } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import classes from './CommentForm.module.css';
 import { useComment, setComment } from '../../store/commentFormStore';
 import { useMyName } from '../../store/userNameStore';
-import kami from '@/public/send.svg';
+import sendIcon from '@/public/send.svg';
 
 export function CommentForm({ illustId }: { illustId: number }) {
   // コメントフォームの状態を管理
@@ -58,10 +59,18 @@ export function CommentForm({ illustId }: { illustId: number }) {
           />
           <Button
             type="submit"
-            variant="gradient"
-            gradient={{ from: '#1c7ed6', to: '#8DD9F9', deg: 45 }}
+            bg="#f9bb2e"
+            px={16}
             className={classes.button}
-            rightSection={<Image src={kami.src} fit="contain" className={classes.kami} />}
+            rightSection={
+              <Image
+                width={20}
+                height={20}
+                src={sendIcon.src}
+                alt="送信ボタン"
+                className={classes.sendIcon}
+              />
+            }
           >
             コメント送信
           </Button>
