@@ -20,5 +20,6 @@ export default withBundleAnalyzer({
         port: '',
       },
     ],
+    formats: ['image/avif', 'image/webp'],
   },
 });
