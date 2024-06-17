@@ -12,6 +12,7 @@ export function IllustCard({ illust, i }: { illust: any; i: number }) {
   const isExist = useStore(dataInfo, (state) => state.isExist) || false;
   const [isLoaded, setIsLoaded] = useState(false);
 
+  // イラストが表示できたときの処理
   const onLoaded = () => {
     setIsLoaded(true);
   };

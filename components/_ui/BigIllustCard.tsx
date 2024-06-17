@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useEffect } from 'react';
-import { Card, Image, Skeleton } from '@mantine/core';
+import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
+import { Card, Skeleton } from '@mantine/core';
 import { useIllust, setIllust } from '@/store/illustStore';
 import classes from './BigIllustCard.module.css';
 
@@ -9,8 +10,13 @@ export function BigImageCard({ illustId }: { illustId: number }) {
   // イラストの状態を取得
   const illust = useIllust((state) => state.illust);
 
-  // 取得済みかどうかを判定
-  const isFetched = useIllust((state) => state.isFetched());
+  // イラストの取得状況を取得
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // イラストが表示できたときの処理
+  const onLoaded = () => {
+    setIsLoaded(true);
+  };
 
   // イラストを取得
   useEffect(() => {
@@ -19,13 +25,22 @@ export function BigImageCard({ illustId }: { illustId: number }) {
 
   return (
     <>
-      <Skeleton visible={!isFetched}>
+      <Skeleton visible={!isLoaded}>
         <Card
-          className={` ${classes.card} big-shadow ${isFetched && 'anim-fadeIn'}`}
+          p="0"
+          className={` ${classes.card} big-shadow ${isLoaded && 'anim-fadeIn'}`}
           radius="md"
           id="bigImage"
         >
-          <Image className={`${classes.image}`} src={illust.illust} alt={illust.caption} />
+          <Image
+            width={600}
+            height={800}
+            quality={100}
+            className={`${classes.image}`}
+            src={illust.illust}
+            alt={illust.caption}
+            onLoad={onLoaded}
+          />
         </Card>
       </Skeleton>
     </>

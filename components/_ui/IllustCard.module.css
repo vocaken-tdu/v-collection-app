@@ -12,9 +12,8 @@
 }
 
 .card {
-  height: auto;
   width: 300px;
-  background-color: #f9bb2e;
+  height: auto;
   aspect-ratio: 3 / 4;
 
   @mixin hover {
