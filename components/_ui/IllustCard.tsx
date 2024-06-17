@@ -1,5 +1,6 @@
+import Image from 'next/image';
 import Link from 'next/link';
-import { Card, Group, Image, Text } from '@mantine/core';
+import { Card, Group, Text } from '@mantine/core';
 import { NotifyFetchFailedImage } from '@/components/_notifications/notify';
 import { dataInfo } from '@/store/illustListStore';
 import useStore from '@/store/useStore';
@@ -22,13 +23,15 @@ export function IllustCard({ illust, i }: { illust: any; i: number }) {
       style={{ animationDelay: `${i * 50}ms` }}
     >
       <Link href={`/works/${illust.id}`}>
-        <Card p="lg" className={`big-shadow ${classes.card}`} radius="md">
+        <Card p="0" className={`big-shadow ${classes.card}`} radius="md">
           <Image
+            width={300}
+            height={400}
             className={classes.image}
             src={illust.illust}
             alt={illust.caption}
             onError={fetchFailed}
-            loading="lazy"
+            quality={100}
           />
         </Card>
       </Link>
