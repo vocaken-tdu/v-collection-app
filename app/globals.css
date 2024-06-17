@@ -31,8 +31,6 @@ strong {
 main {
   /* ちらつき防止 */
   min-height: calc(100vh - (80px + 32px) * 2);
-  height: auto;
-  overflow: hidden;
 }
 
 body {
