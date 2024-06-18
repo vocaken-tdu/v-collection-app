@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Image, Container, Group, Card } from '@mantine/core';
 import logo from '@/public/Logo_24sum.webp';
-import dummy from '@/public/dummy.svg';
-import arrow from '@/public/arrow.svg';
+import Dummy from '@/public/dummy.svg';
+import { Arrow } from '@/components/_ui/Arrow';
 import classes from './MainVisual.module.css';
 import useStore from '@/store/useStore';
 import { useIllustList, dataInfo } from '@/store/illustListStore';
@@ -43,12 +43,7 @@ export function MainVisual() {
           <div className={`${classes.catchPhrase} ${isExist && 'anim-bounce'}`}>
             <div className={`${classes.highlight} ${classes.l}`}>あのキャラはこの夏､</div>
             <div className={`${classes.highlight} ${classes.r}`}>なにを着ているだろう</div>
-            {isExist && (
-              <>
-                <Image src={arrow.src} className={`${classes.arrow} ${classes.pc} anim-tail-pc`} />
-                <Image src={arrow.src} className={`${classes.arrow} ${classes.sp} anim-tail-sp`} />
-              </>
-            )}
+            {isExist && <Arrow />}
           </div>
           <Group mt={80} visibleFrom="md">
             <Image className={classes.logo} src={logo.src} alt="Vコレのロゴ" />
@@ -64,7 +59,7 @@ export function MainVisual() {
           >
             <Image
               className={`${classes.image} ${isExist || 'opacity-0'} big-shadow`}
-              src={`${isExist ? illusts[randId].illust : dummy.src}`}
+              src={`${isExist ? illusts[randId].illust : Dummy.src}`}
               alt="Vコレのイラスト(ランダムで表示)"
             />
           </Card>
