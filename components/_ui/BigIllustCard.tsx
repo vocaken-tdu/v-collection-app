@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-import { Card, Skeleton } from '@mantine/core';
+import { Card, LoadingOverlay } from '@mantine/core';
 import { useIllust, setIllust } from '@/store/illustStore';
 import classes from './BigIllustCard.module.css';
 
@@ -25,24 +25,25 @@ export function BigImageCard({ illustId }: { illustId: number }) {
 
   return (
     <>
-      <Skeleton visible={!isLoaded}>
-        <Card
-          p="0"
-          className={` ${classes.card} big-shadow ${isLoaded && 'anim-fadeIn'}`}
-          radius="md"
-          id="bigImage"
-        >
-          <Image
-            width={600}
-            height={800}
-            quality={100}
-            className={`${classes.image}`}
+      <LoadingOverlay visible={!isLoaded} overlayProps={{ radius: 'sm', blur: 2 }} />
+      <Card
+        p="0"
+        className={` ${classes.card} big-shadow ${isLoaded && 'anim-fadeIn'}`}
+        radius="md"
+        id="bigImage"
+      >
+        <Image
+          width={600}
+          height={800}
+          quality={100}
+          className={`${classes.image}`}
           src={illust.illust}
-            alt={illust.caption}
-            onLoad={onLoaded}
-          />
-        </Card>
-      </Skeleton>
+          alt={illust.caption}
+          onLoad={onLoaded}
+          priority
+          unoptimized
+        />
+      </Card>
     </>
   );
 }
