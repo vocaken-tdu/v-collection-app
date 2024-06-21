@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { Card, Skeleton } from '@mantine/core';
 import { useIllust, setIllust } from '@/store/illustStore';
 import classes from './BigIllustCard.module.css';
+import dummy from '@/public/dummy.svg';
 
 export function BigImageCard({ illustId }: { illustId: number }) {
   // イラストの状態を取得
@@ -37,7 +38,7 @@ export function BigImageCard({ illustId }: { illustId: number }) {
             height={800}
             quality={100}
             className={`${classes.image}`}
-            src={illust.illust}
+            src={illust.illust ? illust.illust : dummy.src}
             alt={illust.caption}
             onLoad={onLoaded}
           />
