@@ -45,7 +45,6 @@ export function BigImageCard({ illustId }: { illustId: number }) {
           alt={illust.caption}
           onLoad={onLoaded}
           priority
-          unoptimized
         />
       </Card>
     </>
