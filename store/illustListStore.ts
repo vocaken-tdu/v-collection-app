@@ -5,6 +5,7 @@ import {
   NotifyFetchFailedIllustList,
   NotifyUpdateIllustList,
 } from '@/components/_tools/Notifications';
+import dummy from '@/public/dummy.svg';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const visibleSeasonId = process.env.NEXT_PUBLIC_VISIBLE_SEASON_ID;
@@ -32,7 +33,7 @@ export const useIllustList = create<illustListState>()(
       illustList: [
         {
           id: 0,
-          illust: '',
+          illust: dummy.src,
           title: '',
           user_id: 0,
           caption: '',
