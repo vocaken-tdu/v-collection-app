@@ -7,7 +7,7 @@ export function NotifyFetchFailedImage() {
   notifications.show({
     id: 'fetchFailedImage',
     loading: true,
-    autoClose: false,
+    autoClose: 8000,
     radius: 'md',
     title: '画像が取得できませんでした。',
     message: '現在対応中です。しばらくお待ちいただくか、長く続く場合はお問い合わせください。',
@@ -67,7 +67,7 @@ export function NotifySendFailed() {
     message:
       '通信環境を確認して再度送信してみてください。何度も失敗する場合はお問い合わせください。リロードするとコメントが復元されます。',
     loading: false,
-    autoClose: false,
+    autoClose: 8000,
   });
 }
 
