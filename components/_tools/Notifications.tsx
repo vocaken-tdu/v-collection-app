@@ -2,6 +2,7 @@ import { notifications } from '@mantine/notifications';
 import { rem } from '@mantine/core';
 import { IconCheck } from '@tabler/icons-react';
 
+// 画像の取得に失敗したときの通知を表示
 export function NotifyFetchFailedImage() {
   notifications.show({
     id: 'fetchFailedImage',
