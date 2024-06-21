@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { Card, Group, Text } from '@mantine/core';
-import { NotifyFetchFailedImage } from '@/components/_notifications/notify';
+import { NotifyFetchFailedImage } from '@/components/_tools/Notifications';
 import { dataInfo } from '@/store/illustListStore';
 import useStore from '@/store/useStore';
 import { GetUserName } from '@/components/_tools/GetUserName';
