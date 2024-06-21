@@ -16,7 +16,12 @@ export function IllustInfo() {
 
   return (
     <Box pos="relative">
-      <LoadingOverlay visible={!isFetched} overlayProps={{ radius: 'sm', blur: 2 }} />
+      <LoadingOverlay
+        visible={!isFetched}
+        overlayProps={{ radius: 'sm', blur: 2 }}
+        loaderProps={{ color: '#f9bb2e' }}
+        transitionProps={{ transition: 'fade', duration: 150 }}
+      />
       <Paper radius="md" className={`light-shadow ${classes.comment}`}>
         <Group gap="xs">
           <Badge variant="light" color="blue" size="sm">

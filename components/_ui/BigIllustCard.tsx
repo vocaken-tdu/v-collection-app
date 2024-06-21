@@ -29,7 +29,12 @@ export function BigImageCard({ illustId }: { illustId: number }) {
 
   return (
     <Box pos="relative">
-      <LoadingOverlay visible={!isLoaded} overlayProps={{ radius: 'sm', blur: 2 }} />
+      <LoadingOverlay
+        visible={!isLoaded}
+        overlayProps={{ radius: 'sm', blur: 2 }}
+        loaderProps={{ color: '#f9bb2e' }}
+        transitionProps={{ transition: 'fade', duration: 150 }}
+      />
       <Card
         p="0"
         className={` ${classes.card} big-shadow ${isLoaded && 'anim-fadeIn'}`}
