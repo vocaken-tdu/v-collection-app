@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-import { Card, LoadingOverlay } from '@mantine/core';
+import { Box, Card, LoadingOverlay } from '@mantine/core';
 import { dataInfo } from '@/store/illustListStore';
 import { useIllust, setIllust } from '@/store/illustStore';
 import classes from './BigIllustCard.module.css';
@@ -28,7 +28,7 @@ export function BigImageCard({ illustId }: { illustId: number }) {
   }, [isUpdated]);
 
   return (
-    <>
+    <Box pos="relative">
       <LoadingOverlay visible={!isLoaded} overlayProps={{ radius: 'sm', blur: 2 }} />
       <Card
         p="0"
@@ -47,6 +47,6 @@ export function BigImageCard({ illustId }: { illustId: number }) {
           priority
         />
       </Card>
-    </>
+    </Box>
   );
 }
