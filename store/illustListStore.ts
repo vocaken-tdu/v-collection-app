@@ -1,7 +1,11 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import axios, { AxiosResponse } from 'axios';
-import { FetchFailedIllustList, UpdateIllustList } from '@/store/StoreNotification';
+import {
+  NotifyFetchFailedIllustList,
+  NotifyUpdateIllustList,
+} from '@/components/_tools/Notifications';
+import dummy from '@/public/dummy.svg';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const visibleSeasonId = process.env.NEXT_PUBLIC_VISIBLE_SEASON_ID;
@@ -29,7 +33,7 @@ export const useIllustList = create<illustListState>()(
       illustList: [
         {
           id: 0,
-          illust: '',
+          illust: dummy.src,
           title: '',
           user_id: 0,
           caption: '',
@@ -84,7 +88,7 @@ export const setIllustList = async () => {
         useIllustList.setState({ illustList: data });
 
         // イラストリストが更新された場合に通知を表示
-        UpdateIllustList();
+        NotifyUpdateIllustList();
 
         dataInfo.setState({ isUpdated: true });
         console.log('illustListData is updated!');
@@ -95,7 +99,7 @@ export const setIllustList = async () => {
       dataInfo.setState({ isFetched: true, isExist: true });
     } catch (e) {
       // イラストリストが取得できなかったときのエラー通知を表示
-      FetchFailedIllustList();
+      NotifyFetchFailedIllustList();
     }
   };
   // 取得状態がfalseのときのみ取得

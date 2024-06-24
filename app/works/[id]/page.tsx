@@ -34,11 +34,14 @@ export default function Works({ params }: { params: { id: string } }) {
         <div className={classes.main}>
           <PrevNextLink illustId={illustId} />
           <SimpleGrid className={classes.wrap} cols={{ base: 1, sm: 2 }} spacing="lg">
-            <SimpleGrid cols={1} spacing="md" className={classes.l}>
-              <BigImageCard illustId={illustId} />
-              <IllustInfo />
+            <SimpleGrid cols={1} spacing="md" className={classes.left}>
+              <div className={classes.sticky}>
+                <BigImageCard illustId={illustId} />
+                <IllustInfo />
+              </div>
             </SimpleGrid>
-            <SimpleGrid cols={1} spacing="md" className={classes.r}>
+
+            <SimpleGrid cols={1} spacing="md" className={classes.right}>
               <Comments illustId={illustId} isFormVisible={isAuth} />
               {isAuth ? (
                 <CommentForm illustId={illustId} />

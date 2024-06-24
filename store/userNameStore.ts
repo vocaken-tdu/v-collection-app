@@ -63,7 +63,11 @@ export const setUserName = async () => {
   const fetch = async () => {
     try {
       const response: AxiosResponse = await axios.get(`${apiUrl}/user/`);
-      useUserName.setState({ user: response.data });
+
+      // ユーザー名 "admin" だけ使わないので一応除外
+      const data = response.data.filter((user: any) => user.name !== 'admin');
+
+      useUserName.setState({ user: data });
       console.log('userName is fetched!');
     } catch (error) {
       console.error('userName fetch failed!');

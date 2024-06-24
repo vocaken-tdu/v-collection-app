@@ -1,7 +1,8 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
-import { Card, Image, Text, Container, AspectRatio, Group, Badge } from '@mantine/core';
+import { Card, Text, Container, AspectRatio, Group, Badge } from '@mantine/core';
 import classes from './RelatedIllusts.module.css';
 import useStore from '@/store/useStore';
 import { useIllustList } from '@/store/illustListStore';
@@ -32,7 +33,14 @@ export function RelatedIllusts({ illustId }: { illustId: number }) {
               <Link href={`/works/${illust.id}`} key={key} className={classes.card}>
                 <Card p="md" radius="md">
                   <AspectRatio ratio={1920 / 1080}>
-                    <Image src={illust.illust} radius="sm" />
+                    <Image
+                      width={320}
+                      height={180}
+                      quality={100}
+                      src={illust.illust}
+                      alt={illust.caption}
+                      className={classes.relatedIllust}
+                    />
                   </AspectRatio>
                   <Group gap="xs" mt="md">
                     <Badge variant="light" color="blue" size="sm">

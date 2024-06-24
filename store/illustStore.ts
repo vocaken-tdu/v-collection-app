@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { useIllustList } from './illustListStore';
+import dummy from '@/public/dummy.svg';
 
 // -------- イラストを取得する
 
@@ -20,7 +21,7 @@ type illustState = {
 export const useIllust = create<illustState>()(() => ({
   illust: {
     id: 0,
-    illust: '',
+    illust: dummy.src,
     title: '',
     user_id: 0,
     caption: '',
@@ -39,5 +40,7 @@ export const setIllust = async (illustId: number) => {
   // illustListStoreからイラストデータを取得
   const illusts = useIllustList.getState().illustList;
   const illust = illusts.find((i) => i.id === illustId);
-  useIllust.setState({ illust });
+
+  // 中身がないときには何もしない
+  illust && useIllust.setState({ illust });
 };
