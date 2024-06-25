@@ -22,7 +22,7 @@ export function IllustInfo() {
         loaderProps={{ color: '#f9bb2e' }}
         transitionProps={{ transition: 'fade', duration: 150 }}
       />
-      <Paper radius="md" className={`light-shadow ${classes.comment}`}>
+      <div className={`${classes.comment}`}>
         <Group gap="xs">
           <Badge variant="light" color="blue" size="sm">
             シーズン
@@ -45,7 +45,7 @@ export function IllustInfo() {
         <Text pt={8} size="sm">
           {illust.caption}
         </Text>
-      </Paper>
+      </div>
     </Box>
   );
 }

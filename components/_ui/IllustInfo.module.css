@@ -1,17 +1,4 @@
 .comment {
   padding: var(--mantine-spacing-lg) var(--mantine-spacing-xl);
   min-height: 108px;
-  background-image: url('/paper-texture.webp');
-}
-
-.body {
-  padding-left: rem(54px);
-  padding-top: var(--mantine-spacing-sm);
-  font-size: var(--mantine-font-size-sm);
-}
-
-.content {
-  & > p:last-child {
-    margin-bottom: 0;
-  }
 }
