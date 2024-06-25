@@ -8,12 +8,18 @@ import { useTags, setTags } from '@/store/tagsStore';
 import classes from './Illusts.module.css';
 import { ComingSoon } from '@/components/_ui/ComingSoon';
 
+// アーカイブのシーズンID
+const archiveSeasonId = Number(process.env.NEXT_PUBLIC_ARCHIVE_SEASON_ID);
+
 export function Illusts() {
   // イラスト(リスト)の状態を取得
   const illusts = useStore(useIllustList, (state) => state.illustList);
 
   // タグの状態を取得
   const tags = useStore(useTags, (state) => state.tags);
+
+  // アーカイブするシーズンIDよりも最新のタグを取得
+  const filteredTags = tags?.filter((tag) => tag.id > archiveSeasonId);
 
   // イラスト(リスト)を取得
   useEffect(() => {
@@ -24,7 +30,7 @@ export function Illusts() {
   return (
     <>
       {/* タグを表示 (キーは兄弟間で一意である必要があるため100から開始している) */}
-      {tags?.map((tag, tagKey) => (
+      {filteredTags?.map((tag, tagKey) => (
         <div key={tagKey + 100} className={classes.tag}>
           <h2 className="text-3xl flex justify-center mt-20 mb-8">
             {tag.name ? `― ${tag.name} ―` : 'Now Loading...'}
