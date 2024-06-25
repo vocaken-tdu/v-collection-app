@@ -3,15 +3,15 @@ import { Container, SimpleGrid } from '@mantine/core';
 const credits = [
   {
     header: '企画',
-    members: ['うたの', 'ます', 'Rein', '紅シャケ', 'だいまおー。', 'Nyama', 'Harusame'],
+    members: ['うたの', 'ます', 'だいまおー。', 'Harusame', 'Nyama', 'Rein', '紅シャケ'],
   },
   {
     header: 'フロントエンド開発',
-    members: ['もちきつね', 'Rein', 'あい', 'Ruto'],
+    members: ['もちきつね', 'Ruto', 'Rein', 'あい'],
   },
   {
     header: 'バックエンド開発',
-    members: ['(問い合わせ中)', '(問い合わせ中)', 'ソフトウェア研究部 有志の方'],
+    members: ['ガルム', '(問い合わせ中)', 'ソフトウェア研究部 有志の方'],
   },
 ];
 
