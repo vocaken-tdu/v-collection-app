@@ -1,22 +1,13 @@
 .arrowWrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
   width: 100%;
   height: 5em;
-
-  /* レイアウトシフトを防ぐ */
-  min-height: 4em;
 }
 
 .arrow {
   display: flex;
   align-items: center;
-  top: 50%;
-  height: 75%;
   padding: 1em;
-  z-index: 1;
+  position: absolute;
 }
 
 .prev {
