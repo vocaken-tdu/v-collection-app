@@ -1,6 +1,8 @@
 .flowShape {
+  width: 100%;
+  height: auto;
   min-width: 1080px;
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0px;
+  object-fit: contain;
 }

@@ -1,5 +1,6 @@
+import Image from 'next/image';
 import React from 'react';
-import { Text, Image, Paper } from '@mantine/core';
+import { Text, Paper } from '@mantine/core';
 
 import flowShape from '@/public/flowShape.svg';
 import classes from './ComingSoon.module.css';
@@ -13,9 +14,10 @@ export function ComingSoon() {
       className="text-center relative overflow-hidden light-shadow"
     >
       <Image
+        width={1280}
+        height={200}
         id="commingSoon"
         src={flowShape.src}
-        fit="contain"
         alt="flowShape"
         className={classes.flowShape}
       />
