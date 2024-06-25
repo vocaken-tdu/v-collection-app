@@ -61,7 +61,7 @@ export function MainVisual() {
           </Group>
         </div>
         {/*ランダムイラスト*/}
-        <Link href={`/works/${illusts[randId].id}`} className="anim-wave">
+        <Link href={`/works/${illusts[randId]?.id}`} className="anim-wave">
           <Card
             id="randomImage"
             className={`${classes.card} ${isLoaded && 'anim-fadeIn'}`}
