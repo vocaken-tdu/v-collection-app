@@ -75,9 +75,12 @@ export const setIllustList = async () => {
   const fetch = async () => {
     try {
       const response: AxiosResponse = await axios.get(`${apiUrl}/illustrations/`);
+
+      // シーズンIDでフィルタリング
       const dataFilter = response.data.filter(
-        (item: any) => item.tags[0] <= (visibleSeasonId || 0)
+        (item: { tags: [number] }) => item.tags[0] <= Number(visibleSeasonId || 1)
       );
+
       const data = dataFilter.sort((a: any, b: any) => b.id - a.id);
 
       // ローカルのイラストリストと取得したイラストリストを比較(更新の必要性を判定)
