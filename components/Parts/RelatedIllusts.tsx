@@ -36,10 +36,10 @@ export function RelatedIllusts({ illustId }: { illustId: number }) {
                     <Image
                       width={320}
                       height={180}
-                      quality={100}
                       src={illust.illust}
                       alt={illust.caption}
                       className={classes.relatedIllust}
+                      unoptimized
                     />
                   </AspectRatio>
                   <Group gap="xs" mt="md">

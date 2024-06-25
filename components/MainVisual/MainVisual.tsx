@@ -71,11 +71,11 @@ export function MainVisual() {
             <Image
               width={300}
               height={400}
-              quality={80}
               onLoad={() => setLoaded(true)}
               className={`${classes.image} ${isExist || 'opacity-0'} big-shadow`}
               src={`${isExist ? illusts[randId].illust : Dummy.src}`}
               alt="Vコレのイラスト(ランダムで表示)"
+              unoptimized
             />
           </Card>
         </Link>

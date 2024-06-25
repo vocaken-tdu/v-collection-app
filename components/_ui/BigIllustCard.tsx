@@ -44,12 +44,12 @@ export function BigImageCard({ illustId }: { illustId: number }) {
         <Image
           width={600}
           height={800}
-          quality={100}
           className={`${classes.image}`}
           src={illust.illust}
           alt={illust.caption}
           onLoad={onLoaded}
           priority
+          unoptimized
         />
       </Card>
     </Box>

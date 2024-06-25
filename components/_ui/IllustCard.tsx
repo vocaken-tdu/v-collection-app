@@ -34,12 +34,12 @@ export function IllustCard({ illust, i }: { illust: any; i: number }) {
           <Image
             width={300}
             height={400}
-            quality={100}
             className={classes.image}
             src={illust.illust}
             alt={illust.caption}
             onLoad={onLoaded}
             onError={fetchFailed}
+            unoptimized
           />
         </Card>
       </Link>
