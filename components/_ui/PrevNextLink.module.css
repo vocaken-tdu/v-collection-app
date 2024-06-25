@@ -1,51 +1,32 @@
 .arrowWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
   width: 100%;
+  height: 5em;
 
-  @media screen and (max-width: 1280px) {
-    /* レイアウトシフトを防ぐ */
-    min-height: 4em;
-  }
+  /* レイアウトシフトを防ぐ */
+  min-height: 4em;
 }
 
 .arrow {
-  position: absolute;
   display: flex;
   align-items: center;
   top: 50%;
   height: 75%;
   padding: 1em;
   z-index: 1;
-
-  @media screen and (max-width: 1280px) {
-    height: auto;
-    position: relative;
-    padding-bottom: 1em;
-
-    svg {
-      width: 3em;
-      height: 3em;
-    }
-  }
 }
 
 .prev {
-  left: -3em;
-  transform: translate(-50%, -50%);
-
-  @media screen and (max-width: 1280px) {
-    float: left;
-    left: 0;
-    transform: none;
-  }
+  float: left;
+  left: 0;
+  transform: none;
 }
 
 .next {
-  right: -3em;
-  transform: translate(50%, -50%);
-
-  @media screen and (max-width: 1280px) {
-    float: right;
-    right: 0;
-    transform: none;
-  }
+  float: right;
+  right: 0;
+  transform: none;
 }
