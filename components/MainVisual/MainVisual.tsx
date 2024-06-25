@@ -1,8 +1,9 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { Image, Container, Group, Card } from '@mantine/core';
+import { Container, Group, Card } from '@mantine/core';
 import logo from '@/public/Logo_24sum.webp';
 import Dummy from '@/public/dummy.svg';
 import { Arrow } from '@/components/_ui/Arrow';
@@ -12,6 +13,9 @@ import { useIllustList, dataInfo } from '@/store/illustListStore';
 
 export function MainVisual() {
   const [randId, setRandId] = useState(0);
+
+  // ロード完了時の処理
+  const [isLoaded, setLoaded] = useState(false);
 
   // イラスト(リスト)の状態を取得
   const illusts = useIllustList((state) => state.illustList);
@@ -46,18 +50,29 @@ export function MainVisual() {
             {isExist && <Arrow />}
           </div>
           <Group mt={80} visibleFrom="md">
-            <Image className={classes.logo} src={logo.src} alt="Vコレのロゴ" />
+            <Image
+              width={600}
+              height={300}
+              quality={80}
+              className={classes.logo}
+              src={logo.src}
+              alt="Vコレのロゴ"
+            />
           </Group>
         </div>
         {/*ランダムイラスト*/}
         <Link href={`/works/${illusts[randId].id}`} className="anim-wave">
           <Card
             id="randomImage"
-            className="rotate-3 !overflow-visible anim-fadeIn"
+            className={`${classes.card} ${isLoaded && 'anim-fadeIn'}`}
             key={randId} // 変更時にアニメーションを実行する
             bg="transparent"
           >
             <Image
+              width={300}
+              height={400}
+              quality={80}
+              onLoad={() => setLoaded(true)}
               className={`${classes.image} ${isExist || 'opacity-0'} big-shadow`}
               src={`${isExist ? illusts[randId].illust : Dummy.src}`}
               alt="Vコレのイラスト(ランダムで表示)"
@@ -67,7 +82,14 @@ export function MainVisual() {
 
         {/*ロゴ2*/}
         <Group mt={48} hiddenFrom="md" justify="center">
-          <Image className={classes.logo} src={logo.src} alt="Vコレのロゴ" />
+          <Image
+            width={600}
+            height={300}
+            quality={80}
+            alt="Vコレのロゴ"
+            className={classes.logo}
+            src={logo.src}
+          />
         </Group>
       </div>
     </Container>
