@@ -19,12 +19,12 @@ export function IllustInfo() {
       <LoadingOverlay
         visible={!isFetched}
         overlayProps={{ radius: 'sm', blur: 2 }}
-        loaderProps={{ color: '#f9bb2e' }}
+        loaderProps={{ color: 'themeColor' }}
         transitionProps={{ transition: 'fade', duration: 150 }}
       />
       <div className={`${classes.comment}`}>
         <Group gap="xs">
-          <Badge variant="light" color="blue" size="sm">
+          <Badge variant="light" color="themeColor" size="sm">
             シーズン
           </Badge>
           <Text fz="lg" fw="bold" c="#333">
@@ -35,7 +35,7 @@ export function IllustInfo() {
           </Text>
         </Group>
         <Group mt={4} gap="xs">
-          <Badge variant="light" color="blue" size="sm">
+          <Badge variant="light" color="themeColor" size="sm">
             アーティスト
           </Badge>
           <Text fz="lg" fw="bold" c="#333">

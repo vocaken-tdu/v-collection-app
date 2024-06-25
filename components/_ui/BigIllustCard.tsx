@@ -32,7 +32,7 @@ export function BigImageCard({ illustId }: { illustId: number }) {
       <LoadingOverlay
         visible={!isLoaded}
         overlayProps={{ radius: 'sm', blur: 2 }}
-        loaderProps={{ color: '#f9bb2e' }}
+        loaderProps={{ color: 'themeColor' }}
         transitionProps={{ transition: 'fade', duration: 150 }}
       />
       <Card

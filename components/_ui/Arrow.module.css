@@ -2,7 +2,7 @@
   display: block;
   width: 48px;
   height: 48px;
-	fill: #f9bb2e;
+	fill: var(--mantine-color-themeColor-5);
   object-fit: contain;
   z-index: -1;
   background-repeat: no-repeat;

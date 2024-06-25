@@ -45,7 +45,7 @@ export default function Home() {
         <Link href="/">
           <Button
             variant="outline"
-            color="blue"
+            color="themeColor"
             radius="xl"
             size="lg"
             className="mb-60"

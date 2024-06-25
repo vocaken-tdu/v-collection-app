@@ -59,7 +59,7 @@ export function CommentForm({ illustId }: { illustId: number }) {
           />
           <Button
             type="submit"
-            bg="#f9bb2e"
+            bg="themeColor"
             px={16}
             className={classes.button}
             rightSection={

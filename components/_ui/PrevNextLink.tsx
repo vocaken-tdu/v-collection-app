@@ -25,18 +25,18 @@ export function PrevNextLink({ illustId }: { illustId: number }) {
     <div className={classes.arrowWrap}>
       {prevId && (
         <Link href={`/works/${prevId}`} className={`${classes.arrow} ${classes.prev}`}>
-          <IconChevronLeft size={48} stroke={1.5} color="var(--mantine-color-blue-filled)" />
-          <Text c="var(--mantine-color-blue-filled)" fw="bold">
+          <IconChevronLeft size={48} stroke={1.5} color="var(--mantine-color-themeColor-filled)" />
+          <Text c="var(--mantine-color-themeColor-filled)" fw="bold">
             前へ
           </Text>
         </Link>
       )}
       {nextId && (
         <Link href={`/works/${nextId}`} className={`${classes.arrow} ${classes.next}`}>
-          <Text c="var(--mantine-color-blue-filled)" fw="bold">
+          <Text c="var(--mantine-color-themeColor-filled)" fw="bold">
             次へ
           </Text>
-          <IconChevronRight size={48} stroke={1.5} color="var(--mantine-color-blue-filled)" />
+          <IconChevronRight size={48} stroke={1.5} color="var(--mantine-color-themeColor-filled)" />
         </Link>
       )}
     </div>

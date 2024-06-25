@@ -14,7 +14,7 @@ export default function Home() {
         </h3>
         <p className="text-xl leading-relaxed">ピンとくるイラストを探そう。</p>
         <Link href="/">
-          <Button variant="outline" color="blue" radius="xl" size="lg">
+          <Button variant="outline" color="themeColor" radius="xl" size="lg">
             一覧を見てみる！
           </Button>
         </Link>

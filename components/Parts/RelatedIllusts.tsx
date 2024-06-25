@@ -43,7 +43,7 @@ export function RelatedIllusts({ illustId }: { illustId: number }) {
                     />
                   </AspectRatio>
                   <Group gap="xs" mt="md">
-                    <Badge variant="light" color="blue" size="sm">
+                    <Badge variant="light" color="themeColor" size="sm">
                       シーズン
                     </Badge>
                     <Text fz="lg" className={classes.title} c="#333">

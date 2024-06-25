@@ -107,7 +107,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 6px;
-  background: #f9bb2e;
+  background: var(--mantine-color-themeColor-5);
   white-space: nowrap;
 
   @media (max-width: calc($mantine-breakpoint-xs + 1px)) {

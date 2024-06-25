@@ -21,6 +21,7 @@ export function FooterLinks() {
               rightSection={
                 <IconArrowBack style={{ width: rem(20), height: rem(20) }} stroke={1.5} />
               }
+              bg="themeColor.7"
               radius="xl"
               size="lg"
               styles={{
