@@ -48,8 +48,8 @@ export function Header() {
   ));
 
   return (
-    <header className={`light-shadow ${classes.header}`}>
-      <Container size="xl" className={classes.inner}>
+    <header className={`${classes.header}`}>
+      <Container px="xl" size="xl" className={`${classes.inner} light-shadow`}>
         <Link href="/" className={`${abel.className} text-2xl`}>
           <h1>VOCALOID CLUB COLLECTION</h1>
         </Link>

@@ -1,13 +1,17 @@
 .header {
-  height: rem(80px);
-  background-color: #fefcfb;
+  height: calc(80px + 2em);
 }
 
 .inner {
+  position: fixed;
+  inset: 1em;
   height: rem(80px);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #fefcfb;
+  border-radius: 2.5em;
+  z-index: 100;
 }
 
 .buger {
