@@ -15,19 +15,19 @@
 }
 
 .footerWrap::before {
-  margin-top: rem(120px);
   content: '';
   display: block;
   width: 100vw;
   height: auto;
-  aspect-ratio: 1440 / 299;
+  max-width: 1600px;
+  margin: 2em auto 0;
+  aspect-ratio: 2 / 1;
   color: black;
-  background: url('../../public/tree.svg');
+  background: url('../../public/2024-summer/southern-island.svg');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
   position: relative;
-  top: 8px;
   flex-shrink: 0;
 }
 
