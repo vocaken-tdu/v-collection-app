@@ -54,7 +54,7 @@ export function Header() {
           <h1>VOCALOID CLUB COLLECTION</h1>
         </Link>
 
-        <Group gap={5} visibleFrom="sm">
+        <Group gap={4} visibleFrom="sm">
           {items}
         </Group>
 

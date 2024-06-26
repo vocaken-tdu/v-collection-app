@@ -8,7 +8,7 @@ import classes from './ComingSoon.module.css';
 export function ComingSoon() {
   return (
     <Paper
-      radius="md"
+      radius="lg"
       p={64}
       variant="light"
       className="text-center relative overflow-hidden light-shadow"
