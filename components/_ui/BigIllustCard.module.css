@@ -7,8 +7,8 @@
   
   /* 画像のアスペクト比を維持しつつ、スクリーンサイズに合わせて伸縮 */
   width: auto;
-  height: min(calc(100svh - 80px - 3em), calc((100vw - 2em) / 3 * 4));
-  min-height: min(600px, 100vw / 3 * 4);
+  height: min(calc(100svh - 80px - 3em), (100vw - 2em) / 3 * 4);
+  min-height: min(600px, (100vw - 2em) / 3 * 4);
   max-height: 896px;
 
   /* 非常に画面サイズが小さいとき崩れないようにする */
