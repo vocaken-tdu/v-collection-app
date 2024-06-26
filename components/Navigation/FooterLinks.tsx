@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Text, Container, ActionIcon, Group, Button, rem } from '@mantine/core';
+import { Text, Container, ActionIcon, Group, Button } from '@mantine/core';
 import { IconBrandTwitterFilled, IconArrowBack, IconGraph } from '@tabler/icons-react';
 import classes from './FooterLinks.module.css';
 
@@ -18,15 +18,14 @@ export function FooterLinks() {
           <Link href="https://akatukime.wixsite.com/collection/" target="_blank">
             <Button
               variant="filled"
-              rightSection={
-                <IconArrowBack style={{ width: rem(20), height: rem(20) }} stroke={1.5} />
-              }
+              rightSection={<IconArrowBack style={{ width: 24, height: 24 }} stroke={1.5} />}
               bg="themeColor.7"
               radius="xl"
               size="lg"
+              className={classes.button}
               styles={{
-                root: { paddingRight: rem(14), height: rem(48) },
-                section: { marginLeft: rem(22) },
+                root: { paddingRight: 16, height: 48 },
+                section: { marginLeft: 16 },
               }}
             >
               以前のVコレ
@@ -37,42 +36,48 @@ export function FooterLinks() {
         <Container className={classes.afterFooter} size="xl">
           <Group gap={32} justify="flex-start">
             <div className={classes.tdu}>
-              <Text c="dark" style={{ fontSize: 23, fontWeight: '500' }}>
+              <Text c="dark" style={{ fontSize: 24, fontWeight: '500' }}>
                 東京電機大学
               </Text>
-              <Text c="dark" style={{ fontSize: 30, fontWeight: '500' }}>
+              <Text c="dark" style={{ fontSize: 32, fontWeight: '500' }}>
                 VOCALOID同好会
               </Text>
             </div>
 
             {/*アイコン関係の場所*/}
 
-            <Group gap={28} wrap="nowrap" className={classes.icons}>
+            <Group gap={32} wrap="nowrap" className={classes.icons}>
               <div>
-                <Text style={{ fontSize: 23 }}>Share</Text>
+                <Text style={{ fontSize: 24 }}>Share</Text>
                 <Group gap={8} className={classes.social} wrap="nowrap" justify="flex-start">
-                  <ActionIcon size="lg" color="dark" variant="subtle">
+                  <ActionIcon size="xl" color="dark" variant="subtle">
                     <Link
                       href={`https://twitter.com/share?url=${url}&text=${text}`}
                       className={classes.icon}
                       target="_blank"
                     >
-                      <IconBrandTwitterFilled style={{ width: 20, height: 20 }} stroke={1.5} />
+                      <IconBrandTwitterFilled
+                        style={{ width: '75%', height: '75%' }}
+                        stroke={1.5}
+                      />
                     </Link>
                   </ActionIcon>
                 </Group>
               </div>
 
               <div>
-                <Text style={{ fontSize: 23 }}>Follow us</Text>
+                <Text style={{ fontSize: 24 }}>Follow us</Text>
                 <Group gap={8} className={classes.social} wrap="nowrap" justify="flex-start">
-                  <ActionIcon size="lg" color="brack" variant="subtle">
+                  <ActionIcon size="xl" color="dark" variant="subtle">
                     <Link
                       href="https://twitter.com/vocaken_tdu"
                       className={classes.icon}
                       target="_blank"
                     >
-                      <IconBrandTwitterFilled style={{ width: 20, height: 20 }} stroke={1.5} />
+                      <IconBrandTwitterFilled
+                        style={{ width: '75%', height: '75%' }}
+                        stroke={1.5}
+                      />
                     </Link>
                   </ActionIcon>
                 </Group>
@@ -81,12 +86,12 @@ export function FooterLinks() {
           </Group>
 
           <div className={classes.right}>
-            <Text c="dark" className={classes.copyright} style={{ fontSize: 14 }}>
-              「VOCALOID（ボーカロイド）」ならびに
+            <Text c="dark" className={classes.copyright} style={{ fontSize: 16 }}>
+              「VOCALOID（ボーカロイド）」および
               <br className={classes.spBr} />
               「ボカロ」はヤマハ株式会社の登録商標です。
             </Text>
-            <Text c="dark" className={classes.copyright} mt={8} style={{ fontSize: 14 }}>
+            <Text c="dark" className={classes.copyright} mt={8} style={{ fontSize: 16 }}>
               © 2023 VOCALOID CLUB COLLECTION.&nbsp;
               <br className={classes.spBr} />
               複製・転載等を固く禁じます。
@@ -95,7 +100,7 @@ export function FooterLinks() {
               <Link href={statusUrl || '/404/'} target="_blank">
                 <Button
                   c="dark"
-                  style={{ fontSize: 14 }}
+                  style={{ fontSize: 16 }}
                   className={classes.anchor}
                   variant="transparent"
                   size="compact-md"

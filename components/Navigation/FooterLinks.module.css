@@ -1,7 +1,5 @@
 .footer {
-  /* webの検証で影響を及ぼせる範囲 */
-  padding-top: calc(var(--mantine-spacing-xl) * 1);
-  padding-bottom: calc(var(--mantine-spacing-xl) * 2);
+  padding-bottom: calc(var(--mantine-spacing-xl));
   background-color: #f9bb2e;
 
   @media (max-width: $mantine-breakpoint-xs) {
@@ -20,9 +18,8 @@
   width: 100vw;
   height: auto;
   max-width: 1600px;
-  margin: 2em auto 0;
+  margin: 6em auto 0;
   aspect-ratio: 2 / 1;
-  color: black;
   background: url('../../public/2024-summer/southern-island.svg');
   background-repeat: no-repeat;
   background-size: contain;
@@ -81,6 +78,14 @@
   height: 100%;
   width: 100%;
   background-color: #f9bb2e;
+}
+
+.button {
+  margin-top: -160px;
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    margin-top: 0;
+  }
 }
 
 .right {
