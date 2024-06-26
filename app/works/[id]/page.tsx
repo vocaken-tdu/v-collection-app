@@ -1,4 +1,4 @@
-import { Container, SimpleGrid, Text } from '@mantine/core';
+import { Box, Container, SimpleGrid, Text } from '@mantine/core';
 import { Comments } from '@/components/Parts/Comments';
 import { CommentForm } from '@/components/_ui/CommentForm';
 import { RelatedIllusts } from '@/components/Parts/RelatedIllusts';
@@ -29,32 +29,30 @@ export default function Works({ params }: { params: { id: string } }) {
   */
 
   return (
-    <>
-      <Container size="lg" my="xl">
-        <div className={classes.main}>
-          <SimpleGrid className={classes.wrap} cols={{ base: 1, sm: 2 }} spacing="lg">
-            <SimpleGrid cols={1} spacing="md" className={classes.left}>
-              <div className={classes.sticky}>
-                <BigImageCard illustId={illustId} />
-              </div>
-            </SimpleGrid>
-
-            <SimpleGrid cols={1} spacing="md" className={classes.right}>
-              <IllustInfo />
-              <Comments illustId={illustId} isFormVisible={isAuth} />
-              {isAuth ? (
-                <CommentForm illustId={illustId} />
-              ) : (
-                <Text ta="right" c="dimmed">
-                  ※部員からのコメント
-                </Text>
-              )}
-            </SimpleGrid>
+    <Container size="xl">
+      <div className={classes.main}>
+        <div className={classes.wrap}>
+          <SimpleGrid cols={1} spacing="md" className={classes.left}>
+            <div className={classes.sticky}>
+              <BigImageCard illustId={illustId} />
+            </div>
           </SimpleGrid>
-          <PrevNextLink illustId={illustId} />
+
+          <SimpleGrid cols={1} spacing="md" className={classes.right}>
+            <IllustInfo />
+            <Comments illustId={illustId} isFormVisible={isAuth} />
+            {isAuth ? (
+              <CommentForm illustId={illustId} />
+            ) : (
+              <Text ta="right" c="dimmed">
+                ※部員からのコメント
+              </Text>
+            )}
+          </SimpleGrid>
         </div>
-        <RelatedIllusts illustId={illustId} />
-      </Container>
-    </>
+        <PrevNextLink illustId={illustId} />
+      </div>
+      <RelatedIllusts illustId={illustId} />
+    </Container>
   );
 }

@@ -8,28 +8,34 @@
 }
 
 .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   max-width: var(--mantine-container-width);
   width: 100%;
   height: auto;
   margin: 0 auto;
+  justify-content: center;
+  gap: 1em;
 }
 
 .left {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  display: block;
+  max-width: 100%;
 }
 
 .sticky {
   display: block;
   height: fit-content;
   position: sticky;
-  top: 32px;
+  top: calc(80px + 2em);
   left: 0;
 }
 
 .right {
   display: flex;
+  min-width: min(400px, 100vw - 2em);
+  max-width: 600px;
   align-items: stretch;
   flex-direction: column;
   flex-wrap: nowrap;
