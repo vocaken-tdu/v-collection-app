@@ -223,15 +223,12 @@ img {
 }
 
 .anim-fadeOutLogo {
-  animation: fade-out-logo 5s forwards;
+  animation: fade-out-logo 0.5s forwards;
+  animation-delay: 4s;
 }
 
 @keyframes fade-out-logo {
   0% {
-    opacity: 1;
-  }
-
-  90% {
     opacity: 1;
   }
 
