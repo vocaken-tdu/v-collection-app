@@ -10,6 +10,7 @@ import '@mantine/notifications/styles.css';
 import { Header } from '@/components/Navigation/Header';
 import { FooterLinks } from '@/components/Navigation/FooterLinks';
 import { FlowShape2 } from '@/components/Background/FlowShape2';
+import { Loading } from '@/components/Parts/Loading';
 
 const title = process.env.NEXT_PUBLIC_SITE_TITLE;
 const siteName = process.env.NEXT_PUBLIC_SITE_NAME;
@@ -66,6 +67,7 @@ export default function RootLayout({ children }: { children: any }) {
       </head>
       <body>
         <MantineProvider theme={theme}>
+          <Loading />
           <Header />
           <Notifications position="top-right" autoClose={6000} />
           <main>{children}</main>

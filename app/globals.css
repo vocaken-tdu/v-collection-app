@@ -221,3 +221,22 @@ img {
     bottom: -20px;
   }
 }
+
+.anim-fadeOutLogo {
+  animation: fade-out-logo 5s forwards;
+}
+
+@keyframes fade-out-logo {
+  0% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}

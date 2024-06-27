@@ -10,9 +10,13 @@ import { Arrow } from '@/components/_ui/Arrow';
 import classes from './MainVisual.module.css';
 import useStore from '@/store/useStore';
 import { useIllustList, dataInfo } from '@/store/illustListStore';
+import { useIsFirstAccess } from '@/store/isFirstAccess';
 
 export function MainVisual() {
   const [randId, setRandId] = useState(0);
+
+  // 初回アクセスかどうかを取得
+  const isFirstAccess = useIsFirstAccess((state) => state.isFirstAccess);
 
   // ロード完了時の処理
   const [isLoaded, setLoaded] = useState(false);
@@ -44,7 +48,10 @@ export function MainVisual() {
     <Container size="xl" className={`${classes.wrap}`}>
       <div className={classes.inner}>
         <div className={`${classes.content} grid place-content-center`}>
-          <div className={`${classes.catchPhrase} ${isExist && 'anim-bounce'}`}>
+          <div
+            className={`${classes.catchPhrase} ${isExist && 'anim-bounce'}`}
+            style={{ animationDelay: isFirstAccess ? '4.5s' : '0s' }}
+          >
             <div className={`${classes.highlight} ${classes.l}`}>あのキャラはこの夏､</div>
             <div className={`${classes.highlight} ${classes.r}`}>なにを着ているだろう</div>
             {isExist && <Arrow />}
