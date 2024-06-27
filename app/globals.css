@@ -29,8 +29,12 @@ strong {
 }
 
 main {
-  /* ちらつき防止 */
-  min-height: calc(100vh - (80px + 32px) * 2);
+  padding-top: calc(80px + 1em);
+
+  @media (min-width: 1600px) and (min-height: 800px) {
+    padding-top: 0;
+    padding-inline: calc(80px + 3em) 2em;
+  }
 }
 
 body {
@@ -147,74 +151,73 @@ img {
 }
 
 @keyframes anim-bounce {
-	0% {
-		transform: rotate(0deg);
-	}
+  0% {
+    transform: rotate(0deg);
+  }
 
-	12% {
-		transform: rotate(-0.250deg);
-	}
+  12% {
+    transform: rotate(-0.25deg);
+  }
 
-	24% {
-		transform: rotate(-1.0005deg);
-	}
+  24% {
+    transform: rotate(-1.0005deg);
+  }
 
-	36% {
-		transform: rotate(-2.2512deg);
-	}
+  36% {
+    transform: rotate(-2.2512deg);
+  }
 
-	54% {
-		transform: rotate(-1.7232deg);
-	}
+  54% {
+    transform: rotate(-1.7232deg);
+  }
 
-	74% {
-		transform: rotate(-2.2595deg);
-	}
+  74% {
+    transform: rotate(-2.2595deg);
+  }
 
-	82% {
-		transform: rotate(-2.1534deg);
-	}
+  82% {
+    transform: rotate(-2.1534deg);
+  }
 
-	92% {
-		transform: rotate(-2.2818deg);
-	}
+  92% {
+    transform: rotate(-2.2818deg);
+  }
 
-	96% {
-		transform: rotate(-2.261deg);
-	}
+  96% {
+    transform: rotate(-2.261deg);
+  }
 
-	100% {
-		transform: rotate(-2.297deg);
-	}
-
+  100% {
+    transform: rotate(-2.297deg);
+  }
 }
 
-.anim-tail-pc{
-  animation: anim-tail-pc 0.5s cubic-bezier(.55,.99,.54,1) 0s 1 normal both;
+.anim-tail-pc {
+  animation: anim-tail-pc 0.5s cubic-bezier(0.55, 0.99, 0.54, 1) 0s 1 normal both;
 }
 
-@keyframes anim-tail-pc{
-  0%{
+@keyframes anim-tail-pc {
+  0% {
     bottom: -12px;
     right: 0;
   }
 
-  100%{
+  100% {
     bottom: -14px;
     right: -24px;
   }
 }
 
-.anim-tail-sp{
-  animation: anim-tail-sp 0.5s cubic-bezier(.55,.99,.54,1) 0s 1 normal both;
+.anim-tail-sp {
+  animation: anim-tail-sp 0.5s cubic-bezier(0.55, 0.99, 0.54, 1) 0s 1 normal both;
 }
 
-@keyframes anim-tail-sp{
-  0%{
+@keyframes anim-tail-sp {
+  0% {
     bottom: -6px;
   }
 
-  100%{
+  100% {
     bottom: -20px;
   }
 }

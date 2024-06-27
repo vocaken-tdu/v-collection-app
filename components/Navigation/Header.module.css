@@ -7,20 +7,23 @@
   }
 }
 
-.header {
-  height: calc(80px + 2em);
-}
-
 .inner {
   position: fixed;
   inset: 1em;
-  height: rem(80px);
+  height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #fefcfb;
   border-radius: 2.5em;
   z-index: 100;
+
+  @media (min-width: 1600px) and (min-height: 800px) {
+    writing-mode: vertical-rl;
+    inset: 3em 2em;
+    height: calc(100% - 2em);
+    width: min-content;
+  }
 }
 
 .buger {

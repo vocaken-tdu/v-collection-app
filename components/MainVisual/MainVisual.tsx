@@ -41,7 +41,7 @@ export function MainVisual() {
   }, [isUpdated]);
 
   return (
-    <Container size="xl" className={`${classes.main}`}>
+    <Container size="xl" className={`${classes.wrap}`}>
       <div className={classes.inner}>
         <div className={`${classes.content} grid place-content-center`}>
           <div className={`${classes.catchPhrase} ${isExist && 'anim-bounce'}`}>

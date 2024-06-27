@@ -1,4 +1,4 @@
-import { Box, Container, SimpleGrid, Text } from '@mantine/core';
+import { Container, SimpleGrid, Text } from '@mantine/core';
 import { Comments } from '@/components/Parts/Comments';
 import { CommentForm } from '@/components/_ui/CommentForm';
 import { RelatedIllusts } from '@/components/Parts/RelatedIllusts';
@@ -29,7 +29,7 @@ export default function Works({ params }: { params: { id: string } }) {
   */
 
   return (
-    <Container size="xl">
+    <Container size="xxl">
       <div className={classes.main}>
         <div className={classes.wrap}>
           <SimpleGrid cols={1} spacing="md" className={classes.left}>
