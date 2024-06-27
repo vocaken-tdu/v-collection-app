@@ -4,21 +4,18 @@
 
   /* 常に3/4を維持 */
   aspect-ratio: 3 / 4;
-  
+
   /* 画像のアスペクト比を維持しつつ、スクリーンサイズに合わせて伸縮 */
-  width: auto;
-  height: min((100svh - 80px - 3em), (100vw - 2em) / 3 * 4);
-  min-height: min(600px, (100vw - 2em) / 3 * 4);
-  max-height: 1200px;
+  width: clamp(450px, ((100svh - 80px - 3em) / 4 * 3), 1200px);
+  height: auto;
 
   /* 非常に画面サイズが小さいとき崩れないようにする */
-  min-width: 100px;
   max-width: 100%;
 
   object-fit: cover;
 
   @media (min-width: 1600px) and (min-height: 800px) {
-    height: calc(100svh - 2em);
+    width: clamp(160px, ((100svh - 2em) / 4 * 3), 900px);
   }
 }
 
