@@ -12,6 +12,7 @@
   max-height: 1200px;
 
   /* 非常に画面サイズが小さいとき崩れないようにする */
+  min-width: 100px;
   max-width: 100%;
 
   object-fit: cover;
