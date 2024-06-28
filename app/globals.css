@@ -39,7 +39,7 @@ main {
 
 body {
   height: auto;
-  background-color: #fafbfc;
+  background-color: #fefcfb !important;
   overflow-x: hidden;
 }
 
