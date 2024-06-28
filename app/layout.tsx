@@ -3,6 +3,7 @@ import React from 'react';
 import { MantineProvider, ColorSchemeScript } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import NextTopLoader from 'nextjs-toploader';
 import { theme } from '@/theme';
 import './globals.css';
 import '@mantine/notifications/styles.css';
@@ -67,6 +68,7 @@ export default function RootLayout({ children }: { children: any }) {
       </head>
       <body>
         <MantineProvider theme={theme}>
+          <NextTopLoader zIndex={1000} showSpinner={false} />
           <Loading />
           <Header />
           <Notifications position="top-right" autoClose={6000} />
