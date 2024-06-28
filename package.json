@@ -19,7 +19,6 @@
     "storybook:build": "storybook build"
   },
   "dependencies": {
-    "@gsap/react": "^2.1.1",
     "@mantine/core": "7.9.2",
     "@mantine/form": "^7.9.2",
     "@mantine/hooks": "7.9.2",
