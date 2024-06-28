@@ -4,6 +4,7 @@ import { SimpleGrid } from '@mantine/core';
 import { useEffect } from 'react';
 import { useCommentList, setCommentList } from '@/store/commentListStore';
 import { CommentCard } from '@/components/_ui/CommentCard';
+import classes from './Comments.module.css';
 
 // イラストのidを受け取って、そのイラストのコメントを表示する
 export function Comments({
@@ -25,7 +26,7 @@ export function Comments({
   const sortedComments = comments.sort((a, b) => b.like - a.like);
 
   return (
-    <SimpleGrid cols={1} spacing="md">
+    <SimpleGrid cols={1} spacing="md" className={classes.wrap}>
       <h2 className="text-xl text-center mt-5 mb-1" id="comments">
         {/* コメントがないとき and フォームが表示されている場合に コメントを促す */}
         {!comments.length && isFormVisible ? '↓でコメントしてみよう！' : 'このコメントがアツい！'}
