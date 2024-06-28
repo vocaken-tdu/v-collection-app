@@ -14,7 +14,7 @@ export function Loading() {
 
   return (
     <div className={`${classes.wrap} anim-fadeOutLogo`}>
-      <Image src={LoadingLogo.src} width={600} height={120} alt="Logo" />
+      <Image src={LoadingLogo.src} className={classes.logo} width={500} height={100} alt="Logo" />
     </div>
   );
 }

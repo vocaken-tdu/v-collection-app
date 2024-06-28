@@ -10,3 +10,9 @@
   opacity: 1;
   z-index: 200;
 }
+
+.logo {
+  object-fit: contain;
+  max-width: 75vw;
+  max-height: 75vh;
+}
