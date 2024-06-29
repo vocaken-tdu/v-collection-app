@@ -3,14 +3,23 @@
 import { useEffect } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import classes from './FlowShape2.module.css';
+import classes from './BGParallax.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export function FlowShape2() {
+export function BGParallax() {
   // スクロールしたときにパララックスするアニメーション
   useEffect(() => {
-    gsap.to('#anim', {
+    gsap.to('#parallax1', {
+      y: -1200,
+      scrollTrigger: {
+        trigger: '#anim',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 0.5,
+      },
+    });
+    gsap.to('#parallax2', {
       y: -1600,
       scrollTrigger: {
         trigger: '#anim',
@@ -24,7 +33,10 @@ export function FlowShape2() {
   return (
     <div className={classes.bgWrap}>
       <div className={classes.bgParallax}>
-        <div className={classes.bg} id="anim" />
+        <div className={`${classes.bg} ${classes.parallax1}`} id="parallax1" />
+      </div>
+      <div className={classes.bgParallax}>
+        <div className={`${classes.bg} ${classes.parallax2}`} id="parallax2" />
       </div>
     </div>
   );

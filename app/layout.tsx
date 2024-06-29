@@ -10,7 +10,7 @@ import '@mantine/notifications/styles.css';
 
 import { Header } from '@/components/Navigation/Header';
 import { FooterLinks } from '@/components/Navigation/FooterLinks';
-import { FlowShape2 } from '@/components/Background/FlowShape2';
+import { BGParallax } from '@/components/Background/BGParallax';
 import { Loading } from '@/components/Parts/Loading';
 
 const title = process.env.NEXT_PUBLIC_SITE_TITLE;
@@ -74,7 +74,7 @@ export default function RootLayout({ children }: { children: any }) {
           <Notifications position="top-right" autoClose={6000} />
           <main>{children}</main>
           <FooterLinks />
-          <FlowShape2 />
+          <BGParallax />
         </MantineProvider>
       </body>
     </html>
