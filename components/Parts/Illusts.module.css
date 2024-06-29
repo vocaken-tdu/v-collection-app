@@ -12,9 +12,9 @@
   }
 }
 
-.tag h2 {
-  color: #393939;
-  font-weight: 700;
+.header {
+  margin-top: 5rem;
+
   /* italicだと斜めすぎるので */
   transform: skew(-8deg);
 }

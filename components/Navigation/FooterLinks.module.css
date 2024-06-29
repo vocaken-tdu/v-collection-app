@@ -10,6 +10,7 @@
 
 .footerWrap {
   overflow: hidden;
+  margin-top: 20rem;
 }
 
 .footerWrap::before {
@@ -18,7 +19,7 @@
   width: 100vw;
   height: auto;
   max-width: 1600px;
-  margin: 6em auto 0;
+  margin: 0 auto;
   aspect-ratio: 2 / 1;
   background: url('../../public/2024-summer/southern-island.svg');
   background-repeat: no-repeat;

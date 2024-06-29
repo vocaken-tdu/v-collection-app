@@ -27,10 +27,10 @@ export function Comments({
 
   return (
     <SimpleGrid cols={1} spacing="md" className={classes.wrap}>
-      <h2 className="text-xl text-center mt-5 mb-1" id="comments">
+      <h3 className={classes.header} id="comments">
         {/* コメントがないとき and フォームが表示されている場合に コメントを促す */}
         {!comments.length && isFormVisible ? '↓でコメントしてみよう！' : 'このコメントがアツい！'}
-      </h2>
+      </h3>
       {sortedComments.map((comment, i) => (
         <CommentCard comment={comment} i={i} />
       ))}

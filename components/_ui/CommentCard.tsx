@@ -50,12 +50,12 @@ export function CommentCard({ comment, i }: { comment: any; i: number }) {
       py="lg"
       radius="md"
       key={i}
-      className={`${classes.comment} light-shadow anim-fadeLeft`}
+      className={`${classes.wrap} light-shadow anim-fadeLeft`}
       style={{ animationDelay: `${i * 50}ms` }}
     >
       {/* コメントの内容 */}
       <Text size="sm">{comment.text}</Text>
-      <div className="flex justify-between">
+      <div className={classes.info}>
         <Group>
           {/* ユーザー名 */}
           <Text pt="sm" fz="sm">

@@ -62,7 +62,7 @@ export function IllustCard({ illust, i }: { illust: any; i: number }) {
       style={{ animationDelay: `${i * 50}ms` }}
     >
       <Link href={`/works/${illust.id}`}>
-        <Card p="0" className={`big-shadow ${classes.card}`} radius="md" ref={cardRef}>
+        <Card p="0" className={`${classes.card} big-shadow`} radius="md" ref={cardRef}>
           <Image
             width={300}
             height={400}
@@ -75,13 +75,11 @@ export function IllustCard({ illust, i }: { illust: any; i: number }) {
           />
         </Card>
       </Link>
-      <div className="mt-2">
-        <Group justify="space-between" gap="xs">
-          <Text size="sm" className={classes.artist}>
-            <GetUserName userId={illust.user_id} />
-          </Text>
-        </Group>
-      </div>
+      <Group mt="xs" justify="space-between" gap="xs">
+        <Text size="sm" className={classes.artist}>
+          <GetUserName userId={illust.user_id} />
+        </Text>
+      </Group>
     </div>
   );
 }

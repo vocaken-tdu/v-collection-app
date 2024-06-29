@@ -31,10 +31,8 @@ export function IllustsArchives() {
     <>
       {/* タグを表示 (キーは兄弟間で一意である必要があるため100から開始している) */}
       {filteredTags?.map((tag, tagKey) => (
-        <div key={tagKey + 100} className={classes.tag}>
-          <h2 className="text-3xl flex justify-center mt-20 mb-8">
-            {tag.name ? `― ${tag.name} ―` : 'Now Loading...'}
-          </h2>
+        <div key={tagKey + 100}>
+          <h3 className={classes.header}>{tag.name ? `― ${tag.name} ―` : 'Now Loading...'}</h3>
           <div className={classes.cards} id="cards">
             {/* イラストをタグごとに表示 */}
             {illusts

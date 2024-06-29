@@ -1,4 +1,4 @@
-import { Container, SimpleGrid } from '@mantine/core';
+import { Container, SimpleGrid, Text } from '@mantine/core';
 
 const credits = [
   {
@@ -11,24 +11,30 @@ const credits = [
   },
   {
     header: 'バックエンド開発',
-    members: ['ガルム', '(問い合わせ中)', 'ソフトウェア研究部 有志の方'],
+    members: ['ガルム', 'ソフトウェア研究部 有志の方'],
   },
 ];
 
 export default function Home() {
   return (
     <>
-      <Container size="xl" className="mt-20 pb-64">
-        <h2 className="text-4xl mt-40">Credit</h2>
-        <p className="text-xl mt-20 mb-40 leading-loose">
-          このサイトは、VOCALOID同好会のメンバーと有志の方々によって運営されています。
-        </p>
+      <Container size="xl">
+        <h2>Credit</h2>
+        <Text size="xl" mb={120}>
+          このサイトは、
+          <br className="sp-only" />
+          VOCALOID同好会のメンバーと
+          <br />
+          有志の方々によって
+          <br className="sp-only" />
+          運営・開発されています。
+        </Text>
         <SimpleGrid cols={{ base: 1, sm: 3, lg: 3 }}>
           {credits.map((credit) => (
             <div>
-              <h3 className="text-2xl">{credit.header}</h3>
+              <h3>{credit.header}</h3>
               {credit.members.map((member) => (
-                <p className="text-xl leading-loose">{member}</p>
+                <Text size="xl" my={24}>{member}</Text>
               ))}
             </div>
           ))}

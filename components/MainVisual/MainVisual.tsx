@@ -47,13 +47,13 @@ export function MainVisual() {
   return (
     <Container size="xl" className={`${classes.wrap}`}>
       <div className={classes.inner}>
-        <div className={`${classes.content} grid place-content-center`}>
+        <div className={`${classes.left}`}>
           <div
             className={`${classes.catchPhrase} ${isExist && 'anim-bounce'}`}
             style={{ animationDelay: isFirstAccess ? '4.5s' : '0s' }}
           >
-            <div className={`${classes.highlight} ${classes.l}`}>あのキャラはこの夏､</div>
-            <div className={`${classes.highlight} ${classes.r}`}>なにを着ているだろう</div>
+            <div className={`${classes.highlight} ${classes.line1}`}>あのキャラはこの夏､</div>
+            <div className={`${classes.highlight} ${classes.line2}`}>なにを着ているだろう</div>
             {isExist && <Arrow />}
           </div>
           <Group mt={80} visibleFrom="md">
@@ -79,7 +79,7 @@ export function MainVisual() {
               width={300}
               height={400}
               onLoad={() => setLoaded(true)}
-              className={`${classes.image} ${isExist || 'opacity-0'} big-shadow`}
+              className={`${classes.image} big-shadow`}
               src={`${isExist ? illusts[randId].illust : Dummy.src}`}
               alt="Vコレのイラスト(ランダムで表示)"
               unoptimized

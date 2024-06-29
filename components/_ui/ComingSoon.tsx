@@ -11,7 +11,7 @@ export function ComingSoon() {
       radius="lg"
       p={64}
       variant="light"
-      className="text-center relative overflow-hidden light-shadow"
+      className={`${classes.wrap} "light-shadow"`}
     >
       <Image
         width={1280}

@@ -27,10 +27,8 @@ export function IllustsArtist() {
         (user, userKey) =>
           // 1作品以上イラストを描いているユーザーであれば表示
           illusts.filter((illust) => illust.user_id === user.id).length > 0 && (
-            <div key={userKey + 100} className={`${classes.tag}`}>
-              <h2 className="text-3xl flex justify-center mt-20 mb-5">
-                {user.name ? `― ${user.name} ―` : 'Now Loading...'}
-              </h2>
+            <div key={userKey + 100}>
+              <h3 className={classes.header}>{user.name ? `― ${user.name} ―` : 'Now Loading...'}</h3>
               <div className={classes.cards} id="cards">
                 {/* イラストをユーザーごとに表示 */}
                 {illusts

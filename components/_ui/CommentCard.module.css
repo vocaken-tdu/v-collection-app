@@ -1,5 +1,10 @@
-.comment {
+.wrap {
   background-image: url('/paper-texture.webp');
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
 }
 
 /* Vercel上でTailwindが一部上書きしてしまうため追加 */

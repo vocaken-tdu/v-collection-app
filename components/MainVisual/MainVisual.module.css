@@ -29,9 +29,12 @@
   opacity: 0;
 }
 
-.content {
+.left {
   max-width: 45%;
   margin-right: 64px;
+
+  display: grid;
+  place-content: center;
 
   @media (max-width: $mantine-breakpoint-md) {
     margin: 1em 0 40px;
@@ -119,11 +122,11 @@
   }
 }
 
-.l {
+.line1 {
   float: left;
 }
 
-.r {
+.line2 {
   margin-top: -0.3em;
   float: right;
 }

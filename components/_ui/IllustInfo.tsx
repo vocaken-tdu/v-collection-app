@@ -1,6 +1,6 @@
 'use client';
 
-import { Text, Group, Paper, LoadingOverlay, Badge, Box } from '@mantine/core';
+import { Text, Group, LoadingOverlay, Badge, Box } from '@mantine/core';
 import { useIllust } from '@/store/illustStore';
 import { GetUserName } from '@/components/_tools/GetUserName';
 import { GetTagName } from '@/components/_tools/GetTagName';

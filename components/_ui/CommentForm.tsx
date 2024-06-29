@@ -78,7 +78,7 @@ export function CommentForm({ illustId }: { illustId: number }) {
         <Textarea
           variant="filled"
           label={
-            <Group className="items-center">
+            <Group>
               <div>メッセージ</div>
               <Group justify="space-between" gap={8}>
                 <Progress

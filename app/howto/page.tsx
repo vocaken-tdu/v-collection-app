@@ -1,31 +1,31 @@
 import Link from 'next/link';
-import { Container, Button, Paper, Group } from '@mantine/core';
+import { Container, Button, Paper, Group, Space, Text } from '@mantine/core';
 
 export default function Home() {
   return (
     <>
-      <Container size="xl" className="text-center">
-        <h2 className="text-4xl my-40">使い方</h2>
+      <Container size="xl" ta="center">
+        <h2>使い方</h2>
 
-        <h3 className="text-3xl mt-20">
+        <h3>
           1. まずはイラストを
           <br className="sp-only" />
           見に行こう
         </h3>
-        <p className="text-xl leading-relaxed">ピンとくるイラストを探そう。</p>
+        <Text size="xl" my="xl">ピンとくるイラストを探そう。</Text>
         <Link href="/">
           <Button variant="outline" color="themeColor" radius="xl" size="lg">
             一覧を見てみる！
           </Button>
         </Link>
 
-        <h3 className="text-3xl mt-40">2. コメントしよう！</h3>
-        <p className="text-xl leading-relaxed">
+        <h3>2. コメントしよう！</h3>
+        <Text size="xl" my="xl">
           思ったことを投稿してみましょう。
           <br />
           （部員限定）
-        </p>
-        <p className="text-xl leading-relaxed mt-16">例えば……</p>
+        </Text>
+        <Text size="xl" my="xl">例えば……</Text>
         <Group justify="center" gap="md">
           <Paper shadow="xl" radius="md" p="xl" w={280}>
             「透き通ってかわいい。
@@ -50,19 +50,19 @@ export default function Home() {
           </Paper>
         </Group>
 
-        <h3 className="text-3xl mt-40">
+        <h3>
           3. 他の人のコメントも
           <br className="sp-only" />
           チェック！
         </h3>
-        <p className="text-xl leading-relaxed">
+        <Text size="xl" my="xl">
           Vコレでは、絵ではなく
           <br className="sp-only" />
           「コメント」に対して
           <br />
           いいねがつけられます！
-        </p>
-        <p className="text-xl leading-relaxed mt-8">
+        </Text>
+        <Text size="xl" my="xl">
           <b>
             「コメントに共感した……」
             <br className="sp-only" />
@@ -75,36 +75,38 @@ export default function Home() {
           いいねを押してみましょう！
           <br />
           （1人1度まで！）
-        </p>
+        </Text>
 
-        <h2 className="text-4xl mt-80">注意事項</h2>
+        <Space h={120} />
 
-        <h3 className="text-3xl mt-40">
+        <h2>注意事項</h2>
+
+        <h3>
           コメントは
           <br className="sp-only" />
           削除できないよ！
         </h3>
-        <p className="text-xl leading-relaxed">
+        <Text size="xl" my="xl">
           原則コメントの編集や
           <br className="sp-only" />
           削除はできません。
-        </p>
-        <p className="text-xl leading-relaxed mt-8">
+        </Text>
+        <Text size="xl" my="xl">
           コメントを投稿する前に、
           <br className="sp-only" />
           誤字をチェックしましょう！
-        </p>
+        </Text>
 
-        <h3 className="text-3xl mt-40">
+        <h3>
           ボタンは
           <br className="sp-only" />
           連打しちゃだめ！
         </h3>
-        <p className="text-xl leading-relaxed">
+        <Text size="xl" my="xl">
           反映されていないように見えたら、
           <br />
           一度ページを更新してみましょう。
-        </p>
+        </Text>
       </Container>
     </>
   );

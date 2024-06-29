@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <MainVisual />
-      <Container size="xl" className="mt-20 pb-64">
+      <Container size="xl" ta="center" mt={80}>
         <Illusts />
       </Container>
     </>

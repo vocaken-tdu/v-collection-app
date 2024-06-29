@@ -1,3 +1,9 @@
+.wrap {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
 .flowShape {
   width: 100%;
   height: auto;
