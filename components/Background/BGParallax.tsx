@@ -13,7 +13,7 @@ export function BGParallax() {
     gsap.to('#parallax1', {
       y: -1200,
       scrollTrigger: {
-        trigger: '#anim',
+        trigger: '#parallax1',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 0.5,
@@ -22,7 +22,7 @@ export function BGParallax() {
     gsap.to('#parallax2', {
       y: -1600,
       scrollTrigger: {
-        trigger: '#anim',
+        trigger: '#parallax2',
         start: 'top bottom',
         end: 'bottom top',
         scrub: 0.5,
