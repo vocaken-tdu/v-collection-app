@@ -44,7 +44,7 @@ export function BigImageCard({ illustId }: { illustId: number }) {
         <Image
           width={600}
           height={800}
-          className={`${classes.image}`}
+          className={classes.image}
           src={illust.illust}
           alt={illust.caption}
           onLoad={onLoaded}

@@ -45,9 +45,9 @@ export function MainVisual() {
   }, [isUpdated]);
 
   return (
-    <Container size="xl" className={`${classes.wrap}`}>
+    <Container size="xl" className={classes.wrap}>
       <div className={classes.inner}>
-        <div className={`${classes.left}`}>
+        <div className={classes.left}>
           <div
             className={`${classes.catchPhrase} ${isExist && 'anim-bounce'}`}
             style={{ animationDelay: isFirstAccess ? '4.5s' : '0s' }}

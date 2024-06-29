@@ -25,7 +25,7 @@ export function RelatedIllusts({ illustId }: { illustId: number }) {
     <>
       {otherIllusts.length > 0 && (
         <Container mt={64} px={0} py="xl" size="xl">
-          <Text size="xl" mb="lg" className={`${classes.header}`}>
+          <Text size="xl" mb="lg" className={classes.header}>
             ― この人が描いた他のイラスト ―
           </Text>
           <div className={classes.cardWrap}>
@@ -46,7 +46,7 @@ export function RelatedIllusts({ illustId }: { illustId: number }) {
                     <Badge variant="light" color="themeColor" size="sm">
                       シーズン
                     </Badge>
-                    <Text fz="lg" className={classes.title} c="#333">
+                    <Text fz="lg" className={classes.title}>
                       <GetTagName tagId={illust.tags[0]} />
                     </Text>
                     <Text c="dimmed" size="xs" tt="uppercase" fw="bold" fz="xs">

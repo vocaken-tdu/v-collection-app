@@ -22,7 +22,7 @@ export function IllustInfo() {
         loaderProps={{ color: 'themeColor' }}
         transitionProps={{ transition: 'fade', duration: 150 }}
       />
-      <div className={`${classes.comment}`}>
+      <div className={classes.comment}>
         <Group gap="xs">
           <Badge variant="light" color="themeColor" size="sm">
             シーズン
