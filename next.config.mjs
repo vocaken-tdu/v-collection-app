@@ -21,5 +21,6 @@ export default withBundleAnalyzer({
       },
     ],
     formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 604800,
   },
 });
