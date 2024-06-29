@@ -4,13 +4,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Container, Group, Card } from '@mantine/core';
-import logo from '@/public/2024-summer/Logo_24sum.webp';
 import Dummy from '@/public/dummy.svg';
 import { Arrow } from '@/components/_ui/Arrow';
 import classes from './MainVisual.module.css';
 import useStore from '@/store/useStore';
 import { useIllustList, dataInfo } from '@/store/illustListStore';
 import { useIsFirstAccess } from '@/store/isFirstAccess';
+import { Logo2024 } from '@/components/Logo/Logo2024';
 
 export function MainVisual() {
   const [randId, setRandId] = useState(0);
@@ -56,15 +56,8 @@ export function MainVisual() {
             <div className={`${classes.highlight} ${classes.line2}`}>なにを着ているだろう</div>
             {isExist && <Arrow />}
           </div>
-          <Group mt={80} visibleFrom="md">
-            <Image
-              width={600}
-              height={300}
-              quality={80}
-              className={classes.logo}
-              src={logo.src}
-              alt="Vコレのロゴ"
-            />
+          <Group mt={80} visibleFrom="md" className={classes.logo}>
+            <Logo2024 />
           </Group>
         </div>
         {/*ランダムイラスト*/}
@@ -88,15 +81,8 @@ export function MainVisual() {
         </Link>
 
         {/*ロゴ2*/}
-        <Group mt={48} hiddenFrom="md" justify="center">
-          <Image
-            width={600}
-            height={300}
-            quality={80}
-            alt="Vコレのロゴ"
-            className={classes.logo}
-            src={logo.src}
-          />
+        <Group mt={48} hiddenFrom="md" className={classes.logo}>
+          <Logo2024 />
         </Group>
       </div>
     </Container>

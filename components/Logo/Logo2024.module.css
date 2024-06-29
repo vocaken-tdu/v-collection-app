@@ -1,0 +1,30 @@
+.wrap {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 250 / 50;
+}
+
+.sun {
+  position: absolute;
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+.title {
+  position: absolute;
+  left: 18.5%;
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+.subtitle {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
