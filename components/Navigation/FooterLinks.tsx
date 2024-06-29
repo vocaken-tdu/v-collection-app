@@ -2,7 +2,12 @@
 
 import Link from 'next/link';
 import { Text, Container, ActionIcon, Group, Button } from '@mantine/core';
-import { IconBrandTwitterFilled, IconArrowBack, IconGraph } from '@tabler/icons-react';
+import {
+  IconBrandTwitterFilled,
+  IconArrowBack,
+  IconPencilHeart,
+  IconGraph,
+} from '@tabler/icons-react';
 import classes from './FooterLinks.module.css';
 
 const url = process.env.NEXT_PUBLIC_BASE_URL;
@@ -97,6 +102,18 @@ export function FooterLinks() {
               複製・転載等を固く禁じます。
             </Text>
             <Text c="dark" className={classes.copyright} mt={8}>
+              <Link href="/credit/">
+                <Button
+                  c="dark"
+                  style={{ fontSize: 16 }}
+                  className={classes.anchor}
+                  variant="transparent"
+                  size="compact-md"
+                >
+                  <IconPencilHeart />
+                  Credit
+                </Button>
+              </Link>
               <Link href={statusUrl || '/404/'} target="_blank">
                 <Button
                   c="dark"
