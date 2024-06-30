@@ -48,6 +48,20 @@ body {
   height: auto;
   background-color: #fefcfb !important;
   overflow-x: hidden;
+
+  /* スクロールバー (Firefoxを除く) */
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--mantine-color-themeColor-5);
+    border-radius: 4px;
+  }
 }
 
 img {
