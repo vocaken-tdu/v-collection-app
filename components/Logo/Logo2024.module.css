@@ -4,27 +4,91 @@
   width: 100%;
   height: auto;
   aspect-ratio: 250 / 50;
+
+  img {
+    position: absolute;
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+  }
 }
 
 .sun {
-  position: absolute;
-  height: 100%;
-  width: auto;
-  object-fit: contain;
+  /* なし */
 }
 
 .title {
-  position: absolute;
   left: 18.5%;
-  height: 100%;
-  width: auto;
-  object-fit: contain;
 }
 
 .subtitle {
-  position: absolute;
   right: 0;
-  height: 100%;
-  width: auto;
+}
+
+.anim {
   object-fit: contain;
+  max-width: min(75vw, 600px);
+  max-height: max(75vh, 300px);
+
+  .sun {
+    animation: anim-sun 3.5s cubic-bezier(0.19, 1, 0.22, 1) infinite normal;
+  }
+
+  .title {
+    animation: anim-title 3.5s cubic-bezier(0.19, 1, 0.22, 1) infinite normal;
+  }
+
+  .subtitle {
+    animation: anim-subtitle 3.5s cubic-bezier(0.19, 1, 0.22, 1) infinite normal;
+  }
+}
+
+@keyframes anim-sun {
+  0% {
+    left: 50%;
+    transform: translateX(-50%) rotate(0deg);
+  }
+
+  5% {
+    left: 50%;
+    transform: translateX(-50%) rotate(0deg);
+  }
+
+  40% {
+    left: 50%;
+    transform: translateX(-50%) rotate(360deg);
+  }
+
+  100% {
+    left: 0%;
+    transform: translateX(0%) rotate(360deg);
+  }
+}
+
+@keyframes anim-title {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  }
+
+  55% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  }
+
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+
+@keyframes anim-subtitle {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  }
+
+  75% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  }
+
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
 }

@@ -228,19 +228,3 @@ img {
     bottom: -20px;
   }
 }
-
-.anim-fadeOutLogo {
-  animation: fade-out-logo 0.5s forwards;
-  animation-delay: 4s;
-}
-
-@keyframes fade-out-logo {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-    display: none;
-  }
-}

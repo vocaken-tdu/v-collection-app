@@ -11,7 +11,7 @@ import '@mantine/notifications/styles.css';
 import { Header } from '@/components/Navigation/Header';
 import { FooterLinks } from '@/components/Navigation/FooterLinks';
 import { BGParallax } from '@/components/Background/BGParallax';
-import { Loading } from '@/components/Parts/Loading';
+import { Loading } from '@/components/Loading/Loading';
 
 const title = process.env.NEXT_PUBLIC_SITE_TITLE;
 const siteName = process.env.NEXT_PUBLIC_SITE_NAME;
