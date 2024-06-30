@@ -11,3 +11,19 @@
   pointer-events: none;
   z-index: 500;
 }
+
+.animFadeOutLogo {
+  animation: fade-out-logo 0.5s forwards;
+  animation-delay: 3s;
+}
+
+@keyframes fade-out-logo {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
