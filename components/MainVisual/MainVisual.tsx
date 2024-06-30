@@ -9,14 +9,10 @@ import { Arrow } from '@/components/_ui/Arrow';
 import classes from './MainVisual.module.css';
 import useStore from '@/store/useStore';
 import { useIllustList, dataInfo } from '@/store/illustListStore';
-import { useIsFirstAccess } from '@/store/isFirstAccess';
 import { Logo2024 } from '@/components/Logo/Logo2024';
 
 export function MainVisual() {
   const [randId, setRandId] = useState(0);
-
-  // 初回アクセスかどうかを取得
-  const isFirstAccess = useIsFirstAccess((state) => state.isFirstAccess);
 
   // ロード完了時の処理
   const [isLoaded, setLoaded] = useState(false);
@@ -50,7 +46,6 @@ export function MainVisual() {
         <div className={classes.left}>
           <div
             className={`${classes.catchPhrase} ${isExist && 'anim-bounce'}`}
-            style={{ animationDelay: isFirstAccess ? '4.5s' : '0s' }}
           >
             <div className={`${classes.highlight} ${classes.line1}`}>あのキャラはこの夏､</div>
             <div className={`${classes.highlight} ${classes.line2}`}>なにを着ているだろう</div>
@@ -81,7 +76,7 @@ export function MainVisual() {
         </Link>
 
         {/*ロゴ2*/}
-        <Group mt={48} hiddenFrom="md" className={classes.logo}>
+        <Group mt={24} hiddenFrom="md" className={classes.logo}>
           <Logo2024 />
         </Group>
       </div>
