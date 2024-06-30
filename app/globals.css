@@ -150,7 +150,8 @@ img {
   }
 }
 
-.anim-fadeLeft {
+/* anims は一括で子要素をアニメーションさせるときの親要素に指定する */
+.anims .anim-fadeLeft {
   animation: anim-fadeleft 0.5s cubic-bezier(0.33, 1, 0.68, 1) 0s 1 normal both;
 }
 
