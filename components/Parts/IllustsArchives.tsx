@@ -18,7 +18,13 @@ export function IllustsArchives() {
   const tags = useStore(useTags, (state) => state.tags);
 
   // アーカイブするシーズンID以下のタグを取得
-  const filteredTags = tags?.filter((tag) => tag.id <= archiveSeasonId);
+  const archiveIllusts = tags?.filter((tag) => tag.id <= archiveSeasonId);
+
+  // 2024冬より新しいもののうちアーカイブされているものを取得
+  const filteredIllusts = archiveIllusts?.filter((tag) => tag.id > 3);
+
+  // 2024冬のイラストを取得 (グループ化)
+  const filteredIllusts2024Winter = archiveIllusts?.filter((tag) => tag.id >= 1 && tag.id <= 3);
 
   // イラスト(リスト)を取得
   useEffect(() => {
@@ -28,10 +34,23 @@ export function IllustsArchives() {
 
   return (
     <>
+      {/* タグを表示 (キーは兄弟間で一意である必要があるため100から開始している) */}
+      {filteredIllusts?.map((tag, tagKey) => (
+        <div key={tagKey + 100}>
+          <h3 className={classes.header}>{tag.name ? `― ${tag.name} ―` : 'Now Loading...'}</h3>
+          <div className={classes.cards} id="cards">
+            {/* イラストをタグごとに表示 */}
+            {illusts
+              ?.filter((illust) => illust.tags.includes(tag.id))
+              .map((illust, i) => <IllustCard illust={illust} i={i} />)}
+          </div>
+        </div>
+      ))}
+      {/* 2024冬のイラストをグループ化して表示 */}
       <h3 className={classes.header}>― 2024冬 ―</h3>
       <div className={classes.cards} id="cards">
         {/* イラストを一覧表示 */}
-        {filteredTags?.map(
+        {filteredIllusts2024Winter?.map(
           (tag, tagKey) =>
             illusts
               ?.filter((illust) => illust.tags.includes(tag.id))
