@@ -5,8 +5,9 @@ import { RelatedIllusts } from '@/components/Parts/RelatedIllusts';
 import { IllustInfo } from '@/components/_ui/IllustInfo';
 import { BigImageCard } from '@/components/_ui/BigIllustCard';
 import { PrevNextLink } from '@/components/_ui/PrevNextLink';
-
 import classes from './page.module.css';
+
+const isFormVisible = process.env.VIEW_COMMENT_FORM === 'true';
 
 export default function Works({ params }: { params: { id: string } }) {
   let illustId = -1;
@@ -14,19 +15,6 @@ export default function Works({ params }: { params: { id: string } }) {
   if (Number.isInteger(Number(params.id)) && Number(params.id) > 0 && !params.id.includes('.')) {
     illustId = parseInt(params.id, 10);
   }
-
-  const isAuth: boolean = true;
-
-  /*
-
-    // ドメイン名を取得
-  useEffect(() => {
-    // ドメイン認証
-    setVerified();
-  }, []);
-  const isAuth = useVerified((state) => state.isAuth);
-
-  */
 
   return (
     <Container size="xxl">
@@ -40,8 +28,8 @@ export default function Works({ params }: { params: { id: string } }) {
 
           <SimpleGrid cols={1} spacing="md" className={classes.right}>
             <IllustInfo />
-            <Comments illustId={illustId} isFormVisible={isAuth} />
-            {isAuth ? (
+            <Comments illustId={illustId} isFormVisible={isFormVisible} />
+            {isFormVisible ? (
               <CommentForm illustId={illustId} />
             ) : (
               <Text ta="right" c="dimmed">
