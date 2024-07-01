@@ -11,6 +11,8 @@ import useStore from '@/store/useStore';
 import { useIllustList, dataInfo } from '@/store/illustListStore';
 import { Logo2024 } from '@/components/Logo/Logo2024';
 
+const archiveIllusts = Number(process.env.NEXT_PUBLIC_ARCHIVE_SEASON_ID);
+
 export function MainVisual() {
   const [randId, setRandId] = useState(0);
 
@@ -18,7 +20,10 @@ export function MainVisual() {
   const [isLoaded, setLoaded] = useState(false);
 
   // イラスト(リスト)の状態を取得
-  const illusts = useIllustList((state) => state.illustList);
+  const illustsRaw = useIllustList((state) => state.illustList);
+
+  // 表示対象のイラストのみに絞る
+  const illusts = illustsRaw.filter((illust) => illust.tags[0] > archiveIllusts);
 
   // イラストのIDをランダムに生成
   const initRand = Math.floor(Math.random() * illusts.length); // 初期用 0を含む
@@ -44,9 +49,7 @@ export function MainVisual() {
     <Container size="xl" className={classes.wrap}>
       <div className={classes.inner}>
         <div className={classes.left}>
-          <div
-            className={`${classes.catchPhrase} ${isExist && 'anim-bounce'}`}
-          >
+          <div className={`${classes.catchPhrase} ${isExist && 'anim-bounce'}`}>
             <div className={`${classes.highlight} ${classes.line1}`}>あのキャラはこの夏､</div>
             <div className={`${classes.highlight} ${classes.line2}`}>なにを着ているだろう</div>
             {isExist && <Arrow />}

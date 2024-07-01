@@ -8,7 +8,7 @@ import {
 import dummy from '@/public/assets/dummy.svg';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-const visibleSeasonId = process.env.NEXT_PUBLIC_VISIBLE_SEASON_ID;
+const visibleSeasonId = Number(process.env.NEXT_PUBLIC_VISIBLE_SEASON_ID);
 
 // -------- イラスト一覧を取得する
 
@@ -78,7 +78,7 @@ export const setIllustList = async () => {
 
       // シーズンIDでフィルタリング
       const dataFilter = response.data.filter(
-        (item: { tags: [number] }) => item.tags[0] <= Number(visibleSeasonId || 1)
+        (item: { tags: [number] }) => item.tags[0] <= visibleSeasonId
       );
 
       const data = dataFilter.sort((a: any, b: any) => b.id - a.id);
