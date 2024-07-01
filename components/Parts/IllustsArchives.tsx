@@ -28,7 +28,7 @@ export function IllustsArchives() {
 
   return (
     <>
-      <h3 className={classes.header}>― 2024年冬 ―</h3>
+      <h3 className={classes.header}>― 2024冬 ―</h3>
       <div className={classes.cards} id="cards">
         {/* イラストを一覧表示 */}
         {filteredTags?.map(
