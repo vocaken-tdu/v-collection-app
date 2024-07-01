@@ -6,7 +6,7 @@ import { useForm } from '@mantine/form';
 import classes from './CommentForm.module.css';
 import { useComment, setComment } from '../../store/commentFormStore';
 import { useMyName } from '../../store/userNameStore';
-import sendIcon from '@/public/send.svg';
+import sendIcon from '@/public/assets/send-icon.svg';
 
 export function CommentForm({ illustId }: { illustId: number }) {
   // コメントフォームの状態を管理

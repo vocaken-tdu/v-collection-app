@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Container, Group, Card } from '@mantine/core';
-import Dummy from '@/public/dummy.svg';
+import Dummy from '@/public/assets/dummy.svg';
 import { Arrow } from '@/components/_ui/Arrow';
 import classes from './MainVisual.module.css';
 import useStore from '@/store/useStore';

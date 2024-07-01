@@ -5,7 +5,7 @@ import {
   NotifyFetchFailedIllustList,
   NotifyUpdateIllustList,
 } from '@/components/_tools/Notifications';
-import dummy from '@/public/dummy.svg';
+import dummy from '@/public/assets/dummy.svg';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const visibleSeasonId = process.env.NEXT_PUBLIC_VISIBLE_SEASON_ID;

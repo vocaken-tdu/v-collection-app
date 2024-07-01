@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { useIllustList } from './illustListStore';
-import dummy from '@/public/dummy.svg';
+import dummy from '@/public/assets/dummy.svg';
 
 // -------- イラストを取得する
 

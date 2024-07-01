@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import { Text, Paper } from '@mantine/core';
-import BGShape from '@/public/bg-shape.svg';
+import BGShape from '@/public/assets/bg-shape.svg';
 import classes from './ComingSoon.module.css';
 
 export function ComingSoon() {
