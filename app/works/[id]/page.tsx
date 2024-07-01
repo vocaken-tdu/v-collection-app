@@ -7,13 +7,19 @@ import { BigImageCard } from '@/components/_ui/BigIllustCard';
 import { PrevNextLink } from '@/components/_ui/PrevNextLink';
 import classes from './page.module.css';
 
-const isFormVisible = process.env.VIEW_COMMENT_FORM === 'true';
+let isFormVisible = process.env.VIEW_COMMENT_FORM === 'true';
+const allowCommentId = Number(process.env.ALLOW_COMMENT_ID);
 
 export default function Works({ params }: { params: { id: string } }) {
   let illustId = -1;
   // 自然数以外は除外
   if (Number.isInteger(Number(params.id)) && Number(params.id) > 0 && !params.id.includes('.')) {
     illustId = parseInt(params.id, 10);
+  }
+
+  // アーカイブされていればコメントフォームを非表示
+  if (illustId < allowCommentId) {
+    isFormVisible = false;
   }
 
   return (
