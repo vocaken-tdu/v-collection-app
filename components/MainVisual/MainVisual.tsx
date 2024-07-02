@@ -1,21 +1,29 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import { Image, Container, Group, Card } from '@mantine/core';
-import { gsap } from 'gsap';
-import logo from '@/public/Logo.webp';
-import dummy from '@/public/dummy.svg';
-import arrow from '@/public/arrow.svg';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { Container, Group, Card } from '@mantine/core';
+import Dummy from '@/public/assets/dummy.svg';
+import { Arrow } from '@/components/_ui/Arrow';
 import classes from './MainVisual.module.css';
 import useStore from '@/store/useStore';
 import { useIllustList, dataInfo } from '@/store/illustListStore';
+import { Logo2024 } from '@/components/Logo/Logo2024';
+
+const archiveIllusts = Number(process.env.NEXT_PUBLIC_ARCHIVE_SEASON_ID);
 
 export function MainVisual() {
-  const boxRef = useRef(null);
   const [randId, setRandId] = useState(0);
 
+  // ロード完了時の処理
+  const [isLoaded, setLoaded] = useState(false);
+
   // イラスト(リスト)の状態を取得
-  const illusts = useIllustList((state) => state.illustList);
+  const illustsRaw = useIllustList((state) => state.illustList);
+
+  // 表示対象のイラストのみに絞る
+  const illusts = illustsRaw.filter((illust) => illust.tags[0] > archiveIllusts);
 
   // イラストのIDをランダムに生成
   const initRand = Math.floor(Math.random() * illusts.length); // 初期用 0を含む
@@ -37,106 +45,42 @@ export function MainVisual() {
     return () => clearInterval(timer);
   }, [isUpdated]);
 
-  // フェードイン
-  useEffect(() => {
-    gsap.fromTo(
-      boxRef.current,
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-        duration: 0.4,
-        ease: 'sine.inOut',
-      }
-    );
-  }, [randId]);
-
-  // 上下に動くアニメーション
-  useEffect(() => {
-    gsap.to(boxRef.current, {
-      y: '+=12',
-      duration: 1.8,
-      ease: 'sine.inOut',
-      repeat: -1,
-      yoyo: true,
-    });
-  }, [isExist]);
-
-  // キャッチフレーズのアニメーション(右下を軸として-3度回転)
-  useEffect(() => {
-    // 取得済みでない場合はアニメーションを実行しない
-    if (!isExist) return;
-
-    gsap.to('#catchPhrase', {
-      rotate: -2.297,
-      duration: 0.8,
-      transformOrigin: 'right bottom',
-      ease: 'bounce.out',
-    });
-    gsap.fromTo(
-      '#arrowPC',
-      {
-        right: 0,
-        bottom: -12,
-      },
-      {
-        duration: 0.8,
-        ease: 'bounce.out',
-        right: -24,
-        bottom: -14,
-      }
-    );
-    gsap.fromTo(
-      '#arrowSP',
-      {
-        bottom: -6,
-      },
-      {
-        duration: 0.8,
-        ease: 'bounce.out',
-        bottom: -20,
-      }
-    );
-  }, [isExist]);
-
   return (
-    <Container size="xl" className={`${classes.main}`}>
+    <Container size="xl" className={classes.wrap}>
       <div className={classes.inner}>
-        <div className={`${classes.content} grid place-content-center`}>
-          <div id="catchPhrase" className={classes.catchPhrase}>
-            <div className={`${classes.highlight} ${classes.l}`}>あのキャラはこの冬</div>
-            <div className={`${classes.highlight} ${classes.r}`}>どう過ごしているだろう</div>
-            {isExist && (
-              <>
-                <Image id="arrowPC" src={arrow.src} className={`${classes.arrow} ${classes.pc}`} />
-                <Image id="arrowSP" src={arrow.src} className={`${classes.arrow} ${classes.sp}`} />
-              </>
-            )}
+        <div className={classes.left}>
+          <div className={`${classes.catchPhrase} ${isExist && 'anim-bounce'}`}>
+            <div className={`${classes.highlight} ${classes.line1}`}>あのキャラはこの夏､</div>
+            <div className={`${classes.highlight} ${classes.line2}`}>なにを着ているだろう</div>
+            {isExist && <Arrow />}
           </div>
-          <Group mt={80} visibleFrom="md">
-            <Image className={classes.logo} src={logo.src} alt="Vコレのロゴ" />
+          <Group mt={80} visibleFrom="md" className={classes.logo}>
+            <Logo2024 />
           </Group>
         </div>
         {/*ランダムイラスト*/}
-        <Card
-          id="randomImage"
-          className="rotate-3 !overflow-visible"
-          ref={boxRef}
-          component="a"
-          bg="transparent"
-          href={`/works/${illusts[randId].id}`}
-        >
-          <Image
-            className={`${classes.image} ${isExist || 'opacity-0'} big-shadow`}
-            src={`${isExist ? illusts[randId].illust : dummy.src}`}
-            alt="Vコレのイラスト(ランダムで表示)"
-          />
-        </Card>
+        <Link href={`/works/${illusts[randId]?.id}`} className="anim-wave">
+          <Card
+            id="randomImage"
+            className={`${classes.card} ${isLoaded && 'anim-fadeIn'}`}
+            key={randId} // 変更時にアニメーションを実行する
+            bg="transparent"
+          >
+            <Image
+              width={300}
+              height={400}
+              onLoad={() => setLoaded(true)}
+              className={`${classes.image} big-shadow`}
+              src={`${isExist ? illusts[randId].illust : Dummy.src}`}
+              alt="Vコレのイラスト(ランダムで表示)"
+              unoptimized
+            />
+          </Card>
+        </Link>
 
         {/*ロゴ2*/}
-        <Group mt={48} hiddenFrom="md" justify="center">
-          <Image className={classes.logo} src={logo.src} alt="Vコレのロゴ" />
+        <Group mt={24} hiddenFrom="md" className={classes.logo}>
+          <Logo2024 />
         </Group>
       </div>
     </Container>

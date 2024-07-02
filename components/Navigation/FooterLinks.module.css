@@ -1,0 +1,138 @@
+.footer {
+  padding-bottom: calc(var(--mantine-spacing-xl));
+  background-color: #f9bb2e;
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    padding-top: calc(var(--mantine-spacing-xl) * 2);
+    text-align: center;
+  }
+}
+
+.footerWrap {
+  overflow: hidden;
+  margin-top: 20rem;
+}
+
+.footerWrap::before {
+  content: '';
+  display: block;
+  width: 100vw;
+  height: auto;
+  max-width: 1600px;
+  margin: 0 auto;
+  aspect-ratio: 2 / 1;
+  background: url('../../public/2024-summer/southern-island.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.link {
+  display: block;
+  color: light-dark(var(--mantine-color-gray-6), var(--mantine-color-dark-1));
+  font-size: var(--mantine-font-size-sm);
+  padding-top: rem(3px);
+  padding-bottom: rem(3px);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.afterFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--mantine-spacing-xl);
+  padding-bottom: 32px;
+  gap: 2em 0;
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.icons {
+  @media (max-width: $mantine-breakpoint-xs) {
+    width: 100%;
+    justify-content: center !important;
+  }
+}
+
+.social {
+  margin-top: 0.3em;
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    justify-content: center !important;
+  }
+}
+
+.icon {
+  display: inline-block;
+  border-radius: 50%;
+  align-items: left;
+  padding-left: 20%;
+  padding-top: 19%;
+  height: 100%;
+  width: 100%;
+  background-color: #f9bb2e;
+}
+
+.button {
+  margin-top: -160px;
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    margin-top: 0;
+  }
+}
+
+.right {
+  display: flex;
+  text-align: right;
+  flex-direction: column;
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    width: 100%;
+    justify-content: center !important;
+  }
+}
+
+.copyright {
+  text-wrap: nowrap;
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    text-align: center;
+  }
+}
+
+.tdu {
+  @media (max-width: $mantine-breakpoint-xs) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.tbBr {
+  @media (min-width: $mantine-breakpoint-lg) {
+    display: none;
+  }
+}
+
+.spBr {
+  @media (min-width: $mantine-breakpoint-md) {
+    display: none;
+  }
+}
+
+.anchor {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}

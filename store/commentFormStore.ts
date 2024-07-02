@@ -1,7 +1,12 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import axios from 'axios';
-import { Sending, Sent, SendFailed, RemainComment } from './StoreNotification';
+import {
+  NotifySending,
+  NotifySent,
+  NotifySendFailed,
+  NotifyRemainComment,
+} from '@/components/_tools/Notifications';
 import { updateCommentList } from '@/store/commentListStore';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -26,7 +31,7 @@ export const useComment = create<commentState>()(
 
 // コメントが残っていたらメッセージを表示
 if (useComment.getState().comment.length > 0) {
-  RemainComment();
+  NotifyRemainComment();
 }
 
 // コメントを送信する
@@ -39,7 +44,7 @@ export const setComment = async (illust_id: number, name: string, comment: strin
     });
 
     // 送信中の通知を表示
-    Sending(name, comment);
+    NotifySending(name, comment);
 
     try {
       // コメントを送信
@@ -52,7 +57,7 @@ export const setComment = async (illust_id: number, name: string, comment: strin
       // 送信が完了したら以下の処理を実行
 
       // 送信完了の通知を表示
-      Sent(comment);
+      NotifySent(comment);
       console.log('Comment sent!', res);
 
       // ローカルデータを削除
@@ -64,7 +69,7 @@ export const setComment = async (illust_id: number, name: string, comment: strin
       updateCommentList();
     } catch (e) {
       // 送信失敗のエラー通知を表示
-      SendFailed();
+      NotifySendFailed();
     }
   };
 

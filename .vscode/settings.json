@@ -1,5 +1,12 @@
 {
 	"typescript.locale": "ja",
 	"editor.tabSize": 2,
-	"svg.preview.background": "dark-transparent"
+	"svg.preview.background": "dark-transparent",
+	"cssVariables.lookupFiles": [
+    "**/*.css",
+    "**/*.scss",
+    "**/*.sass",
+    "**/*.less",
+    "node_modules/@mantine/core/styles.css"
+  ]
 }

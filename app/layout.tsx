@@ -3,14 +3,15 @@ import React from 'react';
 import { MantineProvider, ColorSchemeScript } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { TspApp } from '@/components/Background/TspApp';
+import NextTopLoader from 'nextjs-toploader';
 import { theme } from '@/theme';
 import './globals.css';
 import '@mantine/notifications/styles.css';
 
-import { Header } from '@/components/Nav/Header';
-import { FooterLinks } from '@/components/Footer/FooterLinks';
-import { FlowShape2 } from '@/components/Background/FlowShape2';
+import { Header } from '@/components/Navigation/Header';
+import { FooterLinks } from '@/components/Navigation/FooterLinks';
+import { BGParallax } from '@/components/Background/BGParallax';
+import { Loading } from '@/components/Loading/Loading';
 
 const title = process.env.NEXT_PUBLIC_SITE_TITLE;
 const siteName = process.env.NEXT_PUBLIC_SITE_NAME;
@@ -67,12 +68,13 @@ export default function RootLayout({ children }: { children: any }) {
       </head>
       <body>
         <MantineProvider theme={theme}>
+          <NextTopLoader zIndex={1000} showSpinner={false} />
+          <Loading />
           <Header />
           <Notifications position="top-right" autoClose={6000} />
           <main>{children}</main>
           <FooterLinks />
-          <TspApp />
-          <FlowShape2 />
+          <BGParallax />
         </MantineProvider>
       </body>
     </html>

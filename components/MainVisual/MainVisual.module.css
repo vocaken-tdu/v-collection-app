@@ -1,10 +1,14 @@
-.main {
+.wrap {
   display: flex;
   padding-top: 32px;
   padding-bottom: 64px;
   align-items: center;
-  min-height: calc(100vh - 80px * 2);
+  min-height: calc(100vh - 80px);
   justify-content: center;
+
+  @media (min-width: 1600px) and (min-height: 800px) {
+    min-height: calc(100vh);
+  }
 }
 
 .inner {
@@ -19,9 +23,18 @@
   }
 }
 
-.content {
+.card {
+  transform: rotate(3deg);
+  overflow: visible;
+  opacity: 0;
+}
+
+.left {
   max-width: 45%;
   margin-right: 64px;
+
+  display: grid;
+  place-content: center;
 
   @media (max-width: $mantine-breakpoint-md) {
     margin: 1em 0 40px;
@@ -38,6 +51,7 @@
   font-size: rem(32px);
   line-height: 1.2;
   font-weight: 900;
+  position: relative;
 
   @media (max-width: $mantine-breakpoint-md) {
     font-size: rem(28px);
@@ -60,22 +74,22 @@
 
 .logo {
   width: 100%;
-  height: 100%;
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
 
   @media (max-width: $mantine-breakpoint-md) {
-    max-width: 600px;
-    width: 90%;
+    max-width: 540px;
   }
 }
 
 .image {
   width: 360px;
+  height: auto;
   max-width: 500px;
   aspect-ratio: 3 / 4;
   border-radius: 6px;
+  object-fit: cover;
 
   @media (max-width: $mantine-breakpoint-md) {
     width: 60vw;
@@ -98,7 +112,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 6px;
-  background: var(--mantine-color-blue-6);
+  background: var(--mantine-color-themeColor-5);
   white-space: nowrap;
 
   @media (max-width: calc($mantine-breakpoint-xs + 1px)) {
@@ -106,45 +120,11 @@
   }
 }
 
-.l {
+.line1 {
   float: left;
 }
 
-.r {
+.line2 {
   margin-top: -0.3em;
   float: right;
-}
-
-.arrow {
-  display: block;
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-  z-index: -1;
-  /* fill → SVGで読み込んでいるため直接編集する必要あり */
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  position: absolute;
-}
-
-.pc {
-  bottom: -12px;
-  right: 0;
-  rotate: 3deg;
-
-  @media (max-width: $mantine-breakpoint-md) {
-    display: none;
-  }
-}
-
-.sp {
-  display: none;
-  bottom: -20px;
-  right: -12px;
-  rotate: 120deg;
-
-  @media (max-width: $mantine-breakpoint-md) {
-    display: block;
-  }
 }

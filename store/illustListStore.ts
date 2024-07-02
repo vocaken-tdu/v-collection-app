@@ -1,10 +1,14 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import axios, { AxiosResponse } from 'axios';
-import { FetchFailedIllustList, UpdateIllustList } from '@/store/StoreNotification';
+import {
+  NotifyFetchFailedIllustList,
+  NotifyUpdateIllustList,
+} from '@/components/_tools/Notifications';
+import dummy from '@/public/assets/dummy.svg';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-const visibleSeasonId = process.env.NEXT_PUBLIC_VISIBLE_SEASON_ID;
+const visibleSeasonId = Number(process.env.NEXT_PUBLIC_VISIBLE_SEASON_ID);
 
 // -------- イラスト一覧を取得する
 
@@ -29,7 +33,7 @@ export const useIllustList = create<illustListState>()(
       illustList: [
         {
           id: 0,
-          illust: '',
+          illust: dummy.src,
           title: '',
           user_id: 0,
           caption: '',
@@ -71,9 +75,12 @@ export const setIllustList = async () => {
   const fetch = async () => {
     try {
       const response: AxiosResponse = await axios.get(`${apiUrl}/illustrations/`);
+
+      // シーズンIDでフィルタリング
       const dataFilter = response.data.filter(
-        (item: any) => item.tags[0] <= (visibleSeasonId || 0)
+        (item: { tags: [number] }) => item.tags[0] <= visibleSeasonId
       );
+
       const data = dataFilter.sort((a: any, b: any) => b.id - a.id);
 
       // ローカルのイラストリストと取得したイラストリストを比較(更新の必要性を判定)
@@ -84,7 +91,7 @@ export const setIllustList = async () => {
         useIllustList.setState({ illustList: data });
 
         // イラストリストが更新された場合に通知を表示
-        UpdateIllustList();
+        NotifyUpdateIllustList();
 
         dataInfo.setState({ isUpdated: true });
         console.log('illustListData is updated!');
@@ -95,7 +102,7 @@ export const setIllustList = async () => {
       dataInfo.setState({ isFetched: true, isExist: true });
     } catch (e) {
       // イラストリストが取得できなかったときのエラー通知を表示
-      FetchFailedIllustList();
+      NotifyFetchFailedIllustList();
     }
   };
   // 取得状態がfalseのときのみ取得

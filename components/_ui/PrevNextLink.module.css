@@ -1,0 +1,25 @@
+.arrowWrap {
+  width: 100%;
+  height: 5em;
+  max-width: 1516px;
+  position: relative;
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  padding: 1em;
+  position: absolute;
+}
+
+.prev {
+  float: left;
+  left: 0;
+  transform: none;
+}
+
+.next {
+  float: right;
+  right: 0;
+  transform: none;
+}

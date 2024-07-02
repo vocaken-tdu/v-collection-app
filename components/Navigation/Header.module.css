@@ -1,0 +1,51 @@
+.h1 {
+  font-size: 1.5em;
+
+  @media (max-width: $mantine-breakpoint-md) {
+    font-size: 1.3em;
+    line-height: 1.25;
+  }
+}
+
+.inner {
+  position: fixed;
+  inset: 1em;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fefcfb;
+  border-radius: 2.5em;
+  z-index: 100;
+
+  @media (min-width: 1600px) and (min-height: 800px) {
+    writing-mode: vertical-rl;
+    inset: 3em 2em;
+    height: calc(100% - 2em);
+    width: min-content;
+  }
+}
+
+.buger {
+  color: black;
+}
+
+.link {
+  display: block;
+  line-height: 2;
+  padding: rem(8px) rem(12px);
+  border-radius: var(--mantine-radius-sm);
+  text-decoration: none;
+  color: #332318;
+  font-size: var(--mantine-font-size-md);
+  transition: background-color 0.5s;
+
+  @mixin hover {
+    background-color: var(--mantine-color-themeColor-5);
+  }
+
+  [data-mantine-color-scheme] &[data-active] {
+    background-color: var(--mantine-color-themeColor-5);
+    color: var(--mantine-color-white);
+  }
+}

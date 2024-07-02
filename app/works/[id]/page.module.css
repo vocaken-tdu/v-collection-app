@@ -1,0 +1,52 @@
+.main {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  @media (min-width: 1600px) and (min-height: 800px) {
+    min-height: 100svh;
+  }
+}
+
+.wrap {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: fit-content;
+  height: auto;
+  padding-top: 1em;
+  justify-content: center;
+  gap: 1em;
+}
+
+.left {
+  max-width: 100%;
+}
+
+.sticky {
+  display: block;
+  height: fit-content;
+  position: sticky;
+  top: calc(80px + 2em);
+  left: 0;
+
+  @media (min-width: 1600px) and (min-height: 800px) {
+    top: 1em;
+  }
+}
+
+.right {
+  display: flex;
+  min-width: min(400px, 100vw - 2em);
+  max-width: min(((100svh - 2em) / 4 * 3), 540px);
+  align-items: stretch;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+
+  @media (min-width: 1600px) and (min-height: 800px) {
+    max-width: 540px;
+  }
+}

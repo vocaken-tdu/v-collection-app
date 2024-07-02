@@ -1,8 +1,6 @@
 import { create } from 'zustand';
-import axios, { AxiosResponse } from 'axios';
-import { FetchFailedIllust } from './StoreNotification';
-
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+import { useIllustList } from './illustListStore';
+import dummy from '@/public/assets/dummy.svg';
 
 // -------- イラストを取得する
 
@@ -23,7 +21,7 @@ type illustState = {
 export const useIllust = create<illustState>()(() => ({
   illust: {
     id: 0,
-    illust: '',
+    illust: dummy.src,
     title: '',
     user_id: 0,
     caption: '',
@@ -39,17 +37,10 @@ export const useIllust = create<illustState>()(() => ({
 }));
 
 export const setIllust = async (illustId: number) => {
-  const fetch = async () => {
-    try {
-      const response: AxiosResponse = await axios.get(`${apiUrl}/illustrations/${illustId}`);
-      useIllust.setState({ illust: response.data });
-      console.log('illustData is fetched!');
-    } catch (e) {
-      // イラストが取得できなかったときのエラー通知を表示
-      FetchFailedIllust();
-    }
-  };
-  // 取得状態がfalseのときのみ取得
-  const isFetched = useIllust.getState().isFetched();
-  isFetched ? console.log('illustData is already fetched!') : fetch();
+  // illustListStoreからイラストデータを取得
+  const illusts = useIllustList.getState().illustList;
+  const illust = illusts.find((i) => i.id === illustId);
+
+  // 中身がないときには何もしない
+  illust && useIllust.setState({ illust });
 };

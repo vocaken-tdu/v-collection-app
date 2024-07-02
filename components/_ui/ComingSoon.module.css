@@ -1,0 +1,14 @@
+.wrap {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+.bgShape {
+  width: 100%;
+  height: auto;
+  min-width: 1080px;
+  position: absolute;
+  inset: 0px;
+  object-fit: contain;
+}

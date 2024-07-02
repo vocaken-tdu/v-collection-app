@@ -1,0 +1,4 @@
+.comment {
+  padding: var(--mantine-spacing-lg) var(--mantine-spacing-xl);
+  min-height: 108px;
+}
