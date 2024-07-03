@@ -33,7 +33,7 @@ export function FooterLinks() {
                 section: { marginLeft: 16 },
               }}
             >
-              以前のVコレ
+              旧Vコレサイト
             </Button>
           </Link>
         </Container>

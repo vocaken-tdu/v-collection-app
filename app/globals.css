@@ -35,6 +35,10 @@ strong {
   font-weight: bolder;
 }
 
+p {
+  white-space: pre-wrap;
+}
+
 main {
   padding-top: calc(80px + 1em);
 
