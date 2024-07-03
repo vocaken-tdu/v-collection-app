@@ -81,7 +81,11 @@ export const setIllustList = async () => {
         (item: { tags: [number] }) => item.tags[0] <= visibleSeasonId
       );
 
-      const data = dataFilter.sort((a: any, b: any) => b.id - a.id);
+      // IDで降順ソート
+      const dataOrdered = dataFilter.sort((a: any, b: any) => b.id - a.id);
+
+      // シーズンでソート
+      const data = dataOrdered.sort((a: any, b: any) => b.tags[0] - a.tags[0]);
 
       // ローカルのイラストリストと取得したイラストリストを比較(更新の必要性を判定)
       const dataStr = JSON.stringify(data);
