@@ -28,15 +28,6 @@ export const metadata = {
     siteName,
     locale: 'ja_JP',
     type: 'website',
-    images: [
-      {
-        type: 'image/png',
-        url: 'https://v-collection.vocakentdu.com/opengraph-image.png',
-        width: 1200,
-        height: 630,
-        alt: title,
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
