@@ -71,7 +71,7 @@ export function MainVisual() {
               height={400}
               onLoad={() => setLoaded(true)}
               className={`${classes.image} big-shadow`}
-              src={`${isExist ? illusts[randId].illust : Dummy.src}`}
+              src={`${isExist ? illusts[randId]?.illust : Dummy.src}`}
               alt="Vコレのイラスト(ランダムで表示)"
               unoptimized
             />
