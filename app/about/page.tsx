@@ -7,6 +7,16 @@ export default function Home() {
     <>
       <Container size="xl" ta="center">
         <h2>Vコレってなんだ？</h2>
+        <iframe
+          width="600"
+          height="337.5"
+          style={{ border: 'none' }}
+          src="https://www.youtube.com/embed/6mldw9QTCWg?si=pFwWyH7xy0CQDOAD"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        />
         <Text size="xl" mt={80} className={classes.text}>
           「ボカロキャラ(広義)が
           <br className="sp-only" />
