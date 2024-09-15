@@ -9,7 +9,7 @@ import { usePathname } from 'next/navigation';
 import classes from './Header.module.css';
 
 // ロゴのフォント
-export const abel = Abel({
+const abel = Abel({
   weight: ['400'],
   subsets: ['latin'],
   display: 'swap',
