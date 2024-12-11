@@ -1,4 +1,5 @@
 import '@mantine/core/styles.css';
+import { Metadata } from 'next';
 import React from 'react';
 import { MantineProvider, ColorSchemeScript } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
@@ -18,7 +19,7 @@ const siteName = process.env.NEXT_PUBLIC_SITE_NAME;
 const description = process.env.NEXT_PUBLIC_SITE_DESCRIPTION;
 const url = process.env.NEXT_PUBLIC_BASE_URL;
 
-export const metadata = {
+export const metadata: Metadata = {
   title,
   description,
   openGraph: {
