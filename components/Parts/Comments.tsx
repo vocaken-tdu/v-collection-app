@@ -7,13 +7,7 @@ import { CommentCard } from '@/components/_ui/CommentCard';
 import classes from './Comments.module.css';
 
 // イラストのidを受け取って、そのイラストのコメントを表示する
-export function Comments({
-  illustId,
-  isFormVisible,
-}: {
-  illustId: number;
-  isFormVisible: boolean;
-}) {
+export function Comments({ illustId }: { illustId: number }) {
   const cardsRef = useRef(null);
   const [isIntersected, setIsIntersected] = useState(false);
   const [isObserved, setIsObserved] = useState(false);
@@ -61,8 +55,7 @@ export function Comments({
   return (
     <SimpleGrid cols={1} spacing="md" className={`${classes.wrap} ${isIntersected && 'anims'}`}>
       <h3 className={classes.header} id="comments" ref={cardsRef}>
-        {/* コメントがないとき and フォームが表示されている場合に コメントを促す */}
-        {!comments.length && isFormVisible ? '↓でコメントしてみよう！' : 'このコメントがアツい！'}
+        このコメントがアツい！
       </h3>
       {sortedComments.map((comment, i) => (
         <CommentCard comment={comment} key={comment.id} i={i} />
