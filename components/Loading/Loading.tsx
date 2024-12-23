@@ -1,5 +1,6 @@
-import { Logo2024 } from '@/components/Logo/Logo2024';
 import classes from './Loading.module.css';
+
+import { Logo2024 } from '@/components/Logo/Logo2024';
 
 export function Loading() {
   return (

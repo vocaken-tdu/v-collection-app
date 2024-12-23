@@ -1,11 +1,11 @@
 'use client';
 
-import React from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import React from 'react';
 import { Container, Group, Burger, Drawer, Text } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { Abel } from 'next/font/google';
-import { usePathname } from 'next/navigation';
 import classes from './Header.module.css';
 
 // ロゴのフォント
