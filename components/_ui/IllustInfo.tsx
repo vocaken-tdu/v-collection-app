@@ -4,7 +4,7 @@ import { Text, Group, LoadingOverlay, Badge, Box } from '@mantine/core';
 import { useIllust } from '@/store/illustStore';
 import { GetUserName } from '@/components/_tools/GetUserName';
 import { GetTagName } from '@/components/_tools/GetTagName';
-import { GetRelativeTime } from '@/components/_tools/GetRelativeTime';
+import { getRelativeTime } from '@/utils/date';
 import classes from './IllustInfo.module.css';
 
 export function IllustInfo() {
@@ -31,7 +31,7 @@ export function IllustInfo() {
             <GetTagName tagId={illust.tags[0]} />
           </Text>
           <Text c="dimmed" size="xs" tt="uppercase" fw="bold" fz="xs">
-            <GetRelativeTime RawTime={illust.created_at} format="day" />
+            {getRelativeTime(illust?.created_at, 'day')}
           </Text>
         </Group>
         <Group mt={4} gap="xs">

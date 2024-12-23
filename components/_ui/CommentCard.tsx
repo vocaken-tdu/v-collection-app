@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { Text, Paper, Group, Button } from '@mantine/core';
 import { IconHeartFilled, IconHeart } from '@tabler/icons-react';
 import { useLike, setLike } from '@/store/likeStore';
+import { getRelativeTime } from '@/utils/date';
 import { NotifyLikeCooldown } from '@/components/_tools/Notifications';
-import { GetRelativeTime } from '@/components/_tools/GetRelativeTime';
 import classes from './CommentCard.module.css';
 
 /*
@@ -63,7 +63,7 @@ export function CommentCard({ comment, i }: { comment: any; i: number }) {
           </Text>
           {/* 投稿日時 */}
           <Text pt="sm" fz="xs" c="dimmed" mt={1}>
-            <GetRelativeTime RawTime={comment.created_at} />
+            {getRelativeTime(comment.created_at)}
           </Text>
         </Group>
         {/* いいねボタン */}

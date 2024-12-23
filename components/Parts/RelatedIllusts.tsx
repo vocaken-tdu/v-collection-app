@@ -3,11 +3,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Card, Text, Container, AspectRatio, Group, Badge } from '@mantine/core';
+import { getRelativeTime } from '@/utils/date';
 import classes from './RelatedIllusts.module.css';
 import useStore from '@/store/useStore';
 import { useIllustList } from '@/store/illustListStore';
 import { GetTagName } from '@/components/_tools/GetTagName';
-import { GetRelativeTime } from '@/components/_tools/GetRelativeTime';
 import { useIllust } from '@/store/illustStore';
 
 export function RelatedIllusts({ illustId }: { illustId: number }) {
@@ -50,7 +50,7 @@ export function RelatedIllusts({ illustId }: { illustId: number }) {
                       <GetTagName tagId={illust.tags[0]} />
                     </Text>
                     <Text c="dimmed" size="xs" tt="uppercase" fw="bold" fz="xs">
-                      <GetRelativeTime RawTime={illust.created_at} format="day" />
+                      {getRelativeTime(illust.created_at, 'day')}
                     </Text>
                   </Group>
                 </Card>
