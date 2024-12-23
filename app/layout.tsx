@@ -1,13 +1,12 @@
-import '@mantine/core/styles.css';
 import { Metadata } from 'next';
 import React from 'react';
 import { MantineProvider, ColorSchemeScript } from '@mantine/core';
-import { Notifications } from '@mantine/notifications';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import NextTopLoader from 'nextjs-toploader';
+
 import { theme } from '@/theme';
 import './globals.css';
-import '@mantine/notifications/styles.css';
+import '@mantine/core/styles.css';
 
 import { Header } from '@/components/Navigation/Header';
 import { FooterLinks } from '@/components/Navigation/FooterLinks';
@@ -63,7 +62,6 @@ export default function RootLayout({ children }: { children: any }) {
           <NextTopLoader zIndex={1000} showSpinner={false} />
           <Loading />
           <Header />
-          <Notifications position="top-right" autoClose={6000} />
           <main>{children}</main>
           <FooterLinks />
           <BGParallax />

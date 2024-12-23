@@ -1,34 +1,21 @@
-'use client';
-
-import { Text, Group, LoadingOverlay, Badge, Box } from '@mantine/core';
-import { useIllust } from '@/store/illustStore';
-import { GetUserName } from '@/components/_tools/GetUserName';
-import { GetTagName } from '@/components/_tools/GetTagName';
+import { Text, Group, Badge, Box } from '@mantine/core';
+import { getIllustById, getTagName, getUserName } from '@/utils/data';
 import { getRelativeTime } from '@/utils/date';
 import classes from './IllustInfo.module.css';
 
-export function IllustInfo() {
+export function IllustInfo({ illustId }: { illustId: number }) {
   // イラストの状態を取得
-  const illust = useIllust((state) => state.illust);
-
-  // 取得済みかどうかを判定
-  const isFetched = useIllust((state) => state.isFetched());
+  const illust = getIllustById(illustId);
 
   return (
     <Box pos="relative">
-      <LoadingOverlay
-        visible={!isFetched}
-        overlayProps={{ radius: 'sm', blur: 2 }}
-        loaderProps={{ color: 'themeColor' }}
-        transitionProps={{ transition: 'fade', duration: 150 }}
-      />
       <div className={classes.comment}>
         <Group gap="xs">
           <Badge variant="light" color="themeColor" size="sm">
             シーズン
           </Badge>
           <Text fz="lg" fw="bold" c="#333">
-            <GetTagName tagId={illust.tags[0]} />
+            {getTagName(illust?.tags[0])}
           </Text>
           <Text c="dimmed" size="xs" tt="uppercase" fw="bold" fz="xs">
             {getRelativeTime(illust?.created_at, 'day')}
@@ -39,11 +26,11 @@ export function IllustInfo() {
             アーティスト
           </Badge>
           <Text fz="lg" fw="bold" c="#333">
-            <GetUserName userId={illust.user_id} />
+            {getUserName(illust?.user_id)}
           </Text>
         </Group>
         <Text pt={8} size="sm">
-          {illust.caption}
+          {illust?.caption || '(作者コメントはありません)'}
         </Text>
       </div>
     </Box>

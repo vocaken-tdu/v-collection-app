@@ -1,15 +1,13 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { Card, Group, Text } from '@mantine/core';
-import { NotifyFetchFailedImage } from '@/components/_tools/Notifications';
-import { dataInfo } from '@/store/illustListStore';
-import useStore from '@/store/useStore';
-import { GetUserName } from '@/components/_tools/GetUserName';
+import { getUserName } from '@/utils/data';
 import classes from './IllustCard.module.css';
 
 export function IllustCard({ illust, i }: { illust: any; i: number }) {
-  const isExist = useStore(dataInfo, (state) => state.isExist) || false;
   const [isLoaded, setIsLoaded] = useState(false);
   const cardRef = useRef(null);
   const [isIntersected, setIsIntersected] = useState(false);
@@ -49,12 +47,6 @@ export function IllustCard({ illust, i }: { illust: any; i: number }) {
     }
   }, []);
 
-  // 画像が取得できなかったときの通知を表示
-  const fetchFailed = () => {
-    // イラストが存在する場合のみ実行
-    isExist && NotifyFetchFailedImage();
-  };
-
   return (
     <div
       className={`${classes.wrap} ${isLoaded && isIntersected && 'anim-fadeUp'}`}
@@ -69,14 +61,13 @@ export function IllustCard({ illust, i }: { illust: any; i: number }) {
             src={illust.illust}
             alt={illust.caption}
             onLoad={onLoaded}
-            onError={fetchFailed}
             unoptimized
           />
         </Card>
       </Link>
       <Group mt="xs" justify="space-between" gap="xs">
         <Text size="sm" className={classes.artist}>
-          <GetUserName userId={illust.user_id} />
+          {getUserName(illust.user_id)}
         </Text>
       </Group>
     </div>

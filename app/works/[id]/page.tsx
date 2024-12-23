@@ -25,11 +25,11 @@ export default function Works({ params }: { params: { id: string } }) {
           </SimpleGrid>
 
           <SimpleGrid cols={1} spacing="md" className={classes.right}>
-            <IllustInfo />
+            <IllustInfo illustId={illustId} />
             <Comments illustId={illustId} />
-              <Text ta="right" c="dimmed">
-                ※部員からのコメント
-              </Text>
+            <Text ta="right" c="dimmed">
+              ※部員からのコメント
+            </Text>
           </SimpleGrid>
         </div>
         <PrevNextLink illustId={illustId} />

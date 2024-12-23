@@ -2,7 +2,8 @@
 
 import { SimpleGrid } from '@mantine/core';
 import { useEffect, useRef, useState } from 'react';
-import { useCommentList, setCommentList } from '@/store/commentListStore';
+import { getCommentsByIllustId } from '@/utils/data';
+
 import { CommentCard } from '@/components/_ui/CommentCard';
 import classes from './Comments.module.css';
 
@@ -12,15 +13,8 @@ export function Comments({ illustId }: { illustId: number }) {
   const [isIntersected, setIsIntersected] = useState(false);
   const [isObserved, setIsObserved] = useState(false);
 
-  // コメントを取得
-  useEffect(() => {
-    setCommentList();
-  }, []);
-
-  // コメントの状態を取得
-  const rawComments = useCommentList((state) => state.commentList);
-  // 一致するイラストのコメントのみを抽出 (illustIdがstringになるバグで念のためNumber済み)
-  const comments = rawComments.filter((c) => Number(c.illust_id) === Number(illustId));
+  // 一致するイラストのコメントのみを抽出
+  const comments = getCommentsByIllustId(illustId);
   const sortedComments = comments.sort((a, b) => b.like - a.like);
 
   // IntersectionObserverの設定
