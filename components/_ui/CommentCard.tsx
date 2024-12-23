@@ -1,9 +1,6 @@
-import { useState } from 'react';
 import { Text, Paper, Group, Button } from '@mantine/core';
-import { IconHeartFilled, IconHeart } from '@tabler/icons-react';
-import { useLike, setLike } from '@/store/likeStore';
+import { IconHeartFilled } from '@tabler/icons-react';
 import { getRelativeTime } from '@/utils/date';
-import { NotifyLikeCooldown } from '@/components/_tools/Notifications';
 import classes from './CommentCard.module.css';
 
 /*
@@ -13,37 +10,6 @@ import classes from './CommentCard.module.css';
 */
 
 export function CommentCard({ comment, i }: { comment: any; i: number }) {
-  // 処理中かどうかを記録
-  const [isProcess, setProcess] = useState(false);
-
-  // いいねの状態を取得
-  const likeList = useLike((state) => state.commentId);
-
-  // いいねの状態を切り替える(クールダウンあり)
-  const switchLike = (commentId: number) => () => {
-    // 処理中は無視
-    if (isProcess) {
-      // いいね押しすぎの警告を表示
-      NotifyLikeCooldown();
-      return console.log('process is running...');
-    }
-
-    // 処理中にする
-    setProcess(true);
-    // いいねされているかどうかで分岐
-    setLike(commentId);
-
-    // 処理中を解除
-    setTimeout(() => {
-      setProcess(false);
-    }, 2000);
-
-    return console.log('switch like!');
-  };
-
-  // いいねされているかどうかの判定
-  const isLiked = (id: number) => likeList.includes(id);
-
   return (
     <Paper
       px="xl"
@@ -66,15 +32,8 @@ export function CommentCard({ comment, i }: { comment: any; i: number }) {
           </Text>
         </Group>
         {/* いいねボタン */}
-        <Button
-          variant="light"
-          color="pink"
-          radius="xl"
-          onClick={switchLike(comment.id)}
-          className={classes.button}
-        >
-          {/* いいねの状態によってアイコンを変更 */}
-          {isLiked(comment.id) ? <IconHeartFilled /> : <IconHeart />}
+        <Button variant="light" color="pink" radius="xl" className={classes.button}>
+          <IconHeartFilled />
           {/* いいねの数 */}
           {comment.like}
         </Button>
