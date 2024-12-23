@@ -29,8 +29,8 @@ export function RelatedIllusts({ illustId }: { illustId: number }) {
             ― この人が描いた他のイラスト ―
           </Text>
           <div className={classes.cardWrap}>
-            {otherIllusts.map((illust, key) => (
-              <Link href={`/works/${illust.id}`} key={key} className={classes.card}>
+            {otherIllusts.map((illust) => (
+              <Link href={`/works/${illust.id}`} key={illust.id} className={classes.card}>
                 <Card p="md" radius="md">
                   <AspectRatio ratio={1920 / 1080}>
                     <Image

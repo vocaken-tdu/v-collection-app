@@ -34,7 +34,7 @@ export function Header() {
   // リンクを生成
   const items = links.map((link) => (
     <Link
-      key={link.label}
+      key={link.link}
       href={link.link}
       className={classes.link}
       data-active={active === link.link || undefined}

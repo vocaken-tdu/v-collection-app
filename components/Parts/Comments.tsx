@@ -65,7 +65,7 @@ export function Comments({
         {!comments.length && isFormVisible ? '↓でコメントしてみよう！' : 'このコメントがアツい！'}
       </h3>
       {sortedComments.map((comment, i) => (
-        <CommentCard comment={comment} i={i} />
+        <CommentCard comment={comment} key={comment.id} i={i} />
       ))}
     </SimpleGrid>
   );

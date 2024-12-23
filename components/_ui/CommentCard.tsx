@@ -49,7 +49,6 @@ export function CommentCard({ comment, i }: { comment: any; i: number }) {
       px="xl"
       py="lg"
       radius="md"
-      key={i}
       className={`${classes.wrap} light-shadow anim-fadeLeft`}
       style={{ animationDelay: `${i * 50}ms` }}
     >

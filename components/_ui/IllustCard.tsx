@@ -57,7 +57,6 @@ export function IllustCard({ illust, i }: { illust: any; i: number }) {
 
   return (
     <div
-      key={i}
       className={`${classes.wrap} ${isLoaded && isIntersected && 'anim-fadeUp'}`}
       style={{ animationDelay: `${i * 50}ms` }}
     >
