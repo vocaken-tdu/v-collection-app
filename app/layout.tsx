@@ -14,10 +14,10 @@ import { FooterLinks } from '@/components/Navigation/FooterLinks';
 import { BGParallax } from '@/components/Background/BGParallax';
 import { Loading } from '@/components/Loading/Loading';
 
-const title = process.env.NEXT_PUBLIC_SITE_TITLE;
-const siteName = process.env.NEXT_PUBLIC_SITE_NAME;
-const description = process.env.NEXT_PUBLIC_SITE_DESCRIPTION;
-const url = process.env.NEXT_PUBLIC_BASE_URL;
+const title = process.env.SITE_TITLE;
+const siteName = process.env.SITE_NAME;
+const description = process.env.SITE_DESCRIPTION;
+const url = process.env.BASE_URL;
 
 export const metadata: Metadata = {
   title,

@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import { Text, Container, ActionIcon, Group, Button } from '@mantine/core';
 import {
@@ -10,8 +8,8 @@ import {
 } from '@tabler/icons-react';
 import classes from './FooterLinks.module.css';
 
-const url = process.env.NEXT_PUBLIC_BASE_URL;
-const statusUrl = process.env.NEXT_PUBLIC_STATUS_URL;
+const url = process.env.BASE_URL;
+const statusUrl = process.env.STATUS_URL;
 const text = 'Vコレを一緒に盛り上げよう！';
 
 //呼び出されたら出力する場所
