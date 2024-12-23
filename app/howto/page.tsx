@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { Container, Button, Paper, Group, Space, Text } from '@mantine/core';
+import { Alert, Container, Button, Paper, Group, Space, Text, Center } from '@mantine/core';
+import { IconInfoCircle } from '@tabler/icons-react';
 
 export default function Home() {
   return (
@@ -12,7 +13,9 @@ export default function Home() {
           <br className="sp-only" />
           見に行こう
         </h3>
-        <Text size="xl" my="xl">ピンとくるイラストを探そう。</Text>
+        <Text size="xl" my="xl">
+          ピンとくるイラストを探そう。
+        </Text>
         <Link href="/">
           <Button variant="outline" color="themeColor" radius="xl" size="lg">
             一覧を見てみる！
@@ -23,9 +26,11 @@ export default function Home() {
         <Text size="xl" my="xl">
           思ったことを投稿してみましょう。
           <br />
-          （部員限定）
+          （部員だけの限定の機能！）
         </Text>
-        <Text size="xl" my="xl">例えば……</Text>
+        <Text size="xl" my="xl">
+          例えば……
+        </Text>
         <Group justify="center" gap="md">
           <Paper shadow="xl" radius="md" p="xl" w={280}>
             「透き通ってかわいい。
@@ -76,6 +81,17 @@ export default function Home() {
           <br />
           （1人1度まで！）
         </Text>
+
+        <Center>
+          <Alert
+            variant="light"
+            color="yellow"
+            title="いいね・コメント期間は終了しました！"
+            icon={<IconInfoCircle />}
+          >
+            <Text size="xl">たくさんのご参加、ありがとうございました！</Text>
+          </Alert>
+        </Center>
 
         <Space h={120} />
 
