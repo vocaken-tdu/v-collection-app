@@ -14,7 +14,6 @@ VOCALOID CLUB COLLECTION の専用ページです。
 - CSSフレームワーク：Tailwind
 - UIライブラリ：Mantine
 - チェックツール：ESLint TypeScript
-- その他：Storybook 
 
 ## npm
 
@@ -33,10 +32,7 @@ VOCALOID CLUB COLLECTION の専用ページです。
 - `npm run typecheck` – TSの型チェック
 - `npm run lint` – ESLintを実行
 - `npm run prettier:check` – Prettierでファイル確認
-- `npm run jest` – Jestテストを実行
-- `npm run jest:watch` – Jestを監視
-- `npm run test` – `jest`、`prettier:check`、`lint`、`typecheck` スクリプトを実行
-- `npm run prettier:write` – formats all files with Prettier
+- `npm run prettier:write` – Prettierですべてのファイルをフォーマットする
 
 ## フォルダ構成
 
@@ -81,10 +77,9 @@ Appのルーティングの階層構造詳細については[こちら](https://
     - + ハンバーガーメニュー
 ```
 
-## エラーが出た？ ここを見てみよう 
+## エラーが出た？ ここを見てみよう
 
 - ⨯ Internal error: Error: Could not find the module "/home/ps/v-collection-app/node_modules/@mantine/core/esm/components/List/List.mjs#List#Item" in the React
   - → コンポーネントの一番最初に「'use client';」を追加してみるといいかも [詳細](https://ramble.impl.co.jp/4935/)
 - term expectedcss(css-termexpected)
   - ～.module.cssでMantineのbreakpoint使ってると出てくるけど正常に動作するので無視してヨシ
-
