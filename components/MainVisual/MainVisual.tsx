@@ -4,11 +4,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { Container, Group, Card } from '@mantine/core';
-import Dummy from '@/public/assets/dummy.svg';
-import { Arrow } from '@/components/_ui/Arrow';
+import { illusts as illustsRaw } from '@/utils/data';
 import classes from './MainVisual.module.css';
-import useStore from '@/store/useStore';
-import { useIllustList, dataInfo } from '@/store/illustListStore';
+
+import { Arrow } from '@/components/_ui/Arrow';
 import { Logo2024 } from '@/components/Logo/Logo2024';
 
 const archiveIllusts = Number(process.env.NEXT_PUBLIC_ARCHIVE_SEASON_ID);
@@ -18,9 +17,6 @@ export function MainVisual() {
 
   // ロード完了時の処理
   const [isLoaded, setLoaded] = useState(false);
-
-  // イラスト(リスト)の状態を取得
-  const illustsRaw = useIllustList((state) => state.illustList);
 
   // 表示対象のイラストのみに絞る
   const illusts = illustsRaw.filter((illust) => illust.tags[0] > archiveIllusts);
@@ -32,10 +28,6 @@ export function MainVisual() {
   // ランダムにイラストを変更する関数
   const changeIllust = () => setRandId((id) => (id + rand) % illusts.length);
 
-  // 取得済みかどうかを判定
-  const isExist = useStore(dataInfo, (state) => state.isExist) || false;
-  const isUpdated = useStore(dataInfo, (state) => state.isUpdated) || false;
-
   useEffect(() => {
     // 初期値を再設定
     setRandId(initRand);
@@ -43,16 +35,16 @@ export function MainVisual() {
     // 8秒ごとにイラストを変更
     const timer = setInterval(changeIllust, 8000);
     return () => clearInterval(timer);
-  }, [isUpdated]);
+  }, []);
 
   return (
     <Container size="xl" className={classes.wrap}>
       <div className={classes.inner}>
         <div className={classes.left}>
-          <div className={`${classes.catchPhrase} ${isExist && 'anim-bounce'}`}>
+          <div className={`${classes.catchPhrase} anim-bounce`}>
             <div className={`${classes.highlight} ${classes.line1}`}>あのキャラはこの夏､</div>
             <div className={`${classes.highlight} ${classes.line2}`}>なにを着ているだろう</div>
-            {isExist && <Arrow />}
+            <Arrow />
           </div>
           <Group mt={80} visibleFrom="md" className={classes.logo}>
             <Logo2024 />
@@ -71,7 +63,7 @@ export function MainVisual() {
               height={400}
               onLoad={() => setLoaded(true)}
               className={`${classes.image} big-shadow`}
-              src={`${isExist ? illusts[randId]?.illust : Dummy.src}`}
+              src={illusts[randId]?.illust}
               alt="Vコレのイラスト(ランダムで表示)"
               unoptimized
             />

@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import { Text, Container, ActionIcon, Group, Button } from '@mantine/core';
 import {
@@ -7,11 +5,12 @@ import {
   IconArrowBack,
   IconPencilHeart,
   IconGraph,
+  IconBrandGithub,
 } from '@tabler/icons-react';
 import classes from './FooterLinks.module.css';
 
-const url = process.env.NEXT_PUBLIC_BASE_URL;
-const statusUrl = process.env.NEXT_PUBLIC_STATUS_URL;
+const url = process.env.BASE_URL;
+const statusUrl = process.env.STATUS_URL;
 const text = 'Vコレを一緒に盛り上げよう！';
 
 //呼び出されたら出力する場所
@@ -92,7 +91,7 @@ export function FooterLinks() {
 
           <div className={classes.right}>
             <Text c="dark" className={classes.copyright} style={{ fontSize: 16 }}>
-              「VOCALOID（ボーカロイド）」および
+              「VOCALOID(ボーカロイド)」および
               <br className={classes.spBr} />
               「ボカロ」はヤマハ株式会社の登録商標です。
             </Text>
@@ -112,6 +111,18 @@ export function FooterLinks() {
                 >
                   <IconPencilHeart />
                   Credit
+                </Button>
+              </Link>
+              <Link href="https://github.com/vocaken-tdu/v-collection-app" target="_blank">
+                <Button
+                  c="dark"
+                  style={{ fontSize: 16 }}
+                  className={classes.anchor}
+                  variant="transparent"
+                  size="compact-md"
+                >
+                  <IconBrandGithub />
+                  GitHub
                 </Button>
               </Link>
               <Link href={statusUrl || '/404/'} target="_blank">

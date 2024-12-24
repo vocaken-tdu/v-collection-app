@@ -1,4 +1,5 @@
 import { Container } from '@mantine/core';
+
 import { MainVisual } from '@/components/MainVisual/MainVisual';
 import { Illusts } from '@/components/Parts/Illusts';
 

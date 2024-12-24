@@ -1,23 +1,22 @@
-import '@mantine/core/styles.css';
 import { Metadata } from 'next';
 import React from 'react';
 import { MantineProvider, ColorSchemeScript } from '@mantine/core';
-import { Notifications } from '@mantine/notifications';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import NextTopLoader from 'nextjs-toploader';
+
 import { theme } from '@/theme';
 import './globals.css';
-import '@mantine/notifications/styles.css';
+import '@mantine/core/styles.css';
 
 import { Header } from '@/components/Navigation/Header';
 import { FooterLinks } from '@/components/Navigation/FooterLinks';
 import { BGParallax } from '@/components/Background/BGParallax';
 import { Loading } from '@/components/Loading/Loading';
 
-const title = process.env.NEXT_PUBLIC_SITE_TITLE;
-const siteName = process.env.NEXT_PUBLIC_SITE_NAME;
-const description = process.env.NEXT_PUBLIC_SITE_DESCRIPTION;
-const url = process.env.NEXT_PUBLIC_BASE_URL;
+const title = process.env.SITE_TITLE;
+const siteName = process.env.SITE_NAME;
+const description = process.env.SITE_DESCRIPTION;
+const url = process.env.BASE_URL;
 
 export const metadata: Metadata = {
   title,
@@ -63,7 +62,6 @@ export default function RootLayout({ children }: { children: any }) {
           <NextTopLoader zIndex={1000} showSpinner={false} />
           <Loading />
           <Header />
-          <Notifications position="top-right" autoClose={6000} />
           <main>{children}</main>
           <FooterLinks />
           <BGParallax />

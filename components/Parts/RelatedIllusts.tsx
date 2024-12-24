@@ -1,21 +1,15 @@
-'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
 import { Card, Text, Container, AspectRatio, Group, Badge } from '@mantine/core';
+import { illusts, getIllustById, getTagName } from '@/utils/data';
+import { getRelativeTime } from '@/utils/date';
 import classes from './RelatedIllusts.module.css';
-import useStore from '@/store/useStore';
-import { useIllustList } from '@/store/illustListStore';
-import { GetTagName } from '@/components/_tools/GetTagName';
-import { GetRelativeTime } from '@/components/_tools/GetRelativeTime';
-import { useIllust } from '@/store/illustStore';
 
 export function RelatedIllusts({ illustId }: { illustId: number }) {
   // このイラストの作者のID
-  const userId = useStore(useIllust, (state) => state.illust.user_id);
+  const userId = getIllustById(illustId)?.user_id;
 
   // この人が書いた他のイラストのデータ
-  const illusts = useIllustList((state) => state.illustList);
   let otherIllusts = illusts.filter((illust) => illust.user_id === userId);
 
   // このイラストを除く
@@ -29,8 +23,8 @@ export function RelatedIllusts({ illustId }: { illustId: number }) {
             ― この人が描いた他のイラスト ―
           </Text>
           <div className={classes.cardWrap}>
-            {otherIllusts.map((illust, key) => (
-              <Link href={`/works/${illust.id}`} key={key} className={classes.card}>
+            {otherIllusts.map((illust) => (
+              <Link href={`/works/${illust.id}`} key={illust.id} className={classes.card}>
                 <Card p="md" radius="md">
                   <AspectRatio ratio={1920 / 1080}>
                     <Image
@@ -47,10 +41,10 @@ export function RelatedIllusts({ illustId }: { illustId: number }) {
                       シーズン
                     </Badge>
                     <Text fz="lg" className={classes.title}>
-                      <GetTagName tagId={illust.tags[0]} />
+                      {getTagName(illust.tags[0])}
                     </Text>
                     <Text c="dimmed" size="xs" tt="uppercase" fw="bold" fz="xs">
-                      <GetRelativeTime RawTime={illust.created_at} format="day" />
+                      {getRelativeTime(illust.created_at, 'day')}
                     </Text>
                   </Group>
                 </Card>

@@ -30,11 +30,13 @@ export default function Home() {
           運営・開発されています。
         </Text>
         <SimpleGrid cols={{ base: 1, sm: 3, lg: 3 }}>
-          {credits.map((credit) => (
-            <div>
+          {credits.map((credit, key) => (
+            <div key={key}>
               <h3>{credit.header}</h3>
               {credit.members.map((member) => (
-                <Text size="xl" my={24}>{member}</Text>
+                <Text size="xl" my={24}>
+                  {member}
+                </Text>
               ))}
             </div>
           ))}

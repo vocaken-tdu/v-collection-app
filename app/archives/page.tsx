@@ -1,4 +1,5 @@
 import { Container } from '@mantine/core';
+
 import { IllustsArchives } from '@/components/Parts/IllustsArchives';
 
 export default function Home() {
