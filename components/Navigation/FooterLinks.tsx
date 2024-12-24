@@ -5,6 +5,7 @@ import {
   IconArrowBack,
   IconPencilHeart,
   IconGraph,
+  IconBrandGithub,
 } from '@tabler/icons-react';
 import classes from './FooterLinks.module.css';
 
@@ -90,7 +91,7 @@ export function FooterLinks() {
 
           <div className={classes.right}>
             <Text c="dark" className={classes.copyright} style={{ fontSize: 16 }}>
-              「VOCALOID（ボーカロイド）」および
+              「VOCALOID(ボーカロイド)」および
               <br className={classes.spBr} />
               「ボカロ」はヤマハ株式会社の登録商標です。
             </Text>
@@ -110,6 +111,18 @@ export function FooterLinks() {
                 >
                   <IconPencilHeart />
                   Credit
+                </Button>
+              </Link>
+              <Link href="https://github.com/vocaken-tdu/v-collection-app" target="_blank">
+                <Button
+                  c="dark"
+                  style={{ fontSize: 16 }}
+                  className={classes.anchor}
+                  variant="transparent"
+                  size="compact-md"
+                >
+                  <IconBrandGithub />
+                  GitHub
                 </Button>
               </Link>
               <Link href={statusUrl || '/404/'} target="_blank">

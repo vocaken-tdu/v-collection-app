@@ -101,8 +101,6 @@
 }
 
 .copyright {
-  text-wrap: nowrap;
-
   @media (max-width: $mantine-breakpoint-xs) {
     text-align: center;
   }
