@@ -5,9 +5,10 @@ import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { Card, Group, Text } from '@mantine/core';
 import { getUserName } from '@/utils/data';
+import { Illust } from '@/types/database.types';
 import classes from './IllustCard.module.css';
 
-export function IllustCard({ illust, i }: { illust: any; i: number }) {
+export function IllustCard({ illust, i }: { illust: Illust; i: number }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const cardRef = useRef(null);
   const [isIntersected, setIsIntersected] = useState(false);

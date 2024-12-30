@@ -1,6 +1,7 @@
 import { Text, Paper, Group, Button } from '@mantine/core';
 import { IconHeartFilled } from '@tabler/icons-react';
 import { getRelativeTime } from '@/utils/date';
+import { Comment } from '@/types/database.types';
 import classes from './CommentCard.module.css';
 
 /*
@@ -9,7 +10,7 @@ import classes from './CommentCard.module.css';
   ・いいねの状態をローカルに保存 / クールダウンあり
 */
 
-export function CommentCard({ comment, i }: { comment: any; i: number }) {
+export function CommentCard({ comment, i }: { comment: Comment; i: number }) {
   return (
     <Paper
       px="xl"
