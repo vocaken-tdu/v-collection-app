@@ -4,11 +4,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { Card, Group, Text } from '@mantine/core';
-import { getUserName } from '@/utils/data';
-import { Illust } from '@/types/database.types';
+import { Illustration } from '@/types/database.types';
 import classes from './IllustCard.module.css';
 
-export function IllustCard({ illust, i }: { illust: Illust; i: number }) {
+export function IllustCard({ illust, i }: { illust: Illustration; i: number }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const cardRef = useRef(null);
   const [isIntersected, setIsIntersected] = useState(false);
@@ -59,7 +58,7 @@ export function IllustCard({ illust, i }: { illust: Illust; i: number }) {
             width={300}
             height={400}
             className={classes.image}
-            src={illust.illust}
+            src={illust.image.url}
             alt={illust.caption}
             onLoad={onLoaded}
             unoptimized
@@ -68,7 +67,7 @@ export function IllustCard({ illust, i }: { illust: Illust; i: number }) {
       </Link>
       <Group mt="xs" justify="space-between" gap="xs">
         <Text size="sm" className={classes.artist}>
-          {getUserName(illust.user_id)}
+          {illust.user_name}
         </Text>
       </Group>
     </div>

@@ -17,16 +17,20 @@
   "dependencies": {
     "@date-fns/tz": "^1.2.0",
     "@mantine/core": "7.9.2",
+    "@mantine/form": "^7.15.2",
     "@mantine/hooks": "7.9.2",
+    "@mantine/notifications": "^7.9.2",
     "@next/bundle-analyzer": "^14.0.1",
     "@tabler/icons-react": "^2.40.0",
     "@vercel/speed-insights": "^1.0.1",
     "date-fns": "^4.1.0",
     "gsap": "^3.12.3",
+    "microcms-js-sdk": "^3.1.2",
     "next": "^14.2.4",
     "nextjs-toploader": "^1.6.12",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "zustand": "^5.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.23.2",

@@ -1,8 +1,8 @@
-import { Text, Paper, Group, Button } from '@mantine/core';
-import { IconHeartFilled } from '@tabler/icons-react';
+import { Text, Paper, Group } from '@mantine/core';
 import { getRelativeTime } from '@/utils/date';
 import { Comment } from '@/types/database.types';
 import classes from './CommentCard.module.css';
+import { LikeButton } from './LikeButton';
 
 /*
   コメントカード
@@ -29,15 +29,11 @@ export function CommentCard({ comment, i }: { comment: Comment; i: number }) {
           </Text>
           {/* 投稿日時 */}
           <Text pt="sm" fz="xs" c="dimmed" mt={1}>
-            {getRelativeTime(comment.created_at)}
+            {getRelativeTime(comment.publishedAt)}
           </Text>
         </Group>
-        {/* いいねボタン */}
-        <Button variant="light" color="pink" radius="xl" className={classes.button}>
-          <IconHeartFilled />
-          {/* いいねの数 */}
-          {comment.like}
-        </Button>
+        {/* いいね */}
+        <LikeButton comment={comment} />
       </div>
     </Paper>
   );

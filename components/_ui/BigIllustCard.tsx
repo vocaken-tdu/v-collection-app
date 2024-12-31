@@ -1,31 +1,9 @@
 import Image from 'next/image';
-import { Box, Card, LoadingOverlay } from '@mantine/core';
-import { getIllustById } from '@/utils/data';
+import { Box, Card } from '@mantine/core';
+import { Illustration } from '@/types/database.types';
 import classes from './BigIllustCard.module.css';
 
-export function BigImageCard({ illustId }: { illustId: number }) {
-  // イラストを取得
-  const illust = getIllustById(illustId);
-
-  if (!illust) {
-    return (
-      <Box pos="relative">
-        <LoadingOverlay
-          visible
-          overlayProps={{ radius: 'sm', blur: 2 }}
-          loaderProps={{ color: 'themeColor' }}
-          transitionProps={{ transition: 'fade', duration: 150 }}
-        />
-        <Card
-          p="0"
-          className={` ${classes.card} big-shadow anim-fadeIn`}
-          radius="md"
-          id="bigImage"
-        />
-      </Box>
-    );
-  }
-
+export async function BigImageCard({ illust }: { illust: Illustration }) {
   return (
     <Box pos="relative">
       <Card p="0" className={` ${classes.card} big-shadow anim-fadeIn`} radius="md" id="bigImage">
@@ -33,7 +11,7 @@ export function BigImageCard({ illustId }: { illustId: number }) {
           width={600}
           height={800}
           className={classes.image}
-          src={illust.illust}
+          src={illust.image.url}
           alt={illust.caption}
           priority
           unoptimized

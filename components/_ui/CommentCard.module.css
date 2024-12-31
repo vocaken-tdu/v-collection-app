@@ -6,8 +6,3 @@
   display: flex;
   justify-content: space-between;
 }
-
-/* Vercel上でTailwindが一部上書きしてしまうため追加 */
-.button {
-  background: rgb(230 73 128 / 10%);
-}

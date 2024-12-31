@@ -1,0 +1,35 @@
+.root {
+  position: relative;
+}
+
+.comment {
+  background-image: url('/assets/paper-texture.webp');
+}
+
+.required {
+  transition: opacity 150ms ease;
+  opacity: 0;
+
+  [data-floating] & {
+    opacity: 1;
+  }
+}
+
+.name {
+  width: 100%;
+}
+
+.namearea {
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.button {
+  flex-shrink: 0;
+}
+
+.sendIcon {
+  width: 20px;
+  height: 20px;
+}

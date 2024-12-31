@@ -1,16 +1,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Card, Text, Container, AspectRatio, Group, Badge } from '@mantine/core';
-import { illusts, getIllustById, getTagName } from '@/utils/data';
+import { illusts as illustList, getIllustById } from '@/app/actions';
 import { getRelativeTime } from '@/utils/date';
 import classes from './RelatedIllusts.module.css';
 
-export function RelatedIllusts({ illustId }: { illustId: number }) {
-  // このイラストの作者のID
-  const userId = getIllustById(illustId)?.user_id;
+export async function RelatedIllusts({ illustId }: { illustId: string }) {
+  const illusts = await illustList();
+  const artistName = (await getIllustById(illustId))?.user_name;
 
   // この人が書いた他のイラストのデータ
-  let otherIllusts = illusts.filter((illust) => illust.user_id === userId);
+  let otherIllusts = illusts.filter((illust) => illust.user_name === artistName);
 
   // このイラストを除く
   otherIllusts = otherIllusts.filter((illust) => illust.id !== illustId);
@@ -30,7 +30,7 @@ export function RelatedIllusts({ illustId }: { illustId: number }) {
                     <Image
                       width={320}
                       height={180}
-                      src={illust.illust}
+                      src={illust.image.url}
                       alt={illust.caption}
                       className={classes.relatedIllust}
                       unoptimized
@@ -41,10 +41,10 @@ export function RelatedIllusts({ illustId }: { illustId: number }) {
                       シーズン
                     </Badge>
                     <Text fz="lg" className={classes.title}>
-                      {getTagName(illust.tags[0])}
+                      {illust.category.name}
                     </Text>
                     <Text c="dimmed" size="xs" tt="uppercase" fw="bold" fz="xs">
-                      {getRelativeTime(illust.created_at, 'day')}
+                      {getRelativeTime(illust.publishedAt, 'day')}
                     </Text>
                   </Group>
                 </Card>

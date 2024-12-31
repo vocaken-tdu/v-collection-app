@@ -1,10 +1,12 @@
 import Link from 'next/link';
 import { Text } from '@mantine/core';
 import { IconChevronLeft, IconChevronRight } from '@tabler/icons-react';
-import { illusts } from '@/utils/data';
+import { illusts as illustList } from '@/app/actions';
 import classes from './PrevNextLink.module.css';
 
-export function PrevNextLink({ illustId }: { illustId: number }) {
+export async function PrevNextLink({ illustId }: { illustId: string }) {
+  const illusts = await illustList();
+
   // 前後のイラストのIDを算出
   const index = illusts.findIndex((illust) => illust.id === illustId);
   const prevId = illusts[index - 1]?.id || undefined;

@@ -1,30 +1,30 @@
-export type Comment = {
-  id: number;
-  text: string;
-  user_name: string;
-  like: number;
-  illust_id: number;
-  created_at: string;
-  updated_at: string;
-};
-
-export type Illust = {
-  id: number;
-  illust: string;
+export type Illustration = {
+  id: string;
+  image: {
+    url: string;
+    height: number;
+    width: number;
+  };
   title: string;
-  user_id: number;
   caption: string;
-  tags: number[];
-  created_at: string;
-  updated_at: string;
+  user_name: number;
+  category: Category;
+  publishedAt: string;
 };
 
-export type Tag = {
-  id: number;
+export type Category = {
+  id: string;
   name: string;
+  isPublic: boolean;
+  isArchived: boolean;
+  publishedAt: string;
 };
 
-export type User = {
-  id: number;
-  name: string;
+export type Comment = {
+  id: string;
+  text: string;
+  like: number;
+  illust: Illustration;
+  user_name: string;
+  publishedAt: string;
 };

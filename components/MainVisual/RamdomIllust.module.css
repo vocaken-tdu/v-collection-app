@@ -1,0 +1,24 @@
+.card {
+  transform: rotate(3deg);
+  overflow: visible;
+  opacity: 0;
+}
+
+.image {
+  width: 360px;
+  height: auto;
+  max-width: 500px;
+  aspect-ratio: 3 / 4;
+  border-radius: 6px;
+  object-fit: cover;
+
+  @media (max-width: $mantine-breakpoint-md) {
+    width: 60vw;
+  }
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    display: flex;
+    object-position: top;
+    width: 70vw;
+  }
+}

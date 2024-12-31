@@ -1,6 +1,5 @@
 import { Container } from '@mantine/core';
-
-import { MainVisual } from '@/components/MainVisual/MainVisual';
+import { MainVisual } from './main-visual';
 import { Illusts } from '@/components/Parts/Illusts';
 
 export default function Home() {

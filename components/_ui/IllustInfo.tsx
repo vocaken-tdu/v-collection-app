@@ -1,12 +1,9 @@
 import { Text, Group, Badge, Box } from '@mantine/core';
-import { getIllustById, getTagName, getUserName } from '@/utils/data';
 import { getRelativeTime } from '@/utils/date';
+import { Illustration } from '@/types/database.types';
 import classes from './IllustInfo.module.css';
 
-export function IllustInfo({ illustId }: { illustId: number }) {
-  // イラストの状態を取得
-  const illust = getIllustById(illustId);
-
+export async function IllustInfo({ illust }: { illust: Illustration }) {
   return (
     <Box pos="relative">
       <div className={classes.comment}>
@@ -15,10 +12,10 @@ export function IllustInfo({ illustId }: { illustId: number }) {
             シーズン
           </Badge>
           <Text fz="lg" fw="bold" c="#333">
-            {getTagName(illust?.tags[0])}
+            {illust?.category.name}
           </Text>
           <Text c="dimmed" size="xs" tt="uppercase" fw="bold" fz="xs">
-            {getRelativeTime(illust?.created_at, 'day')}
+            {getRelativeTime(illust?.publishedAt, 'day')}
           </Text>
         </Group>
         <Group mt={4} gap="xs">
@@ -26,7 +23,7 @@ export function IllustInfo({ illustId }: { illustId: number }) {
             アーティスト
           </Badge>
           <Text fz="lg" fw="bold" c="#333">
-            {getUserName(illust?.user_id)}
+            {illust?.user_name}
           </Text>
         </Group>
         <Text pt={8} size="sm">
